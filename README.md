@@ -19,6 +19,7 @@ here are a few things we recommend you do:
   Once you've chosen a new title, you can set the value for `lesson_title`
   in [`_config.yml`](_config.yml)
 * [ ] Add the URL to your built lesson pages to the repository description\*
+* [ ] [Add relevant topic tags to your lesson repository][cdh-topic-tags].
 * [ ] Fill in the fields marked `FIXME` in:
   * this README
   * [`_config.yml`](_config.yml)
@@ -74,6 +75,7 @@ A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
 To cite this lesson, please consult with [CITATION](CITATION)
 
 [cdh]: https://cdh.carpentries.org
+[cdh-topic-tags]: https://cdh.carpentries.org/the-carpentries-incubator.html#topic-tags
 [change-default-branch]: https://docs.github.com/en/github/administering-a-repository/changing-the-default-branch
 [community-lessons]: https://carpentries.org/community-lessons
 [lesson-example]: https://carpentries.github.io/lesson-example
