@@ -200,7 +200,7 @@ weight_kg <- 100
 ~~~
 {: .language-r}
 
-> Challenge:
+> ## Challenge:
 >
 > What do you think is the current content of the object `weight_lb`?
 > 126.5 or 220?
@@ -644,7 +644,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 {: .challenge}
 
 
-> Challenge:
+> ## Challenge:
 >
 > How many values in `combined_logical` are `"TRUE"` (as a character)
 > in the following example:
@@ -678,7 +678,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 {: .challenge}
 
 
-> Challenge:
+> ## Challenge:
 >
 > In R, we call converting objects from one class into another class
 > _coercion_. These conversions happen according to a hierarchy,
@@ -943,7 +943,7 @@ molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
 {: .output}
 
 
-> Challenge:
+> ## Challenge:
 >
 > Can you figure out why `"four" > "five"` returns `TRUE`?
 > > Solution
