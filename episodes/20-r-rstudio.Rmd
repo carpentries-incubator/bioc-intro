@@ -74,9 +74,6 @@ An increasing number of journals and funding agencies expect analyses
 to be reproducible, so knowing R will give you an edge with these
 requirements.
 
-We will learn more about reproducibility and reproducible research in
-chapter \@ref(sec:rr).
-
 ## R is interdisciplinary and extensible {-}
 
 With 10000+ packages[^whatarepkgs] that can be installed to extend its
@@ -87,8 +84,8 @@ R has packages for image analysis, GIS, time series, population
 genetics, and a lot more.
 
 [^whatarepkgs]: i.e. add-ons that confer R with new functionality,
-    such as bioinformatics data analysis - see chapter
-    \@ref(sec:bioinfo)
+    such as bioinformatics data analysis.
+
 
 ```{r, fig.cap = "Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", echo = FALSE, message = FALSE}
 knitr::include_graphics("../fig/cran.png")
@@ -542,9 +539,6 @@ to a data frame, you can save any R object to a file[^export]:
 ```{r, eval=FALSE, purl=FALSE}
 saveRDS(iris, file="/tmp/iris.rds")
 ```
-
-[^export]: See section \@ref(sec:exportandsave) for a better
-    introduction about exporting and saving data.
 
 The content of this file is however not human readable and cannot be
 posted directly on Stack Overflow. Instead, it can be sent to someone
