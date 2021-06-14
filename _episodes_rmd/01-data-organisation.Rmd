@@ -6,13 +6,13 @@ exercises: XX
 questions:
 - "How to organise tabular data?"
 objectives:
-- Learn about spreadsheets, their strenghts and weaknesses
-- How do we format data in spreadsheets for effective data use?
-- Learn about common spreadsheet errors and how to correct them.
-- Organize your data according to tidy data principles.
-- Learn about text-based spreadsheet formats such as the comma-separated (CSV) or tab-separated formats.
+- "Learn about spreadsheets, their strenghts and weaknesses"
+- "How do we format data in spreadsheets for effective data use?"
+- "Learn about common spreadsheet errors and how to correct them."
+- "Organize your data according to tidy data principles."
+- "Learn about text-based spreadsheet formats such as the comma-separated (CSV) or tab-separated formats."
 keypoints:
-- Good data organization is the foundation of any research project.
+- "Good data organization is the foundation of any research project."
 ---
 
 # Spreadsheet programs
