@@ -41,7 +41,7 @@ spreadsheets. Spreadsheet programs are very useful graphical
 interfaces for designing data tables and handling very basic data
 quality control functions. See also @Broman:2018.
 
-## Spreadsheet outline {-}
+## Spreadsheet outline
 
 Spreadsheets are good for data entry. Therefore we have a lot of data
 in spreadsheets.  Much of your time as a researcher will be spent in
@@ -49,7 +49,7 @@ this 'data wrangling' stage.  It's not the most fun, but it's
 necessary. We'll teach you how to think about data organization and
 some practices for more effective data wrangling.
 
-## What this lesson will not teach you {-}
+## What this lesson will not teach you
 
 - How to do *statistics* in a spreadsheet
 - How to do *plotting* in a spreadsheet
@@ -60,7 +60,7 @@ Excel](https://www.amazon.com/Head-First-Excel-learners-spreadsheets/dp/05968076
 published by O'Reilly.
 
 
-## Why aren't we teaching data analysis in spreadsheets {-}
+## Why aren't we teaching data analysis in spreadsheets
 
 - Data analysis in spreadsheets usually requires a lot of manual
   work. If you want to change a parameter or run an analysis with a
@@ -101,7 +101,7 @@ ensure efficient downstream analysis.
 >   frustrated or sad?
 {: .challenge}
 
-## Problems with Spreadsheets {-}
+## Problems with Spreadsheets
 
 Spreadsheets are good for data entry, but in reality we tend to
 use spreadsheet programs for much more than data entry. We use them
@@ -126,7 +126,7 @@ command-line based statistics program like R or SAS, it’s practically
 impossible to apply a calculation to one observation in your
 dataset but not another unless you’re doing it on purpose.
 
-## Using Spreadsheets for Data Entry and Cleaning {-}
+## Using Spreadsheets for Data Entry and Cleaning
 
 However, there are circumstances where you might want to use a spreadsheet
 program to produce “quick and dirty” calculations or figures, and data
@@ -722,7 +722,7 @@ different worksheets in the `xls` documents.
 - Is there really a good reason why `csv` (or similar) is not
   adequate?
 
-## Caveats on commas {-}
+## Caveats on commas
 
 In some datasets, the data values themselves may include commas
 (,). In that case, the software which you use (including Excel) will
