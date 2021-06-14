@@ -17,6 +17,8 @@ keypoints:
 - "Good data organization is the foundation of any research project."
 ---
 
+
+
 # Spreadsheet programs
 
 **Question**
@@ -89,14 +91,15 @@ formatted as tables is also the main theme of this chapter, and we
 will see how to organise data into tables in a standardised way to
 ensure efficient downstream analysis.
 
-**Exercice** Discuss the following points with your neighbour
-
-- How many people have used spreadsheets, in their research, courses,
-  or at home?
-- What kind of operations do you do in spreadsheets?
-- Which ones do you think spreadsheets are good for?
-- How many people have accidentally done something that made them
-  frustrated or sad?
+> ## Challenge: Discuss the following points with your neighbour
+>
+> - How many people have used spreadsheets, in their research, courses,
+>   or at home?
+> - What kind of operations do you do in spreadsheets?
+> - Which ones do you think spreadsheets are good for?
+> - How many people have accidentally done something that made them
+>   frustrated or sad?
+{: .challenge}
 
 ## Problems with Spreadsheets {-}
 
@@ -268,29 +271,29 @@ used for variables** and **rows are used for observations**:
 - rows are observations
 - cells are individual values
 
-**Exercice** We're going to take a messy data and describe how we
-would clean it up.
-
-1. Download a messy data by clicking
-   [here](https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx).
-
-2. Open up the data in a spreadsheet program.
-
-3. You can see that there are two tabs. The data contains various
-   clinical variables recorded in various hospitals in Brussels during
-   the first and second COVID-19 waves in 2020. As you can see, the
-   data have been recorded differently during the march and november
-   waves. Now you're the person in charge of this project and you want
-   to be able to start analyzing the data.
-
-4. With the person next to you, identify what is wrong with this
-   spreadsheet. Also discuss the steps you would need to take to clean
-   up first and second wave tabs, and to put them all together in one
-   spreadsheet.
-
-**Important:** Do not forget our first piece of advice: to create a
-new file (or tab) for the cleaned data, never modify your original
-(raw) data.
+> ## Challenge: We're going to take a messy data and describe how we would clean it up.
+>
+> 1. Download a messy data by clicking
+>    [here](https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx).
+>
+> 2. Open up the data in a spreadsheet program.
+>
+> 3. You can see that there are two tabs. The data contains various
+>    clinical variables recorded in various hospitals in Brussels during
+>    the first and second COVID-19 waves in 2020. As you can see, the
+>    data have been recorded differently during the march and november
+>    waves. Now you're the person in charge of this project and you want
+>    to be able to start analyzing the data.
+>
+> 4. With the person next to you, identify what is wrong with this
+>    spreadsheet. Also discuss the steps you would need to take to clean
+>    up first and second wave tabs, and to put them all together in one
+>    spreadsheet.
+>
+> **Important:** Do not forget our first piece of advice: to create a
+> new file (or tab) for the cleaned data, never modify your original
+> (raw) data.
+{: .challenge}
 
 After you go through this exercise, we'll discuss as a group what was wrong
 with this data and how you would fix it.
@@ -306,15 +309,16 @@ with this data and how you would fix it.
   at the end.
 
 
-**Exercice** Once you have tidied up the data, answer the following questions:
-
-- How many men and women took part in the study?
-- How many A, AB, and B types have been tested?
-- As above, but disregarding the contaminated samples?
-- How many Rhesus + and - have been tested?
-- How many universal donors (0-) have been tested?
-- What is the average weight of AB men?
-- How many samples have been tested in the different hospitals?
+> ## Challenge: Once you have tidied up the data, answer the following questions:
+>
+> - How many men and women took part in the study?
+> - How many A, AB, and B types have been tested?
+> - As above, but disregarding the contaminated samples?
+> - How many Rhesus + and - have been tested?
+> - How many universal donors (0-) have been tested?
+> - What is the average weight of AB men?
+> - How many samples have been tested in the different hospitals?
+{: .challenge}
 
 An **excellent reference**, in particular with regard to R scripting
 is the *Tidy Data* paper @Wickham:2014.
@@ -700,9 +704,10 @@ An important note for backwards compatibility: you can open CSV files
 in Excel!
 
 
-```
-## Error in knitr::include_graphics("./figs/excel-to-csv.png"): Cannot find the file(s): "./figs/excel-to-csv.png"
-```
+~~~
+Error in knitr::include_graphics("./figs/excel-to-csv.png"): Cannot find the file(s): "./figs/excel-to-csv.png"
+~~~
+{: .error}
 
 **A note on R and `xls`**: There are R packages that can read `xls`
 files (as well as Google spreadsheets). It is even possible to access
@@ -743,9 +748,10 @@ get something like this:
 
 
 
-```
-## Error in knitr::include_graphics("./figs/csv-mistake.png"): Cannot find the file(s): "./figs/csv-mistake.png"
-```
+~~~
+Error in knitr::include_graphics("./figs/csv-mistake.png"): Cannot find the file(s): "./figs/csv-mistake.png"
+~~~
+{: .error}
 
 The value for `taxa` was split into two columns (instead of being put
 in one column `D`). This can propagate to a number of further
@@ -803,9 +809,10 @@ build relevant scripts.
 # Summary
 
 
-```
-## Error in knitr::include_graphics("./figs/analysis.png"): Cannot find the file(s): "./figs/analysis.png"
-```
+~~~
+Error in knitr::include_graphics("./figs/analysis.png"): Cannot find the file(s): "./figs/analysis.png"
+~~~
+{: .error}
 
 A typical data analysis worflow is illustrated in figure
 \@ref(fig:analysis), where data is repeatedly tranformed, visualised,
