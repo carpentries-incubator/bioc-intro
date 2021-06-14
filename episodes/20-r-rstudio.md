@@ -41,7 +41,7 @@ useful to learn keyboard shortcuts and discover new features.
 
 # Why learn R?
 
-## R does not involve lots of pointing and clicking, and that's a good thing {-}
+## R does not involve lots of pointing and clicking, and that's a good thing
 
 The learning curve might be steeper than with other software, but with
 R, the results of your analysis do not rely on remembering a
@@ -59,7 +59,7 @@ Working with scripts forces you to have a deeper understanding of what
 you are doing, and facilitates your learning and comprehension of the
 methods you use.
 
-## R code is great for reproducibility {-}
+## R code is great for reproducibility
 
 Reproducibility is when someone else (including your future self) can
 obtain the same results from the same dataset when using the same
@@ -74,7 +74,7 @@ An increasing number of journals and funding agencies expect analyses
 to be reproducible, so knowing R will give you an edge with these
 requirements.
 
-## R is interdisciplinary and extensible {-}
+## R is interdisciplinary and extensible
 
 With 10000+ packages[^whatarepkgs] that can be installed to extend its
 capabilities, R provides a framework that allows you to combine
@@ -88,7 +88,7 @@ genetics, and a lot more.
 
 <img src="../fig/cran.png" title="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018." alt="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018." style="display: block; margin: auto;" />
 
-## R works on data of all shapes and sizes {-}
+## R works on data of all shapes and sizes
 
 The skills you learn with R scale easily with the size of your
 dataset. Whether your dataset has hundreds or millions of lines, it
@@ -102,14 +102,14 @@ R can connect to spreadsheets, databases, and many other data formats,
 on your computer or on the web.
 
 
-## R produces high-quality graphics {-}
+## R produces high-quality graphics
 
 The plotting functionalities in R are endless, and allow you to adjust
 any aspect of your graph to convey most effectively the message from
 your data.
 
 
-## R has a large and welcoming community {-}
+## R has a large and welcoming community
 
 Thousands of people use R daily. Many of them are willing to help you
 through mailing lists and websites such as [Stack
@@ -118,7 +118,7 @@ community](https://community.rstudio.com/). These broad user community
 extends to specialised areas such as bioinformatics.
 
 
-## Not only is R free, but it is also open-source and cross-platform {-}
+## Not only is R free, but it is also open-source and cross-platform
 
 Anyone can inspect the source code to see how R works. Because of this
 transparency, there is less chance for mistakes, and if you (or
@@ -409,7 +409,7 @@ suit your purpose might make it easier for you to get started.
 
 # Seeking help
 
-## Use the built-in RStudio help interface to search for more information on R functions {-}
+## Use the built-in RStudio help interface to search for more information on R functions
 
 <img src="../fig/rstudiohelp.png" title="RStudio help interface." alt="RStudio help interface." width="70%" style="display: block; margin: auto;" />
 
@@ -420,7 +420,7 @@ panel of RStudio. As seen in the screenshot, by typing the word
 might be interested in. The description is then shown in the display
 window.
 
-## I know the name of the function I want to use, but I'm not sure how to use it {-}
+## I know the name of the function I want to use, but I'm not sure how to use it
 
 If you need help with a specific function, let's say `barplot()`, you
 can type:
@@ -439,7 +439,7 @@ args(lm)
 ~~~
 {: .language-r}
 
-## I want to use a function that does X, there must be a function for it but I don't know which one... {-}
+## I want to use a function that does X, there must be a function for it but I don't know which one...
 
 If you are looking for a function to do a particular task, you can use the
 `help.search()` function, which is called by the double question mark `??`.
@@ -460,7 +460,7 @@ Finally, a generic Google or internet search "R \<task\>" will often either send
 you to the appropriate package documentation or a helpful forum where someone
 else has already asked your question.
 
-## I am stuck... I get an error message that I don't understand {-}
+## I am stuck... I get an error message that I don't understand
 
 Start by googling the error message. However, this doesn't always work very well
 because often, package developers rely on the error catching provided by R. You
@@ -483,7 +483,7 @@ place to understand the underpinnings of the R language.
 The [R FAQ](http://cran.r-project.org/doc/FAQ/R-FAQ.html) is dense and technical
 but it is full of useful information.
 
-### Asking for help {-}
+### Asking for help
 
 The key to receiving help from someone is for them to rapidly grasp
 your problem. You should make it as easy as possible to pinpoint where
@@ -595,7 +595,7 @@ loaded via a namespace (and not attached):
 ~~~
 {: .output}
 
-## Where to ask for help? {-}
+## Where to ask for help?
 
 * The person sitting next to you during the course. Don't hesitate to
   talk to your neighbour during the workshop, compare your answers,
@@ -628,7 +628,7 @@ loaded via a namespace (and not attached):
   phylogenetics, etc...), the complete list is
   [here](http://www.r-project.org/mail.html).
 
-## More resources {-}
+## More resources
 
 - The [Posting Guide](http://www.r-project.org/posting-guide.html) for
   the R mailing lists.
