@@ -87,8 +87,7 @@ formatted as tables is also the main theme of this chapter, and we
 will see how to organise data into tables in a standardised way to
 ensure efficient downstream analysis.
 
-`r msmbstyle::question_begin()`
-Discuss the following points with your neighbour
+**Exercice** Discuss the following points with your neighbour
 
 - How many people have used spreadsheets, in their research, courses,
   or at home?
@@ -96,7 +95,6 @@ Discuss the following points with your neighbour
 - Which ones do you think spreadsheets are good for?
 - How many people have accidentally done something that made them
   frustrated or sad?
-`r msmbstyle::question_end()`
 
 ## Problems with Spreadsheets {-}
 
@@ -268,10 +266,8 @@ used for variables** and **rows are used for observations**:
 - rows are observations
 - cells are individual values
 
-`r msmbstyle::question_begin()`
-
-We're going to take a messy data and describe how we would clean it
-up.
+**Exercice** We're going to take a messy data and describe how we
+would clean it up.
 
 1. Download a messy data by clicking
    [here](https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx).
@@ -297,21 +293,18 @@ new file (or tab) for the cleaned data, never modify your original
 After you go through this exercise, we'll discuss as a group what was wrong
 with this data and how you would fix it.
 
-`r msmbstyle::question_end()`
+- Take about 10 minutes to work on this exercise.
+- All the mistakes in the *common mistakes* section below are present
+  in the messy dataset. If the exercise is done during a workshop, ask
+  people what they saw as wrong with the data. As they bring up
+  different points, you can refer to the common mistakes or expand a
+  bit on the point they brought up.
+- If you get a response where they've fixed the date, you can pause
+  and go to the dates lesson. Or you can say you'll come back to dates
+  at the end.
 
-<!-- - Take about 10 minutes to work on this exercise. -->
-<!-- - All the mistakes in the *common mistakes* section below are present -->
-<!--   in the messy dataset. If the exercise is done during a workshop, ask -->
-<!--   people what they saw as wrong with the data. As they bring up -->
-<!--   different points, you can refer to the common mistakes or expand a -->
-<!--   bit on the point they brought up. -->
-<!-- - If you get a response where they've fixed the date, you can pause -->
-<!--   and go to the dates lesson. Or you can say you'll come back to dates -->
-<!--   at the end. -->
 
-`r msmbstyle::question_begin()`
-
-Once you have tidied up the data, answer the following questions:
+**Exercice** Once you have tidied up the data, answer the following questions:
 
 - How many men and women took part in the study?
 - How many A, AB, and B types have been tested?
@@ -320,8 +313,6 @@ Once you have tidied up the data, answer the following questions:
 - How many universal donors (0-) have been tested?
 - What is the average weight of AB men?
 - How many samples have been tested in the different hospitals?
-
-`r msmbstyle::question_end()`
 
 An **excellent reference**, in particular with regard to R scripting
 is the *Tidy Data* paper @Wickham:2014.
