@@ -220,7 +220,7 @@ instructor asks for a different analysis, you should
 
 This might be an example of a spreadsheet setup:
 
-![](./figs/spreadsheet-setup-updated.png)
+![](../fig/spreadsheet-setup-updated.png)
 
 Put these principles in to practice today during your exercises.
 
@@ -254,7 +254,7 @@ hospital, the patients gender, weight and blood group.
 
 If they were to keep track of the data like this:
 
-![](./figs/multiple-info.png)
+![](../fig/multiple-info.png)
 
 the problem is that the ABO and rhesus groups are in the same `Blood`
 type column. So, if they wanted to look at all observations of the A
@@ -262,7 +262,7 @@ group or look at weight distributions by ABO group, it would be tricky
 to do this using this data setup. If instead we put the ABO and rhesus
 groups in different columns, you can see that it would be much easier.
 
-![](./figs/single-info.png)
+![](../fig/single-info.png)
 
 An important rule when setting up a datasheet, is that **columns are
 used for variables** and **rows are used for observations**:
@@ -384,7 +384,7 @@ which sees each row as an observation. You’re also potentially using the same
 field name in multiple places, which will make it harder to clean your data up
 into a usable form. The example below depicts the problem:
 
-![](./figs/2_datasheet_example.jpg)
+![](../fig/2_datasheet_example.jpg)
 
 In the example above, the computer will see (for example) row 4 and assume that all columns A-AF
 refer to the same sample. This row actually represents four distinct samples
@@ -485,7 +485,7 @@ Blanks (most applications) and NA (for R) are good
 choices. @White:2013 explain good choices for indicating null values
 for different software applications in their article:
 
-![](./figs/3_white_table_1.jpg)
+![](../fig/3_white_table_1.jpg)
 
 ## Using formatting to convey information {#formatting}
 
@@ -493,12 +493,12 @@ for different software applications in their article:
   excluded from an analysis, leaving blank rows to indicate
   separations in data.
 
-![](./figs/formatting.png)
+![](../fig/formatting.png)
 
 **Solution**: create a new field to encode which data should be
   excluded.
 
-![](./figs/good_formatting.png)
+![](../fig/good_formatting.png)
 
 
 ## Using formatting to make the data sheet look pretty {#formatting_pretty}
@@ -703,11 +703,7 @@ To save a file you have opened in Excel in CSV format:
 An important note for backwards compatibility: you can open CSV files
 in Excel!
 
-
-~~~
-Error in knitr::include_graphics("./figs/excel-to-csv.png"): Cannot find the file(s): "./figs/excel-to-csv.png"
-~~~
-{: .error}
+<img src="../fig/excel-to-csv.png" title="Saving an Excel file to CSV." alt="Saving an Excel file to CSV." width="70%" style="display: block; margin: auto;" />
 
 **A note on R and `xls`**: There are R packages that can read `xls`
 files (as well as Google spreadsheets). It is even possible to access
@@ -747,11 +743,7 @@ to read the above into Excel (or other spreadsheet program), we will
 get something like this:
 
 
-
-~~~
-Error in knitr::include_graphics("./figs/csv-mistake.png"): Cannot find the file(s): "./figs/csv-mistake.png"
-~~~
-{: .error}
+<img src="../fig/csv-mistake.png" title="The risks of having commas inside comma-separated data." alt="The risks of having commas inside comma-separated data." width="80%" style="display: block; margin: auto;" />
 
 The value for `taxa` was split into two columns (instead of being put
 in one column `D`). This can propagate to a number of further
@@ -808,18 +800,14 @@ build relevant scripts.
 
 # Summary
 
+<img src="../fig/analysis.png" title="A typical data analysis workflow." alt="A typical data analysis workflow." style="display: block; margin: auto;" />
 
-~~~
-Error in knitr::include_graphics("./figs/analysis.png"): Cannot find the file(s): "./figs/analysis.png"
-~~~
-{: .error}
-
-A typical data analysis worflow is illustrated in figure
-\@ref(fig:analysis), where data is repeatedly tranformed, visualised,
-modelled. This iteration is repeated multiple times until the data is
-understood. In many real-life cases, however, most time is spend in
-clearning up and preparing the data, rather than actually analysing
-and understanding it.
+A typical data analysis worflow is illustrated in the figure above,
+where data is repeatedly tranformed, visualised, modelled. This
+iteration is repeated multiple times until the data is understood. In
+many real-life cases, however, most time is spend in clearning up and
+preparing the data, rather than actually analysing and understanding
+it.
 
 An agile data analysis workflow, with several fast iteration of the
 transform/visualise/model cycle are only feasible is the data is

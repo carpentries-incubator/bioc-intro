@@ -238,7 +238,7 @@ For this course, we will need a `data/` folder to store our raw data,
 and we will use `data_output/` for when we learn how to export data as
 CSV files, and `fig_output/` folder for the figures that we will save.
 
-> Challenge: create your project directory structure
+> ## Challenge: create your project directory structure
 >
 > Under the `Files` tab on the right of the screen, click on `New Folder` and
 > create a folder named `data` within your newly created working directory
