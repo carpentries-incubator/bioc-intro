@@ -86,7 +86,6 @@ genetics, and a lot more.
 [^whatarepkgs]: i.e. add-ons that confer R with new functionality,
     such as bioinformatics data analysis.
 
-
 ```{r, fig.cap = "Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", echo = FALSE, message = FALSE}
 knitr::include_graphics("../fig/cran.png")
 ```
