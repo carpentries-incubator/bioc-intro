@@ -185,26 +185,22 @@ Note: most of these functions are "generic", they can be used on other types of
 objects besides `data.frame`.
 
 
-`r msmbstyle::question_begin()`
-
-Based on the output of `str(rna)`, can you answer the following
-questions?
-
-- What is the class of the object `rna`?
-- How many rows and how many columns are in this object?
-- How many genes (as defined by the `gene` variable) have been
-  measured in this experiment?
-
-`r msmbstyle::question_end()`
-
-
-`r msmbstyle::solution_begin()`
-
-- class: data frame
-- how many rows: 66465, how many columns: 11
-- how many genes: 1477
-
-`r msmbstyle::solution_end()`
+> ## Challenge:
+>
+> Based on the output of `str(rna)`, can you answer the following
+> questions?
+>
+> - What is the class of the object `rna`?
+> - How many rows and how many columns are in this object?
+> - How many genes (as defined by the `gene` variable) have been
+>   measured in this experiment?
+> > Solution
+> >
+> > - class: data frame
+> > - how many rows: 66465, how many columns: 11
+> > - how many genes: 1477
+> {: .solution}
+{: .challenge}
 
 
 ## Indexing and subsetting data frames
@@ -258,47 +254,46 @@ rna$gene          # Result is a vector
 In RStudio, you can use the autocompletion feature to get the full and
 correct names of the columns.
 
-`r msmbstyle::question_begin()`
+> ## Challenge
+>
+> 1. Create a `data.frame` (`rna_200`) containing only the data in
+>    row 200 of the `rna` dataset.
+>
+> 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
+>
+> - Use that number to pull out just that last row in the inital
+>   `rna` data frame.
+>
+> - Compare that with what you see as the last row using `tail()` to
+>   make sure it's meeting expectations.
+>
+> - Pull out that last row using `nrow()` instead of the row number.
+>
+> - Create a new data frame (`rna_last`) from that last row.
+>
+> 3. Use `nrow()` to extract the row that is in the middle of the
+>    `rna` dataframe. Store the content of this row in an object
+>    named `rna_middle`.
+>
+> 4. Combine `nrow()` with the `-` notation above to reproduce the
+>    behavior of `head(rna)`, keeping just the first through 6th
+>    rows of the rna dataset.
+>
+> > ```{r}
+> > ## 1.
+> > rna_200 <- rna[200, ]
+> > ## 2.
+> > ## Saving `n_rows` to improve readability and reduce duplication
+> > n_rows <- nrow(rna)
+> > rna_last <- rna[n_rows, ]
+> > ## 3.
+> > rna_middle <- rna[n_rows / 2, ]
+> > ## 4.
+> > rna_head <- rna[-(7:n_rows), ]
+> > ```
+> > {: .solution}
+{: .challenge}
 
-1. Create a `data.frame` (`rna_200`) containing only the data in
-   row 200 of the `rna` dataset.
-
-2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
-
-- Use that number to pull out just that last row in the inital
-  `rna` data frame.
-
-- Compare that with what you see as the last row using `tail()` to
-  make sure it's meeting expectations.
-
-- Pull out that last row using `nrow()` instead of the row number.
-
-- Create a new data frame (`rna_last`) from that last row.
-
-3. Use `nrow()` to extract the row that is in the middle of the
-   `rna` dataframe. Store the content of this row in an object
-   named `rna_middle`.
-
-4. Combine `nrow()` with the `-` notation above to reproduce the
-   behavior of `head(rna)`, keeping just the first through 6th
-   rows of the rna dataset.
-
-`r msmbstyle::question_end()`
-
-`r msmbstyle::solution_begin()`
-> ```{r}
-> ## 1.
-> rna_200 <- rna[200, ]
-> ## 2.
-> ## Saving `n_rows` to improve readability and reduce duplication
-> n_rows <- nrow(rna)
-> rna_last <- rna[n_rows, ]
-> ## 3.
-> rna_middle <- rna[n_rows / 2, ]
-> ## 4.
-> rna_head <- rna[-(7:n_rows), ]
-> ```
-`r msmbstyle::solution_end()`
 
 ## Factors
 
@@ -402,60 +397,57 @@ sex
 plot(sex)
 ```
 
-`r msmbstyle::question_begin()`
+> ## Challenge:
+>
+> - Rename "female" and "male" to "Female" and "Male" respectively.
 
-- Rename "female" and "male" to "Female" and "Male" respectively.
-
-`r msmbstyle::question_end()`
-
-
-`r msmbstyle::question_begin()`
-
-We have seen how data frames are created when using `read.csv()`, but
-they can also be created by hand with the `data.frame()` function.
-There are a few mistakes in this hand-crafted `data.frame`. Can you
-spot and fix them?  Don't hesitate to experiment!
-
-```{r, eval=FALSE}
-animal_data <- data.frame(
-       animal = c(dog, cat, sea cucumber, sea urchin),
-       feel = c("furry", "squishy", "spiny"),
-       weight = c(45, 8 1.1, 0.8))
-```
-`r msmbstyle::question_end()`
-
-
-`r msmbstyle::solution_begin()`
-- missing quotations around the names of the animals
-- missing one entry in the "feel" column (probably for one of the furry animals)
-- missing one comma in the weight column
-`r msmbstyle::solution_end()`
+> ## Challenge:
+>
+> We have seen how data frames are created when using `read.csv()`, but
+> they can also be created by hand with the `data.frame()` function.
+> There are a few mistakes in this hand-crafted `data.frame`. Can you
+> spot and fix them?  Don't hesitate to experiment!
+>
+> ```{r, eval=FALSE}
+> animal_data <- data.frame(
+>        animal = c(dog, cat, sea cucumber, sea urchin),
+>        feel = c("furry", "squishy", "spiny"),
+>        weight = c(45, 8 1.1, 0.8))
+> ```
+> > Solution
+> >
+> > - missing quotations around the names of the animals
+> > - missing one entry in the "feel" column (probably for one of the furry animals)
+> > - missing one comma in the weight column
+> {: .solution}
+{: .challenge}
 
 
-`r msmbstyle::question_begin()`
+> ## Challenge:
+>
+> Can you predict the class for each of the columns in the following
+> example?
+>
+> Check your guesses using `str(country_climate)`:
+>
+> - Are they what you expected?  Why? Why not?
+>
+> - Try again by adding `stringsAsFactors = TRUE` after the last
+>   variable when creating the data frame? What is happening now?
+>   `stringsAsFactors` can also be set when reading text-based
+>   spreadsheets into R using `read.csv()`.
+>
+> ```{r, eval = FALSE}
+> country_climate <- data.frame(
+>        country = c("Canada", "Panama", "South Africa", "Australia"),
+>        climate = c("cold", "hot", "temperate", "hot/temperate"),
+>        temperature = c(10, 30, 18, "15"),
+>        northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+>        has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+>        )
+> ```
+{: .challenge}
 
-Can you predict the class for each of the columns in the following
-example?
-
-Check your guesses using `str(country_climate)`:
-
-- Are they what you expected?  Why? Why not?
-
-- Try again by adding `stringsAsFactors = TRUE` after the last
-  variable when creating the data frame? What is happening now?
-  `stringsAsFactors` can also be set when reading text-based
-  spreadsheets into R using `read.csv()`.
-
-```{r, eval = FALSE}
-country_climate <- data.frame(
-       country = c("Canada", "Panama", "South Africa", "Australia"),
-       climate = c("cold", "hot", "temperate", "hot/temperate"),
-       temperature = c(10, 30, 18, "15"),
-       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
-       has_kangaroo = c(FALSE, FALSE, FALSE, 1)
-       )
-```
-`r msmbstyle::question_end()`
 
 The automatic conversion of data type is sometimes a blessing, sometimes an
 annoyance. Be aware that it exists, learn the rules, and double check that data
@@ -489,48 +481,52 @@ m
 one can be deduced from the length of the values. Try out what happens
 if the values and number of rows/columns don't add up.
 
-```{r pkg_qst, echo = FALSE}
-msmbstyle::question(text = "Using the function `installed.packages()`, create a `character` matrix containing the information about all packages currently installed on your computer. Explore it.")
-```
 
-`r msmbstyle::solution_begin()`
-
-```{r pkg_sln, eval = FALSE}
-## create the matrix
-ip <- installed.packages()
-head(ip)
-## try also View(ip)
-## number of package
-nrow(ip)
-## names of all installed packages
-rownames(ip)
-## type of information we have about each package
-colnames(ip)
-```
-
-`r msmbstyle::solution_end()`
-
+> ## Challenge:
+>
+> Using the function `installed.packages()`, create a `character` matrix
+> containing the information about all packages currently installed on
+> your computer. Explore it.
+>
+> > Solution:
+> >
+> > ```{r pkg_sln, eval = FALSE}
+> > ## create the matrix
+> > ip <- installed.packages()
+> > head(ip)
+> > ## try also View(ip)
+> > ## number of package
+> > nrow(ip)
+> > ## names of all installed packages
+> > rownames(ip)
+> > ## type of information we have about each package
+> > colnames(ip)
+> > ```
+> {: .solution}
+{: .challenge}
 
 It is often useful to create large random data matrices as test
 data. The exercise below asks you to create such a matrix with random
 data drawn from a normal distribution of mean 0 and standard deviation
 1, which can be done with the `rnorm()` function.
 
-```{r rnormmat_qst, echo = FALSE}
-msmbstyle::question(text = "Construct a matrix of dimension 1000 by 3 of normally distributed data (mean 0, standard deviation 1).")
-```
 
+> ## Challenge:
+>
+> Construct a matrix of dimension 1000 by 3 of normally distributed data
+> (mean 0, standard deviation 1)
+>
+> > Solution
+> >
+> > ```{r rnormmat_sln}
+> > set.seed(123)
+> > m <- matrix(rnorm(3000), ncol = 3)
+> > dim(m)
+> > head(m)
+> > ```
+> {: .solution}
+{: .challenge}
 
-`r msmbstyle::solution_begin()`
-
-```{r rnormmat_sln}
-set.seed(123)
-m <- matrix(rnorm(3000), ncol = 3)
-dim(m)
-head(m)
-```
-
-`r msmbstyle::solution_end()`
 
 
 ## Formatting Dates
@@ -692,6 +688,8 @@ l[1:2] ## a list of length 2
 l[1]   ## a list of length 1
 ```
 ## Exporting and saving data {#sec:exportandsave}
+
+**TODO: use `rna` data below.**
 
 ### Exporting tabular data {-}
 
