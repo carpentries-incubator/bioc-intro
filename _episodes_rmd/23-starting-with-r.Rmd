@@ -50,10 +50,10 @@ context. Because of the
 in syntax, it is good practice to always use `<-` for assignments.
 
 In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd>
-at the same time as the <kbd>-</kbd> key) will write ` <- ` in a
-single keystroke in a PC, while typing <kbd>Option</kbd> +
-<kbd>-</kbd> (push <kbd>Option</kbd> at the same time as the
-<kbd>-</kbd> key) does the same in a Mac.
+at the same time as the <kbd>-</kbd> key) will write `<-` in a single
+keystroke in a PC, while typing <kbd>Option</kbd> + <kbd>-</kbd> (push
+<kbd>Option</kbd> at the same time as the <kbd>-</kbd> key) does the
+same in a Mac.
 
 ## Naming variables {-}
 
