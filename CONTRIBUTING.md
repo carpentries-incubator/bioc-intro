@@ -125,9 +125,11 @@ repository for reference while revising.
 General discussion of [The Carpentries][c-site]
 happens on the [discussion mailing list][discuss-list],
 which everyone is welcome to join.
-You can also [reach us by email][email].
+You can also [join the `bioconductor-teaching` Google Group][bioc-teaching]
+to join discussion of this and other Bioconductor lessons in
+The Carpentries Incubator.
 
-[email]: mailto:admin@software-carpentry.org
+[bioc-teaching]: https://groups.google.com/g/bioconductor-teaching
 [dc-issues]: https://github.com/issues?q=user%3Adatacarpentry
 [dc-lessons]: http://datacarpentry.org/lessons/
 [dc-site]: http://datacarpentry.org/
