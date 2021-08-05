@@ -1,10 +1,10 @@
 ---
 source: Rmd
-title: "Introduction to R"
+title: "Starting with data"
 teaching: XX
 exercises: XX
 questions:
-- "First commands in R"
+- "First data analysis in R"
 objectives:
 - Describe what a data frame is.
 - Load external data from a .csv file into a data frame.
