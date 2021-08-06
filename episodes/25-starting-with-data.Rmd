@@ -66,12 +66,16 @@ local machine. You'll need to have a folder on your machine called
 remote file, names it `"rnaseq.csv"` and adds it to a preexisting
 folder named `"data"`.
 
-```{r, eval = FALSE}
-download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv",
-              destfile = "data/rnaseq.csv")
+
+```{r, eval = TRUE}
+
+if (!file.exists("data/rnaseq.csv"))
+    download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv",
+                  destfile = "data/rnaseq.csv")
 ```
 
 You are now ready to load the data:
+
 
 ```{r, eval = TRUE}
 rna <- read.csv("data/rnaseq.csv")
