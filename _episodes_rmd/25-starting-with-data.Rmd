@@ -198,7 +198,8 @@ objects besides `data.frame`.
 > - How many rows and how many columns are in this object?
 > - How many genes (as defined by the `gene` variable) have been
 >   measured in this experiment?
-> > Solution
+>
+> > ## Solution
 > >
 > > - class: data frame
 > > - how many rows: 66465, how many columns: 11
