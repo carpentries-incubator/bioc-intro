@@ -67,34 +67,22 @@ remote file, names it `"rnaseq.csv"` and adds it to a preexisting
 folder named `"data"`.
 
 
+
 ~~~
-download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv",
-              destfile = "data/rnaseq.csv")
+if (!file.exists("data/rnaseq.csv"))
+    download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv",
+                  destfile = "data/rnaseq.csv")
 ~~~
 {: .language-r}
 
 You are now ready to load the data:
 
 
+
 ~~~
 rna <- read.csv("data/rnaseq.csv")
 ~~~
 {: .language-r}
-
-
-
-~~~
-Warning in file(file, "rt"): cannot open file 'data/rnaseq.csv': No such file or
-directory
-~~~
-{: .warning}
-
-
-
-~~~
-Error in file(file, "rt"): cannot open the connection
-~~~
-{: .error}
 
 This statement doesn't produce any output because, as you might
 recall, assignments don't display anything. If we want to check that
@@ -120,9 +108,22 @@ head(rna)
 
 
 ~~~
-Error in head(rna): object 'rna' not found
+     gene     sample expression     organism age    sex  infection  strain time
+1     Asl GSM2545336       1170 Mus musculus   8 Female InfluenzaA C57BL/6    8
+2    Apod GSM2545336      36194 Mus musculus   8 Female InfluenzaA C57BL/6    8
+3 Cyp2d22 GSM2545336       4060 Mus musculus   8 Female InfluenzaA C57BL/6    8
+4    Klk6 GSM2545336        287 Mus musculus   8 Female InfluenzaA C57BL/6    8
+5   Fcrls GSM2545336         85 Mus musculus   8 Female InfluenzaA C57BL/6    8
+6  Slc2a4 GSM2545336        782 Mus musculus   8 Female InfluenzaA C57BL/6    8
+      tissue mouse
+1 Cerebellum    14
+2 Cerebellum    14
+3 Cerebellum    14
+4 Cerebellum    14
+5 Cerebellum    14
+6 Cerebellum    14
 ~~~
-{: .error}
+{: .output}
 
 
 
@@ -155,21 +156,6 @@ rna <- read.table(file = "data/rnaseq.csv",
                   header = TRUE)
 ~~~
 {: .language-r}
-
-
-
-~~~
-Warning in file(file, "rt"): cannot open file 'data/rnaseq.csv': No such file or
-directory
-~~~
-{: .warning}
-
-
-
-~~~
-Error in file(file, "rt"): cannot open the connection
-~~~
-{: .error}
 
 The header argument has to be set to TRUE to be able to read the
 headers as by default `read.table()` has the header argument set to
@@ -206,9 +192,20 @@ str(rna)
 
 
 ~~~
-Error in str(rna): object 'rna' not found
+'data.frame':	66465 obs. of  11 variables:
+ $ gene      : chr  "Asl" "Apod" "Cyp2d22" "Klk6" ...
+ $ sample    : chr  "GSM2545336" "GSM2545336" "GSM2545336" "GSM2545336" ...
+ $ expression: int  1170 36194 4060 287 85 782 1619 288 43217 1071 ...
+ $ organism  : chr  "Mus musculus" "Mus musculus" "Mus musculus" "Mus musculus" ...
+ $ age       : int  8 8 8 8 8 8 8 8 8 8 ...
+ $ sex       : chr  "Female" "Female" "Female" "Female" ...
+ $ infection : chr  "InfluenzaA" "InfluenzaA" "InfluenzaA" "InfluenzaA" ...
+ $ strain    : chr  "C57BL/6" "C57BL/6" "C57BL/6" "C57BL/6" ...
+ $ time      : int  8 8 8 8 8 8 8 8 8 8 ...
+ $ tissue    : chr  "Cerebellum" "Cerebellum" "Cerebellum" "Cerebellum" ...
+ $ mouse     : int  14 14 14 14 14 14 14 14 14 14 ...
 ~~~
-{: .error}
+{: .output}
 
 ## Inspecting `data.frame` Objects
 
@@ -351,75 +348,16 @@ correct names of the columns.
 > > ~~~
 > > ## 1.
 > > rna_200 <- rna[200, ]
-> > ~~~
-> > {: .language-r}
-> > 
-> > 
-> > 
-> > ~~~
-> > Error in eval(expr, envir, enclos): object 'rna' not found
-> > ~~~
-> > {: .error}
-> > 
-> > 
-> > 
-> > ~~~
 > > ## 2.
 > > ## Saving `n_rows` to improve readability and reduce duplication
 > > n_rows <- nrow(rna)
-> > ~~~
-> > {: .language-r}
-> > 
-> > 
-> > 
-> > ~~~
-> > Error in nrow(rna): object 'rna' not found
-> > ~~~
-> > {: .error}
-> > 
-> > 
-> > 
-> > ~~~
 > > rna_last <- rna[n_rows, ]
-> > ~~~
-> > {: .language-r}
-> > 
-> > 
-> > 
-> > ~~~
-> > Error in eval(expr, envir, enclos): object 'rna' not found
-> > ~~~
-> > {: .error}
-> > 
-> > 
-> > 
-> > ~~~
 > > ## 3.
 > > rna_middle <- rna[n_rows / 2, ]
-> > ~~~
-> > {: .language-r}
-> > 
-> > 
-> > 
-> > ~~~
-> > Error in eval(expr, envir, enclos): object 'rna' not found
-> > ~~~
-> > {: .error}
-> > 
-> > 
-> > 
-> > ~~~
 > > ## 4.
 > > rna_head <- rna[-(7:n_rows), ]
 > > ~~~
 > > {: .language-r}
-> > 
-> > 
-> > 
-> > ~~~
-> > Error in eval(expr, envir, enclos): object 'rna' not found
-> > ~~~
-> > {: .error}
 > > {: .solution}
 {: .challenge}
 
