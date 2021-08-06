@@ -344,6 +344,8 @@ correct names of the columns.
 >    behavior of `head(rna)`, keeping just the first through 6th
 >    rows of the rna dataset.
 >
+> > ## Solution
+> >
 > > 
 > > ~~~
 > > ## 1.
