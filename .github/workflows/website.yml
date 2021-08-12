@@ -111,6 +111,8 @@ jobs:
       - name: Commit and Push
         if: ${{ github.event_name == 'push' && steps.check-rmd.outputs.count != 0 && github.ref != 'refs/heads/gh-pages'}}
         run: |
+          # remove previous version of files (in case episodes were deleted or renamed)
+          rm -r gh-pages/*
           # copy everything into gh-pages site
           cp -r `ls -A | grep -v 'gh-pages' | grep -v '.git' | grep -v '.bundle/' | grep -v '_site'` gh-pages
           # move into gh-pages, add, commit, and push
