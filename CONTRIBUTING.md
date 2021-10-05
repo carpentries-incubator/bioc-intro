@@ -1,9 +1,6 @@
 # Contributing
 
-[The Carpentries][c-site],
-([Software Carpentry][swc-site],
-[Data Carpentry][dc-site],
-and [Library Carpentry][lc-site]) are open source projects,
+[The Carpentries][c-site] ([Software Carpentry][swc-site], [Data Carpentry][dc-site], and [Library Carpentry][lc-site]) are open source projects,
 and we welcome contributions of all kinds:
 new lessons,
 fixes to existing material,
@@ -29,7 +26,12 @@ or a factual error.
 This is a good way to introduce yourself
 and to meet some of our community members.
 
-1.  If you have a [GitHub][github] account,
+1.  If you do not have a [GitHub][github] account,
+    you can [send us comments by email][email].
+    However,
+    we will be able to respond more quickly if you use one of the other methods described below.
+
+2.  If you have a [GitHub][github] account,
     or are willing to [create one][github-join],
     but do not know how to use Git,
     you can report problems or suggest improvements by [creating an issue][issues].
@@ -44,8 +46,8 @@ and to meet some of our community members.
 ## Where to Contribute
 
 1.  If you wish to change this lesson,
-    please work in <https://github.com/carpentries-incubator/bioc-intro>,
-    which can be viewed at <https://carpentries-incubator.github.io/bioc-intro>.
+    please work in <https://github.com/swcarpentry/FIXME>,
+    which can be viewed at <https://swcarpentry.github.io/FIXME>.
 
 2.  If you wish to change the example lesson,
     please work in <https://github.com/carpentries/lesson-example>,
@@ -64,19 +66,14 @@ and to meet some of our community members.
 
 ## What to Contribute
 
-This is a new lesson under active development.
-We welcome contributions of any kind at this early stage of the process.
-
 There are many ways to contribute,
-from writing new exercises and improving existing ones,
-through adding lesson content and visual aids,
+from writing new exercises and improving existing ones
 to updating or filling in the documentation
 and submitting [bug reports][issues]
 about things that don't work, aren't clear, or are missing.
-If you are looking for ideas, please see
-[the 'Issues' tab][repo-issues]
-for a list of issues associated with this repository,
-or you may also look at the issues for [Data Carpentry][dc-issues],
+If you are looking for ideas, please see the 'Issues' tab for
+a list of issues associated with this repository,
+or you may also look at the issues for [Data Carpentry][dc-issues], 
 [Software Carpentry][swc-issues], and [Library Carpentry][lc-issues] projects.
 
 Comments on issues and reviews of pull requests are just as welcome:
@@ -88,7 +85,16 @@ so fresh eyes are always welcome.
 
 ## What *Not* to Contribute
 
-We are not looking for exercises or other material that only run on one platform.
+Our lessons already contain more material than we can cover in a typical workshop,
+so we are usually *not* looking for more concepts or tools to add to them.
+As a rule,
+if you want to introduce a new idea,
+you must (a) estimate how long it will take to teach
+and (b) explain what you would take out to make room for it.
+The first encourages contributors to be honest about requirements;
+the second, to think hard about priorities.
+
+We are also not looking for exercises or other material that only run on one platform.
 Our workshops typically contain a mixture of Windows, macOS, and Linux users;
 in order to be usable,
 our lessons must run equally well on all three.
@@ -122,14 +128,12 @@ repository for reference while revising.
 
 ## Other Resources
 
-General discussion of [The Carpentries][c-site]
+General discussion of [Software Carpentry][swc-site] and [Data Carpentry][dc-site]
 happens on the [discussion mailing list][discuss-list],
 which everyone is welcome to join.
-You can also [join the `bioconductor-teaching` Google Group][bioc-teaching]
-to join discussion of this and other Bioconductor lessons in
-The Carpentries Incubator.
+You can also [reach us by email][email].
 
-[bioc-teaching]: https://groups.google.com/g/bioconductor-teaching
+[email]: mailto:admin@software-carpentry.org
 [dc-issues]: https://github.com/issues?q=user%3Adatacarpentry
 [dc-lessons]: http://datacarpentry.org/lessons/
 [dc-site]: http://datacarpentry.org/
@@ -145,4 +149,3 @@ The Carpentries Incubator.
 [c-site]: https://carpentries.org/
 [lc-site]: https://librarycarpentry.org/
 [lc-issues]: https://github.com/issues?q=user%3Alibrarycarpentry
-[repo-issues]: https://github.com/carpentries-incubator/bioc-intro/issues
