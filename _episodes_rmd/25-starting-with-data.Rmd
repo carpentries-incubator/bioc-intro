@@ -15,7 +15,7 @@ objectives:
 - Format dates.
 - Export and save data.
 keypoints:
-- "Tabualr data in R"
+- "Tabular data in R"
 ---
 
 ```{r, include=FALSE}
