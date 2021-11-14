@@ -20,24 +20,20 @@ source("../bin/chunk-options.R")
 ## Joining tables
 
 In many real life situations, data are spread across multiple tables.
-Usually this occurs because different types of information about a subject, 
-e.g. a patient, are collected from different sources. 
+Usually this occurs because different types of information about a subject,
+e.g. a patient, are collected from different sources.
 
 It may be desirable for some analyses to combine
 data from two or more tables into a single data frame based on a
-column that would be common to all the tables, for example, an attribute that 
+column that would be common to all the tables, for example, an attribute that
 uniquely identifies the subjects.
 
-The `dplyr` package provides a set of join functions for combining 
+The `dplyr` package provides a set of join functions for combining
 two data frames based on matches within specified columns.
 
 For further reading, please refer to the chapter about [table
 joins](https://r4ds.had.co.nz/relational-data.html#understanding-joins)
-in @r4ds:2017.
-
-```{r cleanup, echo = FALSE}
-rm(list = ls())
-```
+in [R for Data Science](https://r4ds.had.co.nz/).
 
 The [Data Transformation Cheat
 Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
@@ -48,9 +44,9 @@ also provides a short overview on table joins.
 
 We are going to illustrate join using a common example from the
 bioinformatics world, where annotations about genes are scattered in
-different tables that have one or more shared columns. 
+different tables that have one or more shared columns.
 
-The data we are going to use are available in the following package. 
+The data we are going to use are available in the following package.
 
 ```{r joindata}
 # install.packages(c("BiocManager", "remotes"))
@@ -83,12 +79,12 @@ jdf2
 ```
 
 We now want to join these two tables into a single one containing all
-variables. 
+variables.
 
 We are going to use the `full_join` function of `dplyr` to do
-so, 
+so,
 
-Th function will automatically find the common variable (in this case `uniprot`) 
+Th function will automatically find the common variable (in this case `uniprot`)
 to match observations from the first and second table.
 
 ```{r join1}
@@ -101,7 +97,7 @@ tables are uniquely identified by their UniProt accession number. Such
 variables are called **keys**. Keys are used to match observations
 across different tables.
 
-Now let's look at a third table, `jdf3`. It also contains the column uniProt, 
+Now let's look at a third table, `jdf3`. It also contains the column uniProt,
 but it is written diffently!
 
 ```{r}
@@ -109,7 +105,7 @@ jdf3
 ```
 
 In case none of the variable names match, we can set manually the variables to
-use for the matching. These variables can be set using the `by` argument, 
+use for the matching. These variables can be set using the `by` argument,
 as shown below with the `jdf1` (as
 above) and `jdf3` tables, where the UniProt accession number is
 encoded using a different capitalisation.
@@ -125,17 +121,17 @@ in the joined one.
 > ## Challenge
 > Using the `full_join` function, join tables `jdf4`
 > and `jdf5`. What has happened for observations `P26039` and `P02468`?
-> 
+>
 > > ## Solution
-> > 
+> >
 > > ```{r joinex1}
 > > full_join(jdf4, jdf5)
 > > ```
-> > 
+> >
 > > `P26039` and `P02468` are only present in `jdf4` and `jdf5`
 > > respectively, and their respective values for the variables of the
 > > table have been encoded as missing.
-> > 
+> >
 > {: .solution}
 {: .challenge}
 
@@ -166,7 +162,7 @@ knitr::include_graphics("./figs/join-outer.png")
 
 > ## Challenge
 > Join tables `jdf4` and `jdf5`, keeping only observations in `jdf4`.
-> 
+>
 > > ## Solution
 > > ```{r leftjoinex1}
 > > left_join(jdf4, jdf5)
@@ -176,7 +172,7 @@ knitr::include_graphics("./figs/join-outer.png")
 
 > ## Challenge
 > Join tables `jdf4` and `jdf5`, keeping only observations in `jdf5`.
-> 
+>
 > > ## Solution
 > > ```{r rightjoinex1}
 > > right_join(jdf4, jdf5)
@@ -186,7 +182,7 @@ knitr::include_graphics("./figs/join-outer.png")
 
 > ## Challenge
 > Join tables `jdf4` and `jdf5`, keeping observations observed in both tables.
-> 
+>
 > > ## Solution
 > > ```{r innerjoinex1}
 > > inner_join(jdf4, jdf5)
@@ -196,9 +192,9 @@ knitr::include_graphics("./figs/join-outer.png")
 
 ## Multiple matches
 
-Sometimes, keys aren't unique. 
+Sometimes, keys aren't unique.
 
-In the `jdf6` table below, we see that the accession number `Q99PL5` is repeated 
+In the `jdf6` table below, we see that the accession number `Q99PL5` is repeated
 twice. According to this table, the ribosomial protein binding protein 1 localises in the
 endoplasmic reticulum and in the Golgi apparatus.
 
@@ -214,9 +210,9 @@ inner_join(jdf6, jdf2)
 ```
 
 In the case above, repeating is useful, as it completes `jdf6` with
-correct information from `jdf2`. 
+correct information from `jdf2`.
 
-But one needs however to be careful when duplicated keys exist in both tables. 
+But one needs however to be careful when duplicated keys exist in both tables.
 
 Let's now use jdf7 for the join. It also has 2 entries for the uniprot `Q99PL5`
 ```{r}
@@ -232,21 +228,21 @@ inner_join(jdf6, jdf7)
 
 > ## Challenge
 > Interpret the result of the inner join above, where both tables have duplicated keys.
-> 
+>
 > > ## Solution
-> > 
+> >
 > > `jdf6` has two entries, one for each possible sub-cellular
 > > localisation of the protein. `jdf7` has also two entries, referring to
 > > two different quantitative measurements (variable `measure`). When
 > > joining the duplicated keys, you get all possible combinations.
-> > 
+> >
 > > ```{r, results='markup', fig.cap="Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from *R for Data Science*.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
 > > knitr::include_graphics("./figs/join-many-to-many.png")
 > > ```
-> > 
+> >
 > > In this case, we obtain wrong information: both proteins in the ER and
 > > in the GA both have value 102 and 3.
-> > 
+> >
 > > ```{r }
 > > inner_join(jdf6, jdf7)
 > > ```
@@ -263,7 +259,7 @@ variables are needed to discriminate different rows in a tables.
 
 Following up from the last example, we see that the duplicated UniProt
 accession numbers in the `jdf6` and `jdf7` tables refer to different
-isoforms of the same RRBP1 gene. 
+isoforms of the same RRBP1 gene.
 
 ```{r}
 jdf6
@@ -276,13 +272,13 @@ jdf7
 
 To uniquely identify isoforms, we should consider two keys:
 
-- the UniProt accession number (named `uniprot` in both tables) 
+- the UniProt accession number (named `uniprot` in both tables)
 
 - and the isoform number (called `isoform` and `isoform_num` respectively)
 
 Because the isoform status was encoded using different names
 (which is, of course a source of confusion), `jdf6` and `jdf7` are
-only automatically joined based on the shared `uniprot` key. 
+only automatically joined based on the shared `uniprot` key.
 
 If the isoform status was encoded the same way in both tables, the join would
 have been automatically done on both keys!
@@ -310,16 +306,16 @@ This can be done easily using the rename function from `dplyr` package.
 ```{r}
 jdf7 %>% rename(isoform = isoform_num)
 
-inner_join(jdf6, 
-           jdf7 %>% 
-             rename(isoform = isoform_num)) 
+inner_join(jdf6,
+           jdf7 %>%
+             rename(isoform = isoform_num))
 ```
 
 
 
 ## Row and column binding
 
-There are two other important functions in R, `rbind` and `cbind`, 
+There are two other important functions in R, `rbind` and `cbind`,
 that can be used to combine two dataframes.
 
 ```{r, echo = FALSE}
@@ -338,8 +334,8 @@ cbind(d2, d3)
 ```
 
 
-- `rbind`, can be used to bind two data frames by rows, but both must have 
-the same number of columns, and the same column names! 
+- `rbind`, can be used to bind two data frames by rows, but both must have
+the same number of columns, and the same column names!
 
 ```{r}
 d1
@@ -347,7 +343,7 @@ d2
 ```
 
 
-using `rbind(d1, d2)` would produce an error because both data frames do not have the 
+using `rbind(d1, d2)` would produce an error because both data frames do not have the
 same column names (even if they have the same number of columns)
 
 If we change the names of d2, it works!
@@ -370,4 +366,3 @@ the column names!
 **Note**: `rbind` and `cbind` are base R functions. The *tidyverse*
 alternatives from the `dplyr` package are `bind_rows` and `bind_cols`
 and work similarly.
-
