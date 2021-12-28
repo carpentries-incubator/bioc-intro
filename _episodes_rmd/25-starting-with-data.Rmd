@@ -30,7 +30,7 @@ effect of upper-respiratory infection on transcriptomic changes in the
 CNS*. The goal of the study was to determine the effect of an
 upper-respiratory infection on changes in RNA transcription occuring
 in the cerebellum and spinal cord post infection. Gender matched eight
-week old C57BL/6 mice were inoculated saline or with Influenza A by
+week old C57BL/6 mice were inoculated with saline or with Influenza A by
 intranasal route and transcriptomic changes in the cerebellum and
 spinal cord tissues were evaluated by RNA-seq at days 0
 (non-infected), 4 and 8.
@@ -110,7 +110,7 @@ behaves exactly like `read.csv()` but uses different parameters for
 the decimal and the field separators. If you are working with another
 format, they can be both specified by the user. Check out the help for
 `read.csv()` by typing `?read.csv` to learn more. There is also the
-`read.delim()` for in tab separated data files. It is important to
+`read.delim()` function for reading tab separated data files. It is important to
 note that all of these functions are actually wrapper functions for
 the main `read.table()` function with different arguments.  As such,
 the data above could have also been loaded by using `read.table()`

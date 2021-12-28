@@ -93,11 +93,11 @@ ensure efficient downstream analysis.
 
 > ## Challenge: Discuss the following points with your neighbour
 >
-> - How many people have used spreadsheets, in their research, courses,
+> - Have you used spreadsheets, in your research, courses,
 >   or at home?
 > - What kind of operations do you do in spreadsheets?
 > - Which ones do you think spreadsheets are good for?
-> - How many people have accidentally done something that made them
+> - Have you accidentally done something in a spreadsheet program that made you
 >   frustrated or sad?
 {: .challenge}
 
@@ -247,19 +247,19 @@ The cardinal rules of using spreadsheet programs for data:
    (comma-separated values) format. This ensures that anyone can use
    the data, and is required by most data repositories.
 
-For instance, we have data from patient that visited several hospitals
-from Brussels, Belgium. They recorded the date the visit, the
-hospital, the patients gender, weight and blood group.
+For instance, we have data from patients that visited several hospitals
+from Brussels, Belgium. They recorded the date of the visit, the
+hospital, the patients' gender, weight and blood group.
 
 
-If they were to keep track of the data like this:
+If we were to keep track of the data like this:
 
 ![](../fig/multiple-info.png)
 
-the problem is that the ABO and rhesus groups are in the same `Blood`
+the problem is that the ABO and Rhesus groups are in the same `Blood`
 type column. So, if they wanted to look at all observations of the A
 group or look at weight distributions by ABO group, it would be tricky
-to do this using this data setup. If instead we put the ABO and rhesus
+to do this using this data setup. If instead we put the ABO and Rhesus
 groups in different columns, you can see that it would be much easier.
 
 ![](../fig/single-info.png)
@@ -281,7 +281,7 @@ used for variables** and **rows are used for observations**:
 > 3. You can see that there are two tabs. The data contains various
 >    clinical variables recorded in various hospitals in Brussels during
 >    the first and second COVID-19 waves in 2020. As you can see, the
->    data have been recorded differently during the march and november
+>    data have been recorded differently during the March and November
 >    waves. Now you're the person in charge of this project and you want
 >    to be able to start analyzing the data.
 >
@@ -437,8 +437,8 @@ writing in the number zero in that column, when it's mostly zeros?
 However, there's a difference between a zero and a blank cell in a
 spreadsheet. To the computer, a zero is actually data. You measured or
 counted it. A blank cell means that it wasn't measured and the
-computer will interpret it as an unknown value (otherwise known as a
-null value).
+computer will interpret it as an unknown value (also known as a
+null or missing value).
 
 The spreadsheets or statistical programs will likely mis-interpret
 blank cells that you intend to be zeros. By not entering the value of
@@ -618,7 +618,7 @@ are encoded, etc. that are important to document but can disrupt the
 formatting of your data file.
 
 Additionally, file or database level metadata describes how files that
-make up the dataset relate to each other; what format are they in;
+make up the dataset relate to each other; what format they are in;
 and whether they supercede or are superceded by previous files. A
 folder-level readme.txt file is the classic way of accounting for all
 the files and folders in a project.
@@ -779,7 +779,7 @@ spreadsheet[^decsep]. In this case, consider using tabs as your delimiter and
 working with TSV files. TSV files can be exported from spreadsheet
 programs in the same way as CSV files.
 
-[^decsep]: This is of course particularly relevant in European
+[^decsep]: This is particularly relevant in European
            countries where the comma is used as a decimal
            separator. In such cases, the default value separator in a
            csv file will be the semi-colon (;), or values will be
@@ -790,8 +790,8 @@ values are not included in "" but which have commas as both delimiters
 and parts of data values, you are potentially facing a major problem
 with data cleaning. If the dataset you're dealing with contains
 hundreds or thousands of records, cleaning them up manually (by either
-removing commas from the data values or putting the values into quotes
-- "") is not only going to take hours and hours but may potentially
+removing commas from the data values or putting the values into quotes - "") 
+is not only going to take hours and hours but may potentially
 end up with you accidentally introducing many errors.
 
 Cleaning up datasets is one of the major problems in many scientific
@@ -811,11 +811,11 @@ knitr::include_graphics("../fig/analysis.png")
 A typical data analysis worflow is illustrated in the figure above,
 where data is repeatedly tranformed, visualised, modelled. This
 iteration is repeated multiple times until the data is understood. In
-many real-life cases, however, most time is spend in clearning up and
+many real-life cases, however, most time is spent cleaning up and
 preparing the data, rather than actually analysing and understanding
 it.
 
-An agile data analysis workflow, with several fast iteration of the
-transform/visualise/model cycle are only feasible is the data is
-formatted in a predictable way and one can reason on the data without
+An agile data analysis workflow, with several fast iterations of the
+transform/visualise/model cycle is only feasible is the data is
+formatted in a predictable way and one can reason about the data without
 having to look at it and/or fix it.
