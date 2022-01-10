@@ -229,7 +229,7 @@ class: SummarizedExperiment
 dim: 1474 22 
 metadata(0):
 assays(1): ''
-rownames(1474): Asl Apod ... Pbx1 Rgs4
+rownames(1474): Asl Apod ... Lmx1a Pbx1
 rowData names(9): gene ENTREZID ... phenotype_description
   hsapiens_homolog_associated_gene_name
 colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
@@ -367,10 +367,10 @@ DataFrame with 6 rows and 9 columns
                gene  ENTREZID                product    ensembl_gene_id
         <character> <numeric>            <character>        <character>
 Asl             Asl    109900 argininosuccinate ly.. ENSMUSG00000025533
-Apod           Apod     11815 apolipoprotein D tra.. ENSMUSG00000022548
-Cyp2d22     Cyp2d22     56448 cytochrome P450 fami.. ENSMUSG00000061740
+Apod           Apod     11815 apolipoprotein D, tr.. ENSMUSG00000022548
+Cyp2d22     Cyp2d22     56448 cytochrome P450, fam.. ENSMUSG00000061740
 Klk6           Klk6     19144 kallikrein related-p.. ENSMUSG00000050063
-Fcrls         Fcrls     80891 Fc receptor-like S s.. ENSMUSG00000015852
+Fcrls         Fcrls     80891 Fc receptor-like S, .. ENSMUSG00000015852
 Slc2a4       Slc2a4     20528 solute carrier famil.. ENSMUSG00000018566
         external_synonym chromosome_name   gene_biotype  phenotype_description
              <character>     <character>    <character>            <character>
@@ -386,7 +386,7 @@ Asl                                       ASL
 Apod                                     APOD
 Cyp2d22                                CYP2D6
 Klk6                                     KLK6
-Fcrls                                   FCRL4
+Fcrls                                   FCRL2
 Slc2a4                                 SLC2A4
 ~~~
 {: .output}
@@ -473,10 +473,10 @@ DataFrame with 5 rows and 9 columns
                gene  ENTREZID                product    ensembl_gene_id
         <character> <numeric>            <character>        <character>
 Asl             Asl    109900 argininosuccinate ly.. ENSMUSG00000025533
-Apod           Apod     11815 apolipoprotein D tra.. ENSMUSG00000022548
-Cyp2d22     Cyp2d22     56448 cytochrome P450 fami.. ENSMUSG00000061740
+Apod           Apod     11815 apolipoprotein D, tr.. ENSMUSG00000022548
+Cyp2d22     Cyp2d22     56448 cytochrome P450, fam.. ENSMUSG00000061740
 Klk6           Klk6     19144 kallikrein related-p.. ENSMUSG00000050063
-Fcrls         Fcrls     80891 Fc receptor-like S s.. ENSMUSG00000015852
+Fcrls         Fcrls     80891 Fc receptor-like S, .. ENSMUSG00000015852
         external_synonym chromosome_name   gene_biotype  phenotype_description
              <character>     <character>    <character>            <character>
 Asl        2510006M18Rik               5 protein_coding abnormal circulating..
@@ -490,7 +490,7 @@ Asl                                       ASL
 Apod                                     APOD
 Cyp2d22                                CYP2D6
 Klk6                                     KLK6
-Fcrls                                   FCRL4
+Fcrls                                   FCRL2
 ~~~
 {: .output}
 

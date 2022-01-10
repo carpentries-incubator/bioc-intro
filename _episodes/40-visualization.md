@@ -20,6 +20,18 @@ keypoints:
 
 
 
+~~~
+Warning in file(file, "rt"): cannot open file 'data/rnaseq.csv': No such file or
+directory
+~~~
+{: .warning}
+
+
+
+~~~
+Error in file(file, "rt"): cannot open the connection
+~~~
+{: .error}
 
 ## Data Visualization
 
@@ -133,11 +145,9 @@ ggplot(data = rna, mapping = aes(x = expression)) +
 
 
 ~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Error in ggplot(data = rna, mapping = aes(x = expression)): object 'rna' not found
 ~~~
-{: .output}
-
-<img src="../fig/rmd-first-ggplot-1.png" title="plot of chunk first-ggplot" alt="plot of chunk first-ggplot" width="612" style="display: block; margin: auto;" />
+{: .error}
 
 The `+` in the **`ggplot2`** package is particularly useful because it
 allows you to modify existing `ggplot` objects. This means you can
@@ -162,9 +172,9 @@ rna_plot + geom_histogram()
 >
 > 
 > ~~~
-> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+> Error in ggplot(rna, aes(x = expression)): object 'rna' not found
 > ~~~
-> {: .output}
+> {: .error}
 >
 > Change the arguments `bins` or `binwidth` of `geom_histogram()` to
 > change the number or width of the bins.
@@ -179,7 +189,14 @@ rna_plot + geom_histogram()
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(rna, aes(x = expression)): object 'rna' not found
+> > ~~~
+> > {: .error}
+> > 
+> > 
 > > 
 > > ~~~
 > > # change binwidth
@@ -188,7 +205,12 @@ rna_plot + geom_histogram()
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-5-2.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(rna, aes(x = expression)): object 'rna' not found
+> > ~~~
+> > {: .error}
 > {: .solution}
 {: .challenge}
 
@@ -205,6 +227,13 @@ rna <- rna %>%
 ~~~
 {: .language-r}
 
+
+
+~~~
+Error in mutate(., expression_log = log2(expression + 1)): object 'rna' not found
+~~~
+{: .error}
+
 If we now draw the histogram of the log2-transformed expressions, the
 distribution is indeed closer to a normal distribution.
 
@@ -217,11 +246,9 @@ ggplot(rna, aes(x = expression_log)) + geom_histogram()
 
 
 ~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Error in ggplot(rna, aes(x = expression_log)): object 'rna' not found
 ~~~
-{: .output}
-
-<img src="../fig/rmd-second-ggplot-1.png" title="plot of chunk second-ggplot" alt="plot of chunk second-ggplot" width="612" style="display: block; margin: auto;" />
+{: .error}
 
 From now on we will work on the log-transformed expression values.
 
@@ -250,25 +277,9 @@ From now on we will work on the log-transformed expression values.
 > > 
 > > 
 > > ~~~
-> > Warning: Transformation introduced infinite values in continuous x-axis
+> > Error in ggplot(data = rna, mapping = aes(x = expression)): object 'rna' not found
 > > ~~~
-> > {: .warning}
-> > 
-> > 
-> > 
-> > ~~~
-> > `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-> > ~~~
-> > {: .output}
-> > 
-> > 
-> > 
-> > ~~~
-> > Warning: Removed 507 rows containing non-finite values (stat_bin).
-> > ~~~
-> > {: .warning}
-> > 
-> > <img src="../fig/rmd-unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+> > {: .error}
 > {: .solution}
 {: .challenge}
 
@@ -320,9 +331,9 @@ rna_fc <- rna %>% select(gene, time,
 
 
 ~~~
-`summarise()` has grouped output by 'gene', 'time'. You can override using the `.groups` argument.
+Error in select(., gene, time, gene_biotype, expression_log): object 'rna' not found
 ~~~
-{: .output}
+{: .error}
 
 We can then build a ggplot with the newly created dataset `rna_fc`. Building plots with **`ggplot2`** is typically an iterative process. We start by
 defining the dataset we'll use, lay out the axes, and choose a geom:
@@ -334,7 +345,12 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-create-ggplot-object-1.png" title="plot of chunk create-ggplot-object" alt="plot of chunk create-ggplot-object" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)): object 'rna_fc' not found
+~~~
+{: .error}
 
 Then, we start modifying this plot to extract more information from it. For
 instance, we can add transparency (`alpha`) to avoid overplotting:
@@ -346,7 +362,12 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-adding-transparency-1.png" title="plot of chunk adding-transparency" alt="plot of chunk adding-transparency" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)): object 'rna_fc' not found
+~~~
+{: .error}
 
 
 We can also add colors for all the points:
@@ -358,7 +379,12 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-adding-colors-1.png" title="plot of chunk adding-colors" alt="plot of chunk adding-colors" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)): object 'rna_fc' not found
+~~~
+{: .error}
 
 Or to color each gene in the plot differently, you could use a
 vector as an input to the argument **color**. **`ggplot2`** will
@@ -373,7 +399,12 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-color-by-gene_biotype1-1.png" title="plot of chunk color-by-gene_biotype1" alt="plot of chunk color-by-gene_biotype1" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)): object 'rna_fc' not found
+~~~
+{: .error}
 
 We can also specify the colors directly inside the mapping provided in
 the `ggplot()` function. This will be seen by any geom layers and the
@@ -387,7 +418,12 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-color-by-gene_biotype2-1.png" title="plot of chunk color-by-gene_biotype2" alt="plot of chunk color-by-gene_biotype2" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0, : object 'rna_fc' not found
+~~~
+{: .error}
 
 Finally, we could also add a diagonal line with the `geom_abline()` function:
 
@@ -400,7 +436,12 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-adding-diag-1.png" title="plot of chunk adding-diag" alt="plot of chunk adding-diag" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0, : object 'rna_fc' not found
+~~~
+{: .error}
 
 Notice that we can change the geom layer from `geom_point` to `geom_jitter` and colors will be still determined by `gene_biotype`.
 
@@ -413,7 +454,12 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-color-by-gene_biotype3-1.png" title="plot of chunk color-by-gene_biotype3" alt="plot of chunk color-by-gene_biotype3" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0, : object 'rna_fc' not found
+~~~
+{: .error}
 
 > ## Challenge
 >
@@ -467,12 +513,9 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 > > 
 > > 
 > > ~~~
-> > Warning: Computation failed in `stat_binhex()`:
-> > The `hexbin` package is required for `stat_binhex()`
+> > Error in ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)): object 'rna_fc' not found
 > > ~~~
-> > {: .warning}
-> > 
-> > <img src="../fig/rmd-unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+> > {: .error}
 > {: .solution}
 {: .challenge}
 
@@ -492,7 +535,12 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = rna, mapping = aes(y = expression_log, x = sample)): object 'rna' not found
+> > ~~~
+> > {: .error}
 > {: .solution}
 {: .challenge}
 
@@ -509,7 +557,12 @@ ggplot(data = rna,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-boxplot-1.png" title="plot of chunk boxplot" alt="plot of chunk boxplot" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = rna, mapping = aes(y = expression_log, x = sample)): object 'rna' not found
+~~~
+{: .error}
 
 By adding points to boxplot, we can have a better idea of the number of
 measurements and of their distribution:
@@ -523,7 +576,12 @@ ggplot(data = rna,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-boxplot-with-points-1.png" title="plot of chunk boxplot-with-points" alt="plot of chunk boxplot-with-points" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = rna, mapping = aes(y = expression_log, x = sample)): object 'rna' not found
+~~~
+{: .error}
 
 > ## Challenge
 > Note how the boxplot layer is in front of the jitter layer? What do you
@@ -541,7 +599,12 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-boxplot-with-points2-1.png" title="plot of chunk boxplot-with-points2" alt="plot of chunk boxplot-with-points2" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = rna, mapping = aes(y = expression_log, x = sample)): object 'rna' not found
+> > ~~~
+> > {: .error}
 > >
 > {: .solution}
 {: .challenge}
@@ -558,7 +621,12 @@ ggplot(data = rna,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-boxplot-xaxis-rotated-1.png" title="plot of chunk boxplot-xaxis-rotated" alt="plot of chunk boxplot-xaxis-rotated" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = rna, mapping = aes(y = expression_log, x = sample)): object 'rna' not found
+~~~
+{: .error}
 
 > ## Challenge
 >
@@ -581,7 +649,14 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-boxplot-color-time-1.png" title="plot of chunk boxplot-color-time" alt="plot of chunk boxplot-color-time" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = rna, mapping = aes(y = expression_log, x = sample)): object 'rna' not found
+> > ~~~
+> > {: .error}
+> > 
+> > 
 > > 
 > > ~~~
 > > # time as factor
@@ -594,7 +669,12 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-boxplot-color-time-2.png" title="plot of chunk boxplot-color-time" alt="plot of chunk boxplot-color-time" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = rna, mapping = aes(y = expression_log, x = sample)): object 'rna' not found
+> > ~~~
+> > {: .error}
 > {: .solution}
 {: .challenge}
 
@@ -617,7 +697,12 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = rna, mapping = aes(y = expression_log, x = sample)): object 'rna' not found
+> > ~~~
+> > {: .error}
 > {: .solution}
 {: .challenge}
 
@@ -634,7 +719,12 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = rna, mapping = aes(y = expression_log, x = sample)): object 'rna' not found
+> > ~~~
+> > {: .error}
 > {: .solution}
 {: .challenge}
 
@@ -646,12 +736,48 @@ First, we need to select the genes and create a subset of `rna` called `sub_rna`
 
 ~~~
 rna_fc <- rna_fc %>% arrange(desc(time_8_vs_0))
+~~~
+{: .language-r}
 
+
+
+~~~
+Error in arrange(., desc(time_8_vs_0)): object 'rna_fc' not found
+~~~
+{: .error}
+
+
+
+~~~
 genes_selected <- rna_fc$gene[1:10]
+~~~
+{: .language-r}
 
+
+
+~~~
+Error in eval(expr, envir, enclos): object 'rna_fc' not found
+~~~
+{: .error}
+
+
+
+~~~
 sub_rna <- rna %>%
     filter(gene %in% genes_selected)
+~~~
+{: .language-r}
 
+
+
+~~~
+Error in filter(., gene %in% genes_selected): object 'rna' not found
+~~~
+{: .error}
+
+
+
+~~~
 mean_exp_by_time <- sub_rna %>%
   group_by(gene,time) %>%
   summarize(mean_exp = mean(expression_log))
@@ -661,9 +787,9 @@ mean_exp_by_time <- sub_rna %>%
 
 
 ~~~
-`summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.
+Error in group_by(., gene, time): object 'sub_rna' not found
 ~~~
-{: .output}
+{: .error}
 
 We can build the line plot with duration of the infection on the x-axis and the mean expression on the y-axis:
 
@@ -674,7 +800,12 @@ ggplot(data = mean_exp_by_time, mapping = aes(x = time, y = mean_exp)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-first-time-series-1.png" title="plot of chunk first-time-series" alt="plot of chunk first-time-series" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time, mapping = aes(x = time, y = mean_exp)): object 'mean_exp_by_time' not found
+~~~
+{: .error}
 
 Unfortunately, this does not work because we plotted data for all the genes
 together. We need to tell ggplot to draw a line for each gene by modifying
@@ -688,7 +819,12 @@ ggplot(data = mean_exp_by_time,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-time-series-by-gene-1.png" title="plot of chunk time-series-by-gene" alt="plot of chunk time-series-by-gene" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time' not found
+~~~
+{: .error}
 
 We will be able to distinguish genes in the plot if we add colors
 (using `color` also automatically groups the data):
@@ -701,7 +837,12 @@ ggplot(data = mean_exp_by_time,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-time-series-with-colors-1.png" title="plot of chunk time-series-with-colors" alt="plot of chunk time-series-with-colors" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time' not found
+~~~
+{: .error}
 
 ## Faceting
 
@@ -720,7 +861,12 @@ ggplot(data = mean_exp_by_time,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-first-facet-1.png" title="plot of chunk first-facet" alt="plot of chunk first-facet" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time, mapping = aes(x = time, y = mean_exp)): object 'mean_exp_by_time' not found
+~~~
+{: .error}
 Here both x- and y-axis have the same scale for all the sub plots. You can change this default behavior by modifying `scales` in order to allow a free scale for the y-axis:
 
 
@@ -732,7 +878,12 @@ ggplot(data = mean_exp_by_time,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-first-facet-scales-1.png" title="plot of chunk first-facet-scales" alt="plot of chunk first-facet-scales" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time, mapping = aes(x = time, y = mean_exp)): object 'mean_exp_by_time' not found
+~~~
+{: .error}
 
 
 Now we would like to split the line in each plot by the sex of the mice. To do that we need to calculate the mean expression in the data frame grouped by `gene`, `time`, and `sex`:
@@ -748,9 +899,9 @@ mean_exp_by_time_sex <- sub_rna %>%
 
 
 ~~~
-`summarise()` has grouped output by 'gene', 'time'. You can override using the `.groups` argument.
+Error in group_by(., gene, time, sex): object 'sub_rna' not found
 ~~~
-{: .output}
+{: .error}
 
 We can now make the faceted plot by splitting further by sex using `color` (within a single plot):
 
@@ -763,7 +914,12 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-facet-by-gene-and-sex-1.png" title="plot of chunk facet-by-gene-and-sex" alt="plot of chunk facet-by-gene-and-sex" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+~~~
+{: .error}
 
 Usually plots with white background look more readable when printed.  We can set
 the background to white using the function `theme_bw()`. Additionally, we can remove
@@ -780,7 +936,12 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-facet-by-gene-and-sex-white-bg-1.png" title="plot of chunk facet-by-gene-and-sex-white-bg" alt="plot of chunk facet-by-gene-and-sex-white-bg" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+~~~
+{: .error}
 
 
 > ## Challenge
@@ -801,9 +962,9 @@ ggplot(data = mean_exp_by_time_sex,
 > > 
 > > 
 > > ~~~
-> > `summarise()` has grouped output by 'chromosome_name'. You can override using the `.groups` argument.
+> > Error in group_by(., chromosome_name, time): object 'rna' not found
 > > ~~~
-> > {: .output}
+> > {: .error}
 > > 
 > > 
 > > 
@@ -815,7 +976,12 @@ ggplot(data = mean_exp_by_time_sex,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-mean-exp-chromosome-time-series-1.png" title="plot of chunk mean-exp-chromosome-time-series" alt="plot of chunk mean-exp-chromosome-time-series" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = mean_exp_by_chromosome, mapping = aes(x = time, : object 'mean_exp_by_chromosome' not found
+> > ~~~
+> > {: .error}
 > {: .solution}
 {: .challenge}
 
@@ -839,7 +1005,12 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean-exp-time-facet-sex-rows-1.png" title="plot of chunk mean-exp-time-facet-sex-rows" alt="plot of chunk mean-exp-time-facet-sex-rows" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+~~~
+{: .error}
 
 
 ~~~
@@ -851,7 +1022,12 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean-exp-time-facet-sex-columns-1.png" title="plot of chunk mean-exp-time-facet-sex-columns" alt="plot of chunk mean-exp-time-facet-sex-columns" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+~~~
+{: .error}
 
 ## **`ggplot2`** themes
 
@@ -896,7 +1072,12 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean_exp-time-with-right-labels-1.png" title="plot of chunk mean_exp-time-with-right-labels" alt="plot of chunk mean_exp-time-with-right-labels" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+~~~
+{: .error}
 
 The axes have more informative names, but their readability can be improved by
 increasing the font size:
@@ -916,7 +1097,12 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean_exp-time-with-right-labels-xfont-size-1.png" title="plot of chunk mean_exp-time-with-right-labels-xfont-size" alt="plot of chunk mean_exp-time-with-right-labels-xfont-size" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+~~~
+{: .error}
 
 Note that it is also possible to change the fonts of your plots. If you are on
 Windows, you may have to install
@@ -944,7 +1130,12 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean_exp-time-with-theme-1.png" title="plot of chunk mean_exp-time-with-theme" alt="plot of chunk mean_exp-time-with-theme" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+~~~
+{: .error}
 
 If you like the changes you created better than the default theme, you can save them as
 an object to be able to easily apply them to other plots you may create. Here is an example with the histogram we have previously created.
@@ -965,7 +1156,12 @@ ggplot(rna, aes(x = expression_log)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean_exp-time-with-right-labels-xfont-1.png" title="plot of chunk mean_exp-time-with-right-labels-xfont" alt="plot of chunk mean_exp-time-with-right-labels-xfont" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(rna, aes(x = expression_log)): object 'rna' not found
+~~~
+{: .error}
 
 > ## Challenge
 >
@@ -995,7 +1191,12 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+> > ~~~
+> > {: .error}
 > >
 > >
 > > We can customize it the following ways:
@@ -1011,7 +1212,14 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+> > ~~~
+> > {: .error}
+> > 
+> > 
 > > 
 > > ~~~
 > > # change the name of the legend and the labels
@@ -1025,7 +1233,14 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-2.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+> > ~~~
+> > {: .error}
+> > 
+> > 
 > > 
 > > ~~~
 > > # using a different color palette
@@ -1039,7 +1254,14 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-3.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+> > ~~~
+> > {: .error}
+> > 
+> > 
 > > 
 > > ~~~
 > > # manually specifying the colors
@@ -1054,7 +1276,12 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-4.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > 
+> > 
+> > ~~~
+> > Error in ggplot(data = mean_exp_by_time_sex, mapping = aes(x = time, y = mean_exp, : object 'mean_exp_by_time_sex' not found
+> > ~~~
+> > {: .error}
 > {: .solution}
 {: .challenge}
 
@@ -1075,19 +1302,48 @@ The first graph counts the number of unique genes per chromosome. We first need 
 ~~~
 rna$chromosome_name <- factor(rna$chromosome_name,
                                levels = c(1:19,"X","Y"))
+~~~
+{: .language-r}
 
+
+
+~~~
+Error in factor(rna$chromosome_name, levels = c(1:19, "X", "Y")): object 'rna' not found
+~~~
+{: .error}
+
+
+
+~~~
 count_gene_chromosome <- rna %>% select(chromosome_name, gene) %>%
   distinct() %>% ggplot() +
   geom_bar(aes(x = chromosome_name), fill = "seagreen",
            position = "dodge", stat = "count") +
   labs(y = "log10(n genes)", x = "chromosome") +
   scale_y_log10()
+~~~
+{: .language-r}
 
+
+
+~~~
+Error in select(., chromosome_name, gene): object 'rna' not found
+~~~
+{: .error}
+
+
+
+~~~
 count_gene_chromosome
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-sub1-1.png" title="plot of chunk sub1" alt="plot of chunk sub1" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in eval(expr, envir, enclos): object 'count_gene_chromosome' not found
+~~~
+{: .error}
 
 Below, we also remove the legend altogether by setting the `legend.position` to `"none"`.
 
@@ -1098,12 +1354,29 @@ exp_boxplot_sex <- ggplot(rna, aes(y=expression_log, x = as.factor(time),
    geom_boxplot(alpha = 0) +
   labs(y = "Mean gene exp",
        x = "time") + theme(legend.position = "none")
+~~~
+{: .language-r}
 
+
+
+~~~
+Error in ggplot(rna, aes(y = expression_log, x = as.factor(time), color = sex)): object 'rna' not found
+~~~
+{: .error}
+
+
+
+~~~
 exp_boxplot_sex
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-sub2-1.png" title="plot of chunk sub2" alt="plot of chunk sub2" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in eval(expr, envir, enclos): object 'exp_boxplot_sex' not found
+~~~
+{: .error}
 
 
 The [**patchwork**](https://github.com/thomasp85/patchwork) package
@@ -1125,7 +1398,14 @@ count_gene_chromosome + exp_boxplot_sex
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in eval(expr, envir, enclos): object 'count_gene_chromosome' not found
+~~~
+{: .error}
+
+
 
 ~~~
 ## or count_gene_chromosome | exp_boxplot_sex
@@ -1138,7 +1418,12 @@ count_gene_chromosome / exp_boxplot_sex
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in eval(expr, envir, enclos): object 'count_gene_chromosome' not found
+~~~
+{: .error}
 
 We can combine further control the layout of the final composition
 with `plot_layout` to create more complex layouts:
@@ -1149,7 +1434,12 @@ count_gene_chromosome + exp_boxplot_sex + plot_layout(ncol = 1)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in eval(expr, envir, enclos): object 'count_gene_chromosome' not found
+~~~
+{: .error}
 
 
 ~~~
@@ -1160,7 +1450,12 @@ count_gene_chromosome +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in eval(expr, envir, enclos): object 'count_gene_chromosome' not found
+~~~
+{: .error}
 
 The last plot can also be created using the `|` and `/` composers:
 
@@ -1172,7 +1467,12 @@ count_gene_chromosome /
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in eval(expr, envir, enclos): object 'count_gene_chromosome' not found
+~~~
+{: .error}
 
 Learn more about `patchwork` on its
 [webpage](https://patchwork.data-imaginist.com/) or in this
@@ -1194,7 +1494,12 @@ grid.arrange(count_gene_chromosome, exp_boxplot_sex, ncol = 2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-gridarrange-example-1.png" title="plot of chunk gridarrange-example" alt="plot of chunk gridarrange-example" width="720" style="display: block; margin: auto;" />
+
+
+~~~
+Error in arrangeGrob(...): object 'count_gene_chromosome' not found
+~~~
+{: .error}
 
 In addition to the `ncol` and `nrow` arguments, used to make simple
 arrangements, there are tools for [constructing more complex

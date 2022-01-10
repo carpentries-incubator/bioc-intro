@@ -122,13 +122,13 @@ head(rna)
 4 Cerebellum    14    19144
 5 Cerebellum    14    80891
 6 Cerebellum    14    20528
-                                                                   product
-1                            argininosuccinate lyase transcript variant X1
-2                                    apolipoprotein D transcript variant 3
-3 cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2
-4                      kallikrein related-peptidase 6 transcript variant 2
-5              Fc receptor-like S scavenger receptor transcript variant X1
-6       solute carrier family 2 (facilitated glucose transporter) member 4
+                                                                       product
+1                               argininosuccinate lyase, transcript variant X1
+2                                       apolipoprotein D, transcript variant 3
+3 cytochrome P450, family 2, subfamily d, polypeptide 22, transcript variant 2
+4                         kallikrein related-peptidase 6, transcript variant 2
+5                Fc receptor-like S, scavenger receptor, transcript variant X1
+6          solute carrier family 2 (facilitated glucose transporter), member 4
      ensembl_gene_id external_synonym chromosome_name   gene_biotype
 1 ENSMUSG00000025533    2510006M18Rik               5 protein_coding
 2 ENSMUSG00000022548             <NA>              16 protein_coding
@@ -148,7 +148,7 @@ head(rna)
 2                                  APOD
 3                                CYP2D6
 4                                  KLK6
-5                                 FCRL4
+5                                 FCRL2
 6                                SLC2A4
 ~~~
 {: .output}
@@ -184,13 +184,6 @@ rna <- read.table(file = "data/rnaseq.csv",
                   header = TRUE)
 ~~~
 {: .language-r}
-
-
-
-~~~
-Error in scan(file = file, what = what, sep = sep, quote = quote, dec = dec, : line 104 did not have 19 elements
-~~~
-{: .error}
 
 The header argument has to be set to TRUE to be able to read the
 headers as by default `read.table()` has the header argument set to
@@ -240,7 +233,7 @@ str(rna)
  $ tissue                               : chr  "Cerebellum" "Cerebellum" "Cerebellum" "Cerebellum" ...
  $ mouse                                : int  14 14 14 14 14 14 14 14 14 14 ...
  $ ENTREZID                             : int  109900 11815 56448 19144 80891 20528 97827 118454 18823 14696 ...
- $ product                              : chr  "argininosuccinate lyase transcript variant X1" "apolipoprotein D transcript variant 3" "cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2" "kallikrein related-peptidase 6 transcript variant 2" ...
+ $ product                              : chr  "argininosuccinate lyase, transcript variant X1" "apolipoprotein D, transcript variant 3" "cytochrome P450, family 2, subfamily d, polypeptide 22, transcript variant 2" "kallikrein related-peptidase 6, transcript variant 2" ...
  $ ensembl_gene_id                      : chr  "ENSMUSG00000025533" "ENSMUSG00000022548" "ENSMUSG00000061740" "ENSMUSG00000050063" ...
  $ external_synonym                     : chr  "2510006M18Rik" NA "2D22" "Bssp" ...
  $ chromosome_name                      : chr  "5" "16" "15" "7" ...

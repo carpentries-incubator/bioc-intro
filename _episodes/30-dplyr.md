@@ -277,20 +277,20 @@ select(rna_NA, gene, hsapiens_homolog_associated_gene_name)
 
 
 ~~~
-# A tibble: 4,774 × 2
+# A tibble: 4,290 × 2
    gene     hsapiens_homolog_associated_gene_name
    <chr>    <chr>                                
  1 Prodh    <NA>                                 
- 2 Icosl    <NA>                                 
- 3 Tssk5    <NA>                                 
- 4 Vmn2r1   <NA>                                 
- 5 Gm10654  <NA>                                 
- 6 Hexa     <NA>                                 
- 7 Sult1a1  <NA>                                 
- 8 Gm6277   <NA>                                 
- 9 Amt      <NA>                                 
-10 Tmem198b <NA>                                 
-# … with 4,764 more rows
+ 2 Tssk5    <NA>                                 
+ 3 Vmn2r1   <NA>                                 
+ 4 Gm10654  <NA>                                 
+ 5 Hexa     <NA>                                 
+ 6 Sult1a1  <NA>                                 
+ 7 Gm6277   <NA>                                 
+ 8 Tmem198b <NA>                                 
+ 9 Adam1a   <NA>                                 
+10 Ebp      <NA>                                 
+# … with 4,280 more rows
 ~~~
 {: .output}
 
@@ -308,20 +308,20 @@ select(rna_no_NA, gene, hsapiens_homolog_associated_gene_name)
 
 
 ~~~
-# A tibble: 27,654 × 2
+# A tibble: 28,138 × 2
    gene    hsapiens_homolog_associated_gene_name
    <chr>   <chr>                                
  1 Asl     ASL                                  
  2 Apod    APOD                                 
  3 Cyp2d22 CYP2D6                               
  4 Klk6    KLK6                                 
- 5 Fcrls   FCRL4                                
+ 5 Fcrls   FCRL2                                
  6 Slc2a4  SLC2A4                               
  7 Exd2    EXD2                                 
  8 Gjc2    GJC2                                 
  9 Plp1    PLP1                                 
 10 Gnb4    GNB4                                 
-# … with 27,644 more rows
+# … with 28,128 more rows
 ~~~
 {: .output}
 
@@ -621,7 +621,7 @@ rna %>%
 > > 
 > > 
 > > ~~~
-> > # A tibble: 20,592 × 5
+> > # A tibble: 21,054 × 5
 > >    gene    chromosome_name phenotype_description          sample  log_expression
 > >    <chr>   <chr>           <chr>                          <chr>            <dbl>
 > >  1 Asl     5               abnormal circulating amino ac… GSM254…           7.06
@@ -631,10 +631,10 @@ rna %>%
 > >  5 Fcrls   3               decreased CD8-positive alpha-… GSM254…           4.44
 > >  6 Slc2a4  11              abnormal circulating glucose … GSM254…           6.66
 > >  7 Gjc2    11              Purkinje cell degeneration     GSM254…           5.66
-> >  8 Gnb4    3               abnormal behavior              GSM254…           6.98
+> >  8 Gnb4    3               decreased anxiety-related res… GSM254…           6.98
 > >  9 Tnc     4               abnormal CNS synaptic transmi… GSM254…           5.39
-> > 10 Trf     9               abnormal embryo size           GSM254…           9.18
-> > # … with 20,582 more rows
+> > 10 Trf     9               abnormal circulating phosphat… GSM254…           9.18
+> > # … with 21,044 more rows
 > > ~~~
 > > {: .output}
 > >
@@ -778,16 +778,16 @@ rna %>%
 # A tibble: 22 × 2
    sample     mean_expression
    <chr>                <dbl>
- 1 GSM2545336           2064.
+ 1 GSM2545336           2062.
  2 GSM2545337           1766.
  3 GSM2545338           1668.
- 4 GSM2545339           1697.
+ 4 GSM2545339           1696.
  5 GSM2545340           1682.
  6 GSM2545341           1638.
- 7 GSM2545342           1595.
- 8 GSM2545343           2108.
- 9 GSM2545344           1714.
-10 GSM2545345           1701.
+ 7 GSM2545342           1594.
+ 8 GSM2545343           2107.
+ 9 GSM2545344           1712.
+10 GSM2545345           1700.
 # … with 12 more rows
 ~~~
 {: .output}
@@ -1127,16 +1127,16 @@ rna %>%
 > > # A tibble: 22 × 2
 > >    sample     seq_depth
 > >    <chr>          <dbl>
-> >  1 GSM2545350   3257043
-> >  2 GSM2545352   3218773
-> >  3 GSM2545343   3107171
-> >  4 GSM2545336   3042972
-> >  5 GSM2545380   3039279
-> >  6 GSM2545353   2955334
-> >  7 GSM2545362   2915742
-> >  8 GSM2545348   2915189
-> >  9 GSM2545351   2784988
-> > 10 GSM2545349   2760409
+> >  1 GSM2545350   3255566
+> >  2 GSM2545352   3216163
+> >  3 GSM2545343   3105652
+> >  4 GSM2545336   3039671
+> >  5 GSM2545380   3036098
+> >  6 GSM2545353   2953249
+> >  7 GSM2545348   2913678
+> >  8 GSM2545362   2913517
+> >  9 GSM2545351   2782464
+> > 10 GSM2545349   2758006
 > > # … with 12 more rows
 > > ~~~
 > > {: .output}
