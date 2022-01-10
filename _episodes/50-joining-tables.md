@@ -50,8 +50,89 @@ The data we are going to use are available in the following package.
 
 
 ~~~
-# install.packages(c("BiocManager", "remotes"))
-# BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
+BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
+~~~
+{: .language-r}
+
+
+
+~~~
+'getOption("repos")' replaces Bioconductor standard repositories, see
+'?repositories' for details
+
+replacement repositories:
+    CRAN: https://cloud.r-project.org
+~~~
+{: .output}
+
+
+
+~~~
+Bioconductor version 3.14 (BiocManager 1.30.16), R 4.1.2 (2021-11-01)
+~~~
+{: .output}
+
+
+
+~~~
+Installing package(s) 'BiocVersion'
+~~~
+{: .output}
+
+
+
+~~~
+Installing github package(s) 'UCLouvain-CBIO/rWSBIM1207'
+~~~
+{: .output}
+
+
+
+~~~
+Using github PAT from envvar GITHUB_PAT
+~~~
+{: .output}
+
+
+
+~~~
+Downloading GitHub repo UCLouvain-CBIO/rWSBIM1207@HEAD
+~~~
+{: .output}
+
+
+
+
+~~~
+Running `R CMD build`...
+~~~
+{: .output}
+
+
+
+~~~
+* checking for file ‘/tmp/Rtmpq9mJep/remotes29495d90e2ef/UCLouvain-CBIO-rWSBIM1207-fd5bc8e/DESCRIPTION’ ... OK
+* preparing ‘rWSBIM1207’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+* building ‘rWSBIM1207_0.1.15.tar.gz’
+~~~
+{: .output}
+
+
+
+~~~
+Installation paths not writeable, unable to update packages
+  path: /opt/R/4.1.2/lib/R/library
+  packages:
+    Matrix
+~~~
+{: .output}
+
+
+
+~~~
 library("rWSBIM1207")
 ~~~
 {: .language-r}
@@ -59,9 +140,10 @@ library("rWSBIM1207")
 
 
 ~~~
-Error in library("rWSBIM1207"): there is no package called 'rWSBIM1207'
+
+This is 'rWSBIM1207' version 0.1.15 
 ~~~
-{: .error}
+{: .output}
 
 
 
@@ -69,13 +151,6 @@ Error in library("rWSBIM1207"): there is no package called 'rWSBIM1207'
 data(jdf)
 ~~~
 {: .language-r}
-
-
-
-~~~
-Warning in data(jdf): data set 'jdf' not found
-~~~
-{: .warning}
 
 The data is composed of several tables.
 
@@ -95,9 +170,22 @@ jdf1
 
 
 ~~~
-Error in eval(expr, envir, enclos): object 'jdf1' not found
+# A tibble: 25 × 3
+   uniprot  organelle                             entry      
+   <chr>    <chr>                                 <chr>      
+ 1 P26039   Actin cytoskeleton                    TLN1_MOUSE 
+ 2 Q99PL5   Endoplasmic reticulum/Golgi apparatus RRBP1_MOUSE
+ 3 Q6PB66   Mitochondrion                         LPPRC_MOUSE
+ 4 P11276   Extracellular matrix                  FINC_MOUSE 
+ 5 Q6PR54   Nucleus - Chromatin                   RIF1_MOUSE 
+ 6 Q05793   Extracellular matrix                  PGBM_MOUSE 
+ 7 P19096   Cytosol                               FAS_MOUSE  
+ 8 Q9JKF1   Plasma membrane                       IQGA1_MOUSE
+ 9 Q9QZQ1-2 Plasma membrane                       AFAD_MOUSE 
+10 Q6NS46   Nucleus - Non-chromatin               RRP5_MOUSE 
+# … with 15 more rows
 ~~~
-{: .error}
+{: .output}
 
 The second table, `jdf2`, contains the name of the gene that codes for the
 protein (`gene_name` variable), a description of the gene
@@ -114,9 +202,22 @@ jdf2
 
 
 ~~~
-Error in eval(expr, envir, enclos): object 'jdf2' not found
+# A tibble: 25 × 4
+   gene_name description                                      uniprot organism
+   <chr>     <chr>                                            <chr>   <chr>   
+ 1 Iqgap1    Ras GTPase-activating-like protein IQGAP1        Q9JKF1  Mmus    
+ 2 Hspa5     78 kDa glucose-regulated protein                 P20029  Mmus    
+ 3 Pdcd11    Protein RRP5 homolog                             Q6NS46  Mmus    
+ 4 Tfrc      Transferrin receptor protein 1                   Q62351  Mmus    
+ 5 Hspd1     60 kDa heat shock protein, mitochondrial         P63038  Mmus    
+ 6 Tln1      Talin-1                                          P26039  Mmus    
+ 7 Smc1a     Structural maintenance of chromosomes protein 1A Q9CU62  Mmus    
+ 8 Lamc1     Laminin subunit gamma-1                          P02468  Mmus    
+ 9 Hsp90b1   Endoplasmin                                      P08113  Mmus    
+10 Mia3      Melanoma inhibitory activity protein 3           Q8BI84  Mmus    
+# … with 15 more rows
 ~~~
-{: .error}
+{: .output}
 
 We now want to join these two tables into a single one containing all
 variables.
@@ -169,9 +270,29 @@ full_join(jdf1, jdf2)
 
 
 ~~~
-Error in full_join(jdf1, jdf2): object 'jdf1' not found
+Joining, by = "uniprot"
 ~~~
-{: .error}
+{: .output}
+
+
+
+~~~
+# A tibble: 25 × 6
+   uniprot  organelle        entry   gene_name description              organism
+   <chr>    <chr>            <chr>   <chr>     <chr>                    <chr>   
+ 1 P26039   Actin cytoskele… TLN1_M… Tln1      Talin-1                  Mmus    
+ 2 Q99PL5   Endoplasmic ret… RRBP1_… Rrbp1     Ribosome-binding protei… Mmus    
+ 3 Q6PB66   Mitochondrion    LPPRC_… Lrpprc    Leucine-rich PPR motif-… Mmus    
+ 4 P11276   Extracellular m… FINC_M… Fn1       Fibronectin              Mmus    
+ 5 Q6PR54   Nucleus - Chrom… RIF1_M… Rif1      Telomere-associated pro… Mmus    
+ 6 Q05793   Extracellular m… PGBM_M… Hspg2     Basement membrane-speci… Mmus    
+ 7 P19096   Cytosol          FAS_MO… Fasn      Fatty acid synthase      Mmus    
+ 8 Q9JKF1   Plasma membrane  IQGA1_… Iqgap1    Ras GTPase-activating-l… Mmus    
+ 9 Q9QZQ1-2 Plasma membrane  AFAD_M… Mllt4     Isoform 1 of Afadin      Mmus    
+10 Q6NS46   Nucleus - Non-c… RRP5_M… Pdcd11    Protein RRP5 homolog     Mmus    
+# … with 15 more rows
+~~~
+{: .output}
 
 In these examples, each observation of the `jdf1` and `jdf2`
 tables are uniquely identified by their UniProt accession number. Such
@@ -190,9 +311,22 @@ jdf3
 
 
 ~~~
-Error in eval(expr, envir, enclos): object 'jdf3' not found
+# A tibble: 25 × 4
+   gene_name description                                      UniProt organism
+   <chr>     <chr>                                            <chr>   <chr>   
+ 1 Iqgap1    Ras GTPase-activating-like protein IQGAP1        Q9JKF1  Mmus    
+ 2 Hspa5     78 kDa glucose-regulated protein                 P20029  Mmus    
+ 3 Pdcd11    Protein RRP5 homolog                             Q6NS46  Mmus    
+ 4 Tfrc      Transferrin receptor protein 1                   Q62351  Mmus    
+ 5 Hspd1     60 kDa heat shock protein, mitochondrial         P63038  Mmus    
+ 6 Tln1      Talin-1                                          P26039  Mmus    
+ 7 Smc1a     Structural maintenance of chromosomes protein 1A Q9CU62  Mmus    
+ 8 Lamc1     Laminin subunit gamma-1                          P02468  Mmus    
+ 9 Hsp90b1   Endoplasmin                                      P08113  Mmus    
+10 Mia3      Melanoma inhibitory activity protein 3           Q8BI84  Mmus    
+# … with 15 more rows
 ~~~
-{: .error}
+{: .output}
 
 In case none of the variable names match, we can set manually the variables to
 use for the matching. These variables can be set using the `by` argument,
@@ -209,9 +343,9 @@ names(jdf3)
 
 
 ~~~
-Error in eval(expr, envir, enclos): object 'jdf3' not found
+[1] "gene_name"   "description" "UniProt"     "organism"   
 ~~~
-{: .error}
+{: .output}
 
 
 
@@ -223,9 +357,22 @@ full_join(jdf1, jdf3, by = c("uniprot" = "UniProt"))
 
 
 ~~~
-Error in full_join(jdf1, jdf3, by = c(uniprot = "UniProt")): object 'jdf1' not found
+# A tibble: 25 × 6
+   uniprot  organelle        entry   gene_name description              organism
+   <chr>    <chr>            <chr>   <chr>     <chr>                    <chr>   
+ 1 P26039   Actin cytoskele… TLN1_M… Tln1      Talin-1                  Mmus    
+ 2 Q99PL5   Endoplasmic ret… RRBP1_… Rrbp1     Ribosome-binding protei… Mmus    
+ 3 Q6PB66   Mitochondrion    LPPRC_… Lrpprc    Leucine-rich PPR motif-… Mmus    
+ 4 P11276   Extracellular m… FINC_M… Fn1       Fibronectin              Mmus    
+ 5 Q6PR54   Nucleus - Chrom… RIF1_M… Rif1      Telomere-associated pro… Mmus    
+ 6 Q05793   Extracellular m… PGBM_M… Hspg2     Basement membrane-speci… Mmus    
+ 7 P19096   Cytosol          FAS_MO… Fasn      Fatty acid synthase      Mmus    
+ 8 Q9JKF1   Plasma membrane  IQGA1_… Iqgap1    Ras GTPase-activating-l… Mmus    
+ 9 Q9QZQ1-2 Plasma membrane  AFAD_M… Mllt4     Isoform 1 of Afadin      Mmus    
+10 Q6NS46   Nucleus - Non-c… RRP5_M… Pdcd11    Protein RRP5 homolog     Mmus    
+# … with 15 more rows
 ~~~
-{: .error}
+{: .output}
 
 As can be seen above, the variable name of the first table is retained
 in the joined one.
@@ -245,9 +392,32 @@ in the joined one.
 > > 
 > > 
 > > ~~~
-> > Error in full_join(jdf4, jdf5): object 'jdf4' not found
+> > Joining, by = "uniprot"
 > > ~~~
-> > {: .error}
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
+> > # A tibble: 14 × 6
+> >    uniprot  organelle        entry  gene_name description               organism
+> >    <chr>    <chr>            <chr>  <chr>     <chr>                     <chr>   
+> >  1 P26039   Actin cytoskele… TLN1_… <NA>      <NA>                      <NA>    
+> >  2 Q99PL5   Endoplasmic ret… RRBP1… <NA>      <NA>                      <NA>    
+> >  3 Q6PB66   Mitochondrion    LPPRC… <NA>      <NA>                      <NA>    
+> >  4 P11276   Extracellular m… FINC_… <NA>      <NA>                      <NA>    
+> >  5 Q6PR54   Nucleus - Chrom… RIF1_… <NA>      <NA>                      <NA>    
+> >  6 Q05793   Extracellular m… PGBM_… <NA>      <NA>                      <NA>    
+> >  7 P19096   Cytosol          FAS_M… Fasn      Fatty acid synthase       Mmus    
+> >  8 Q9JKF1   Plasma membrane  IQGA1… <NA>      <NA>                      <NA>    
+> >  9 Q9QZQ1-2 Plasma membrane  AFAD_… <NA>      <NA>                      <NA>    
+> > 10 Q6NS46   Nucleus - Non-c… RRP5_… <NA>      <NA>                      <NA>    
+> > 11 P02468   <NA>             <NA>   Lamc1     Laminin subunit gamma-1   Mmus    
+> > 12 P08113   <NA>             <NA>   Hsp90b1   Endoplasmin               Mmus    
+> > 13 Q8BI84   <NA>             <NA>   Mia3      Melanoma inhibitory acti… Mmus    
+> > 14 Q6P5D8   <NA>             <NA>   Smchd1    Structural maintenance o… Mmus    
+> > ~~~
+> > {: .output}
 > >
 > > `P26039` and `P02468` are only present in `jdf4` and `jdf5`
 > > respectively, and their respective values for the variables of the
@@ -298,9 +468,28 @@ Error in knitr::include_graphics("./figs/join-outer.png"): Cannot find the file(
 > > 
 > > 
 > > ~~~
-> > Error in left_join(jdf4, jdf5): object 'jdf4' not found
+> > Joining, by = "uniprot"
 > > ~~~
-> > {: .error}
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
+> > # A tibble: 10 × 6
+> >    uniprot  organelle                entry    gene_name description     organism
+> >    <chr>    <chr>                    <chr>    <chr>     <chr>           <chr>   
+> >  1 P26039   Actin cytoskeleton       TLN1_MO… <NA>      <NA>            <NA>    
+> >  2 Q99PL5   Endoplasmic reticulum/G… RRBP1_M… <NA>      <NA>            <NA>    
+> >  3 Q6PB66   Mitochondrion            LPPRC_M… <NA>      <NA>            <NA>    
+> >  4 P11276   Extracellular matrix     FINC_MO… <NA>      <NA>            <NA>    
+> >  5 Q6PR54   Nucleus - Chromatin      RIF1_MO… <NA>      <NA>            <NA>    
+> >  6 Q05793   Extracellular matrix     PGBM_MO… <NA>      <NA>            <NA>    
+> >  7 P19096   Cytosol                  FAS_MOU… Fasn      Fatty acid syn… Mmus    
+> >  8 Q9JKF1   Plasma membrane          IQGA1_M… <NA>      <NA>            <NA>    
+> >  9 Q9QZQ1-2 Plasma membrane          AFAD_MO… <NA>      <NA>            <NA>    
+> > 10 Q6NS46   Nucleus - Non-chromatin  RRP5_MO… <NA>      <NA>            <NA>    
+> > ~~~
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
@@ -317,9 +506,23 @@ Error in knitr::include_graphics("./figs/join-outer.png"): Cannot find the file(
 > > 
 > > 
 > > ~~~
-> > Error in right_join(jdf4, jdf5): object 'jdf4' not found
+> > Joining, by = "uniprot"
 > > ~~~
-> > {: .error}
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
+> > # A tibble: 5 × 6
+> >   uniprot organelle entry     gene_name description                     organism
+> >   <chr>   <chr>     <chr>     <chr>     <chr>                           <chr>   
+> > 1 P19096  Cytosol   FAS_MOUSE Fasn      Fatty acid synthase             Mmus    
+> > 2 P02468  <NA>      <NA>      Lamc1     Laminin subunit gamma-1         Mmus    
+> > 3 P08113  <NA>      <NA>      Hsp90b1   Endoplasmin                     Mmus    
+> > 4 Q8BI84  <NA>      <NA>      Mia3      Melanoma inhibitory activity p… Mmus    
+> > 5 Q6P5D8  <NA>      <NA>      Smchd1    Structural maintenance of chro… Mmus    
+> > ~~~
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
@@ -336,9 +539,19 @@ Error in knitr::include_graphics("./figs/join-outer.png"): Cannot find the file(
 > > 
 > > 
 > > ~~~
-> > Error in inner_join(jdf4, jdf5): object 'jdf4' not found
+> > Joining, by = "uniprot"
 > > ~~~
-> > {: .error}
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
+> > # A tibble: 1 × 6
+> >   uniprot organelle entry     gene_name description         organism
+> >   <chr>   <chr>     <chr>     <chr>     <chr>               <chr>   
+> > 1 P19096  Cytosol   FAS_MOUSE Fasn      Fatty acid synthase Mmus    
+> > ~~~
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
@@ -359,9 +572,16 @@ jdf6
 
 
 ~~~
-Error in eval(expr, envir, enclos): object 'jdf6' not found
+# A tibble: 5 × 4
+  uniprot organelle             entry       isoform
+  <chr>   <chr>                 <chr>         <dbl>
+1 P26039  Actin cytoskeleton    TLN1_MOUSE        1
+2 Q99PL5  Endoplasmic reticulum RRBP1_MOUSE       1
+3 Q99PL5  Golgi apparatus       RRBP1_MOUSE       2
+4 Q6PB66  Mitochondrion         LPPRC_MOUSE       1
+5 P11276  Extracellular matrix  FINC_MOUSE        1
 ~~~
-{: .error}
+{: .output}
 
 If we now want to join `jdf6` and `jdf2`, the variables of the latter
 will be duplicated.
@@ -375,9 +595,23 @@ inner_join(jdf6, jdf2)
 
 
 ~~~
-Error in inner_join(jdf6, jdf2): object 'jdf6' not found
+Joining, by = "uniprot"
 ~~~
-{: .error}
+{: .output}
+
+
+
+~~~
+# A tibble: 5 × 7
+  uniprot organelle             entry  isoform gene_name description    organism
+  <chr>   <chr>                 <chr>    <dbl> <chr>     <chr>          <chr>   
+1 P26039  Actin cytoskeleton    TLN1_…       1 Tln1      Talin-1        Mmus    
+2 Q99PL5  Endoplasmic reticulum RRBP1…       1 Rrbp1     Ribosome-bind… Mmus    
+3 Q99PL5  Golgi apparatus       RRBP1…       2 Rrbp1     Ribosome-bind… Mmus    
+4 Q6PB66  Mitochondrion         LPPRC…       1 Lrpprc    Leucine-rich … Mmus    
+5 P11276  Extracellular matrix  FINC_…       1 Fn1       Fibronectin    Mmus    
+~~~
+{: .output}
 
 In the case above, repeating is useful, as it completes `jdf6` with
 correct information from `jdf2`.
@@ -394,9 +628,16 @@ jdf7
 
 
 ~~~
-Error in eval(expr, envir, enclos): object 'jdf7' not found
+# A tibble: 5 × 6
+  gene_name description                     uniprot organism isoform_num measure
+  <chr>     <chr>                           <chr>   <chr>          <dbl>   <dbl>
+1 Rrbp1     Ribosome-binding protein 1      Q99PL5  Mmus               1     102
+2 Rrbp1     Ribosome-binding protein 1      Q99PL5  Mmus               2       3
+3 Iqgap1    Ras GTPase-activating-like pro… Q9JKF1  Mmus               1      13
+4 Hspa5     78 kDa glucose-regulated prote… P20029  Mmus               1      54
+5 Pdcd11    Protein RRP5 homolog            Q6NS46  Mmus               1      28
 ~~~
-{: .error}
+{: .output}
 
 
 Let's we create an inner join between `jdf6` and `jdf7` (both having duplicated `Q99PL5` entries)
@@ -410,9 +651,23 @@ inner_join(jdf6, jdf7)
 
 
 ~~~
-Error in inner_join(jdf6, jdf7): object 'jdf6' not found
+Joining, by = "uniprot"
 ~~~
-{: .error}
+{: .output}
+
+
+
+~~~
+# A tibble: 4 × 9
+  uniprot organelle   entry  isoform gene_name description  organism isoform_num
+  <chr>   <chr>       <chr>    <dbl> <chr>     <chr>        <chr>          <dbl>
+1 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               1
+2 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               2
+3 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               1
+4 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               2
+# … with 1 more variable: measure <dbl>
+~~~
+{: .output}
 
 > ## Challenge
 > Interpret the result of the inner join above, where both tables have duplicated keys.
@@ -442,9 +697,23 @@ Error in inner_join(jdf6, jdf7): object 'jdf6' not found
 > > 
 > > 
 > > ~~~
-> > Error in inner_join(jdf6, jdf7): object 'jdf6' not found
+> > Joining, by = "uniprot"
 > > ~~~
-> > {: .error}
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
+> > # A tibble: 4 × 9
+> >   uniprot organelle   entry  isoform gene_name description  organism isoform_num
+> >   <chr>   <chr>       <chr>    <dbl> <chr>     <chr>        <chr>          <dbl>
+> > 1 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               1
+> > 2 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               2
+> > 3 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               1
+> > 4 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               2
+> > # … with 1 more variable: measure <dbl>
+> > ~~~
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
@@ -469,9 +738,16 @@ jdf6
 
 
 ~~~
-Error in eval(expr, envir, enclos): object 'jdf6' not found
+# A tibble: 5 × 4
+  uniprot organelle             entry       isoform
+  <chr>   <chr>                 <chr>         <dbl>
+1 P26039  Actin cytoskeleton    TLN1_MOUSE        1
+2 Q99PL5  Endoplasmic reticulum RRBP1_MOUSE       1
+3 Q99PL5  Golgi apparatus       RRBP1_MOUSE       2
+4 Q6PB66  Mitochondrion         LPPRC_MOUSE       1
+5 P11276  Extracellular matrix  FINC_MOUSE        1
 ~~~
-{: .error}
+{: .output}
 
 
 ~~~
@@ -482,9 +758,16 @@ jdf7
 
 
 ~~~
-Error in eval(expr, envir, enclos): object 'jdf7' not found
+# A tibble: 5 × 6
+  gene_name description                     uniprot organism isoform_num measure
+  <chr>     <chr>                           <chr>   <chr>          <dbl>   <dbl>
+1 Rrbp1     Ribosome-binding protein 1      Q99PL5  Mmus               1     102
+2 Rrbp1     Ribosome-binding protein 1      Q99PL5  Mmus               2       3
+3 Iqgap1    Ras GTPase-activating-like pro… Q9JKF1  Mmus               1      13
+4 Hspa5     78 kDa glucose-regulated prote… P20029  Mmus               1      54
+5 Pdcd11    Protein RRP5 homolog            Q6NS46  Mmus               1      28
 ~~~
-{: .error}
+{: .output}
 
 
 To uniquely identify isoforms, we should consider two keys:
@@ -514,9 +797,13 @@ inner_join(jdf6, jdf7, by = c("uniprot" = "uniprot", "isoform" = "isoform_num"))
 
 
 ~~~
-Error in inner_join(jdf6, jdf7, by = c(uniprot = "uniprot", isoform = "isoform_num")): object 'jdf6' not found
+# A tibble: 2 × 8
+  uniprot organelle    entry   isoform gene_name description    organism measure
+  <chr>   <chr>        <chr>     <dbl> <chr>     <chr>          <chr>      <dbl>
+1 Q99PL5  Endoplasmic… RRBP1_…       1 Rrbp1     Ribosome-bind… Mmus         102
+2 Q99PL5  Golgi appar… RRBP1_…       2 Rrbp1     Ribosome-bind… Mmus           3
 ~~~
-{: .error}
+{: .output}
 
 We now see that isoform 1 localised to the ER and has a measured value
 of 102, while isoform 2, that localised to the GA, has a measured
@@ -538,9 +825,16 @@ jdf7 %>% rename(isoform = isoform_num)
 
 
 ~~~
-Error in rename(., isoform = isoform_num): object 'jdf7' not found
+# A tibble: 5 × 6
+  gene_name description                         uniprot organism isoform measure
+  <chr>     <chr>                               <chr>   <chr>      <dbl>   <dbl>
+1 Rrbp1     Ribosome-binding protein 1          Q99PL5  Mmus           1     102
+2 Rrbp1     Ribosome-binding protein 1          Q99PL5  Mmus           2       3
+3 Iqgap1    Ras GTPase-activating-like protein… Q9JKF1  Mmus           1      13
+4 Hspa5     78 kDa glucose-regulated protein    P20029  Mmus           1      54
+5 Pdcd11    Protein RRP5 homolog                Q6NS46  Mmus           1      28
 ~~~
-{: .error}
+{: .output}
 
 
 
@@ -554,9 +848,20 @@ inner_join(jdf6,
 
 
 ~~~
-Error in inner_join(jdf6, jdf7 %>% rename(isoform = isoform_num)): object 'jdf6' not found
+Joining, by = c("uniprot", "isoform")
 ~~~
-{: .error}
+{: .output}
+
+
+
+~~~
+# A tibble: 2 × 8
+  uniprot organelle    entry   isoform gene_name description    organism measure
+  <chr>   <chr>        <chr>     <dbl> <chr>     <chr>          <chr>      <dbl>
+1 Q99PL5  Endoplasmic… RRBP1_…       1 Rrbp1     Ribosome-bind… Mmus         102
+2 Q99PL5  Golgi appar… RRBP1_…       2 Rrbp1     Ribosome-bind… Mmus           3
+~~~
+{: .output}
 
 
 

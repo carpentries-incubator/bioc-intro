@@ -69,9 +69,8 @@ folder named `"data"`.
 
 
 ~~~
-if (!file.exists("data/rnaseq.csv"))
-    download.file(url = "https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv",
-                  destfile = "data/rnaseq.csv")
+download.file(url = "https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv",
+              destfile = "data/rnaseq.csv")
 ~~~
 {: .language-r}
 
