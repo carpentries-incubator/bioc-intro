@@ -49,8 +49,8 @@ different tables that have one or more shared columns.
 The data we are going to use are available in the following package.
 
 
-```{r jdrinstall, echo = FALSE}
-if (!require("rWSBIM1207"))
+```{r jdrinstall, echo = FALSE, message = FALSE, warning = FALSE}
+if (!require("rWSBIM1207", quietly = TRUE))
     BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
 ```
 
