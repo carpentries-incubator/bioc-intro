@@ -24,7 +24,7 @@ keypoints:
 ## Data Manipulation using **`dplyr`** and **`tidyr`**
 
 Bracket subsetting is handy, but it can be cumbersome and difficult to
-read, especially for complicated operations. 
+read, especially for complicated operations.
 
 Some packages can greatly facilitate our task when we manipulate data.
 Packages in R are basically sets of additional functions that let you
@@ -32,15 +32,15 @@ do more stuff. The functions we've been using so far, like `str()` or
 `data.frame()`, come built into R; Loading packages can give you access to other
 specific functions. Before you use a package for the first time you need to install
 it on your machine, and then you should import it in every subsequent
-R session when you need it. 
+R session when you need it.
 
-- The package **`dplyr`** provides powerful tools for data manipulation tasks. 
+- The package **`dplyr`** provides powerful tools for data manipulation tasks.
 It is built to work directly with data frames, with many manipulation tasks
 optimized.
 
-- As we will see latter on, sometimes we want a data frame to be reshaped to be able 
+- As we will see latter on, sometimes we want a data frame to be reshaped to be able
 to do some specific analyses or for visualization. The package **`tidyr`** addresses
-this common problem of reshaping data and provides tools for manipulating 
+this common problem of reshaping data and provides tools for manipulating
 data in a tidy way.
 
 To learn more about **`dplyr`** and **`tidyr`** after the workshop,
@@ -53,8 +53,8 @@ and this [one about
 - The **`tidyverse`** package is an "umbrella-package" that installs
 several useful packages for data analysis which work well together,
 such as **`tidyr`**, **`dplyr`**, **`ggplot2`**, **`tibble`**, etc.
-These packages help us to work and interact with the data. 
-They allow us to do many things with your data, such as subsetting, transforming, 
+These packages help us to work and interact with the data.
+They allow us to do many things with your data, such as subsetting, transforming,
 visualizing, etc.
 
 To install and load the **`tidyverse`** package type:
@@ -111,19 +111,19 @@ rna
 ~~~
 {: .output}
 
-Notice that the class of the data is now referred to as a "tibble". 
+Notice that the class of the data is now referred to as a "tibble".
 
-Tibbles tweak some of the behaviors of the data frame objects we introduced in the 
-previously. The data structure is very similar to a data frame. For our purposes 
+Tibbles tweak some of the behaviors of the data frame objects we introduced in the
+previously. The data structure is very similar to a data frame. For our purposes
 the only differences are that:
 
 1. It displays the data type of each column under its name.
-Note that <`dbl`> is a data type defined to hold numeric values with 
-decimal points. 
+Note that <`dbl`> is a data type defined to hold numeric values with
+decimal points.
 
-2. It only prints the first few rows of data and only as many columns as fit on 
-one screen. 
-   
+2. It only prints the first few rows of data and only as many columns as fit on
+one screen.
+
 We are now going to learn some of the most common **`dplyr`** functions:
 
 - `select()`: subset columns
@@ -261,10 +261,10 @@ filter(rna, sex == "Male" & infection == "NonInfected")
 ~~~
 {: .output}
 
-Now let's imagine we are interested in the human homologs of the mouse 
-genes analysed in this dataset. This information can be found in the 
+Now let's imagine we are interested in the human homologs of the mouse
+genes analysed in this dataset. This information can be found in the
 last column of the `rna` tibble, named `hsapiens_homolog_associated_gene_name`.
-Some mouse gene have no human homologs. These can be retrieved using a `filter()` 
+Some mouse gene have no human homologs. These can be retrieved using a `filter()`
 in the chain, and the `is.na()` function that determines whether something is an `NA`.
 
 
@@ -295,7 +295,7 @@ select(rna_NA, gene, hsapiens_homolog_associated_gene_name)
 {: .output}
 
 If we want to keep only mouse gene that have a human homolog, we can insert a "!"
-symbol that negates the result, so we're asking for every row where 
+symbol that negates the result, so we're asking for every row where
 hsapiens_homolog_associated_gene_name *is not* an `NA`.
 
 
@@ -361,7 +361,7 @@ rna3
 ~~~
 {: .output}
 
-This is readable, but can clutter up your workspace with lots of intermediate objects 
+This is readable, but can clutter up your workspace with lots of intermediate objects
 that you have to name individually. With multiple steps, that can be hard to keep track of.
 
 You can also nest functions (i.e. one function inside of another), like this:
@@ -398,25 +398,25 @@ R evaluates the expression from the inside out (in this case, filtering, then se
 
 The last option, *pipes*, are a recent addition to R. Pipes let you take
 the output of one function and send it directly to the next, which is useful
-when you need to do many things to the same dataset.  
+when you need to do many things to the same dataset.
 
-Pipes in R look like `%>%` and are made available via the **`magrittr`** package, 
+Pipes in R look like `%>%` and are made available via the **`magrittr`** package,
 installed automatically with **`dplyr`**. If you use RStudio, you can type the pipe with <kbd>Ctrl</kbd>
 + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a PC or <kbd>Cmd</kbd> +
 <kbd>Shift</kbd> + <kbd>M</kbd> if you have a Mac.
 
 In the above code, we use the pipe to send the `rna` dataset first through
 `filter()` to keep rows where `sex` is Male, then through `select()`
-to keep only the `gene`, `sample`, `tissue`, and `expression`columns. 
+to keep only the `gene`, `sample`, `tissue`, and `expression`columns.
 
-The pipe `%>%` takes the object on its left and passes it directly as the first 
-argument to the function on its right, we don't need to explicitly include the data frame 
+The pipe `%>%` takes the object on its left and passes it directly as the first
+argument to the function on its right, we don't need to explicitly include the data frame
 as an argument to the `filter()` and `select()` functions any more.
 
 
 ~~~
-rna %>% 
-  filter(sex == "Male") %>% 
+rna %>%
+  filter(sex == "Male") %>%
   select(gene, sample, tissue, expression)
 ~~~
 {: .language-r}
@@ -444,10 +444,10 @@ rna %>%
 
 Some may find it helpful to read the pipe like the word "then". For instance,
 in the above example, we took the data frame `rna`, *then* we `filter`ed
-for rows with `sex == "Male"`, *then* we `select`ed columns `gene`, `sample`, 
-`tissue`, and `expression`. 
+for rows with `sex == "Male"`, *then* we `select`ed columns `gene`, `sample`,
+`tissue`, and `expression`.
 
-The **`dplyr`** functions by themselves are somewhat 
+The **`dplyr`** functions by themselves are somewhat
 simple, but by combining them into linear workflows with the pipe, we can accomplish
 more complex manipulations of data frames.
 
@@ -456,8 +456,8 @@ can assign it a new name:
 
 
 ~~~
-rna3 <- rna %>% 
-  filter(sex == "Male") %>% 
+rna3 <- rna %>%
+  filter(sex == "Male") %>%
   select(gene, sample, tissue, expression)
 
 rna3
@@ -486,18 +486,18 @@ rna3
 
 
 > ## Challenge:
-> 
-> Using pipes, subset the `rna` data to keep genes with an expression higher 
-> than 50000 in female mice at time 0, and retain only the columns `gene`, 
+>
+> Using pipes, subset the `rna` data to keep genes with an expression higher
+> than 50000 in female mice at time 0, and retain only the columns `gene`,
 > `sample`, `time`, `expression` and `age`
-> 
+>
 > > ## Solution
-> > 
+> >
 > > 
 > > ~~~
 > > rna %>%
-> >   filter(expression > 50000, 
-> >          sex == "Female", 
+> >   filter(expression > 50000,
+> >          sex == "Female",
 > >          time == 0 ) %>%
 > >   select(gene, sample, time, expression, age)
 > > ~~~
@@ -520,7 +520,8 @@ rna3
 > > 9 Atp1b1 GSM2545353     0      61451     8
 > > ~~~
 > > {: .output}
-> > {: .solution}
+> >
+> {: .solution}
 {: .challenge}
 
 
@@ -534,9 +535,9 @@ To create a new column of time in hours:
 
 
 ~~~
-rna %>%  
-  mutate(time_hours = time * 24) %>% 
-  select(time, time_hours) 
+rna %>%
+  mutate(time_hours = time * 24) %>%
+  select(time, time_hours)
 ~~~
 {: .language-r}
 
@@ -564,10 +565,10 @@ You can also create a second new column based on the first new column within the
 
 
 ~~~
-rna %>%  
-  mutate(time_hours = time * 24, 
-         time_mn = time_hours * 60) %>% 
-  select(time, time_hours, time_mn) 
+rna %>%
+  mutate(time_hours = time * 24,
+         time_mn = time_hours * 60) %>%
+  select(time, time_hours, time_mn)
 ~~~
 {: .language-r}
 
@@ -595,24 +596,24 @@ rna %>%
 
 
 > ## Challenge
-> 
-> Create a new data frame from the `rna` data that meets the following criteria: 
-> contains only the `gene`, `chromosome_name`, `phenotype_description`, `sample`, 
+>
+> Create a new data frame from the `rna` data that meets the following criteria:
+> contains only the `gene`, `chromosome_name`, `phenotype_description`, `sample`,
 > and `expression` columns and a new column giving the log expression the gene.
 > This data frame must only contain genes located on autosomes and associated with a phenotype_description.
-> 
+>
 > **Hint**: think about how the commands should be ordered to produce
 > this data frame!
-> 
-> 
+>
+>
 > > ## Solution
-> > 
+> >
 > > 
 > > ~~~
-> > rna %>% 
+> > rna %>%
 > >   filter(chromosome_name != "X", chromosome_name != "Y") %>%
-> >   mutate(log_expression = log(expression)) %>% 
-> >   select(gene, chromosome_name, phenotype_description, sample, log_expression) %>% 
+> >   mutate(log_expression = log(expression)) %>%
+> >   select(gene, chromosome_name, phenotype_description, sample, log_expression) %>%
 > >   filter(!is.na(phenotype_description))
 > > ~~~
 > > {: .language-r}
@@ -636,7 +637,8 @@ rna %>%
 > > # … with 20,582 more rows
 > > ~~~
 > > {: .output}
-> > {: .solution}
+> >
+> {: .solution}
 {: .challenge}
 
 ## Split-apply-combine data analysis
@@ -829,7 +831,7 @@ rna %>%
 {: .output}
 
 Once the data is grouped, you can also summarize multiple variables at the same
-time (and not necessarily on the same variable). For instance, we could add a 
+time (and not necessarily on the same variable). For instance, we could add a
 column indicating the median `expression` by gene and by condition:
 
 
@@ -837,7 +839,7 @@ column indicating the median `expression` by gene and by condition:
 rna %>%
   group_by(gene, infection, time) %>%
   summarize(mean_expression = mean(expression),
-            median_expression = median(expression)) 
+            median_expression = median(expression))
 ~~~
 {: .language-r}
 
@@ -870,17 +872,17 @@ rna %>%
 {: .output}
 
 > ## Challenge
-> 
+>
 > Calculate the mean expression level of gene "Dok3" by timepoints.
-> 
+>
 > > ## Solution
-> > 
+> >
 > > 
 > > ~~~
-> > rna %>% 
-> >   filter(gene == "Dok3") %>% 
-> >   group_by(time) %>% 
-> >   summarize(mean = mean(expression)) 
+> > rna %>%
+> >   filter(gene == "Dok3") %>%
+> >   group_by(time) %>%
+> >   summarize(mean = mean(expression))
 > > ~~~
 > > {: .language-r}
 > > 
@@ -895,7 +897,8 @@ rna %>%
 > > 3     8   61 
 > > ~~~
 > > {: .output}
-> > {: .solution}
+> >
+> {: .solution}
 {: .challenge}
 
 ### Counting
@@ -928,7 +931,7 @@ The `count()` function is shorthand for something we've already seen: grouping b
 
 ~~~
 rna %>%
-    group_by(infection) %>% 
+    group_by(infection) %>%
     summarise(n = n())
 ~~~
 {: .language-r}
@@ -974,7 +977,7 @@ which is equivalent to this:
 
 ~~~
 rna %>%
-  group_by(infection, time) %>% 
+  group_by(infection, time) %>%
   summarize(n = n())
 ~~~
 {: .language-r}
@@ -999,7 +1002,7 @@ rna %>%
 ~~~
 {: .output}
 
-It is sometimes useful to sort the result to facilitate the comparisons. 
+It is sometimes useful to sort the result to facilitate the comparisons.
 We can use `arrange()` to sort the table.
 For instance, we might want to arrange the table above by time:
 
@@ -1071,19 +1074,19 @@ rna %>%
 
 
 > ## Challenge
-> 
-> 1. How many genes were analysed in each sample? 
-> 2. Use `group_by()` and `summarize()` to evaluate the sequencing depth (the sum of all counts) in each sample. Which sample has the highest sequencing depth? 
-> 3. Pick one sample and evaluate the number of genes by biotype 
+>
+> 1. How many genes were analysed in each sample?
+> 2. Use `group_by()` and `summarize()` to evaluate the sequencing depth (the sum of all counts) in each sample. Which sample has the highest sequencing depth?
+> 3. Pick one sample and evaluate the number of genes by biotype
 > 4. Identify genes associated with "abnormal DNA methylation" phenotype description, and calculate their mean expression (in log) at time 0, time 4 and time 8.
-> 
+>
 > > ## Solution
 > >
 > > 
 > > ~~~
 > > ## 1.
 > > rna %>%
-> >   count(sample) 
+> >   count(sample)
 > > ~~~
 > > {: .language-r}
 > > 
@@ -1112,8 +1115,8 @@ rna %>%
 > > ~~~
 > > ## 2.
 > > rna %>%
-> >   group_by(sample) %>% 
-> >   summarize(seq_depth = sum(expression)) %>% 
+> >   group_by(sample) %>%
+> >   summarize(seq_depth = sum(expression)) %>%
 > >   arrange(desc(seq_depth))
 > > ~~~
 > > {: .language-r}
@@ -1141,11 +1144,11 @@ rna %>%
 > > 
 > > 
 > > ~~~
-> > ## 3. 
+> > ## 3.
 > > rna %>%
-> >   filter(sample == "GSM2545336") %>% 
-> >   group_by(gene_biotype) %>% 
-> >   count(gene_biotype) %>% 
+> >   filter(sample == "GSM2545336") %>%
+> >   group_by(gene_biotype) %>%
+> >   count(gene_biotype) %>%
 > >   arrange(desc(n))
 > > ~~~
 > > {: .language-r}
@@ -1178,9 +1181,9 @@ rna %>%
 > > ~~~
 > > ## 4.
 > > rna %>%
-> >   filter(phenotype_description == "abnormal DNA methylation") %>% 
-> >   group_by(gene, time) %>% 
-> >   summarize(mean_expression = mean(log(expression))) %>% 
+> >   filter(phenotype_description == "abnormal DNA methylation") %>%
+> >   group_by(gene, time) %>%
+> >   summarize(mean_expression = mean(log(expression))) %>%
 > >   arrange()
 > > ~~~
 > > {: .language-r}
@@ -1207,7 +1210,8 @@ rna %>%
 > > 6 Zdbf2     8            6.19
 > > ~~~
 > > {: .output}
-> > {: .solution}
+> >
+> {: .solution}
 {: .challenge}
 
 
@@ -1220,11 +1224,11 @@ All the other columns correspond to variables describing either
 the sample (organism, age, sex,...) or the gene (gene_biotype, ENTREZ_ID, product...).
 The variables that don’t change with genes or with samples will have the same value in all the rows.
 
-   
+
 
 ~~~
 rna %>%
-  arrange(gene) 
+  arrange(gene)
 ~~~
 {: .language-r}
 
@@ -1261,9 +1265,9 @@ a `wide-format` is preferred, as a more compact way of representing the data.
 This is typically the case with gene expression values that scientists are used to
 look as matrices, were rows represent genes and columns represent samples.
 
-In this format, it would become therefore straightforward 
+In this format, it would become therefore straightforward
 to explore the relationship between the gene expression levels within, and
-between, the samples. 
+between, the samples.
 
 
 ~~~
@@ -1289,8 +1293,8 @@ between, the samples.
 {: .output}
 
 To convert the gene expression values from `rna` into a wide-format,
-we need to create a new table where the values of the `sample` column would 
-become the names of column variables. 
+we need to create a new table where the values of the `sample` column would
+become the names of column variables.
 
 The key point here is that we are still following
 a tidy data structure, but we have **reshaped** the data according to
@@ -1307,12 +1311,12 @@ details).
 
 ### Pivoting the data into a wider format
 
-Let's first select the 3 first columns of `rna` and use `pivot_wider()` 
+Let's first select the 3 first columns of `rna` and use `pivot_wider()`
 to transform data in a wide-format.
 
 
 ~~~
-rna_exp <- rna %>% 
+rna_exp <- rna %>%
   select(gene, sample, expression)
 rna_exp
 ~~~
@@ -1350,7 +1354,7 @@ rna_exp
 
 
 ~~~
-rna_wide <- rna_exp %>% 
+rna_wide <- rna_exp %>%
   pivot_wider(names_from = sample,
               values_from = expression)
 rna_wide
@@ -1384,7 +1388,7 @@ rna_wide
 
 Note that by default, the `pivot_wider()` function will add `NA` for missing values.
 
-Let's imagine that for some reason, we had some missing expression values for some 
+Let's imagine that for some reason, we had some missing expression values for some
 genes in certain samples. In the following fictive example, the gene Cyp2d22 has only
 one expression value, in GSM2545338 sample.
 
@@ -1417,7 +1421,7 @@ By default, the `pivot_wider()` function will add `NA` for missing values.
 
 
 ~~~
-rna_with_missing_values %>% 
+rna_with_missing_values %>%
   pivot_wider(names_from = sample,
               values_from = expression)
 ~~~
@@ -1452,15 +1456,15 @@ associated with the column names.
    current values;
 4. the names of the columns to be used to populate the `names_to` and
    `values_to` variables (or to drop).
-   
-![](./figs/pivot_longer.png)   
+
+![](./figs/pivot_longer.png)
 
 To recreate `rna_long` from `rna_long` we would create a key
 called `sample` and value called `expression` and use all columns
 except `gene` for the key variable. Here we drop `gene` column
 with a minus sign.
 
-Notice how the new variable names are to be quoted here. 
+Notice how the new variable names are to be quoted here.
 
 
 ~~~
@@ -1561,8 +1565,8 @@ rna_wide %>%
 
 
 
-Note that if we had missing values in the wide-format, the `NA` would be 
-included in the new long format. 
+Note that if we had missing values in the wide-format, the `NA` would be
+included in the new long format.
 
 Remember our previous fictive tibble containing missing values:
 
@@ -1591,7 +1595,7 @@ rna_with_missing_values
 
 
 ~~~
-wide_with_NA <- rna_with_missing_values %>% 
+wide_with_NA <- rna_with_missing_values %>%
   pivot_wider(names_from = sample,
               values_from = expression)
 wide_with_NA
@@ -1638,30 +1642,30 @@ wide_with_NA %>%
 ~~~
 {: .output}
 
-Pivoting to wider and longer formats can be a useful way to balance out a dataset 
+Pivoting to wider and longer formats can be a useful way to balance out a dataset
 so every replicate has the same composition.
 
 
 
 > ## Question
-> 
-> Subset genes located on X and Y chromosomes from the `rna` data frame and 
+>
+> Subset genes located on X and Y chromosomes from the `rna` data frame and
 > spread the data frame with `sex` as columns, `chromosome_name` as
 > rows, and the mean expression of genes located in each chromosome as the values,
-> as in the following tibble: 
-> 
-> ![](./figs/Exercise_pivot_W.png)   
-> 
+> as in the following tibble:
+>
+> ![](./figs/Exercise_pivot_W.png)
+>
 > You will need to summarize before reshaping!
-> 
-> Let's first calculate the mean expression level of X and Y linked genes from 
+>
+> Let's first calculate the mean expression level of X and Y linked genes from
 > male and female samples...
-> 
+>
 > 
 > ~~~
->  rna %>% 
->   filter(chromosome_name == "Y" | chromosome_name == "X") %>% 
->   group_by(sex, chromosome_name) %>% 
+>  rna %>%
+>   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
+>   group_by(sex, chromosome_name) %>%
 >   summarize(mean = mean(expression))
 > ~~~
 > {: .language-r}
@@ -1686,15 +1690,15 @@ so every replicate has the same composition.
 > 4 Male   Y               2117.
 > ~~~
 > {: .output}
-> 
+>
 > And pivot the table to wide format
-> 
+>
 > 
 > ~~~
-> rna_1 <- rna %>% 
->   filter(chromosome_name == "Y" | chromosome_name == "X") %>% 
->   group_by(sex, chromosome_name) %>% 
->   summarize(mean = mean(expression)) %>% 
+> rna_1 <- rna %>%
+>   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
+>   group_by(sex, chromosome_name) %>%
+>   summarize(mean = mean(expression)) %>%
 >   pivot_wider(names_from = sex,
 >               values_from = mean)
 > ~~~
@@ -1724,15 +1728,15 @@ so every replicate has the same composition.
 > 2 Y                   3  2117.
 > ~~~
 > {: .output}
-> 
+>
 > Now take that data frame and transform it with `pivot_longer()` so
 > each row is a unique `chromosome_name` by `gender` combination.
-> 
+>
 > > ## Solution
-> > 
+> >
 > > 
 > > ~~~
-> > rna_1 %>% 
+> > rna_1 %>%
 > >   pivot_longer(names_to = "gender",
 > >                values_to = "mean",
 > >                - chromosome_name)
@@ -1751,23 +1755,24 @@ so every replicate has the same composition.
 > > 4 Y               Male   2117.
 > > ~~~
 > > {: .output}
-> > {: .solution}
+> >
+> {: .solution}
 {: .challenge}
 
 
 > ## Question
-> 
+>
 > Use the `rna` dataset to create an expression matrix were each row represents
-> the mean expression levels of genes and columns represent the different timepoints. 
-> 
+> the mean expression levels of genes and columns represent the different timepoints.
+>
 > > # Solution
-> > 
-> > Let's first calculate the mean expression by gene and by time 
+> >
+> > Let's first calculate the mean expression by gene and by time
 > > 
 > > ~~~
-> > rna %>% 
-> >   group_by(gene, time) %>% 
-> >   summarize(mean_exp = mean(expression)) 
+> > rna %>%
+> >   group_by(gene, time) %>%
+> >   summarize(mean_exp = mean(expression))
 > > ~~~
 > > {: .language-r}
 > > 
@@ -1798,14 +1803,14 @@ so every replicate has the same composition.
 > > # … with 4,412 more rows
 > > ~~~
 > > {: .output}
-> > 
+> >
 > > before using the pivot_wider() function
-> > 
+> >
 > > 
 > > ~~~
-> > rna_time <- rna %>% 
-> >   group_by(gene, time) %>% 
-> >   summarize(mean_exp = mean(expression)) %>% 
+> > rna_time <- rna %>%
+> >   group_by(gene, time) %>%
+> >   summarize(mean_exp = mean(expression)) %>%
 > >   pivot_wider(names_from = time,
 > >               values_from = mean_exp)
 > > ~~~
@@ -1845,18 +1850,18 @@ so every replicate has the same composition.
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
-> > 
+> >
 > > Notice that this generates a tibble with some column names starting by a number.
 > > If we wanted to select the column corresponding to the timepoints,
 > > we could not use the column names directly... What happens when we select the colum 4?
-> > 
+> >
 > > 
 > > ~~~
-> > rna %>% 
-> >   group_by(gene, time) %>% 
-> >   summarize(mean_exp = mean(expression)) %>% 
+> > rna %>%
+> >   group_by(gene, time) %>%
+> >   summarize(mean_exp = mean(expression)) %>%
 > >   pivot_wider(names_from = time,
-> >               values_from = mean_exp) %>% 
+> >               values_from = mean_exp) %>%
 > >   select(gene, 4)
 > > ~~~
 > > {: .language-r}
@@ -1888,16 +1893,16 @@ so every replicate has the same composition.
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
-> > 
+> >
 > > To select the timepoint 4, we would have to quote the column name, with backticks "`"
-> > 
+> >
 > > 
 > > ~~~
-> > rna %>% 
-> >   group_by(gene, time) %>% 
-> >   summarize(mean_exp = mean(expression)) %>% 
+> > rna %>%
+> >   group_by(gene, time) %>%
+> >   summarize(mean_exp = mean(expression)) %>%
 > >   pivot_wider(names_from = time,
-> >               values_from = mean_exp) %>% 
+> >               values_from = mean_exp) %>%
 > >   select(gene, `4`)
 > > ~~~
 > > {: .language-r}
@@ -1929,18 +1934,18 @@ so every replicate has the same composition.
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
-> > 
-> > Another possibility would be to rename the column, 
+> >
+> > Another possibility would be to rename the column,
 > > choosing a name that doesn't start by a number :
-> > 
+> >
 > > 
 > > ~~~
-> > rna %>% 
-> >   group_by(gene, time) %>% 
-> >   summarize(mean_exp = mean(expression)) %>% 
+> > rna %>%
+> >   group_by(gene, time) %>%
+> >   summarize(mean_exp = mean(expression)) %>%
 > >   pivot_wider(names_from = time,
-> >               values_from = mean_exp) %>% 
-> >   rename("time0" = `0`, "time4" = `4`, "time8" = `8`) %>% 
+> >               values_from = mean_exp) %>%
+> >   rename("time0" = `0`, "time4" = `4`, "time8" = `8`) %>%
 > >   select(gene, time4)
 > > ~~~
 > > {: .language-r}
@@ -1972,21 +1977,22 @@ so every replicate has the same composition.
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
-> > {: .solution}
+> >
+> {: .solution}
 {: .challenge}
 
 
 
 
 > ## Question
-> 
-> Use the previous data frame containing mean expression levels per timepoint and create 
-> a new column containing fold-changes between timepoint 8 and timepoint 0, and fold-changes 
+>
+> Use the previous data frame containing mean expression levels per timepoint and create
+> a new column containing fold-changes between timepoint 8 and timepoint 0, and fold-changes
 > between timepoint 8 and timepoint 4.
 > Convert this table in a long-format table gathering the foldchanges calculated.
-> 
+>
 > > ## Solution
-> > 
+> >
 > > starting from the rna_time tibble:
 > > 
 > > ~~~
@@ -2014,13 +2020,13 @@ so every replicate has the same composition.
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
-> > 
+> >
 > > Calculate FoldChanges:
-> > 
+> >
 > > 
 > > ~~~
-> > rna_time %>% 
-> >   mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`) 
+> > rna_time %>%
+> >   mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`)
 > > ~~~
 > > {: .language-r}
 > > 
@@ -2044,13 +2050,13 @@ so every replicate has the same composition.
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
-> > 
+> >
 > > And use the pivot_longer() function:
-> > 
+> >
 > > 
 > > ~~~
-> > rna_time %>% 
-> >   mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`) %>% 
+> > rna_time %>%
+> >   mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`) %>%
 > >   pivot_longer(names_to = "comparisons",
 > >                values_to = "Fold_changes",
 > >                time_8_vs_0:time_8_vs_4)
@@ -2077,7 +2083,8 @@ so every replicate has the same composition.
 > > # … with 2,938 more rows
 > > ~~~
 > > {: .output}
-> > {: .solution}
+> >
+> {: .solution}
 {: .challenge}
 
 
@@ -2094,10 +2101,10 @@ Similar to the `read_csv()` function used for reading CSV files into R, there is
 a `write_csv()` function that generates CSV files from data frames.
 
 Before using `write_csv()`, we are going to create a new folder, `data_output`,
-in our working directory that will store this generated dataset. We don't want 
-to write generated datasets in the same directory as our raw data. 
-It's good practice to keep them separate. The `data` folder should only contain 
-the raw, unaltered data, and should be left alone to make sure we don't delete 
+in our working directory that will store this generated dataset. We don't want
+to write generated datasets in the same directory as our raw data.
+It's good practice to keep them separate. The `data` folder should only contain
+the raw, unaltered data, and should be left alone to make sure we don't delete
 or modify it. In contrast, our script will generate the contents of the `data_output`
 directory, so even if the files it contains are deleted, we can always
 re-generate them.

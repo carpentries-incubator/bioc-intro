@@ -70,7 +70,7 @@ folder named `"data"`.
 
 ~~~
 if (!file.exists("data/rnaseq.csv"))
-    download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv",
+    download.file(url = "https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv",
                   destfile = "data/rnaseq.csv")
 ~~~
 {: .language-r}
@@ -404,7 +404,7 @@ correct names of the columns.
 > > rna_head <- rna[-(7:n_rows), ]
 > > ~~~
 > > {: .language-r}
-> > {: .solution}
+> {: .solution}
 {: .challenge}
 
 
@@ -605,6 +605,8 @@ plot(sex)
 > ## Challenge:
 >
 > - Rename "female" and "male" to "Female" and "Male" respectively.
+>
+{: .challenge }
 
 > ## Challenge:
 >
@@ -626,6 +628,7 @@ plot(sex)
 > > - missing quotations around the names of the animals
 > > - missing one entry in the "feel" column (probably for one of the furry animals)
 > > - missing one comma in the weight column
+> >
 > {: .solution}
 {: .challenge}
 
@@ -698,9 +701,7 @@ m
 ~~~
 {: .output}
 
-[^ncol]: Either the number of rows or columns are enough, as the other
-one can be deduced from the length of the values. Try out what happens
-if the values and number of rows/columns don't add up.
+[^ncol]: Either the number of rows or columns are enough, as the other one can be deduced from the length of the values. Try out what happens if the values and number of rows/columns don't add up.
 
 
 > ## Challenge:
@@ -725,6 +726,7 @@ if the values and number of rows/columns don't add up.
 > > colnames(ip)
 > > ~~~
 > > {: .language-r}
+> >
 > {: .solution}
 {: .challenge}
 
@@ -775,6 +777,7 @@ data drawn from a normal distribution of mean 0 and standard deviation
 > > [6,]  1.71506499  1.04057346 -0.6152683
 > > ~~~
 > > {: .output}
+> >
 > {: .solution}
 {: .challenge}
 
