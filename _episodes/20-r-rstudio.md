@@ -61,13 +61,13 @@ methods you use.
 
 ## R code is great for reproducibility
 
-Reproducibility is when someone else (including your future self) can
+Reproducibility means that someone else (including your future self) can
 obtain the same results from the same dataset when using the same
-analysis.
+analysis code.
 
-R integrates with other tools to generate manuscripts from your
+R integrates with other tools to generate manuscripts or reports from your
 code. If you collect more data, or fix a mistake in your dataset, the
-figures and the statistical tests in your manuscript are updated
+figures and the statistical tests in your manuscript or report are updated
 automatically.
 
 An increasing number of journals and funding agencies expect analyses
@@ -104,7 +104,7 @@ on your computer or on the web.
 
 ## R produces high-quality graphics
 
-The plotting functionalities in R are endless, and allow you to adjust
+The plotting functionalities in R are extensive, and allow you to adjust
 any aspect of your graph to convey most effectively the message from
 your data.
 
@@ -135,7 +135,7 @@ Public License (AGPL) v3](https://www.gnu.org/licenses/agpl-3.0.en.html).
 The RStudio IDE is also available with a commercial license and
 priority email support from RStudio, Inc.
 
-We will use RStudio IDE to write code, navigate the files on our
+We will use the RStudio IDE to write code, navigate the files on our
 computer, inspect the variables we are going to create, and visualize
 the plots we will generate. RStudio can also be used for other things
 (e.g., version control, developing packages, writing Shiny apps) that
@@ -144,7 +144,7 @@ we will not cover during the workshop.
 
 <img src="../fig/rstudio-screenshot.png" title="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console." alt="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console." width="100%" style="display: block; margin: auto;" />
 
-RStudio is divided into 4 "Panes":
+The RStudio window is divided into 4 "Panes":
 
 - the **Source** for your scripts and documents (top-left, in the
   default layout)
@@ -185,7 +185,7 @@ tutorial below.
   `New project`.
 3. Enter a name for this new folder (or "directory"), and choose a
    convenient location for it. This will be your **working directory**
-   for this session (or whole course) (e.g., `wsbim1207`).
+   for this session (or whole course) (e.g., `bioc-intro`).
 4. Click on `Create project`.
 5. (Optional) Set Preferences to 'Never' save workspace in RStudio.
 
@@ -324,12 +324,12 @@ bioc-intro/data/
 ```
 
 If we were in the working directory, we could refer to the `fig1.pdf`
-file using the relative path `wsbim1207/fig_output/fig1.pdf` or the
-absolute path `/home/user/wsbim1207/fig_output/fig1.pdf`.
+file using the relative path `bioc-intro/fig_output/fig1.pdf` or the
+absolute path `/home/user/bioc-intro/fig_output/fig1.pdf`.
 
 If we were in the `data` directory, we would use the relative path
 `../fig_output/fig1.pdf` or the same absolute path
-`/home/user/wsbim1207/fig_output/fig1.pdf`.
+`/home/user/bioc-intro/fig_output/fig1.pdf`.
 
 # Interacting with R
 
@@ -353,7 +353,9 @@ Because we want our code and workflow to be reproducible, it is better
 to type the commands we want in the script editor, and save the
 script. This way, there is a complete record of what we did, and
 anyone (including our future selves!)  can easily replicate the
-results on their computer.
+results on their computer. Note, however, that merely typing the commands 
+in the script does not automatically *run* them - they still need to 
+be sent to the console for execution. 
 
 RStudio allows you to execute commands directly from the script editor
 by using the `Ctrl` + `Enter` shortcut (on Macs, `Cmd` + `Return` will
@@ -569,31 +571,29 @@ sessionInfo()
 
 
 ~~~
-R version 4.1.0 (2021-05-18)
+R version 4.1.2 (2021-11-01)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Manjaro Linux
+Running under: Ubuntu 20.04.3 LTS
 
 Matrix products: default
-BLAS:   /usr/lib/libblas.so.3.10.0
-LAPACK: /usr/lib/liblapack.so.3.10.0
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+ [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+ [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+ [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] knitr_1.33
+[1] knitr_1.37
 
 loaded via a namespace (and not attached):
-[1] compiler_4.1.0 magrittr_2.0.1 tools_4.1.0    stringi_1.7.3  highr_0.9     
-[6] stringr_1.4.0  xfun_0.24      evaluate_0.14 
+[1] compiler_4.1.2 magrittr_2.0.1 tools_4.1.2    stringi_1.7.6  highr_0.9     
+[6] stringr_1.4.0  xfun_0.29      evaluate_0.14 
 ~~~
 {: .output}
 

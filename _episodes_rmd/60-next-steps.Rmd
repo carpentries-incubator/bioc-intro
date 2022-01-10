@@ -1,0 +1,266 @@
+---
+source: Rmd
+title: "Next steps"
+teaching: XX
+exercises: XX
+questions:
+- "SummarizedExperiment"
+objectives:
+- Introduce the notion of data containers
+- Give an overview of the `SummarizedExperiment`, extensively used in omics analyses
+keypoints:
+- "Tabular data in R"
+---
+
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+```
+
+## Next steps
+
+```{r, echo = FALSE, message = FALSE}
+library("tidyverse")
+```
+
+Data in bioinformatics is often complex.
+To deal with this, developers define specialised
+data containers (termed classes) that match the properties of the
+data they need to handle.
+
+This aspect is central to the **Bioconductor**[^Bioconductor] project which
+uses the same **core data infrastructure** across packages. This certainly contributed
+to Bioconductor's success. Bioconductor package developers are advised to make
+use of existing infrastructure to provide coherence, interoperability and stability to
+the project as a whole.
+
+
+[^Bioconductor]:The [Bioconductor](http://www.bioconductor.org) was initiated by Robert Gentleman, one of the two creators of the R language. Bioconductor provides  tools dedicated to omics data analysis. Bioconductor uses the R statistical programming language, and is open source and open development. 
+
+
+To illustrate such an omics data container, we'll present the `SummarizedExperiment`
+class.
+
+## SummarizedExperiment
+
+The figure below represents the anatomy of SummarizedExperiment.
+
+```{r SE,  echo=FALSE, out.width = '80%'}
+knitr::include_graphics("./figs/SE.png")
+```
+
+
+Objects of the class SummarizedExperiment contain :
+
+- **One (or more) assay(s)** containing the quantitative omics data
+  (expression data), stored as a matrix-like object. Features (genes,
+  transcripts, proteins, ...) are defined along the rows and samples
+  along the columns.
+
+- A **sample metadata** slot containing sample co-variates, stored as a
+  data frame. Rows from this table represent samples (rows match exactly the
+  columns of the expression data).
+
+- A **feature metadata** slot containing feature co-variates, stored as
+  data frame. The rows of this dataframe's match exactly the rows of the
+  expression data.
+
+The coordinated nature of the SummarizedExperiment guarantees that
+during data manipulation, the
+dimensions of the different slots will always match (i.e the columns
+in the expression data and then rows in the sample metadata, as well
+as the rows in the expression data and feature metadata) during data
+manipulation. For example, if we had to exclude one sample from the assay,
+it would be automatically removed from the sample metadata in the same operation.
+
+The metadata slots can grow additional co-variates
+(columns) without affecting the other structures.
+
+
+
+### Creating a SummarizedExperiment
+
+```{r , echo = F, message = FALSE}
+rna <- read_csv("data/rnaseq.csv")
+counts <- rna %>%
+  select(gene, sample, expression) %>%
+  pivot_wider(names_from = sample,
+              values_from = expression)
+
+count_matrix <- counts %>% select(-gene) %>% as.matrix()
+rownames(count_matrix) <- counts$gene
+
+
+sample_metadata <- rna %>%
+  select(sample, organism, age, sex, infection, strain, time, tissue, mouse)
+
+sample_metadata <- unique(sample_metadata)
+
+gene_metadata <- rna %>%
+  select(gene, ENTREZID, product, ensembl_gene_id, external_synonym, chromosome_name, gene_biotype, phenotype_description, hsapiens_homolog_associated_gene_name)
+
+# Remove redundancy
+gene_metadata <- unique(gene_metadata)
+
+```
+
+Remember the `rna` dataset that we have used previously.
+
+From this table we have already created 3 different tables.
+
+- **An expression matrix**
+
+```{r}
+count_matrix[1:5, ]
+dim(count_matrix)
+```
+
+
+- **A table describing the samples**
+
+```{r}
+sample_metadata
+```
+
+- **A table describing the genes**
+
+```{r}
+gene_metadata
+```
+
+We will create a `SummarizedExperiment` from these tables:
+
+- The count matrix that will be used as the **`assay`**
+
+- The table describing the samples will be used as the **sample metadata** slot
+
+- The table describing the genes will be used as the **features metadata** slot
+
+To do this we can put the different parts together using the
+`SummarizedExperiment` constructor:
+
+```{r, message = FALSE}
+#BiocManager::install("SummarizedExperiment")
+library("SummarizedExperiment")
+```
+
+```{r}
+se <- SummarizedExperiment(assays = count_matrix,
+                           colData = sample_metadata,
+                           rowData = gene_metadata)
+se
+```
+
+```{r, echo = FALSE}
+save(se, file = "data/SE.rda")
+```
+
+Using this data structure, we can access the expression matrix with
+the `assay` function:
+
+
+```{r}
+head(assay(se))
+dim(assay(se))
+```
+
+We can access the sample metadata using the `colData` function:
+
+```{r}
+colData(se)
+dim(colData(se))
+```
+
+We can also access the feature metadata using the `rowData` function:
+
+```{r}
+head(rowData(se))
+dim(rowData(se))
+```
+
+
+### Subsetting a SummarizedExperiment
+
+SummarizedExperiment can be subset just like with data frames,
+with numerics or with characters of logicals.
+
+Below, we create a new instance of class SummarizedExperiment that contains only
+the 5 first features for the 3 first samples.
+
+```{r}
+se1 <- se[1:5, 1:3]
+se1
+```
+
+```{r}
+colData(se1)
+rowData(se1)
+```
+
+
+We can also use the `colData()` function to subset on something from the sample metadata, or the `rowData()` to subset on something from the feature metadata.
+For example, here we keep only miRNAs and the non infected samples:
+
+```{r}
+se1 <- se[rowData(se)$gene_biotype == "miRNA",
+          colData(se)$infection == "NonInfected"]
+se1
+assay(se1)
+colData(se1)
+rowData(se1)
+```
+
+
+
+
+For the following exercise, you should download the SE.rda object
+(that contains the `se` object), and open the file using the
+'load()' function.
+
+```{r, eval = FALSE}
+download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/bioinfo-training-01-intro-r/master/data/SE.rda",
+              destfile = "data/SE.rda")
+
+load(file = "data/SE.rda")
+```
+
+> ## Challenge
+>
+> Extract the gene expression levels of the 3 first genes in samples at time 0 and at time 8.
+>
+> > ## Solution
+> >
+> >
+> > ```{r, purl=FALSE}
+> > assay(se)[1:3, colData(se)$time != 4]
+> >
+> > # Equivalent to
+> > assay(se)[1:3, colData(se)$time == 0 | colData(se)$time == 8]
+> > ```
+> {: .solution}
+{: .challenge}
+
+#### Adding variables to metadata
+
+We can also add information to the metadata.
+Suppose that you want to add the center where the samples were collected...
+
+```{r}
+colData(se)$center <- rep("University of Illinois", nrow(colData(se)))
+colData(se)
+```
+
+This illustrates that the metadata slots can grow indefinitely without affecting
+the other structures!
+
+
+
+**Take-home message**
+
+
+- `SummarizedExperiment` represent an efficient way to store and to handle omics data.
+
+- They are used in many Bioconductor packages.
+
+If you follow next training focused on RNA sequencing analysis, you will learn to
+use the Bioconductor `DESeq2` package to do some differential expression analyses.
+`DESeq2`'s whole analysis is handled in a `SummarizedExperiment`.

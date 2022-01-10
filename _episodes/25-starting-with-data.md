@@ -17,7 +17,7 @@ objectives:
 - Format dates.
 - Export and save data.
 keypoints:
-- "Tabualr data in R"
+- "Tabular data in R"
 ---
 
 
@@ -30,7 +30,7 @@ effect of upper-respiratory infection on transcriptomic changes in the
 CNS*. The goal of the study was to determine the effect of an
 upper-respiratory infection on changes in RNA transcription occuring
 in the cerebellum and spinal cord post infection. Gender matched eight
-week old C57BL/6 mice were inoculated saline or with Influenza A by
+week old C57BL/6 mice were inoculated with saline or with Influenza A by
 intranasal route and transcriptomic changes in the cerebellum and
 spinal cord tissues were evaluated by RNA-seq at days 0
 (non-infected), 4 and 8.
@@ -70,7 +70,7 @@ folder named `"data"`.
 
 ~~~
 if (!file.exists("data/rnaseq.csv"))
-    download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/WSBIM1207/scrnadata/data/rnaseq.csv",
+    download.file(url = "https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv",
                   destfile = "data/rnaseq.csv")
 ~~~
 {: .language-r}
@@ -115,13 +115,41 @@ head(rna)
 4    Klk6 GSM2545336        287 Mus musculus   8 Female InfluenzaA C57BL/6    8
 5   Fcrls GSM2545336         85 Mus musculus   8 Female InfluenzaA C57BL/6    8
 6  Slc2a4 GSM2545336        782 Mus musculus   8 Female InfluenzaA C57BL/6    8
-      tissue mouse
-1 Cerebellum    14
-2 Cerebellum    14
-3 Cerebellum    14
-4 Cerebellum    14
-5 Cerebellum    14
-6 Cerebellum    14
+      tissue mouse ENTREZID
+1 Cerebellum    14   109900
+2 Cerebellum    14    11815
+3 Cerebellum    14    56448
+4 Cerebellum    14    19144
+5 Cerebellum    14    80891
+6 Cerebellum    14    20528
+                                                                   product
+1                            argininosuccinate lyase transcript variant X1
+2                                    apolipoprotein D transcript variant 3
+3 cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2
+4                      kallikrein related-peptidase 6 transcript variant 2
+5              Fc receptor-like S scavenger receptor transcript variant X1
+6       solute carrier family 2 (facilitated glucose transporter) member 4
+     ensembl_gene_id external_synonym chromosome_name   gene_biotype
+1 ENSMUSG00000025533    2510006M18Rik               5 protein_coding
+2 ENSMUSG00000022548             <NA>              16 protein_coding
+3 ENSMUSG00000061740             2D22              15 protein_coding
+4 ENSMUSG00000050063             Bssp               7 protein_coding
+5 ENSMUSG00000015852    2810439C17Rik               3 protein_coding
+6 ENSMUSG00000018566           Glut-4              11 protein_coding
+                            phenotype_description
+1           abnormal circulating amino acid level
+2                      abnormal lipid homeostasis
+3                        abnormal skin morphology
+4                         abnormal cytokine level
+5 decreased CD8-positive alpha-beta T cell number
+6              abnormal circulating glucose level
+  hsapiens_homolog_associated_gene_name
+1                                   ASL
+2                                  APOD
+3                                CYP2D6
+4                                  KLK6
+5                                 FCRL4
+6                                SLC2A4
 ~~~
 {: .output}
 
@@ -143,7 +171,7 @@ behaves exactly like `read.csv()` but uses different parameters for
 the decimal and the field separators. If you are working with another
 format, they can be both specified by the user. Check out the help for
 `read.csv()` by typing `?read.csv` to learn more. There is also the
-`read.delim()` for in tab separated data files. It is important to
+`read.delim()` function for reading tab separated data files. It is important to
 note that all of these functions are actually wrapper functions for
 the main `read.table()` function with different arguments.  As such,
 the data above could have also been loaded by using `read.table()`
@@ -156,6 +184,13 @@ rna <- read.table(file = "data/rnaseq.csv",
                   header = TRUE)
 ~~~
 {: .language-r}
+
+
+
+~~~
+Error in scan(file = file, what = what, sep = sep, quote = quote, dec = dec, : line 104 did not have 19 elements
+~~~
+{: .error}
 
 The header argument has to be set to TRUE to be able to read the
 headers as by default `read.table()` has the header argument set to
@@ -192,18 +227,26 @@ str(rna)
 
 
 ~~~
-'data.frame':	66465 obs. of  11 variables:
- $ gene      : chr  "Asl" "Apod" "Cyp2d22" "Klk6" ...
- $ sample    : chr  "GSM2545336" "GSM2545336" "GSM2545336" "GSM2545336" ...
- $ expression: int  1170 36194 4060 287 85 782 1619 288 43217 1071 ...
- $ organism  : chr  "Mus musculus" "Mus musculus" "Mus musculus" "Mus musculus" ...
- $ age       : int  8 8 8 8 8 8 8 8 8 8 ...
- $ sex       : chr  "Female" "Female" "Female" "Female" ...
- $ infection : chr  "InfluenzaA" "InfluenzaA" "InfluenzaA" "InfluenzaA" ...
- $ strain    : chr  "C57BL/6" "C57BL/6" "C57BL/6" "C57BL/6" ...
- $ time      : int  8 8 8 8 8 8 8 8 8 8 ...
- $ tissue    : chr  "Cerebellum" "Cerebellum" "Cerebellum" "Cerebellum" ...
- $ mouse     : int  14 14 14 14 14 14 14 14 14 14 ...
+'data.frame':	32428 obs. of  19 variables:
+ $ gene                                 : chr  "Asl" "Apod" "Cyp2d22" "Klk6" ...
+ $ sample                               : chr  "GSM2545336" "GSM2545336" "GSM2545336" "GSM2545336" ...
+ $ expression                           : int  1170 36194 4060 287 85 782 1619 288 43217 1071 ...
+ $ organism                             : chr  "Mus musculus" "Mus musculus" "Mus musculus" "Mus musculus" ...
+ $ age                                  : int  8 8 8 8 8 8 8 8 8 8 ...
+ $ sex                                  : chr  "Female" "Female" "Female" "Female" ...
+ $ infection                            : chr  "InfluenzaA" "InfluenzaA" "InfluenzaA" "InfluenzaA" ...
+ $ strain                               : chr  "C57BL/6" "C57BL/6" "C57BL/6" "C57BL/6" ...
+ $ time                                 : int  8 8 8 8 8 8 8 8 8 8 ...
+ $ tissue                               : chr  "Cerebellum" "Cerebellum" "Cerebellum" "Cerebellum" ...
+ $ mouse                                : int  14 14 14 14 14 14 14 14 14 14 ...
+ $ ENTREZID                             : int  109900 11815 56448 19144 80891 20528 97827 118454 18823 14696 ...
+ $ product                              : chr  "argininosuccinate lyase transcript variant X1" "apolipoprotein D transcript variant 3" "cytochrome P450 family 2 subfamily d polypeptide 22 transcript variant 2" "kallikrein related-peptidase 6 transcript variant 2" ...
+ $ ensembl_gene_id                      : chr  "ENSMUSG00000025533" "ENSMUSG00000022548" "ENSMUSG00000061740" "ENSMUSG00000050063" ...
+ $ external_synonym                     : chr  "2510006M18Rik" NA "2D22" "Bssp" ...
+ $ chromosome_name                      : chr  "5" "16" "15" "7" ...
+ $ gene_biotype                         : chr  "protein_coding" "protein_coding" "protein_coding" "protein_coding" ...
+ $ phenotype_description                : chr  "abnormal circulating amino acid level" "abnormal lipid homeostasis" "abnormal skin morphology" "abnormal cytokine level" ...
+ $ hsapiens_homolog_associated_gene_name: chr  "ASL" "APOD" "CYP2D6" "KLK6" ...
 ~~~
 {: .output}
 
@@ -253,7 +296,8 @@ objects besides `data.frame`.
 > - How many rows and how many columns are in this object?
 > - How many genes (as defined by the `gene` variable) have been
 >   measured in this experiment?
-> > Solution
+>
+> > ## Solution
 > >
 > > - class: data frame
 > > - how many rows: 66465, how many columns: 11
@@ -360,7 +404,7 @@ correct names of the columns.
 > > rna_head <- rna[-(7:n_rows), ]
 > > ~~~
 > > {: .language-r}
-> > {: .solution}
+> {: .solution}
 {: .challenge}
 
 
@@ -561,6 +605,8 @@ plot(sex)
 > ## Challenge:
 >
 > - Rename "female" and "male" to "Female" and "Male" respectively.
+>
+{: .challenge }
 
 > ## Challenge:
 >
@@ -582,6 +628,7 @@ plot(sex)
 > > - missing quotations around the names of the animals
 > > - missing one entry in the "feel" column (probably for one of the furry animals)
 > > - missing one comma in the weight column
+> >
 > {: .solution}
 {: .challenge}
 
@@ -654,9 +701,7 @@ m
 ~~~
 {: .output}
 
-[^ncol]: Either the number of rows or columns are enough, as the other
-one can be deduced from the length of the values. Try out what happens
-if the values and number of rows/columns don't add up.
+[^ncol]: Either the number of rows or columns are enough, as the other one can be deduced from the length of the values. Try out what happens if the values and number of rows/columns don't add up.
 
 
 > ## Challenge:
@@ -681,6 +726,7 @@ if the values and number of rows/columns don't add up.
 > > colnames(ip)
 > > ~~~
 > > {: .language-r}
+> >
 > {: .solution}
 {: .challenge}
 
@@ -731,6 +777,7 @@ data drawn from a normal distribution of mean 0 and standard deviation
 > > [6,]  1.71506499  1.04057346 -0.6152683
 > > ~~~
 > > {: .output}
+> >
 > {: .solution}
 {: .challenge}
 
@@ -999,9 +1046,9 @@ str(l)
 List of 5
  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
  $ : chr [1:26] "a" "b" "c" "d" ...
- $ : chr [1:657, 1:16] "abind" "AER" "affy" "affydata" ...
+ $ : chr [1:145, 1:16] "askpass" "assertthat" "backports" "base64enc" ...
   ..- attr(*, "dimnames")=List of 2
-  .. ..$ : chr [1:657] "abind" "AER" "affy" "affydata" ...
+  .. ..$ : chr [1:145] "askpass" "assertthat" "backports" "base64enc" ...
   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
  $ :'data.frame':	50 obs. of  2 variables:
   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...

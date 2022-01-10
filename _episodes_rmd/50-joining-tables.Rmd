@@ -1,0 +1,368 @@
+---
+source: Rmd
+title: "Joining tables"
+teaching: XX
+exercises: XX
+questions:
+- "Join tables in R"
+objectives:
+- Understand the need and concept of table joins
+- Understand the different types of joins
+- Understand the importance of keys in joins and the implications of using non-unique keys
+keypoints:
+- "Join tables of data in R"
+---
+
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+```
+
+## Joining tables
+
+In many real life situations, data are spread across multiple tables.
+Usually this occurs because different types of information about a subject,
+e.g. a patient, are collected from different sources.
+
+It may be desirable for some analyses to combine
+data from two or more tables into a single data frame based on a
+column that would be common to all the tables, for example, an attribute that
+uniquely identifies the subjects.
+
+The `dplyr` package provides a set of join functions for combining
+two data frames based on matches within specified columns.
+
+For further reading, please refer to the chapter about [table
+joins](https://r4ds.had.co.nz/relational-data.html#understanding-joins)
+in [R for Data Science](https://r4ds.had.co.nz/).
+
+The [Data Transformation Cheat
+Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+also provides a short overview on table joins.
+
+
+## Combining tables
+
+We are going to illustrate join using a common example from the
+bioinformatics world, where annotations about genes are scattered in
+different tables that have one or more shared columns.
+
+The data we are going to use are available in the following package.
+
+```{r joindata}
+# install.packages(c("BiocManager", "remotes"))
+# BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
+library("rWSBIM1207")
+data(jdf)
+```
+
+The data is composed of several tables.
+
+The first table, `jdf1`, contains protein [UniProt](https://www.uniprot.org/)[^up] unique
+accession number (`uniprot` variable), the most likely sub-cellular
+localisation of these respective proteins (`organelle` variable) as
+well as the proteins identifier (`entry`).
+
+[^up]: UniProt is the protein information database. Its mission is to *provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information*.
+
+```{r jdf1}
+jdf1
+```
+
+The second table, `jdf2`, contains the name of the gene that codes for the
+protein (`gene_name` variable), a description of the gene
+(`description` variable), the uniprot accession number (this is the
+common variable that can be used to join tables) and the species the
+protein information comes from (`organism` variable).
+
+```{r jdf2}
+jdf2
+```
+
+We now want to join these two tables into a single one containing all
+variables.
+
+We are going to use the `full_join` function of `dplyr` to do
+so,
+
+Th function will automatically find the common variable (in this case `uniprot`)
+to match observations from the first and second table.
+
+```{r join1}
+library("dplyr")
+full_join(jdf1, jdf2)
+```
+
+In these examples, each observation of the `jdf1` and `jdf2`
+tables are uniquely identified by their UniProt accession number. Such
+variables are called **keys**. Keys are used to match observations
+across different tables.
+
+Now let's look at a third table, `jdf3`. It also contains the column uniProt,
+but it is written differently!
+
+```{r}
+jdf3
+```
+
+In case none of the variable names match, we can set manually the variables to
+use for the matching. These variables can be set using the `by` argument,
+as shown below with the `jdf1` (as
+above) and `jdf3` tables, where the UniProt accession number is
+encoded using a different capitalisation.
+
+```{r joinby}
+names(jdf3)
+full_join(jdf1, jdf3, by = c("uniprot" = "UniProt"))
+```
+
+As can be seen above, the variable name of the first table is retained
+in the joined one.
+
+> ## Challenge
+> Using the `full_join` function, join tables `jdf4`
+> and `jdf5`. What has happened for observations `P26039` and `P02468`?
+>
+> > ## Solution
+> >
+> > ```{r joinex1}
+> > full_join(jdf4, jdf5)
+> > ```
+> >
+> > `P26039` and `P02468` are only present in `jdf4` and `jdf5`
+> > respectively, and their respective values for the variables of the
+> > table have been encoded as missing.
+> >
+> {: .solution}
+{: .challenge}
+
+## Different types of joins
+
+Above, we have used the `full_join` function, that fully joins two
+tables and keeps all observations, adding missing values if
+necessary. Sometimes, we want to be selective, and keep observations
+that are present in only one or both tables.
+
+- An **inner join** keeps observations that are present in both
+  tables.
+
+```{r, results='markup', fig.cap="An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from *R for Data Science*.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics("./figs/join-inner.png")
+```
+
+- A **left join** keeps observations that are present in the left
+  (first) table, dropping those that are only present in the other.
+- A **right join** keeps observations that are present in the right
+  (second) table, dropping those that are only present in the other.
+- A **full join** keeps all observations.
+
+
+```{r, results='markup', fig.cap="Outer joins match observations that appear in at least on table, filling up missing values with `NA` values. Figure taken from *R for Data Science*.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics("./figs/join-outer.png")
+```
+
+> ## Challenge
+> Join tables `jdf4` and `jdf5`, keeping only observations in `jdf4`.
+>
+> > ## Solution
+> > ```{r leftjoinex1}
+> > left_join(jdf4, jdf5)
+> > ```
+> {: .solution}
+{: .challenge}
+
+> ## Challenge
+> Join tables `jdf4` and `jdf5`, keeping only observations in `jdf5`.
+>
+> > ## Solution
+> > ```{r rightjoinex1}
+> > right_join(jdf4, jdf5)
+> > ```
+> {: .solution}
+{: .challenge}
+
+> ## Challenge
+> Join tables `jdf4` and `jdf5`, keeping observations observed in both tables.
+>
+> > ## Solution
+> > ```{r innerjoinex1}
+> > inner_join(jdf4, jdf5)
+> > ```
+> {: .solution}
+{: .challenge}
+
+## Multiple matches
+
+Sometimes, keys aren't unique.
+
+In the `jdf6` table below, we see that the accession number `Q99PL5` is repeated
+twice. According to this table, the ribosomial protein binding protein 1 localises in the
+endoplasmic reticulum and in the Golgi apparatus.
+
+```{r jdf6}
+jdf6
+```
+
+If we now want to join `jdf6` and `jdf2`, the variables of the latter
+will be duplicated.
+
+```{r multexple}
+inner_join(jdf6, jdf2)
+```
+
+In the case above, repeating is useful, as it completes `jdf6` with
+correct information from `jdf2`.
+
+But one needs however to be careful when duplicated keys exist in both tables.
+
+Let's now use jdf7 for the join. It also has 2 entries for the uniprot `Q99PL5`
+```{r}
+jdf7
+```
+
+
+Let's we create an inner join between `jdf6` and `jdf7` (both having duplicated `Q99PL5` entries)
+
+```{r multproblem}
+inner_join(jdf6, jdf7)
+```
+
+> ## Challenge
+> Interpret the result of the inner join above, where both tables have duplicated keys.
+>
+> > ## Solution
+> >
+> > `jdf6` has two entries, one for each possible sub-cellular
+> > localisation of the protein. `jdf7` has also two entries, referring to
+> > two different quantitative measurements (variable `measure`). When
+> > joining the duplicated keys, you get all possible combinations.
+> >
+> > ```{r, results='markup', fig.cap="Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from *R for Data Science*.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
+> > knitr::include_graphics("./figs/join-many-to-many.png")
+> > ```
+> >
+> > In this case, we obtain wrong information: both proteins in the ER and
+> > in the GA both have value 102 and 3.
+> >
+> > ```{r }
+> > inner_join(jdf6, jdf7)
+> > ```
+> {: .solution}
+{: .challenge}
+
+
+## Matching across multiple keys
+
+So far, we have matched tables using a single key (possibly with
+different names in the two tables). Sometimes, it is necessary to
+match tables using multiple keys. A typical example is when multiple
+variables are needed to discriminate different rows in a tables.
+
+Following up from the last example, we see that the duplicated UniProt
+accession numbers in the `jdf6` and `jdf7` tables refer to different
+isoforms of the same RRBP1 gene.
+
+```{r}
+jdf6
+```
+
+```{r}
+jdf7
+```
+
+
+To uniquely identify isoforms, we should consider two keys:
+
+- the UniProt accession number (named `uniprot` in both tables)
+
+- and the isoform number (called `isoform` and `isoform_num` respectively)
+
+Because the isoform status was encoded using different names
+(which is, of course a source of confusion), `jdf6` and `jdf7` are
+only automatically joined based on the shared `uniprot` key.
+
+If the isoform status was encoded the same way in both tables, the join would
+have been automatically done on both keys!
+
+
+Here, we need to join using both keys and need to explicitly name the variables
+used for the join.
+
+
+```{r morekeys}
+inner_join(jdf6, jdf7, by = c("uniprot" = "uniprot", "isoform" = "isoform_num"))
+```
+
+We now see that isoform 1 localised to the ER and has a measured value
+of 102, while isoform 2, that localised to the GA, has a measured
+value of 3.
+
+Ideally, the isoform variables should be named identically in the two
+tables to enable an automatic join with the two keys.
+
+An alternative could be to rename the `isoform_num` from jdf7 in order to
+have the both keys names present in both tables, enabling an automatic join.
+This can be done easily using the rename function from `dplyr` package.
+
+```{r}
+jdf7 %>% rename(isoform = isoform_num)
+
+inner_join(jdf6,
+           jdf7 %>%
+             rename(isoform = isoform_num))
+```
+
+
+
+## Row and column binding
+
+There are two other important functions in R, `rbind` and `cbind`,
+that can be used to combine two dataframes.
+
+```{r, echo = FALSE}
+d1 <- data.frame(x = 1:3, y = 1:3)
+d2 <- data.frame(a = 4:5, b = 4:5)
+d3 <- data.frame(v1 = 1:2, v2 = 3:4, v3 = 5:6)
+```
+
+- `cbind` can be used to bind two data frames by columns, but both must have the same
+number of rows.
+
+```{r}
+d2
+d3
+cbind(d2, d3)
+```
+
+
+- `rbind`, can be used to bind two data frames by rows, but both must have
+the same number of columns, and the same column names!
+
+```{r}
+d1
+d2
+```
+
+
+using `rbind(d1, d2)` would produce an error because both data frames do not have the
+same column names (even if they have the same number of columns)
+
+If we change the names of d2, it works!
+
+```{r}
+names(d2) <- names(d1)
+d1
+d2
+rbind(d1, d2)
+```
+
+Note that beyond the dimensions and column names that are required to
+match, the real meaning of `rbind` is to bind data frames that contain
+observations for the same set of variables - there is more than only
+the column names!
+
+
+
+
+**Note**: `rbind` and `cbind` are base R functions. The *tidyverse*
+alternatives from the `dplyr` package are `bind_rows` and `bind_cols`
+and work similarly.
