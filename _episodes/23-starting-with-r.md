@@ -23,7 +23,7 @@ keypoints:
 
 
 
-# Creating objects in R
+## Creating objects in R
 
 You can get output from R simply by typing math in the console:
 
@@ -79,7 +79,7 @@ keystroke in a PC, while typing <kbd>Option</kbd> + <kbd>-</kbd> (push
 <kbd>Option</kbd> at the same time as the <kbd>-</kbd> key) does the
 same in a Mac.
 
-## Naming variables {-}
+### Naming variables {-}
 
 Objects can be given any name such as `x`, `current_temperature`, or
 `subject_id`. You want your object names to be explicit and not too
@@ -207,7 +207,7 @@ weight_kg <- 100
 {: .challenge}
 
 
-# Comments
+## Comments
 
 The comment character in R is `#`, anything to the right of a `#` in a
 script will be ignored by R. It is useful to leave notes, and
@@ -237,7 +237,7 @@ press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.
 {: .challenge}
 
 
-# Functions and their arguments
+## Functions and their arguments
 
 Functions are "canned scripts" that automate more complicated sets of commands
 including operations assignments, etc. Many functions are predefined, or can be
@@ -367,7 +367,7 @@ doing. By specifying the name of the arguments you are also safeguarding
 against possible future changes in the function interface, which may 
 potentially add new arguments in between the existing ones. 
 
-# Vectors and data types
+## Vectors and data types
 
 A vector is the most common and basic data type in R, and is pretty much
 the workhorse of R. A vector is composed by a series of values, such as 
@@ -695,7 +695,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 
 
 
-# Subsetting vectors
+## Subsetting vectors
 
 If we want to extract one or several values from a vector, we must
 provide one or several indices in square brackets. For instance:
@@ -808,7 +808,7 @@ molecules[c(-1, -3)] ## all but 1st/3rd ones
 ~~~
 {: .output}
 
-# Conditional subsetting
+## Conditional subsetting
 
 Another common way of subsetting is by using a logical vector. `TRUE` will
 select the element with the same index, while `FALSE` will not:
@@ -970,7 +970,7 @@ molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
 {: .challenge}
 
 
-# Names
+## Names
 
 It is possible to name each element of a vector. The code chunk below
 show a initial vector without any names, how names are set, and
@@ -1037,7 +1037,7 @@ A C
 ~~~
 {: .output}
 
-# Missing data
+## Missing data
 
 As R was designed to analyze datasets, it includes the concept of
 missing data (which is uncommon in other programming
@@ -1214,7 +1214,7 @@ heights[complete.cases(heights)]
 {: .challenge}
 
 
-# Generating vectors {#sec:genvec}
+## Generating vectors {#sec:genvec}
 
 
 
@@ -1305,7 +1305,7 @@ There are similar constructors for characters and logicals, named
 > {: .solution}
 {: .challenge}
 
-## Replicate elements
+### Replicate elements
 
 The `rep` function allow to repeat a value a certain number of
 times. If we want to initiate a vector of numerics of length 5 with
@@ -1394,7 +1394,7 @@ rep(c(1, 2, 3), 5)
 > {: .solution}
 {: .challenge}
 
-## Sequence generation
+### Sequence generation
 
 Another very useful function is `seq`, to generate a sequence of
 numbers. For example, to generate a sequence of integers from 1 to 20
@@ -1474,7 +1474,7 @@ seq(from = 1, to = 20, length.out = 3)
 ~~~
 {: .output}
 
-## Random samples and permutations
+### Random samples and permutations
 
 A last group of useful functions are those that generate random
 data. The first one, `sample`, generates a random permutation of
@@ -1640,7 +1640,7 @@ sample(1:5, 10, replace = TRUE)
 > {: .solution}
 {: .challenge}
 
-## Drawing samples from a normal distribution
+### Drawing samples from a normal distribution
 
 The last function we are going to see is `rnorm`, that draws a random
 sample from a normal distribution. Two normal distributions of means 0

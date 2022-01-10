@@ -18,7 +18,7 @@ keypoints:
 
 
 
-# What is R? What is RStudio?
+## What is R? What is RStudio?
 
 The term [R](https://www.r-project.org/) is used to refer to both the
 *programming language*, the *environment for statistical computing*
@@ -39,9 +39,9 @@ Sheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
 provides much more information that will be covered here, but can be
 useful to learn keyboard shortcuts and discover new features.
 
-# Why learn R?
+## Why learn R?
 
-## R does not involve lots of pointing and clicking, and that's a good thing
+### R does not involve lots of pointing and clicking, and that's a good thing
 
 The learning curve might be steeper than with other software, but with
 R, the results of your analysis do not rely on remembering a
@@ -59,7 +59,7 @@ Working with scripts forces you to have a deeper understanding of what
 you are doing, and facilitates your learning and comprehension of the
 methods you use.
 
-## R code is great for reproducibility
+### R code is great for reproducibility
 
 Reproducibility means that someone else (including your future self) can
 obtain the same results from the same dataset when using the same
@@ -74,7 +74,7 @@ An increasing number of journals and funding agencies expect analyses
 to be reproducible, so knowing R will give you an edge with these
 requirements.
 
-## R is interdisciplinary and extensible
+### R is interdisciplinary and extensible
 
 With 10000+ packages[^whatarepkgs] that can be installed to extend its
 capabilities, R provides a framework that allows you to combine
@@ -88,7 +88,7 @@ genetics, and a lot more.
 
 <img src="../fig/cran.png" title="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018." alt="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018." style="display: block; margin: auto;" />
 
-## R works on data of all shapes and sizes
+### R works on data of all shapes and sizes
 
 The skills you learn with R scale easily with the size of your
 dataset. Whether your dataset has hundreds or millions of lines, it
@@ -102,14 +102,14 @@ R can connect to spreadsheets, databases, and many other data formats,
 on your computer or on the web.
 
 
-## R produces high-quality graphics
+### R produces high-quality graphics
 
 The plotting functionalities in R are extensive, and allow you to adjust
 any aspect of your graph to convey most effectively the message from
 your data.
 
 
-## R has a large and welcoming community
+### R has a large and welcoming community
 
 Thousands of people use R daily. Many of them are willing to help you
 through mailing lists and websites such as [Stack
@@ -118,13 +118,13 @@ community](https://community.rstudio.com/). These broad user community
 extends to specialised areas such as bioinformatics.
 
 
-## Not only is R free, but it is also open-source and cross-platform
+### Not only is R free, but it is also open-source and cross-platform
 
 Anyone can inspect the source code to see how R works. Because of this
 transparency, there is less chance for mistakes, and if you (or
 someone else) find some, you can report and fix bugs.
 
-# Knowing your way around RStudio
+## Knowing your way around RStudio
 
 Let's start by learning about [RStudio](https://www.rstudio.com/),
 which is an Integrated Development Environment (IDE) for working with
@@ -161,7 +161,7 @@ many shortcuts, **autocompletion**, and **highlighting** for the major
 file types you use while developing in R, RStudio will make typing
 easier and less error-prone.
 
-# Getting set up
+## Getting set up
 
 It is good practice to keep a set of related data, analyses, and text
 self-contained in a single folder, called the **working
@@ -203,7 +203,7 @@ going to set UTF-8 by default:
 
 <img src="../fig/utf8.png" title="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above)." alt="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above)." width="70%" style="display: block; margin: auto;" />
 
-## Organizing your working directory
+### Organizing your working directory
 
 Using a consistent folder structure across your projects will help keep things
 organized, and will also make it easy to find/file things in the future. This
@@ -294,7 +294,7 @@ project[^futureself] to
     run.
 
 
-## The working directory
+### The working directory
 
 The working directory is an important concept to understand. It is the
 place from where R will be looking for and saving the files. When you
@@ -331,7 +331,7 @@ If we were in the `data` directory, we would use the relative path
 `../fig_output/fig1.pdf` or the same absolute path
 `/home/user/bioc-intro/fig_output/fig1.pdf`.
 
-# Interacting with R
+## Interacting with R
 
 The basis of programming is that we write down instructions for the
 computer to follow, and then we tell the computer to follow those
@@ -390,7 +390,7 @@ window and press `Esc`; this will cancel the incomplete command and
 return you to the `>` prompt.
 
 
-# How to learn more during and after the course?
+## How to learn more during and after the course?
 
 The material we cover during this course will give you an initial
 taste of how you can use R to analyse data for your own
@@ -409,9 +409,9 @@ suit your purpose might make it easier for you to get started.
 
 <img src="../fig/kitten-try-things.jpg" title="plot of chunk kitten" alt="plot of chunk kitten" width="400px" style="display: block; margin: auto;" />
 
-# Seeking help
+## Seeking help
 
-## Use the built-in RStudio help interface to search for more information on R functions
+### Use the built-in RStudio help interface to search for more information on R functions
 
 <img src="../fig/rstudiohelp.png" title="RStudio help interface." alt="RStudio help interface." width="70%" style="display: block; margin: auto;" />
 
@@ -422,7 +422,7 @@ panel of RStudio. As seen in the screenshot, by typing the word
 might be interested in. The description is then shown in the display
 window.
 
-## I know the name of the function I want to use, but I'm not sure how to use it
+### I know the name of the function I want to use, but I'm not sure how to use it
 
 If you need help with a specific function, let's say `barplot()`, you
 can type:
@@ -441,7 +441,7 @@ args(lm)
 ~~~
 {: .language-r}
 
-## I want to use a function that does X, there must be a function for it but I don't know which one...
+### I want to use a function that does X, there must be a function for it but I don't know which one...
 
 If you are looking for a function to do a particular task, you can use the
 `help.search()` function, which is called by the double question mark `??`.
@@ -462,7 +462,7 @@ Finally, a generic Google or internet search "R \<task\>" will often either send
 you to the appropriate package documentation or a helpful forum where someone
 else has already asked your question.
 
-## I am stuck... I get an error message that I don't understand
+### I am stuck... I get an error message that I don't understand
 
 Start by googling the error message. However, this doesn't always work very well
 because often, package developers rely on the error catching provided by R. You
@@ -597,7 +597,7 @@ loaded via a namespace (and not attached):
 ~~~
 {: .output}
 
-## Where to ask for help?
+### Where to ask for help?
 
 * The person sitting next to you during the course. Don't hesitate to
   talk to your neighbour during the workshop, compare your answers,
@@ -630,7 +630,7 @@ loaded via a namespace (and not attached):
   phylogenetics, etc...), the complete list is
   [here](http://www.r-project.org/mail.html).
 
-## More resources
+### More resources
 
 - The [Posting Guide](http://www.r-project.org/posting-guide.html) for
   the R mailing lists.
@@ -651,9 +651,9 @@ loaded via a namespace (and not attached):
   recording](https://vimeo.com/208749032)) includes a presentation of
   the reprex package and of its philosophy.
 
-# R packages
+## R packages
 
-## Loading packages
+### Loading packages
 
 As we have seen above, R packages play a fundamental role in R. The
 make use of a package's functionality, assuming it is installed, we
@@ -666,7 +666,7 @@ library("ggplot2")
 ~~~
 {: .language-r}
 
-## Installing packages
+### Installing packages
 
 The default package repository is The *Comprehensive R Archive
 Network* (CRAN), and any package that is available on CRAN can be

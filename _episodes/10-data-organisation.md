@@ -19,7 +19,7 @@ keypoints:
 
 
 
-# Spreadsheet programs
+## Spreadsheet programs
 
 **Question**
 
@@ -41,7 +41,7 @@ spreadsheets. Spreadsheet programs are very useful graphical
 interfaces for designing data tables and handling very basic data
 quality control functions. See also @Broman:2018.
 
-## Spreadsheet outline
+### Spreadsheet outline
 
 Spreadsheets are good for data entry. Therefore we have a lot of data
 in spreadsheets.  Much of your time as a researcher will be spent in
@@ -49,7 +49,7 @@ this 'data wrangling' stage.  It's not the most fun, but it's
 necessary. We'll teach you how to think about data organization and
 some practices for more effective data wrangling.
 
-## What this lesson will not teach you
+### What this lesson will not teach you
 
 - How to do *statistics* in a spreadsheet
 - How to do *plotting* in a spreadsheet
@@ -60,7 +60,7 @@ Excel](https://www.amazon.com/Head-First-Excel-learners-spreadsheets/dp/05968076
 published by O'Reilly.
 
 
-## Why aren't we teaching data analysis in spreadsheets
+### Why aren't we teaching data analysis in spreadsheets
 
 - Data analysis in spreadsheets usually requires a lot of manual
   work. If you want to change a parameter or run an analysis with a
@@ -101,7 +101,7 @@ ensure efficient downstream analysis.
 >   frustrated or sad?
 {: .challenge}
 
-## Problems with Spreadsheets
+### Problems with Spreadsheets
 
 Spreadsheets are good for data entry, but in reality we tend to
 use spreadsheet programs for much more than data entry. We use them
@@ -126,7 +126,7 @@ command-line based statistics program like R or SAS, it’s practically
 impossible to apply a calculation to one observation in your
 dataset but not another unless you’re doing it on purpose.
 
-## Using Spreadsheets for Data Entry and Cleaning
+### Using Spreadsheets for Data Entry and Cleaning
 
 However, there are circumstances where you might want to use a spreadsheet
 program to produce “quick and dirty” calculations or figures, and data
@@ -149,7 +149,7 @@ In this lesson we're going to talk about:
 4. Quality control
 5. Exporting data
 
-# Formatting data tables in spreadsheets
+## Formatting data tables in spreadsheets
 
 **Questions**
 
@@ -202,7 +202,7 @@ interfaces) for data entry and data analysis might be different. It is
 important to take this into account, and ideally automate the
 conversion from one to another.
 
-## Keeping track of your analyses
+### Keeping track of your analyses
 
 When you're working with spreadsheets, during data clean up or
 analyses, it's very easy to end up with a spreadsheet that looks very
@@ -232,7 +232,7 @@ post](https://lgatto.github.io/github-intro/) for a quick tutorial or
 @Perez-Riverol:2016 for a more research-oriented use-case.
 
 
-## Structuring data in spreadsheets
+### Structuring data in spreadsheets
 
 The cardinal rules of using spreadsheet programs for data:
 
@@ -323,7 +323,7 @@ with this data and how you would fix it.
 An **excellent reference**, in particular with regard to R scripting
 is the *Tidy Data* paper @Wickham:2014.
 
-# Common Spreadsheet Errors
+## Common Spreadsheet Errors
 
 **Questions**
 
@@ -374,7 +374,7 @@ and analysis.
 - [Using special characters in data](#special)
 - [Inclusion of metadata in data table](#metadata)
 
-## Using multiple tables {#tables}
+### Using multiple tables {#tables}
 
 A common strategy is creating multiple data tables within
 one spreadsheet. This confuses the computer, so don't do this!
@@ -391,7 +391,7 @@ refer to the same sample. This row actually represents four distinct samples
 (sample 1 for each of four different collection dates - May 29th, June 12th, June 19th, and June 26th),
 as well as some calculated summary statistics (an average (avr) and standard error of measurement (SEM)) for two of those samples. Other rows are similarly problematic.
 
-## Using multiple tabs {#tabs}
+### Using multiple tabs {#tabs}
 
 But what about workbook tabs? That seems like an easy way to organize
 data, right? Well, yes and no. When you create extra tabs, you fail to
@@ -428,7 +428,7 @@ headers](https://support.office.com/en-ca/article/Freeze-column-headings-for-eas
 so that they remain visible even when you have a spreadsheet with many
 rows.
 
-## Not filling in zeros {#zeros}
+### Not filling in zeros {#zeros}
 
 It might be that when you're measuring something, it's usually a zero,
 say the number of times a rabbit is observed in the survey. Why bother
@@ -451,7 +451,7 @@ of this, it's very important to record zeros as zeros and truly
 missing data as nulls.
 
 
-## Using problematic null values {#null}
+### Using problematic null values {#null}
 
 **Example**: using -999 or other numerical values (or zero) to
   represent missing data.
@@ -487,7 +487,7 @@ for different software applications in their article:
 
 ![](../fig/3_white_table_1.jpg)
 
-## Using formatting to convey information {#formatting}
+### Using formatting to convey information {#formatting}
 
 **Example**: highlighting cells, rows or columns that should be
   excluded from an analysis, leaving blank rows to indicate
@@ -501,7 +501,7 @@ for different software applications in their article:
 ![](../fig/good_formatting.png)
 
 
-## Using formatting to make the data sheet look pretty {#formatting_pretty}
+### Using formatting to make the data sheet look pretty {#formatting_pretty}
 
 **Example**: merging cells.
 
@@ -512,7 +512,7 @@ by statistics software. Consider restructuring your data in such a way
 that you will not need to merge cells to organize your data.
 
 
-## Placing comments or units in cells {#units}
+### Placing comments or units in cells {#units}
 
 Most analysis software can't see Excel or LibreOffice comments, and
 would be confused by comments placed within your data cells. As
@@ -523,7 +523,7 @@ unit, but if for some reason they aren’t, create another field and
 specify the units the cell is in.
 
 
-## Entering more than one piece of information in a cell {#info}
+### Entering more than one piece of information in a cell {#info}
 
 **Example**: Recording ABO and Rhesus groups in one cell, such as A+,
 B+, A-, ...
@@ -534,7 +534,7 @@ you need both these measurements, design your data sheet to include
 this information. For example, include one column the ABO group and
 one for the Rhesus group.
 
-## Using problematic field names {#field_name}
+### Using problematic field names {#field_name}
 
 Choose descriptive field names, but be careful not to include spaces,
 numbers, or special characters of any kind. Spaces can be
@@ -562,7 +562,7 @@ confusion and enables others to readily interpret your fields.
 | Observation_01  | first_observation | 1st Obs |
 
 
-## Using special characters in data {#special}
+### Using special characters in data {#special}
 
 **Example**: You treat your spreadsheet program as a word processor
 when writing notes, for example copying data directly from Word or
@@ -582,7 +582,7 @@ tabs, and vertical tabs.  In other words, treat a text cell as if it
 were a simple web form that can only contain text and spaces.
 
 
-## Inclusion of metadata in data table {#metadata}
+### Inclusion of metadata in data table {#metadata}
 
 **Example**: You add a legend at the top or bottom of your data table
   explaining column meaning, units, exceptions, etc.
@@ -630,7 +630,7 @@ Attribution 4.0 International
 License](https://creativecommons.org/licenses/by/4.0/).)
 
 
-# Exporting data
+## Exporting data
 
 **Question**
 
@@ -718,7 +718,7 @@ different worksheets in the `xls` documents.
 - Is there really a good reason why `csv` (or similar) is not
   adequate?
 
-## Caveats on commas
+### Caveats on commas
 
 In some datasets, the data values themselves may include commas
 (,). In that case, the software which you use (including Excel) will
@@ -798,7 +798,7 @@ Python and R lessons will give you the basis for developing skills to
 build relevant scripts.
 
 
-# Summary
+## Summary
 
 <img src="../fig/analysis.png" title="A typical data analysis workflow." alt="A typical data analysis workflow." style="display: block; margin: auto;" />
 
