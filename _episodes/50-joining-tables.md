@@ -51,91 +51,13 @@ The data we are going to use are available in the following package.
 
 
 ~~~
-Loading required package: rWSBIM1207
-~~~
-{: .output}
 
-
-
-~~~
-Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
-logical.return = TRUE, : there is no package called 'rWSBIM1207'
-~~~
-{: .warning}
-
-
-
-~~~
-'getOption("repos")' replaces Bioconductor standard repositories, see
-'?repositories' for details
-
-replacement repositories:
-    CRAN: https://cloud.r-project.org
-~~~
-{: .output}
-
-
-
-~~~
-Bioconductor version 3.14 (BiocManager 1.30.16), R 4.1.2 (2021-11-01)
-~~~
-{: .output}
-
-
-
-~~~
-Installing package(s) 'BiocVersion'
-~~~
-{: .output}
-
-
-
-~~~
-Installing github package(s) 'UCLouvain-CBIO/rWSBIM1207'
-~~~
-{: .output}
-
-
-
-~~~
-Using github PAT from envvar GITHUB_PAT
-~~~
-{: .output}
-
-
-
-~~~
-Downloading GitHub repo UCLouvain-CBIO/rWSBIM1207@HEAD
-~~~
-{: .output}
-
-
-
-
-~~~
-Running `R CMD build`...
-~~~
-{: .output}
-
-
-
-~~~
-* checking for file ‘/tmp/RtmpBv7ndU/remotes29d47cc57b52/UCLouvain-CBIO-rWSBIM1207-fd5bc8e/DESCRIPTION’ ... OK
+* checking for file ‘/tmp/RtmpMEJ2PE/remotes29256540457/UCLouvain-CBIO-rWSBIM1207-fd5bc8e/DESCRIPTION’ ... OK
 * preparing ‘rWSBIM1207’:
 * checking DESCRIPTION meta-information ... OK
 * checking for LF line-endings in source and make files and shell scripts
 * checking for empty or unneeded directories
 * building ‘rWSBIM1207_0.1.15.tar.gz’
-~~~
-{: .output}
-
-
-
-~~~
-Installation paths not writeable, unable to update packages
-  path: /opt/R/4.1.2/lib/R/library
-  packages:
-    Matrix
 ~~~
 {: .output}
 
