@@ -49,14 +49,17 @@ different tables that have one or more shared columns.
 The data we are going to use are available in the following package.
 
 
-```{r jdrinstall, echo = FALSE, message = FALSE, warning = FALSE}
+```{r jdrinstall0, include = FALSE}
 if (!require("rWSBIM1207", quietly = TRUE))
     BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
 ```
 
-```{r joindata}
+```{r jdrinstall, eval = FALSE}
 if (!require("rWSBIM1207"))
     BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
+```
+
+```{r joindata}
 library("rWSBIM1207")
 data(jdf)
 ```

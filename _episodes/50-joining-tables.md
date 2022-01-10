@@ -50,16 +50,6 @@ The data we are going to use are available in the following package.
 
 
 
-~~~
-
-* checking for file ‘/tmp/RtmpMEJ2PE/remotes29256540457/UCLouvain-CBIO-rWSBIM1207-fd5bc8e/DESCRIPTION’ ... OK
-* preparing ‘rWSBIM1207’:
-* checking DESCRIPTION meta-information ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘rWSBIM1207_0.1.15.tar.gz’
-~~~
-{: .output}
 
 
 ~~~
@@ -69,11 +59,10 @@ if (!require("rWSBIM1207"))
 {: .language-r}
 
 
-
 ~~~
-Loading required package: rWSBIM1207
+library("rWSBIM1207")
 ~~~
-{: .output}
+{: .language-r}
 
 
 
@@ -86,7 +75,6 @@ This is 'rWSBIM1207' version 0.1.15
 
 
 ~~~
-library("rWSBIM1207")
 data(jdf)
 ~~~
 {: .language-r}
