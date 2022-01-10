@@ -363,13 +363,15 @@ It's good practice to put the non-optional arguments (like the number you're
 rounding) first in your function call, and to specify the names of all optional
 arguments.  If you don't, someone reading your code might have to look up the
 definition of a function with unfamiliar arguments to understand what you're
-doing.
+doing. By specifying the name of the arguments you are also safeguarding 
+against possible future changes in the function interface, which may 
+potentially add new arguments in between the existing ones. 
 
 # Vectors and data types
 
 A vector is the most common and basic data type in R, and is pretty much
-the workhorse of R. A vector is composed by a series of values, which can be
-either numbers or characters. We can assign a series of values to a vector using
+the workhorse of R. A vector is composed by a series of values, such as 
+numbers or characters. We can assign a series of values to a vector using
 the `c()` function. For example we can create a vector of animal weights and assign
 it to a new object `weight_g`:
 
@@ -665,56 +667,83 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > >
 > >~~~
 > > combined_logical
-> > ```
-> >> {: .solution}
-> >{: .challenge}
-> >
-> >
-> >> ## Challenge:
-> >>
-> >> In R, we call converting objects from one class into another class
-> >> _coercion_. These conversions happen according to a hierarchy,
-> >> whereby some types get preferentially coerced into other types. Can
-> >> you draw a diagram that represents the hierarchy of how these data
-> >> types are coerced?
-> > Solution
-> > logical &#8594; numeric &#8594; character &#8592; logical
-> >> {: .solution}
-> >{: .challenge}
-> >
 > >~~~
 > >{: .language-r}
 > >
 > >
 > >
 > >~~~
-> >Error: attempt to use zero-length variable name
+> >[1] "1"    "2"    "3"    "1"    "a"    "b"    "c"    "TRUE"
 > >~~~
-> >{: .error}
+> >{: .output}
+> {: .solution}
+{: .challenge}
+
+
+> ## Challenge:
+>
+> In R, we call converting objects from one class into another class
+> _coercion_. These conversions happen according to a hierarchy,
+> whereby some types get preferentially coerced into other types. Can
+> you draw a diagram that represents the hierarchy of how these data
+> types are coerced?
+> > Solution
+> > logical &#8594; numeric &#8594; character &#8592; logical
+> {: .solution}
+{: .challenge}
+
+
+
+
+# Subsetting vectors
+
+If we want to extract one or several values from a vector, we must
+provide one or several indices in square brackets. For instance:
 
 
 ~~~
 molecules <- c("dna", "rna", "peptide", "protein")
 molecules[2]
-molecules[c(3, 2)]
-```
-
-We can also repeat the indices to create an object with more elements
-than the original one:
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Error: attempt to use zero-length variable name
+[1] "rna"
 ~~~
-{: .error}
+{: .output}
+
+
+
+~~~
+molecules[c(3, 2)]
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] "peptide" "rna"    
+~~~
+{: .output}
+
+We can also repeat the indices to create an object with more elements
+than the original one:
+
 
 ~~~
 more_molecules <- molecules[c(1, 2, 3, 2, 1, 4)]
 more_molecules
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] "dna"     "rna"     "peptide" "rna"     "dna"     "protein"
+~~~
+{: .output}
 
 R indices start at 1. Programming languages like Fortran, MATLAB,
 Julia, and R start counting at 1, because that's what human beings
@@ -723,79 +752,144 @@ and Python) count from 0 because that's simpler for computers to do.
 
 Finally, it is also possible to get all the elements of a vector
 except some specified elements using negative indices:
+
+
+~~~
+molecules ## all molecules
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Error: attempt to use zero-length variable name
+[1] "dna"     "rna"     "peptide" "protein"
 ~~~
-{: .error}
+{: .output}
+
+
 
 ~~~
-molecules ## all molecules
 molecules[-1] ## all but the first one
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] "rna"     "peptide" "protein"
+~~~
+{: .output}
+
+
+
+~~~
 molecules[-c(1, 3)] ## all but 1st/3rd ones
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] "rna"     "protein"
+~~~
+{: .output}
+
+
+
+~~~
 molecules[c(-1, -3)] ## all but 1st/3rd ones
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] "rna"     "protein"
+~~~
+{: .output}
 
 # Conditional subsetting
 
 Another common way of subsetting is by using a logical vector. `TRUE` will
 select the element with the same index, while `FALSE` will not:
-~~~
-{: .language-r}
 
-
-
-~~~
-Error: attempt to use zero-length variable name
-~~~
-{: .error}
 
 ~~~
 weight_g <- c(21, 34, 39, 54, 55)
 weight_g[c(TRUE, FALSE, TRUE, TRUE, FALSE)]
-```
-
-Typically, these logical vectors are not typed by hand, but are the
-output of other functions or logical tests. For instance, if you
-wanted to select only the values above 50:
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Error: attempt to use zero-length variable name
+[1] 21 39 54
 ~~~
-{: .error}
+{: .output}
+
+Typically, these logical vectors are not typed by hand, but are the
+output of other functions or logical tests. For instance, if you
+wanted to select only the values above 50:
+
 
 ~~~
 ## will return logicals with TRUE for the indices that meet
 ## the condition
 weight_g > 50
-## so we can use this to select only the values above 50
-weight_g[weight_g > 50]
-```
-
-You can combine multiple tests using `&` (both conditions are true,
-AND) or `|` (at least one of the conditions is true, OR):
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Error: attempt to use zero-length variable name
+[1] FALSE FALSE FALSE  TRUE  TRUE
 ~~~
-{: .error}
+{: .output}
+
+
+
+~~~
+## so we can use this to select only the values above 50
+weight_g[weight_g > 50]
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 54 55
+~~~
+{: .output}
+
+You can combine multiple tests using `&` (both conditions are true,
+AND) or `|` (at least one of the conditions is true, OR):
+
 
 ~~~
 weight_g[weight_g < 30 | weight_g > 50]
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 21 54 55
+~~~
+{: .output}
+
+
+
+~~~
 weight_g[weight_g >= 30 & weight_g == 21]
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+numeric(0)
+~~~
+{: .output}
 
 Here, `<` stands for "less than", `>` for "greater than", `>=` for
 "greater than or equal to", and `==` for "equal to". The double equal
@@ -807,22 +901,48 @@ A common task is to search for certain strings in a vector.  One could
 use the "or" operator `|` to test for equality to multiple values, but
 this can quickly become tedious. The function `%in%` allows you to
 test if any of the elements of a search vector are found:
+
+
+~~~
+molecules <- c("dan", "rna", "protein", "peptide")
+molecules[molecules == "rna" | molecules == "dna"] # returns both rna and dna
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Error: attempt to use zero-length variable name
+[1] "rna"
 ~~~
-{: .error}
+{: .output}
+
+
 
 ~~~
-molecules <- c("dan", "rna", "protein", "peptide")
-molecules[molecules == "rna" | molecules == "dna"] # returns both rna and dna
 molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] FALSE  TRUE FALSE  TRUE
+~~~
+{: .output}
+
+
+
+~~~
 molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] "rna"     "peptide"
+~~~
+{: .output}
 
 
 > ## Challenge:
@@ -830,65 +950,92 @@ molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
 > Can you figure out why `"four" > "five"` returns `TRUE`?
 > > Solution
 > >
-~~~
-{: .language-r}
-
-
-
-~~~
-Error: attempt to use zero-length variable name
-~~~
-{: .error}
 > > 
 > > ~~~
 > > "four" > "five"
-> > ```
-> > 
-> > When using `>` or `<` on strings, R compares their alphabetical order.
-> > Here `"four"` comes after `"five"`, and therefore is *greater than*
-> > it.
-> > > {: .solution}
-> > {: .challenge}
-> > 
-> > 
-> > # Names
-> > 
-> > It is possible to name each element of a vector. The code chunk below
-> > show a initial vector without any names, how names are set, and
-> > retrieved.
 > > ~~~
 > > {: .language-r}
 > > 
 > > 
 > > 
 > > ~~~
-> > Error: attempt to use zero-length variable name
+> > [1] TRUE
 > > ~~~
-> > {: .error}
+> > {: .output}
+> >
+> > When using `>` or `<` on strings, R compares their alphabetical order.
+> > Here `"four"` comes after `"five"`, and therefore is *greater than*
+> > it.
+> {: .solution}
+{: .challenge}
+
+
+# Names
+
+It is possible to name each element of a vector. The code chunk below
+show a initial vector without any names, how names are set, and
+retrieved.
+
 
 ~~~
 x <- c(1, 5, 3, 5, 10)
 names(x) ## no names
-names(x) <- c("A", "B", "C", "D", "E")
-names(x) ## now we have names
-```
-
-When a vector has names, it is possible to access elements by their
-name, in addition to their index.
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Error: attempt to use zero-length variable name
+NULL
 ~~~
-{: .error}
+{: .output}
+
+
+
+~~~
+names(x) <- c("A", "B", "C", "D", "E")
+names(x) ## now we have names
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] "A" "B" "C" "D" "E"
+~~~
+{: .output}
+
+When a vector has names, it is possible to access elements by their
+name, in addition to their index.
+
 
 ~~~
 x[c(1, 3)]
+~~~
+{: .language-r}
+
+
+
+~~~
+A C 
+1 3 
+~~~
+{: .output}
+
+
+
+~~~
 x[c("A", "C")]
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+A C 
+1 3 
+~~~
+{: .output}
 
 # Missing data
 
@@ -901,111 +1048,141 @@ the data you are working with include missing values. This feature
 makes it harder to overlook the cases where you are dealing with
 missing data.  You can add the argument `na.rm = TRUE` to calculate
 the result while ignoring the missing values.
+
+
+~~~
+heights <- c(2, 4, 4, NA, 6)
+mean(heights)
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Error: attempt to use zero-length variable name
+[1] NA
 ~~~
-{: .error}
+{: .output}
+
+
 
 ~~~
-heights <- c(2, 4, 4, NA, 6)
-mean(heights)
 max(heights)
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] NA
+~~~
+{: .output}
+
+
+
+~~~
 mean(heights, na.rm = TRUE)
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 4
+~~~
+{: .output}
+
+
+
+~~~
 max(heights, na.rm = TRUE)
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 6
+~~~
+{: .output}
 
 If your data include missing values, you may want to become familiar
 with the functions `is.na()`, `na.omit()`, and `complete.cases()`. See
 below for examples.
 
+
+
+~~~
+## Extract those elements which are not missing values.
+heights[!is.na(heights)]
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Error: attempt to use zero-length variable name
+[1] 2 4 4 6
 ~~~
-{: .error}
+{: .output}
+
+
 
 ~~~
-## Extract those elements which are not missing values.
-heights[!is.na(heights)]
-
 ## Returns the object with incomplete cases removed.
 ## The returned object is an atomic vector of type `"numeric"`
 ## (or `"double"`).
 na.omit(heights)
+~~~
+{: .language-r}
 
+
+
+~~~
+[1] 2 4 4 6
+attr(,"na.action")
+[1] 4
+attr(,"class")
+[1] "omit"
+~~~
+{: .output}
+
+
+
+~~~
 ## Extract those elements which are complete cases.
 ## The returned object is an atomic vector of type `"numeric"`
 ## (or `"double"`).
 heights[complete.cases(heights)]
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 2 4 4 6
+~~~
+{: .output}
 
 
 
 > ## Challenge:
 >
 > 1. Using this vector of heights in inches, create a new vector with the NAs removed.
-~~~
-{: .language-r}
-
-
-
-~~~
-Error: attempt to use zero-length variable name
-~~~
-{: .error}
 > 
 > ~~~
 > heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
-> ```
-> 2. Use the function `median()` to calculate the median of the `heights` vector.
-> 3. Use R to figure out how many people in the set are taller than 67 inches.
-> 
->  Solution
 > ~~~
 > {: .language-r}
-> 
-> 
-> 
-> ~~~
-> Error: attempt to use zero-length variable name
-> ~~~
-> {: .error}
+> 2. Use the function `median()` to calculate the median of the `heights` vector.
+> 3. Use R to figure out how many people in the set are taller than 67 inches.
+>
+> > Solution
 > >
 > >~~~
 > >heights_no_na <- heights[!is.na(heights)]
-> >~~~
-> >{: .language-r}
-> >
-> >
-> >
-> >~~~
-> >Error in eval(expr, envir, enclos): object 'heights' not found
-> >~~~
-> >{: .error}
-> >
-> >
-> >
-> >~~~
 > >## or
 > >heights_no_na <- na.omit(heights)
 > >~~~
 > >{: .language-r}
-> >
-> >
-> >
-> >~~~
-> >Error in na.omit(heights): object 'heights' not found
-> >~~~
-> >{: .error}
 > >
 > >
 > >~~~
@@ -1016,26 +1193,13 @@ Error: attempt to use zero-length variable name
 > >
 > >
 > >~~~
-> >Error in median(heights, na.rm = TRUE): object 'heights' not found
+> >[1] 64
 > >~~~
-> >{: .error}
+> >{: .output}
 > >
 > >
 > >~~~
 > >heights_above_67 <- heights_no_na[heights_no_na > 67]
-> >~~~
-> >{: .language-r}
-> >
-> >
-> >
-> >~~~
-> >Error in eval(expr, envir, enclos): object 'heights_no_na' not found
-> >~~~
-> >{: .error}
-> >
-> >
-> >
-> >~~~
 > >length(heights_above_67)
 > >~~~
 > >{: .language-r}
@@ -1043,9 +1207,9 @@ Error: attempt to use zero-length variable name
 > >
 > >
 > >~~~
-> >Error in eval(expr, envir, enclos): object 'heights_above_67' not found
+> >[1] 6
 > >~~~
-> >{: .error}
+> >{: .output}
 > {: .solution}
 {: .challenge}
 
@@ -1057,7 +1221,7 @@ Error: attempt to use zero-length variable name
 ### Constructors {-}
 
 There exists some functions to generate vectors of different type. To
-generate a vector of numerics, one can use the `numerics()`
+generate a vector of numerics, one can use the `numeric()`
 constructor, providing the length of the output vector as
 parameter. The values will be initialised with 0.
 
@@ -1315,7 +1479,7 @@ seq(from = 1, to = 20, length.out = 3)
 A last group of useful functions are those that generate random
 data. The first one, `sample`, generates a random permutation of
 another vector. For example, to draw a random order to 10 students
-oral example, I first assign each student a number from 1 to then (for
+oral exam, I first assign each student a number from 1 to then (for
 instance based on the alphabetic order of their name) and then:
 
 

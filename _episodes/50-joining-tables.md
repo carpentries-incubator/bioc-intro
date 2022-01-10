@@ -179,7 +179,7 @@ variables are called **keys**. Keys are used to match observations
 across different tables.
 
 Now let's look at a third table, `jdf3`. It also contains the column uniProt,
-but it is written diffently!
+but it is written differently!
 
 
 ~~~

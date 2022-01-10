@@ -8,7 +8,7 @@ exercises: XX
 questions:
 - "SummarizedExperiment"
 objectives:
-- Introduce the notion of data containers 
+- Introduce the notion of data containers
 - Give an overview of the `SummarizedExperiment`, extensively used in omics analyses
 keypoints:
 - "Tabular data in R"
@@ -20,22 +20,19 @@ keypoints:
 
 
 
-Data in bioinformatics is often complex. 
+Data in bioinformatics is often complex.
 To deal with this, developers define specialised
 data containers (termed classes) that match the properties of the
 data they need to handle.
 
-This aspect is central to the **Bioconductor**[^Bioconductor] project which 
-uses the same **core data infrastructure** across packages. This certainly contributed 
-to Bioconductor's success. Bioconductor package developers are advised to make 
+This aspect is central to the **Bioconductor**[^Bioconductor] project which
+uses the same **core data infrastructure** across packages. This certainly contributed
+to Bioconductor's success. Bioconductor package developers are advised to make
 use of existing infrastructure to provide coherence, interoperability and stability to
 the project as a whole.
 
-[^Bioconductor]:The [Bioconductor](http://www.bioconductor.org) was initiated by
-Robert Gentleman, one of the two creators of the R language. Bioconductor provides 
-tools dedicated to omics data analysis. 
-Bioconductor uses the R statistical programming language, and is open source and 
-open development. 
+
+[^Bioconductor]:The [Bioconductor](http://www.bioconductor.org) was initiated by Robert Gentleman, one of the two creators of the R language. Bioconductor provides  tools dedicated to omics data analysis. Bioconductor uses the R statistical programming language, and is open source and open development. 
 
 
 To illustrate such an omics data container, we'll present the `SummarizedExperiment`
@@ -60,14 +57,14 @@ Objects of the class SummarizedExperiment contain :
   along the columns.
 
 - A **sample metadata** slot containing sample co-variates, stored as a
-  data frame. Rows from this table represent samples (rows match exactly the 
-  columns of the expression data). 
+  data frame. Rows from this table represent samples (rows match exactly the
+  columns of the expression data).
 
 - A **feature metadata** slot containing feature co-variates, stored as
-  data frame. The rows of this dataframe's match exactly the rows of the 
-  expression data. 
-  
-The coordinated nature of the SummarizedExperiment guarantees that 
+  data frame. The rows of this dataframe's match exactly the rows of the
+  expression data.
+
+The coordinated nature of the SummarizedExperiment guarantees that
 during data manipulation, the
 dimensions of the different slots will always match (i.e the columns
 in the expression data and then rows in the sample metadata, as well
@@ -243,7 +240,7 @@ colData names(9): sample organism ... tissue mouse
 
 
 Using this data structure, we can access the expression matrix with
-the `assay` function: 
+the `assay` function:
 
 
 
@@ -411,10 +408,10 @@ dim(rowData(se))
 
 ### Subsetting a SummarizedExperiment
 
-SummarizedExperiment can be subset just like with data frames, 
+SummarizedExperiment can be subset just like with data frames,
 with numerics or with characters of logicals.
 
-Below, we create a new instance of class SummarizedExperiment that contains only 
+Below, we create a new instance of class SummarizedExperiment that contains only
 the 5 first features for the 3 first samples.
 
 
@@ -503,7 +500,7 @@ For example, here we keep only miRNAs and the non infected samples:
 
 
 ~~~
-se1 <- se[rowData(se)$gene_biotype == "miRNA", 
+se1 <- se[rowData(se)$gene_biotype == "miRNA",
           colData(se)$infection == "NonInfected"]
 se1
 ~~~
@@ -629,13 +626,13 @@ Mir7682                                     NA
 
 
 
-For the following exercise, you should download the SE.rda object 
-(that contains the `se` object), and open the file using the 
+For the following exercise, you should download the SE.rda object
+(that contains the `se` object), and open the file using the
 'load()' function.
 
 
 ~~~
-download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/bioinfo-training-01-intro-r/master/data/SE.rda", 
+download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/bioinfo-training-01-intro-r/master/data/SE.rda",
               destfile = "data/SE.rda")
 
 load(file = "data/SE.rda")
@@ -643,12 +640,12 @@ load(file = "data/SE.rda")
 {: .language-r}
 
 > ## Challenge
-> 
+>
 > Extract the gene expression levels of the 3 first genes in samples at time 0 and at time 8.
-> 
+>
 > > ## Solution
-> > 
-> > 
+> >
+> >
 > > 
 > > ~~~
 > > assay(se)[1:3, colData(se)$time != 4]
@@ -746,7 +743,7 @@ GSM2545380     C57BL/6         8  Cerebellum        19 University of Illinois
 ~~~
 {: .output}
 
-This illustrates that the metadata slots can grow indefinitely without affecting 
+This illustrates that the metadata slots can grow indefinitely without affecting
 the other structures!
 
 
@@ -756,10 +753,8 @@ the other structures!
 
 - `SummarizedExperiment` represent an efficient way to store and to handle omics data.
 
-- They are used in many Bioconductor packages. 
+- They are used in many Bioconductor packages.
 
-If you follow next training focused on RNA sequencing analysis, you will learn to 
-use the Bioconductor `DESeq2` package to do some differential expression analyses. 
+If you follow next training focused on RNA sequencing analysis, you will learn to
+use the Bioconductor `DESeq2` package to do some differential expression analyses.
 `DESeq2`'s whole analysis is handled in a `SummarizedExperiment`.
-
-

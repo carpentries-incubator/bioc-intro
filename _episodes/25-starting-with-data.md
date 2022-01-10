@@ -30,7 +30,7 @@ effect of upper-respiratory infection on transcriptomic changes in the
 CNS*. The goal of the study was to determine the effect of an
 upper-respiratory infection on changes in RNA transcription occuring
 in the cerebellum and spinal cord post infection. Gender matched eight
-week old C57BL/6 mice were inoculated saline or with Influenza A by
+week old C57BL/6 mice were inoculated with saline or with Influenza A by
 intranasal route and transcriptomic changes in the cerebellum and
 spinal cord tissues were evaluated by RNA-seq at days 0
 (non-infected), 4 and 8.
@@ -171,7 +171,7 @@ behaves exactly like `read.csv()` but uses different parameters for
 the decimal and the field separators. If you are working with another
 format, they can be both specified by the user. Check out the help for
 `read.csv()` by typing `?read.csv` to learn more. There is also the
-`read.delim()` for in tab separated data files. It is important to
+`read.delim()` function for reading tab separated data files. It is important to
 note that all of these functions are actually wrapper functions for
 the main `read.table()` function with different arguments.  As such,
 the data above could have also been loaded by using `read.table()`
@@ -404,7 +404,7 @@ correct names of the columns.
 > > rna_head <- rna[-(7:n_rows), ]
 > > ~~~
 > > {: .language-r}
-> > {: .solution}
+> {: .solution}
 {: .challenge}
 
 
@@ -605,6 +605,8 @@ plot(sex)
 > ## Challenge:
 >
 > - Rename "female" and "male" to "Female" and "Male" respectively.
+>
+{: .challenge }
 
 > ## Challenge:
 >
@@ -626,6 +628,7 @@ plot(sex)
 > > - missing quotations around the names of the animals
 > > - missing one entry in the "feel" column (probably for one of the furry animals)
 > > - missing one comma in the weight column
+> >
 > {: .solution}
 {: .challenge}
 
@@ -698,9 +701,7 @@ m
 ~~~
 {: .output}
 
-[^ncol]: Either the number of rows or columns are enough, as the other
-one can be deduced from the length of the values. Try out what happens
-if the values and number of rows/columns don't add up.
+[^ncol]: Either the number of rows or columns are enough, as the other one can be deduced from the length of the values. Try out what happens if the values and number of rows/columns don't add up.
 
 
 > ## Challenge:
@@ -725,6 +726,7 @@ if the values and number of rows/columns don't add up.
 > > colnames(ip)
 > > ~~~
 > > {: .language-r}
+> >
 > {: .solution}
 {: .challenge}
 
@@ -775,6 +777,7 @@ data drawn from a normal distribution of mean 0 and standard deviation
 > > [6,]  1.71506499  1.04057346 -0.6152683
 > > ~~~
 > > {: .output}
+> >
 > {: .solution}
 {: .challenge}
 
