@@ -49,8 +49,7 @@ different tables that have one or more shared columns.
 The data we are going to use are available in the following package.
 
 ```{r joindata}
-# install.packages(c("BiocManager", "remotes"))
-# BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
+BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
 library("rWSBIM1207")
 data(jdf)
 ```
