@@ -49,10 +49,19 @@ different tables that have one or more shared columns.
 The data we are going to use are available in the following package.
 
 
+
 ~~~
-BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
+Loading required package: rWSBIM1207
 ~~~
-{: .language-r}
+{: .output}
+
+
+
+~~~
+Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+logical.return = TRUE, : there is no package called 'rWSBIM1207'
+~~~
+{: .warning}
 
 
 
@@ -111,7 +120,7 @@ Running `R CMD build`...
 
 
 ~~~
-* checking for file ‘/tmp/Rtmpq9mJep/remotes29495d90e2ef/UCLouvain-CBIO-rWSBIM1207-fd5bc8e/DESCRIPTION’ ... OK
+* checking for file ‘/tmp/RtmpBv7ndU/remotes29d47cc57b52/UCLouvain-CBIO-rWSBIM1207-fd5bc8e/DESCRIPTION’ ... OK
 * preparing ‘rWSBIM1207’:
 * checking DESCRIPTION meta-information ... OK
 * checking for LF line-endings in source and make files and shell scripts
@@ -131,11 +140,18 @@ Installation paths not writeable, unable to update packages
 {: .output}
 
 
-
 ~~~
-library("rWSBIM1207")
+if (!require("rWSBIM1207"))
+    BiocManager::install("UCLouvain-CBIO/rWSBIM1207")
 ~~~
 {: .language-r}
+
+
+
+~~~
+Loading required package: rWSBIM1207
+~~~
+{: .output}
 
 
 
@@ -148,6 +164,7 @@ This is 'rWSBIM1207' version 0.1.15
 
 
 ~~~
+library("rWSBIM1207")
 data(jdf)
 ~~~
 {: .language-r}
