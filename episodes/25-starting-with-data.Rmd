@@ -68,10 +68,8 @@ folder named `"data"`.
 
 
 ```{r, eval = TRUE}
-
-if (!file.exists("data/rnaseq.csv"))
-    download.file(url = "https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv",
-                  destfile = "data/rnaseq.csv")
+download.file(url = "https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv",
+              destfile = "data/rnaseq.csv")
 ```
 
 You are now ready to load the data:
