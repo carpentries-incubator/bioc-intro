@@ -20,7 +20,7 @@ title: Setup
   and then follow the instructions to install packages.
 
 
-### Windows
+### You are running Windows
 
 > ## If you already have R and RStudio installed
 >
@@ -55,7 +55,7 @@ title: Setup
 {: .solution}
 
 
-### macOS
+### You are running macOS
 
 > ## If you already have R and RStudio installed
 >
@@ -91,7 +91,7 @@ title: Setup
 >   bottom of this page.
 {: .solution}
 
-### Linux
+### You are running Linux
 
 
 > ## Install R using your package manager and RStudio
