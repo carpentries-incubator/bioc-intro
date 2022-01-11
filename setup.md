@@ -61,7 +61,7 @@ title: Setup
 >
 > * Open RStudio, and click on "Help" > "Check for updates". If a new version is
 >	available, quit RStudio, and download the latest version for RStudio.
->	* To check the version of R you are using, start RStudio and the first thing
+> * To check the version of R you are using, start RStudio and the first thing
 >	  that appears on the terminal indicates the version of R you are running. Alternatively, you can type `sessionInfo()`, which will
 >	also display which version of R you are running. Go on
 >	  the [CRAN website](https://cran.r-project.org/bin/macosx/) and check
