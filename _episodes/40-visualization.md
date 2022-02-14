@@ -323,7 +323,8 @@ rna_fc <- rna %>% select(gene, time,
 
 
 ~~~
-`summarise()` has grouped output by 'gene', 'time'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'gene', 'time'. You can override using the
+`.groups` argument.
 ~~~
 {: .output}
 
@@ -471,7 +472,6 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 > > 
 > > ~~~
 > > Warning: Computation failed in `stat_binhex()`:
-> > The `hexbin` package is required for `stat_binhex()`
 > > ~~~
 > > {: .warning}
 > > 
@@ -664,7 +664,8 @@ mean_exp_by_time <- sub_rna %>%
 
 
 ~~~
-`summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'gene'. You can override using the
+`.groups` argument.
 ~~~
 {: .output}
 
@@ -751,7 +752,8 @@ mean_exp_by_time_sex <- sub_rna %>%
 
 
 ~~~
-`summarise()` has grouped output by 'gene', 'time'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'gene', 'time'. You can override using the
+`.groups` argument.
 ~~~
 {: .output}
 
@@ -804,7 +806,8 @@ ggplot(data = mean_exp_by_time_sex,
 > > 
 > > 
 > > ~~~
-> > `summarise()` has grouped output by 'chromosome_name'. You can override using the `.groups` argument.
+> > `summarise()` has grouped output by 'chromosome_name'. You can override using
+> > the `.groups` argument.
 > > ~~~
 > > {: .output}
 > > 

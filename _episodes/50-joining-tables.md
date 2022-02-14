@@ -205,18 +205,18 @@ Joining, by = "uniprot"
 
 ~~~
 # A tibble: 25 × 6
-   uniprot  organelle        entry   gene_name description              organism
-   <chr>    <chr>            <chr>   <chr>     <chr>                    <chr>   
- 1 P26039   Actin cytoskele… TLN1_M… Tln1      Talin-1                  Mmus    
- 2 Q99PL5   Endoplasmic ret… RRBP1_… Rrbp1     Ribosome-binding protei… Mmus    
- 3 Q6PB66   Mitochondrion    LPPRC_… Lrpprc    Leucine-rich PPR motif-… Mmus    
- 4 P11276   Extracellular m… FINC_M… Fn1       Fibronectin              Mmus    
- 5 Q6PR54   Nucleus - Chrom… RIF1_M… Rif1      Telomere-associated pro… Mmus    
- 6 Q05793   Extracellular m… PGBM_M… Hspg2     Basement membrane-speci… Mmus    
- 7 P19096   Cytosol          FAS_MO… Fasn      Fatty acid synthase      Mmus    
- 8 Q9JKF1   Plasma membrane  IQGA1_… Iqgap1    Ras GTPase-activating-l… Mmus    
- 9 Q9QZQ1-2 Plasma membrane  AFAD_M… Mllt4     Isoform 1 of Afadin      Mmus    
-10 Q6NS46   Nucleus - Non-c… RRP5_M… Pdcd11    Protein RRP5 homolog     Mmus    
+   uniprot  organelle                       entry gene_name description organism
+   <chr>    <chr>                           <chr> <chr>     <chr>       <chr>   
+ 1 P26039   Actin cytoskeleton              TLN1… Tln1      Talin-1     Mmus    
+ 2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… Rrbp1     Ribosome-b… Mmus    
+ 3 Q6PB66   Mitochondrion                   LPPR… Lrpprc    Leucine-ri… Mmus    
+ 4 P11276   Extracellular matrix            FINC… Fn1       Fibronectin Mmus    
+ 5 Q6PR54   Nucleus - Chromatin             RIF1… Rif1      Telomere-a… Mmus    
+ 6 Q05793   Extracellular matrix            PGBM… Hspg2     Basement m… Mmus    
+ 7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+ 8 Q9JKF1   Plasma membrane                 IQGA… Iqgap1    Ras GTPase… Mmus    
+ 9 Q9QZQ1-2 Plasma membrane                 AFAD… Mllt4     Isoform 1 … Mmus    
+10 Q6NS46   Nucleus - Non-chromatin         RRP5… Pdcd11    Protein RR… Mmus    
 # … with 15 more rows
 ~~~
 {: .output}
@@ -285,18 +285,18 @@ full_join(jdf1, jdf3, by = c("uniprot" = "UniProt"))
 
 ~~~
 # A tibble: 25 × 6
-   uniprot  organelle        entry   gene_name description              organism
-   <chr>    <chr>            <chr>   <chr>     <chr>                    <chr>   
- 1 P26039   Actin cytoskele… TLN1_M… Tln1      Talin-1                  Mmus    
- 2 Q99PL5   Endoplasmic ret… RRBP1_… Rrbp1     Ribosome-binding protei… Mmus    
- 3 Q6PB66   Mitochondrion    LPPRC_… Lrpprc    Leucine-rich PPR motif-… Mmus    
- 4 P11276   Extracellular m… FINC_M… Fn1       Fibronectin              Mmus    
- 5 Q6PR54   Nucleus - Chrom… RIF1_M… Rif1      Telomere-associated pro… Mmus    
- 6 Q05793   Extracellular m… PGBM_M… Hspg2     Basement membrane-speci… Mmus    
- 7 P19096   Cytosol          FAS_MO… Fasn      Fatty acid synthase      Mmus    
- 8 Q9JKF1   Plasma membrane  IQGA1_… Iqgap1    Ras GTPase-activating-l… Mmus    
- 9 Q9QZQ1-2 Plasma membrane  AFAD_M… Mllt4     Isoform 1 of Afadin      Mmus    
-10 Q6NS46   Nucleus - Non-c… RRP5_M… Pdcd11    Protein RRP5 homolog     Mmus    
+   uniprot  organelle                       entry gene_name description organism
+   <chr>    <chr>                           <chr> <chr>     <chr>       <chr>   
+ 1 P26039   Actin cytoskeleton              TLN1… Tln1      Talin-1     Mmus    
+ 2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… Rrbp1     Ribosome-b… Mmus    
+ 3 Q6PB66   Mitochondrion                   LPPR… Lrpprc    Leucine-ri… Mmus    
+ 4 P11276   Extracellular matrix            FINC… Fn1       Fibronectin Mmus    
+ 5 Q6PR54   Nucleus - Chromatin             RIF1… Rif1      Telomere-a… Mmus    
+ 6 Q05793   Extracellular matrix            PGBM… Hspg2     Basement m… Mmus    
+ 7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+ 8 Q9JKF1   Plasma membrane                 IQGA… Iqgap1    Ras GTPase… Mmus    
+ 9 Q9QZQ1-2 Plasma membrane                 AFAD… Mllt4     Isoform 1 … Mmus    
+10 Q6NS46   Nucleus - Non-chromatin         RRP5… Pdcd11    Protein RR… Mmus    
 # … with 15 more rows
 ~~~
 {: .output}
@@ -327,22 +327,22 @@ in the joined one.
 > > 
 > > ~~~
 > > # A tibble: 14 × 6
-> >    uniprot  organelle        entry  gene_name description               organism
-> >    <chr>    <chr>            <chr>  <chr>     <chr>                     <chr>   
-> >  1 P26039   Actin cytoskele… TLN1_… <NA>      <NA>                      <NA>    
-> >  2 Q99PL5   Endoplasmic ret… RRBP1… <NA>      <NA>                      <NA>    
-> >  3 Q6PB66   Mitochondrion    LPPRC… <NA>      <NA>                      <NA>    
-> >  4 P11276   Extracellular m… FINC_… <NA>      <NA>                      <NA>    
-> >  5 Q6PR54   Nucleus - Chrom… RIF1_… <NA>      <NA>                      <NA>    
-> >  6 Q05793   Extracellular m… PGBM_… <NA>      <NA>                      <NA>    
-> >  7 P19096   Cytosol          FAS_M… Fasn      Fatty acid synthase       Mmus    
-> >  8 Q9JKF1   Plasma membrane  IQGA1… <NA>      <NA>                      <NA>    
-> >  9 Q9QZQ1-2 Plasma membrane  AFAD_… <NA>      <NA>                      <NA>    
-> > 10 Q6NS46   Nucleus - Non-c… RRP5_… <NA>      <NA>                      <NA>    
-> > 11 P02468   <NA>             <NA>   Lamc1     Laminin subunit gamma-1   Mmus    
-> > 12 P08113   <NA>             <NA>   Hsp90b1   Endoplasmin               Mmus    
-> > 13 Q8BI84   <NA>             <NA>   Mia3      Melanoma inhibitory acti… Mmus    
-> > 14 Q6P5D8   <NA>             <NA>   Smchd1    Structural maintenance o… Mmus    
+> >    uniprot  organelle                       entry gene_name description organism
+> >    <chr>    <chr>                           <chr> <chr>     <chr>       <chr>   
+> >  1 P26039   Actin cytoskeleton              TLN1… <NA>      <NA>        <NA>    
+> >  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… <NA>      <NA>        <NA>    
+> >  3 Q6PB66   Mitochondrion                   LPPR… <NA>      <NA>        <NA>    
+> >  4 P11276   Extracellular matrix            FINC… <NA>      <NA>        <NA>    
+> >  5 Q6PR54   Nucleus - Chromatin             RIF1… <NA>      <NA>        <NA>    
+> >  6 Q05793   Extracellular matrix            PGBM… <NA>      <NA>        <NA>    
+> >  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+> >  8 Q9JKF1   Plasma membrane                 IQGA… <NA>      <NA>        <NA>    
+> >  9 Q9QZQ1-2 Plasma membrane                 AFAD… <NA>      <NA>        <NA>    
+> > 10 Q6NS46   Nucleus - Non-chromatin         RRP5… <NA>      <NA>        <NA>    
+> > 11 P02468   <NA>                            <NA>  Lamc1     Laminin su… Mmus    
+> > 12 P08113   <NA>                            <NA>  Hsp90b1   Endoplasmin Mmus    
+> > 13 Q8BI84   <NA>                            <NA>  Mia3      Melanoma i… Mmus    
+> > 14 Q6P5D8   <NA>                            <NA>  Smchd1    Structural… Mmus    
 > > ~~~
 > > {: .output}
 > >
@@ -403,18 +403,18 @@ Error in knitr::include_graphics("./figs/join-outer.png"): Cannot find the file(
 > > 
 > > ~~~
 > > # A tibble: 10 × 6
-> >    uniprot  organelle                entry    gene_name description     organism
-> >    <chr>    <chr>                    <chr>    <chr>     <chr>           <chr>   
-> >  1 P26039   Actin cytoskeleton       TLN1_MO… <NA>      <NA>            <NA>    
-> >  2 Q99PL5   Endoplasmic reticulum/G… RRBP1_M… <NA>      <NA>            <NA>    
-> >  3 Q6PB66   Mitochondrion            LPPRC_M… <NA>      <NA>            <NA>    
-> >  4 P11276   Extracellular matrix     FINC_MO… <NA>      <NA>            <NA>    
-> >  5 Q6PR54   Nucleus - Chromatin      RIF1_MO… <NA>      <NA>            <NA>    
-> >  6 Q05793   Extracellular matrix     PGBM_MO… <NA>      <NA>            <NA>    
-> >  7 P19096   Cytosol                  FAS_MOU… Fasn      Fatty acid syn… Mmus    
-> >  8 Q9JKF1   Plasma membrane          IQGA1_M… <NA>      <NA>            <NA>    
-> >  9 Q9QZQ1-2 Plasma membrane          AFAD_MO… <NA>      <NA>            <NA>    
-> > 10 Q6NS46   Nucleus - Non-chromatin  RRP5_MO… <NA>      <NA>            <NA>    
+> >    uniprot  organelle                       entry gene_name description organism
+> >    <chr>    <chr>                           <chr> <chr>     <chr>       <chr>   
+> >  1 P26039   Actin cytoskeleton              TLN1… <NA>      <NA>        <NA>    
+> >  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… <NA>      <NA>        <NA>    
+> >  3 Q6PB66   Mitochondrion                   LPPR… <NA>      <NA>        <NA>    
+> >  4 P11276   Extracellular matrix            FINC… <NA>      <NA>        <NA>    
+> >  5 Q6PR54   Nucleus - Chromatin             RIF1… <NA>      <NA>        <NA>    
+> >  6 Q05793   Extracellular matrix            PGBM… <NA>      <NA>        <NA>    
+> >  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
+> >  8 Q9JKF1   Plasma membrane                 IQGA… <NA>      <NA>        <NA>    
+> >  9 Q9QZQ1-2 Plasma membrane                 AFAD… <NA>      <NA>        <NA>    
+> > 10 Q6NS46   Nucleus - Non-chromatin         RRP5… <NA>      <NA>        <NA>    
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -530,13 +530,13 @@ Joining, by = "uniprot"
 
 ~~~
 # A tibble: 5 × 7
-  uniprot organelle             entry  isoform gene_name description    organism
-  <chr>   <chr>                 <chr>    <dbl> <chr>     <chr>          <chr>   
-1 P26039  Actin cytoskeleton    TLN1_…       1 Tln1      Talin-1        Mmus    
-2 Q99PL5  Endoplasmic reticulum RRBP1…       1 Rrbp1     Ribosome-bind… Mmus    
-3 Q99PL5  Golgi apparatus       RRBP1…       2 Rrbp1     Ribosome-bind… Mmus    
-4 Q6PB66  Mitochondrion         LPPRC…       1 Lrpprc    Leucine-rich … Mmus    
-5 P11276  Extracellular matrix  FINC_…       1 Fn1       Fibronectin    Mmus    
+  uniprot organelle             entry     isoform gene_name description organism
+  <chr>   <chr>                 <chr>       <dbl> <chr>     <chr>       <chr>   
+1 P26039  Actin cytoskeleton    TLN1_MOU…       1 Tln1      Talin-1     Mmus    
+2 Q99PL5  Endoplasmic reticulum RRBP1_MO…       1 Rrbp1     Ribosome-b… Mmus    
+3 Q99PL5  Golgi apparatus       RRBP1_MO…       2 Rrbp1     Ribosome-b… Mmus    
+4 Q6PB66  Mitochondrion         LPPRC_MO…       1 Lrpprc    Leucine-ri… Mmus    
+5 P11276  Extracellular matrix  FINC_MOU…       1 Fn1       Fibronectin Mmus    
 ~~~
 {: .output}
 
@@ -586,12 +586,12 @@ Joining, by = "uniprot"
 
 ~~~
 # A tibble: 4 × 9
-  uniprot organelle   entry  isoform gene_name description  organism isoform_num
-  <chr>   <chr>       <chr>    <dbl> <chr>     <chr>        <chr>          <dbl>
-1 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               1
-2 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               2
-3 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               1
-4 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               2
+  uniprot organelle     entry isoform gene_name description organism isoform_num
+  <chr>   <chr>         <chr>   <dbl> <chr>     <chr>       <chr>          <dbl>
+1 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               1
+2 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               2
+3 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               1
+4 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               2
 # … with 1 more variable: measure <dbl>
 ~~~
 {: .output}
@@ -632,12 +632,12 @@ Joining, by = "uniprot"
 > > 
 > > ~~~
 > > # A tibble: 4 × 9
-> >   uniprot organelle   entry  isoform gene_name description  organism isoform_num
-> >   <chr>   <chr>       <chr>    <dbl> <chr>     <chr>        <chr>          <dbl>
-> > 1 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               1
-> > 2 Q99PL5  Endoplasmi… RRBP1…       1 Rrbp1     Ribosome-bi… Mmus               2
-> > 3 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               1
-> > 4 Q99PL5  Golgi appa… RRBP1…       2 Rrbp1     Ribosome-bi… Mmus               2
+> >   uniprot organelle     entry isoform gene_name description organism isoform_num
+> >   <chr>   <chr>         <chr>   <dbl> <chr>     <chr>       <chr>          <dbl>
+> > 1 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               1
+> > 2 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               2
+> > 3 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               1
+> > 4 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               2
 > > # … with 1 more variable: measure <dbl>
 > > ~~~
 > > {: .output}
@@ -725,10 +725,10 @@ inner_join(jdf6, jdf7, by = c("uniprot" = "uniprot", "isoform" = "isoform_num"))
 
 ~~~
 # A tibble: 2 × 8
-  uniprot organelle    entry   isoform gene_name description    organism measure
-  <chr>   <chr>        <chr>     <dbl> <chr>     <chr>          <chr>      <dbl>
-1 Q99PL5  Endoplasmic… RRBP1_…       1 Rrbp1     Ribosome-bind… Mmus         102
-2 Q99PL5  Golgi appar… RRBP1_…       2 Rrbp1     Ribosome-bind… Mmus           3
+  uniprot organelle         entry isoform gene_name description organism measure
+  <chr>   <chr>             <chr>   <dbl> <chr>     <chr>       <chr>      <dbl>
+1 Q99PL5  Endoplasmic reti… RRBP…       1 Rrbp1     Ribosome-b… Mmus         102
+2 Q99PL5  Golgi apparatus   RRBP…       2 Rrbp1     Ribosome-b… Mmus           3
 ~~~
 {: .output}
 
@@ -783,10 +783,10 @@ Joining, by = c("uniprot", "isoform")
 
 ~~~
 # A tibble: 2 × 8
-  uniprot organelle    entry   isoform gene_name description    organism measure
-  <chr>   <chr>        <chr>     <dbl> <chr>     <chr>          <chr>      <dbl>
-1 Q99PL5  Endoplasmic… RRBP1_…       1 Rrbp1     Ribosome-bind… Mmus         102
-2 Q99PL5  Golgi appar… RRBP1_…       2 Rrbp1     Ribosome-bind… Mmus           3
+  uniprot organelle         entry isoform gene_name description organism measure
+  <chr>   <chr>             <chr>   <dbl> <chr>     <chr>       <chr>      <dbl>
+1 Q99PL5  Endoplasmic reti… RRBP…       1 Rrbp1     Ribosome-b… Mmus         102
+2 Q99PL5  Golgi apparatus   RRBP…       2 Rrbp1     Ribosome-b… Mmus           3
 ~~~
 {: .output}
 

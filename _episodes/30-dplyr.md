@@ -622,18 +622,18 @@ rna %>%
 > > 
 > > ~~~
 > > # A tibble: 21,054 × 5
-> >    gene    chromosome_name phenotype_description          sample  log_expression
-> >    <chr>   <chr>           <chr>                          <chr>            <dbl>
-> >  1 Asl     5               abnormal circulating amino ac… GSM254…           7.06
-> >  2 Apod    16              abnormal lipid homeostasis     GSM254…          10.5 
-> >  3 Cyp2d22 15              abnormal skin morphology       GSM254…           8.31
-> >  4 Klk6    7               abnormal cytokine level        GSM254…           5.66
-> >  5 Fcrls   3               decreased CD8-positive alpha-… GSM254…           4.44
-> >  6 Slc2a4  11              abnormal circulating glucose … GSM254…           6.66
-> >  7 Gjc2    11              Purkinje cell degeneration     GSM254…           5.66
-> >  8 Gnb4    3               decreased anxiety-related res… GSM254…           6.98
-> >  9 Tnc     4               abnormal CNS synaptic transmi… GSM254…           5.39
-> > 10 Trf     9               abnormal circulating phosphat… GSM254…           9.18
+> >    gene    chromosome_name phenotype_description           sample log_expression
+> >    <chr>   <chr>           <chr>                           <chr>           <dbl>
+> >  1 Asl     5               abnormal circulating amino aci… GSM25…           7.06
+> >  2 Apod    16              abnormal lipid homeostasis      GSM25…          10.5 
+> >  3 Cyp2d22 15              abnormal skin morphology        GSM25…           8.31
+> >  4 Klk6    7               abnormal cytokine level         GSM25…           5.66
+> >  5 Fcrls   3               decreased CD8-positive alpha-b… GSM25…           4.44
+> >  6 Slc2a4  11              abnormal circulating glucose l… GSM25…           6.66
+> >  7 Gjc2    11              Purkinje cell degeneration      GSM25…           5.66
+> >  8 Gnb4    3               decreased anxiety-related resp… GSM25…           6.98
+> >  9 Tnc     4               abnormal CNS synaptic transmis… GSM25…           5.39
+> > 10 Trf     9               abnormal circulating phosphate… GSM25…           9.18
 > > # … with 21,044 more rows
 > > ~~~
 > > {: .output}
@@ -805,7 +805,8 @@ rna %>%
 
 
 ~~~
-`summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'gene', 'infection'. You can override using
+the `.groups` argument.
 ~~~
 {: .output}
 
@@ -846,7 +847,8 @@ rna %>%
 
 
 ~~~
-`summarise()` has grouped output by 'gene', 'infection'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'gene', 'infection'. You can override using
+the `.groups` argument.
 ~~~
 {: .output}
 
@@ -985,7 +987,8 @@ rna %>%
 
 
 ~~~
-`summarise()` has grouped output by 'infection'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'infection'. You can override using the
+`.groups` argument.
 ~~~
 {: .output}
 
@@ -1191,7 +1194,8 @@ rna %>%
 > > 
 > > 
 > > ~~~
-> > `summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.
+> > `summarise()` has grouped output by 'gene'. You can override using the
+> > `.groups` argument.
 > > ~~~
 > > {: .output}
 > > 
@@ -1236,18 +1240,18 @@ rna %>%
 
 ~~~
 # A tibble: 32,428 × 19
-   gene  sample  expression organism    age sex    infection strain  time tissue
-   <chr> <chr>        <dbl> <chr>     <dbl> <chr>  <chr>     <chr>  <dbl> <chr> 
- 1 Aamp  GSM254…       5621 Mus musc…     8 Female Influenz… C57BL…     8 Cereb…
- 2 Aamp  GSM254…       4049 Mus musc…     8 Female NonInfec… C57BL…     0 Cereb…
- 3 Aamp  GSM254…       3797 Mus musc…     8 Female NonInfec… C57BL…     0 Cereb…
- 4 Aamp  GSM254…       4375 Mus musc…     8 Female Influenz… C57BL…     4 Cereb…
- 5 Aamp  GSM254…       4095 Mus musc…     8 Male   Influenz… C57BL…     4 Cereb…
- 6 Aamp  GSM254…       3867 Mus musc…     8 Male   Influenz… C57BL…     8 Cereb…
- 7 Aamp  GSM254…       3578 Mus musc…     8 Female Influenz… C57BL…     8 Cereb…
- 8 Aamp  GSM254…       5097 Mus musc…     8 Male   NonInfec… C57BL…     0 Cereb…
- 9 Aamp  GSM254…       4202 Mus musc…     8 Female Influenz… C57BL…     4 Cereb…
-10 Aamp  GSM254…       4701 Mus musc…     8 Male   Influenz… C57BL…     4 Cereb…
+   gene  sample    expression organism   age sex   infection strain  time tissue
+   <chr> <chr>          <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
+ 1 Aamp  GSM25453…       5621 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 2 Aamp  GSM25453…       4049 Mus mus…     8 Fema… NonInfec… C57BL…     0 Cereb…
+ 3 Aamp  GSM25453…       3797 Mus mus…     8 Fema… NonInfec… C57BL…     0 Cereb…
+ 4 Aamp  GSM25453…       4375 Mus mus…     8 Fema… Influenz… C57BL…     4 Cereb…
+ 5 Aamp  GSM25453…       4095 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+ 6 Aamp  GSM25453…       3867 Mus mus…     8 Male  Influenz… C57BL…     8 Cereb…
+ 7 Aamp  GSM25453…       3578 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 8 Aamp  GSM25453…       5097 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+ 9 Aamp  GSM25453…       4202 Mus mus…     8 Fema… Influenz… C57BL…     4 Cereb…
+10 Aamp  GSM25453…       4701 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
 # … with 32,418 more rows, and 9 more variables: mouse <dbl>, ENTREZID <dbl>,
 #   product <chr>, ensembl_gene_id <chr>, external_synonym <chr>,
 #   chromosome_name <chr>, gene_biotype <chr>, phenotype_description <chr>,
@@ -1673,7 +1677,8 @@ so every replicate has the same composition.
 > 
 > 
 > ~~~
-> `summarise()` has grouped output by 'sex'. You can override using the `.groups` argument.
+> `summarise()` has grouped output by 'sex'. You can override using the `.groups`
+> argument.
 > ~~~
 > {: .output}
 > 
@@ -1707,7 +1712,8 @@ so every replicate has the same composition.
 > 
 > 
 > ~~~
-> `summarise()` has grouped output by 'sex'. You can override using the `.groups` argument.
+> `summarise()` has grouped output by 'sex'. You can override using the `.groups`
+> argument.
 > ~~~
 > {: .output}
 > 
@@ -1779,7 +1785,8 @@ so every replicate has the same composition.
 > > 
 > > 
 > > ~~~
-> > `summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.
+> > `summarise()` has grouped output by 'gene'. You can override using the
+> > `.groups` argument.
 > > ~~~
 > > {: .output}
 > > 
@@ -1819,7 +1826,8 @@ so every replicate has the same composition.
 > > 
 > > 
 > > ~~~
-> > `summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.
+> > `summarise()` has grouped output by 'gene'. You can override using the
+> > `.groups` argument.
 > > ~~~
 > > {: .output}
 > > 
@@ -1869,7 +1877,8 @@ so every replicate has the same composition.
 > > 
 > > 
 > > ~~~
-> > `summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.
+> > `summarise()` has grouped output by 'gene'. You can override using the
+> > `.groups` argument.
 > > ~~~
 > > {: .output}
 > > 
@@ -1910,7 +1919,8 @@ so every replicate has the same composition.
 > > 
 > > 
 > > ~~~
-> > `summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.
+> > `summarise()` has grouped output by 'gene'. You can override using the
+> > `.groups` argument.
 > > ~~~
 > > {: .output}
 > > 
@@ -1953,7 +1963,8 @@ so every replicate has the same composition.
 > > 
 > > 
 > > ~~~
-> > `summarise()` has grouped output by 'gene'. You can override using the `.groups` argument.
+> > `summarise()` has grouped output by 'gene'. You can override using the
+> > `.groups` argument.
 > > ~~~
 > > {: .output}
 > > 
