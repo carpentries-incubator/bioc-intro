@@ -44,7 +44,7 @@ The figure below represents the anatomy of SummarizedExperiment.
 
 
 ~~~
-Error in knitr::include_graphics("./figs/SE.png"): Cannot find the file(s): "./figs/SE.png"
+Error in knitr::include_graphics("./fig/SE.png"): Cannot find the file(s): "./fig/SE.png"
 ~~~
 {: .error}
 

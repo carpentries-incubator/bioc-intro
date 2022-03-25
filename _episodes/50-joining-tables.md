@@ -365,7 +365,7 @@ that are present in only one or both tables.
 
 
 ~~~
-Error in knitr::include_graphics("./figs/join-inner.png"): Cannot find the file(s): "./figs/join-inner.png"
+Error in knitr::include_graphics("./fig/join-inner.png"): Cannot find the file(s): "./fig/join-inner.png"
 ~~~
 {: .error}
 
@@ -378,7 +378,7 @@ Error in knitr::include_graphics("./figs/join-inner.png"): Cannot find the file(
 
 
 ~~~
-Error in knitr::include_graphics("./figs/join-outer.png"): Cannot find the file(s): "./figs/join-outer.png"
+Error in knitr::include_graphics("./fig/join-outer.png"): Cannot find the file(s): "./fig/join-outer.png"
 ~~~
 {: .error}
 
@@ -608,7 +608,7 @@ Joining, by = "uniprot"
 > >
 > > 
 > > ~~~
-> > Error in knitr::include_graphics("./figs/join-many-to-many.png"): Cannot find the file(s): "./figs/join-many-to-many.png"
+> > Error in knitr::include_graphics("./fig/join-many-to-many.png"): Cannot find the file(s): "./fig/join-many-to-many.png"
 > > ~~~
 > > {: .error}
 > >

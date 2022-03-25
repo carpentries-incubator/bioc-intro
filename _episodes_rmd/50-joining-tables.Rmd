@@ -155,7 +155,7 @@ that are present in only one or both tables.
   tables.
 
 ```{r, results='markup', fig.cap="An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from *R for Data Science*.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
-knitr::include_graphics("./figs/join-inner.png")
+knitr::include_graphics("./fig/join-inner.png")
 ```
 
 - A **left join** keeps observations that are present in the left
@@ -166,7 +166,7 @@ knitr::include_graphics("./figs/join-inner.png")
 
 
 ```{r, results='markup', fig.cap="Outer joins match observations that appear in at least on table, filling up missing values with `NA` values. Figure taken from *R for Data Science*.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
-knitr::include_graphics("./figs/join-outer.png")
+knitr::include_graphics("./fig/join-outer.png")
 ```
 
 > ## Challenge
@@ -246,7 +246,7 @@ inner_join(jdf6, jdf7)
 > > joining the duplicated keys, you get all possible combinations.
 > >
 > > ```{r, results='markup', fig.cap="Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from *R for Data Science*.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
-> > knitr::include_graphics("./figs/join-many-to-many.png")
+> > knitr::include_graphics("./fig/join-many-to-many.png")
 > > ```
 > >
 > > In this case, we obtain wrong information: both proteins in the ER and
