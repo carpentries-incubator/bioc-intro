@@ -61,20 +61,6 @@ if (!require("rWSBIM1207"))
 
 ~~~
 library("rWSBIM1207")
-~~~
-{: .language-r}
-
-
-
-~~~
-
-This is 'rWSBIM1207' version 0.1.15 
-~~~
-{: .output}
-
-
-
-~~~
 data(jdf)
 ~~~
 {: .language-r}
@@ -363,11 +349,7 @@ that are present in only one or both tables.
 - An **inner join** keeps observations that are present in both
   tables.
 
-
-~~~
-Error in knitr::include_graphics("./fig/join-inner.png"): Cannot find the file(s): "./fig/join-inner.png"
-~~~
-{: .error}
+<img src="../fig/join-inner.png" title="An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from *R for Data Science*." alt="An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from *R for Data Science*." width="70%" style="display: block; margin: auto;" />
 
 - A **left join** keeps observations that are present in the left
   (first) table, dropping those that are only present in the other.
@@ -376,11 +358,7 @@ Error in knitr::include_graphics("./fig/join-inner.png"): Cannot find the file(s
 - A **full join** keeps all observations.
 
 
-
-~~~
-Error in knitr::include_graphics("./fig/join-outer.png"): Cannot find the file(s): "./fig/join-outer.png"
-~~~
-{: .error}
+<img src="../fig/join-outer.png" title="Outer joins match observations that appear in at least on table, filling up missing values with `NA` values. Figure taken from *R for Data Science*." alt="Outer joins match observations that appear in at least on table, filling up missing values with `NA` values. Figure taken from *R for Data Science*." width="70%" style="display: block; margin: auto;" />
 
 > ## Challenge
 > Join tables `jdf4` and `jdf5`, keeping only observations in `jdf4`.
@@ -606,11 +584,7 @@ Joining, by = "uniprot"
 > > two different quantitative measurements (variable `measure`). When
 > > joining the duplicated keys, you get all possible combinations.
 > >
-> > 
-> > ~~~
-> > Error in knitr::include_graphics("./fig/join-many-to-many.png"): Cannot find the file(s): "./fig/join-many-to-many.png"
-> > ~~~
-> > {: .error}
+> > <img src="../fig/join-many-to-many.png" title="Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from *R for Data Science*." alt="Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from *R for Data Science*." width="70%" style="display: block; margin: auto;" />
 > >
 > > In this case, we obtain wrong information: both proteins in the ER and
 > > in the GA both have value 102 and 3.
