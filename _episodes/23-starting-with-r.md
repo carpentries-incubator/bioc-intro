@@ -575,7 +575,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > tricky <- c(1, 2, 3, "4")
 > ~~~
 > {: .language-r}
-> > Solution
+> > ## Solution
 > >
 > > 
 > > ~~~
@@ -638,7 +638,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > ## Challenge:
 >
 > Why do you think it happens?
-> > Solution
+> > ## Solution
 > > Vectors can be of only one data type. R tries to convert (coerce)
 > > the content of this vector to find a *common denominator* that
 > > doesn't lose any information.
@@ -658,7 +658,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > combined_logical <- c(num_logical, char_logical)
 > ~~~
 > {: .language-r}
-> > Solution
+> > ## Solution
 > >
 > > Only one. There is no memory of past data types, and the coercion
 > > happens the first time the vector is evaluated. Therefore, the `TRUE`
@@ -687,7 +687,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > whereby some types get preferentially coerced into other types. Can
 > you draw a diagram that represents the hierarchy of how these data
 > types are coerced?
-> > Solution
+> > ## Solution
 > > logical &#8594; numeric &#8594; character &#8592; logical
 > {: .solution}
 {: .challenge}
@@ -948,7 +948,7 @@ molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
 > ## Challenge:
 >
 > Can you figure out why `"four" > "five"` returns `TRUE`?
-> > Solution
+> > ## Solution
 > >
 > > 
 > > ~~~
@@ -1175,7 +1175,7 @@ heights[complete.cases(heights)]
 > 2. Use the function `median()` to calculate the median of the `heights` vector.
 > 3. Use R to figure out how many people in the set are taller than 67 inches.
 >
-> > Solution
+> > ## Solution
 > >
 > >~~~
 > >heights_no_na <- heights[!is.na(heights)]
@@ -1275,7 +1275,7 @@ There are similar constructors for characters and logicals, named
 >
 > What are the defaults for character and logical vectors?
 >
-> > Solution
+> > ## Solution
 > > 
 > > ~~~
 > > character(2) ## the empty charater
@@ -1364,7 +1364,7 @@ rep(c(1, 2, 3), 5)
 > obtain five 1s, five 2s and five 3s in that order? There are two
 > possibilities - see `?rep` or `?sort` for help.
 >
-> > Solution
+> > ## Solution
 > > 
 > > ~~~
 > > rep(c(1, 2, 3), each = 5)
@@ -1546,7 +1546,7 @@ sample(1:5, 10, replace = TRUE)
 >   random draw. Observe that you now get the same random draws.
 >
 > - Repeat by setting a different seed.
-> > Solution
+> > ## Solution
 > > Different permutations
 > >
 > > 

@@ -615,7 +615,7 @@ plot(sex)
 >        weight = c(45, 8 1.1, 0.8))
 > ~~~
 > {: .language-r}
-> > Solution
+> > ## Solution
 > >
 > > - missing quotations around the names of the animals
 > > - missing one entry in the "feel" column (probably for one of the furry animals)
@@ -702,7 +702,7 @@ m
 > containing the information about all packages currently installed on
 > your computer. Explore it.
 >
-> > Solution:
+> > ## Solution:
 > >
 > > 
 > > ~~~
@@ -733,7 +733,7 @@ data drawn from a normal distribution of mean 0 and standard deviation
 > Construct a matrix of dimension 1000 by 3 of normally distributed data
 > (mean 0, standard deviation 1)
 >
-> > Solution
+> > ## Solution
 > >
 > > 
 > > ~~~
