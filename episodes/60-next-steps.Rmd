@@ -45,7 +45,7 @@ class.
 The figure below represents the anatomy of SummarizedExperiment.
 
 ```{r SE,  echo=FALSE, out.width = '80%'}
-knitr::include_graphics("./fig/SE.png")
+knitr::include_graphics("../fig/SE.png")
 ```
 
 
