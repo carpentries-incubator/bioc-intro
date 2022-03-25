@@ -904,7 +904,7 @@ test if any of the elements of a search vector are found:
 
 
 ~~~
-molecules <- c("dan", "rna", "protein", "peptide")
+molecules <- c("dna", "rna", "protein", "peptide")
 molecules[molecules == "rna" | molecules == "dna"] # returns both rna and dna
 ~~~
 {: .language-r}
@@ -912,7 +912,7 @@ molecules[molecules == "rna" | molecules == "dna"] # returns both rna and dna
 
 
 ~~~
-[1] "rna"
+[1] "dna" "rna"
 ~~~
 {: .output}
 
@@ -926,7 +926,7 @@ molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")
 
 
 ~~~
-[1] FALSE  TRUE FALSE  TRUE
+[1]  TRUE  TRUE FALSE  TRUE
 ~~~
 {: .output}
 
@@ -940,7 +940,7 @@ molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
 
 
 ~~~
-[1] "rna"     "peptide"
+[1] "dna"     "rna"     "peptide"
 ~~~
 {: .output}
 

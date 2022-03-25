@@ -521,7 +521,7 @@ this can quickly become tedious. The function `%in%` allows you to
 test if any of the elements of a search vector are found:
 
 ```{r, purl = FALSE}
-molecules <- c("dan", "rna", "protein", "peptide")
+molecules <- c("dna", "rna", "protein", "peptide")
 molecules[molecules == "rna" | molecules == "dna"] # returns both rna and dna
 molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")
 molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
