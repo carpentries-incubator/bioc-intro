@@ -34,7 +34,7 @@ use of existing infrastructure to provide coherence, interoperability and stabil
 the project as a whole.
 
 
-[^Bioconductor]:The [Bioconductor](http://www.bioconductor.org) was initiated by Robert Gentleman, one of the two creators of the R language. Bioconductor provides  tools dedicated to omics data analysis. Bioconductor uses the R statistical programming language, and is open source and open development. 
+[^Bioconductor]:The [Bioconductor](http://www.bioconductor.org) was initiated by Robert Gentleman, one of the two creators of the R language. Bioconductor provides  tools dedicated to omics data analysis. Bioconductor uses the R statistical programming language, and is open source and open development.
 
 
 To illustrate such an omics data container, we'll present the `SummarizedExperiment`
@@ -45,7 +45,7 @@ class.
 The figure below represents the anatomy of SummarizedExperiment.
 
 ```{r SE,  echo=FALSE, out.width = '80%'}
-knitr::include_graphics("../fig/SE.png")
+knitr::include_graphics("https://uclouvain-cbio.github.io/WSBIM1322/figs/SE.svg")
 ```
 
 
