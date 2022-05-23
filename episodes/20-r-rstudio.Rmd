@@ -328,7 +328,7 @@ this line because it will fail on someone else's computer.
 
 **Example**
 
-The shema below represents the working directory `bioc-intro` with the
+The schema below represents the working directory `bioc-intro` with the
 `data` and `fig_output` sub-directories, and 2 files in the latter:
 
 ```
