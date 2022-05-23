@@ -314,7 +314,7 @@ this line because it will fail on someone else's computer.
 
 **Example**
 
-The shema below represents the working directory `bioc-intro` with the
+The schema below represents the working directory `bioc-intro` with the
 `data` and `fig_output` sub-directories, and 2 files in the latter:
 
 ```
@@ -528,7 +528,7 @@ structure(list(Sepal.Length = c(5.1, 4.9, 4.7, 4.6, 5, 5.4),
     Sepal.Width = c(3.5, 3, 3.2, 3.1, 3.6, 3.9), Petal.Length = c(1.4, 
     1.4, 1.3, 1.5, 1.4, 1.7), Petal.Width = c(0.2, 0.2, 0.2, 
     0.2, 0.2, 0.4), Species = structure(c(1L, 1L, 1L, 1L, 1L, 
-    1L), .Label = c("setosa", "versicolor", "virginica"), class = "factor")), row.names = c(NA, 
+    1L), levels = c("setosa", "versicolor", "virginica"), class = "factor")), row.names = c(NA, 
 6L), class = "data.frame")
 ~~~
 {: .output}
@@ -571,7 +571,7 @@ sessionInfo()
 
 
 ~~~
-R version 4.1.3 (2022-03-10)
+R version 4.2.0 (2022-04-22)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Ubuntu 20.04.4 LTS
 
@@ -589,11 +589,11 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] knitr_1.38
+[1] knitr_1.39
 
 loaded via a namespace (and not attached):
-[1] compiler_4.1.3 magrittr_2.0.3 tools_4.1.3    stringi_1.7.6  highr_0.9     
-[6] stringr_1.4.0  xfun_0.30      evaluate_0.15 
+[1] compiler_4.2.0 magrittr_2.0.3 tools_4.2.0    stringi_1.7.6  highr_0.9     
+[6] stringr_1.4.0  xfun_0.31      evaluate_0.15 
 ~~~
 {: .output}
 
