@@ -571,7 +571,7 @@ sessionInfo()
 
 
 ~~~
-R version 4.2.0 (2022-04-22)
+R version 4.2.1 (2022-06-23)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Ubuntu 20.04.4 LTS
 
@@ -592,7 +592,7 @@ other attached packages:
 [1] knitr_1.39
 
 loaded via a namespace (and not attached):
-[1] compiler_4.2.0 magrittr_2.0.3 tools_4.2.0    stringi_1.7.6  highr_0.9     
+[1] compiler_4.2.1 magrittr_2.0.3 tools_4.2.1    stringi_1.7.6  highr_0.9     
 [6] stringr_1.4.0  xfun_0.31      evaluate_0.15 
 ~~~
 {: .output}
