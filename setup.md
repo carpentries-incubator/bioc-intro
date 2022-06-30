@@ -124,7 +124,7 @@ commands. For now, simply follow the instructions below:
 * Start RStudio by double-clicking the icon and then type:
 
 ```r
-install.package("BiocManager")
+install.packages("BiocManager")
 BiocManager::install(c("tidyverse", "SummarizedExperiment",
                        "UCLouvain-CBIO/rWSBIM1207"))
 ```
