@@ -29,7 +29,7 @@ data they need to handle.
 
 This aspect is central to the **Bioconductor**[^Bioconductor] project which
 uses the same **core data infrastructure** across packages. This certainly contributed
-to Bioconductors success. Bioconductor package developers are advised to make
+to Bioconductor's success. Bioconductor package developers are advised to make
 use of existing infrastructure to provide coherence, interoperability and stability to
 the project as a whole.
 
