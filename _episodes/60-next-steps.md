@@ -747,10 +747,10 @@ the other structures!
 **Take-home message**
 
 
-- `SummarizedExperiment` represent an efficient way to store and to handle omics data.
+- `SummarizedExperiment` represents an efficient way to store and to handle omics data.
 
 - They are used in many Bioconductor packages.
 
 If you follow next training focused on RNA sequencing analysis, you will learn to
 use the Bioconductor `DESeq2` package to do some differential expression analyses.
-`DESeq2`'s whole analysis is handled in a `SummarizedExperiment`.
+The whole analysis of the `DESeq2` package is handled in a `SummarizedExperiment`.

@@ -98,7 +98,8 @@ module Minitest # :nodoc:
       else
         raise ArgumentError, "args must be an array" unless Array === args
 
-        if ENV["MT_KWARGS_HAC\K"] && Hash === args.last then
+        if ENV["MT_KWARGS_HAC\K"] && (Hash === args.last ||
+                                      Hash ==  args.last) then
           if kwargs.empty? then
             kwargs = args.pop
           else
@@ -166,6 +167,9 @@ module Minitest # :nodoc:
 
       expected_args, expected_kwargs, retval, val_block =
         expected_call.values_at(:args, :kwargs, :retval, :block)
+
+      expected_kwargs = kwargs.map { |ak, av| [ak, Object] }.to_h if
+        Hash == expected_kwargs
 
       if val_block then
         # keep "verify" happy
@@ -280,22 +284,33 @@ class Object
 
     metaclass.send :alias_method, new_name, name
 
-    metaclass.send :define_method, name do |*args, **kwargs, &blk|
-      if val_or_callable.respond_to? :call then
-        if kwargs.empty? then # FIX: drop this after 2.7 dead
+    if ENV["MT_KWARGS_HAC\K"] then
+      metaclass.send :define_method, name do |*args, &blk|
+        if val_or_callable.respond_to? :call then
           val_or_callable.call(*args, &blk)
         else
-          val_or_callable.call(*args, **kwargs, &blk)
+          blk.call(*block_args, **block_kwargs) if blk
+          val_or_callable
         end
-      else
-        if blk then
-          if block_kwargs.empty? then # FIX: drop this after 2.7 dead
-            blk.call(*block_args)
+      end
+    else
+      metaclass.send :define_method, name do |*args, **kwargs, &blk|
+        if val_or_callable.respond_to? :call then
+          if kwargs.empty? then # FIX: drop this after 2.7 dead
+            val_or_callable.call(*args, &blk)
           else
-            blk.call(*block_args, **block_kwargs)
+            val_or_callable.call(*args, **kwargs, &blk)
           end
+        else
+          if blk then
+            if block_kwargs.empty? then # FIX: drop this after 2.7 dead
+              blk.call(*block_args)
+            else
+              blk.call(*block_args, **block_kwargs)
+            end
+          end
+          val_or_callable
         end
-        val_or_callable
       end
     end
 

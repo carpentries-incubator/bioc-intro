@@ -1,5 +1,13 @@
 require "minitest/autorun"
 
+def with_kwargs_env
+  ENV["MT_KWARGS_HAC\K"] = "1"
+
+  yield
+ensure
+  ENV.delete "MT_KWARGS_HAC\K"
+end
+
 class TestMinitestMock < Minitest::Test
   parallelize_me!
 
@@ -363,12 +371,20 @@ class TestMinitestMock < Minitest::Test
     assert_mock mock
   end
 
-  def with_kwargs_env
-    ENV["MT_KWARGS_HAC\K"] = "1"
+  def test_mock_allow_all_kwargs__old_style_env
+    with_kwargs_env do
+      mock = Minitest::Mock.new
+      mock.expect :foo, true, [Hash]
+      assert_equal true, mock.foo(bar: 42)
+    end
+  end
 
-    yield
-  ensure
-    ENV.delete "MT_KWARGS_HAC\K"
+  def test_mock_allow_all_kwargs__old_style_env__rewrite
+    with_kwargs_env do
+      mock = Minitest::Mock.new
+      mock.expect :foo, true, [], bar: Integer
+      assert_equal true, mock.foo(bar: 42)
+    end
   end
 
   def test_mock_block_is_passed_keyword_args__args__old_style_bad
@@ -819,6 +835,26 @@ class TestMinitestStub < Minitest::Test
   def test_stub_callable_keyword_args
     Keywords.stub :args, ->(*args, **kws) { [args, kws] } do
       @tc.assert_equal [["woot"], { kw1: 42 }], Keywords.args("woot", kw1: 42)
+    end
+  end
+
+  def test_stub__hash_as_last_real_arg
+    with_kwargs_env do
+      token = Object.new
+      def token.create_with_retry u, p; raise "shouldn't see this"; end
+
+      controller = Object.new
+      controller.define_singleton_method :create do |u, p|
+        token.create_with_retry u, p
+      end
+
+      params = Object.new
+      def params.to_hash; raise "nah"; end
+
+      token.stub(:create_with_retry, ->(u, p) { 42 }) do
+        act = controller.create :u, params
+        @tc.assert_equal 42, act
+      end
     end
   end
 
