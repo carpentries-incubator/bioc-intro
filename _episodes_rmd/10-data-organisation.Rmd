@@ -1,12 +1,12 @@
 ---
 source: Rmd
-title: "Data organisation with Spreadsheets"
+title: "Data organization with Spreadsheets"
 teaching: XX
 exercises: XX
 questions:
-- "How to organise tabular data?"
+- "How to organize tabular data?"
 objectives:
-- "Learn about spreadsheets, their strenghts and weaknesses."
+- "Learn about spreadsheets, their strengths and weaknesses."
 - "How do we format data in spreadsheets for effective data use?"
 - "Learn about common spreadsheet errors and how to correct them."
 - "Organize your data according to tidy data principles."
@@ -88,7 +88,7 @@ to do as researchers. We can use them for:
 
 Spreadsheet programs use tables to represent and display data. Data
 formatted as tables is also the main theme of this chapter, and we
-will see how to organise data into tables in a standardised way to
+will see how to organize data into tables in a standardized way to
 ensure efficient downstream analysis.
 
 > ## Challenge: Discuss the following points with your neighbour
@@ -809,13 +809,13 @@ knitr::include_graphics("../fig/analysis.png")
 ```
 
 A typical data analysis worflow is illustrated in the figure above,
-where data is repeatedly tranformed, visualised, modelled. This
+where data is repeatedly tranformed, visualized, modelled. This
 iteration is repeated multiple times until the data is understood. In
 many real-life cases, however, most time is spent cleaning up and
-preparing the data, rather than actually analysing and understanding
+preparing the data, rather than actually analyzing and understanding
 it.
 
 An agile data analysis workflow, with several fast iterations of the
-transform/visualise/model cycle is only feasible is the data is
+transform/visualize/model cycle is only feasible is the data is
 formatted in a predictable way and one can reason about the data without
 having to look at it and/or fix it.
