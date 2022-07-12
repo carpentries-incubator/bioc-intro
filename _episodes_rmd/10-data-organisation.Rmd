@@ -6,7 +6,7 @@ exercises: XX
 questions:
 - "How to organise tabular data?"
 objectives:
-- "Learn about spreadsheets, their strenghts and weaknesses"
+- "Learn about spreadsheets, their strenghts and weaknesses."
 - "How do we format data in spreadsheets for effective data use?"
 - "Learn about common spreadsheet errors and how to correct them."
 - "Organize your data according to tidy data principles."
