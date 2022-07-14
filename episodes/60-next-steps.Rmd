@@ -181,7 +181,7 @@ dim(rowData(se))
 ### Subsetting a SummarizedExperiment
 
 SummarizedExperiment can be subset just like with data frames,
-with numerics or with characters of logic.
+with numerics or with characters of logicals.
 
 Below, we create a new instance of class SummarizedExperiment that contains only
 the 5 first features for the 3 first samples.
