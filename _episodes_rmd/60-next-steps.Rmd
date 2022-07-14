@@ -42,7 +42,7 @@ class.
 
 ## SummarizedExperiment
 
-The figure below represents the anatomy of the SummarizedExperiment.
+The figure below represents the anatomy of the SummarizedExperiment class.
 
 ```{r SE,  echo=FALSE, out.width = '80%'}
 knitr::include_graphics("https://uclouvain-cbio.github.io/WSBIM1322/figs/SE.svg")
