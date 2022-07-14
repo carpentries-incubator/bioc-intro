@@ -28,11 +28,11 @@ data they need to handle.
 This aspect is central to the **Bioconductor**[^Bioconductor] project which
 uses the same **core data infrastructure** across packages. This certainly contributed
 to Bioconductor's success. Bioconductor package developers are advised to make
-use of existing infrastructure to provide coherence, interoperability and stability to
+use of existing infrastructure to provide coherence, interoperability, and stability to
 the project as a whole.
 
 
-[^Bioconductor]:The [Bioconductor](http://www.bioconductor.org) was initiated by Robert Gentleman, one of the two creators of the R language. Bioconductor provides  tools dedicated to omics data analysis. Bioconductor uses the R statistical programming language, and is open source and open development.
+[^Bioconductor]: The [Bioconductor](http://www.bioconductor.org) was initiated by Robert Gentleman, one of the two creators of the R language. Bioconductor provides tools dedicated to omics data analysis. Bioconductor uses the R statistical programming language and is open source and open development.
 
 
 To illustrate such an omics data container, we'll present the `SummarizedExperiment`
@@ -40,7 +40,7 @@ class.
 
 ## SummarizedExperiment
 
-The figure below represents the anatomy of SummarizedExperiment.
+The figure below represents the anatomy of the SummarizedExperiment class.
 
 <img src="https://uclouvain-cbio.github.io/WSBIM1322/figs/SE.svg" title="plot of chunk SE" alt="plot of chunk SE" width="80%" style="display: block; margin: auto;" />
 
@@ -49,7 +49,7 @@ Objects of the class SummarizedExperiment contain :
 
 - **One (or more) assay(s)** containing the quantitative omics data
   (expression data), stored as a matrix-like object. Features (genes,
-  transcripts, proteins, ...) are defined along the rows and samples
+  transcripts, proteins, ...) are defined along the rows, and samples
   along the columns.
 
 - A **sample metadata** slot containing sample co-variates, stored as a
@@ -57,7 +57,7 @@ Objects of the class SummarizedExperiment contain :
   columns of the expression data).
 
 - A **feature metadata** slot containing feature co-variates, stored as
-  data frame. The rows of this dataframe's match exactly the rows of the
+  a data frame. The rows of this data frame match exactly the rows of the
   expression data.
 
 The coordinated nature of the SummarizedExperiment guarantees that
@@ -79,7 +79,7 @@ The metadata slots can grow additional co-variates
 
 Remember the `rna` dataset that we have used previously.
 
-From this table we have already created 3 different tables.
+From this table, we have already created 3 different tables.
 
 - **An expression matrix**
 
@@ -491,7 +491,7 @@ Fcrls                                   FCRL2
 {: .output}
 
 
-We can also use the `colData()` function to subset on something from the sample metadata, or the `rowData()` to subset on something from the feature metadata.
+We can also use the `colData()` function to subset on something from the sample metadata or the `rowData()` to subset on something from the feature metadata.
 For example, here we keep only miRNAs and the non infected samples:
 
 
@@ -747,10 +747,10 @@ the other structures!
 **Take-home message**
 
 
-- `SummarizedExperiment` represents an efficient way to store and to handle omics data.
+- `SummarizedExperiment` represents an efficient way to store and handle omics data.
 
 - They are used in many Bioconductor packages.
 
-If you follow next training focused on RNA sequencing analysis, you will learn to
+If you follow the next training focused on RNA sequencing analysis, you will learn to
 use the Bioconductor `DESeq2` package to do some differential expression analyses.
 The whole analysis of the `DESeq2` package is handled in a `SummarizedExperiment`.
