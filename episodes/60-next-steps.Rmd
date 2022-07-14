@@ -23,7 +23,7 @@ library("tidyverse")
 ```
 
 Data in bioinformatics is often complex.
-To deal with this, developers define specialized
+To deal with this, developers define specialised
 data containers (termed classes) that match the properties of the
 data they need to handle.
 
