@@ -885,7 +885,7 @@ install.packages("gridExtra")
 ```
 
 ```{r gridarrange-example, message=FALSE, fig.width=10}
-library(gridExtra)
+library("gridExtra")
 grid.arrange(count_gene_chromosome, exp_boxplot_sex, ncol = 2)
 ```
 
