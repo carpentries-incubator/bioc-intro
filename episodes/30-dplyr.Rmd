@@ -1,8 +1,8 @@
 ---
 source: Rmd
 title: "Manipulating and analyzing data with dplyr"
-teaching: XX
-exercises: XX
+teaching: 75
+exercises: 75
 questions:
 - "Data analysis in R using the tidyverse meta-package"
 objectives:

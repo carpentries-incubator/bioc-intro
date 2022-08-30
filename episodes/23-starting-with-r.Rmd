@@ -1,8 +1,8 @@
 ---
 source: Rmd
 title: "Introduction to R"
-teaching: XX
-exercises: XX
+teaching: 60
+exercises: 60
 questions:
 - "First commands in R"
 objectives:
