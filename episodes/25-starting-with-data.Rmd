@@ -406,6 +406,13 @@ plot(sex)
 >
 > - Rename "female" and "male" to "Female" and "Male" respectively.
 >
+> > ## Solution
+> >
+> > ```{r, eval=TRUE}
+> > levels(sex)
+> > levels(sex) <- c("Male", "Female")
+> > ```
+> {: .solution}
 {: .challenge }
 
 > ## Challenge:
@@ -454,6 +461,19 @@ plot(sex)
 >        has_kangaroo = c(FALSE, FALSE, FALSE, 1)
 >        )
 > ```
+> > ## Solution
+> >
+> > ```{r, eval=TRUE}
+> > country_climate <- data.frame(
+> >        country = c("Canada", "Panama", "South Africa", "Australia"),
+> >        climate = c("cold", "hot", "temperate", "hot/temperate"),
+> >        temperature = c(10, 30, 18, "15"),
+> >        northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+> >        has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+> >        )
+> > str(country_climate)
+> > ```
+> {: .solution}
 {: .challenge}
 
 
