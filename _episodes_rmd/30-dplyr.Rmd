@@ -1,8 +1,8 @@
 ---
 source: Rmd
 title: "Manipulating and analyzing data with dplyr"
-teaching: XX
-exercises: XX
+teaching: 75
+exercises: 75
 questions:
 - "Data analysis in R using the tidyverse meta-package"
 objectives:
@@ -399,7 +399,7 @@ rna %>%
     count(infection)
 ```
 
-The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `rna %>% count()` is equivalent to:
+The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `rna %>% count(infection)` is equivalent to:
 
 ```{r, purl = FALSE}
 rna %>%
