@@ -3,8 +3,8 @@
 # Instead, please edit 30-dplyr.md in _episodes_rmd/
 source: Rmd
 title: "Manipulating and analyzing data with dplyr"
-teaching: XX
-exercises: XX
+teaching: 75
+exercises: 75
 questions:
 - "Data analysis in R using the tidyverse meta-package"
 objectives:
@@ -92,22 +92,23 @@ rna
 
 ~~~
 # A tibble: 32,428 × 19
-   gene    sample  expression organism   age sex   infection strain  time tissue
-   <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
- 1 Asl     GSM254…       1170 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 2 Apod    GSM254…      36194 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 3 Cyp2d22 GSM254…       4060 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 4 Klk6    GSM254…        287 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 5 Fcrls   GSM254…         85 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 6 Slc2a4  GSM254…        782 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 7 Exd2    GSM254…       1619 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 8 Gjc2    GSM254…        288 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 9 Plp1    GSM254…      43217 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-10 Gnb4    GSM254…       1071 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-# … with 32,418 more rows, and 9 more variables: mouse <dbl>, ENTREZID <dbl>,
-#   product <chr>, ensembl_gene_id <chr>, external_synonym <chr>,
-#   chromosome_name <chr>, gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>
+   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ~~~
 {: .output}
 
@@ -178,22 +179,22 @@ select(rna, -tissue, -organism)
 
 ~~~
 # A tibble: 32,428 × 17
-   gene    sample   expression   age sex   infection strain  time mouse ENTREZID
-   <chr>   <chr>         <dbl> <dbl> <chr> <chr>     <chr>  <dbl> <dbl>    <dbl>
- 1 Asl     GSM2545…       1170     8 Fema… Influenz… C57BL…     8    14   109900
- 2 Apod    GSM2545…      36194     8 Fema… Influenz… C57BL…     8    14    11815
- 3 Cyp2d22 GSM2545…       4060     8 Fema… Influenz… C57BL…     8    14    56448
- 4 Klk6    GSM2545…        287     8 Fema… Influenz… C57BL…     8    14    19144
- 5 Fcrls   GSM2545…         85     8 Fema… Influenz… C57BL…     8    14    80891
- 6 Slc2a4  GSM2545…        782     8 Fema… Influenz… C57BL…     8    14    20528
- 7 Exd2    GSM2545…       1619     8 Fema… Influenz… C57BL…     8    14    97827
- 8 Gjc2    GSM2545…        288     8 Fema… Influenz… C57BL…     8    14   118454
- 9 Plp1    GSM2545…      43217     8 Fema… Influenz… C57BL…     8    14    18823
-10 Gnb4    GSM2545…       1071     8 Fema… Influenz… C57BL…     8    14    14696
-# … with 32,418 more rows, and 7 more variables: product <chr>,
-#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
-#   gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>
+   gene    sample expre…¹   age sex   infec…² strain  time mouse ENTRE…³ product
+   <chr>   <chr>    <dbl> <dbl> <chr> <chr>   <chr>  <dbl> <dbl>   <dbl> <chr>  
+ 1 Asl     GSM25…    1170     8 Fema… Influe… C57BL…     8    14  109900 argini…
+ 2 Apod    GSM25…   36194     8 Fema… Influe… C57BL…     8    14   11815 apolip…
+ 3 Cyp2d22 GSM25…    4060     8 Fema… Influe… C57BL…     8    14   56448 cytoch…
+ 4 Klk6    GSM25…     287     8 Fema… Influe… C57BL…     8    14   19144 kallik…
+ 5 Fcrls   GSM25…      85     8 Fema… Influe… C57BL…     8    14   80891 Fc rec…
+ 6 Slc2a4  GSM25…     782     8 Fema… Influe… C57BL…     8    14   20528 solute…
+ 7 Exd2    GSM25…    1619     8 Fema… Influe… C57BL…     8    14   97827 exonuc…
+ 8 Gjc2    GSM25…     288     8 Fema… Influe… C57BL…     8    14  118454 gap ju…
+ 9 Plp1    GSM25…   43217     8 Fema… Influe… C57BL…     8    14   18823 proteo…
+10 Gnb4    GSM25…    1071     8 Fema… Influe… C57BL…     8    14   14696 guanin…
+# … with 32,418 more rows, 6 more variables: ensembl_gene_id <chr>,
+#   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
+#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
+#   and abbreviated variable names ¹​expression, ²​infection, ³​ENTREZID
 ~~~
 {: .output}
 
@@ -212,22 +213,23 @@ filter(rna, sex == "Male")
 
 ~~~
 # A tibble: 14,740 × 19
-   gene    sample  expression organism   age sex   infection strain  time tissue
-   <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
- 1 Asl     GSM254…        626 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
- 2 Apod    GSM254…      13021 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
- 3 Cyp2d22 GSM254…       2171 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
- 4 Klk6    GSM254…        448 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
- 5 Fcrls   GSM254…        180 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
- 6 Slc2a4  GSM254…        313 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
- 7 Exd2    GSM254…       2366 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
- 8 Gjc2    GSM254…        310 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
- 9 Plp1    GSM254…      53126 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-10 Gnb4    GSM254…       1355 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-# … with 14,730 more rows, and 9 more variables: mouse <dbl>, ENTREZID <dbl>,
-#   product <chr>, ensembl_gene_id <chr>, external_synonym <chr>,
-#   chromosome_name <chr>, gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>
+   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 Asl     GSM254…     626 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 2 Apod    GSM254…   13021 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 3 Cyp2d22 GSM254…    2171 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 4 Klk6    GSM254…     448 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 5 Fcrls   GSM254…     180 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 6 Slc2a4  GSM254…     313 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 7 Exd2    GSM254…    2366 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 8 Gjc2    GSM254…     310 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 9 Plp1    GSM254…   53126 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+10 Gnb4    GSM254…    1355 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+# … with 14,730 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ~~~
 {: .output}
 
@@ -242,22 +244,23 @@ filter(rna, sex == "Male" & infection == "NonInfected")
 
 ~~~
 # A tibble: 4,422 × 19
-   gene    sample  expression organism   age sex   infection strain  time tissue
-   <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
- 1 Asl     GSM254…        535 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
- 2 Apod    GSM254…      13668 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
- 3 Cyp2d22 GSM254…       2008 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
- 4 Klk6    GSM254…       1101 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
- 5 Fcrls   GSM254…        375 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
- 6 Slc2a4  GSM254…        249 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
- 7 Exd2    GSM254…       3126 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
- 8 Gjc2    GSM254…        791 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
- 9 Plp1    GSM254…      98658 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-10 Gnb4    GSM254…       2437 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
-# … with 4,412 more rows, and 9 more variables: mouse <dbl>, ENTREZID <dbl>,
-#   product <chr>, ensembl_gene_id <chr>, external_synonym <chr>,
-#   chromosome_name <chr>, gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>
+   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 Asl     GSM254…     535 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 2 Apod    GSM254…   13668 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 3 Cyp2d22 GSM254…    2008 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 4 Klk6    GSM254…    1101 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 5 Fcrls   GSM254…     375 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 6 Slc2a4  GSM254…     249 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 7 Exd2    GSM254…    3126 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 8 Gjc2    GSM254…     791 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 9 Plp1    GSM254…   98658 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+10 Gnb4    GSM254…    2437 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+# … with 4,412 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ~~~
 {: .output}
 
@@ -622,19 +625,19 @@ rna %>%
 > > 
 > > ~~~
 > > # A tibble: 21,054 × 5
-> >    gene    chromosome_name phenotype_description           sample log_expression
-> >    <chr>   <chr>           <chr>                           <chr>           <dbl>
-> >  1 Asl     5               abnormal circulating amino aci… GSM25…           7.06
-> >  2 Apod    16              abnormal lipid homeostasis      GSM25…          10.5 
-> >  3 Cyp2d22 15              abnormal skin morphology        GSM25…           8.31
-> >  4 Klk6    7               abnormal cytokine level         GSM25…           5.66
-> >  5 Fcrls   3               decreased CD8-positive alpha-b… GSM25…           4.44
-> >  6 Slc2a4  11              abnormal circulating glucose l… GSM25…           6.66
-> >  7 Gjc2    11              Purkinje cell degeneration      GSM25…           5.66
-> >  8 Gnb4    3               decreased anxiety-related resp… GSM25…           6.98
-> >  9 Tnc     4               abnormal CNS synaptic transmis… GSM25…           5.39
-> > 10 Trf     9               abnormal circulating phosphate… GSM25…           9.18
-> > # … with 21,044 more rows
+> >    gene    chromosome_name phenotype_description                  sample log_e…¹
+> >    <chr>   <chr>           <chr>                                  <chr>    <dbl>
+> >  1 Asl     5               abnormal circulating amino acid level  GSM25…    7.06
+> >  2 Apod    16              abnormal lipid homeostasis             GSM25…   10.5 
+> >  3 Cyp2d22 15              abnormal skin morphology               GSM25…    8.31
+> >  4 Klk6    7               abnormal cytokine level                GSM25…    5.66
+> >  5 Fcrls   3               decreased CD8-positive alpha-beta T c… GSM25…    4.44
+> >  6 Slc2a4  11              abnormal circulating glucose level     GSM25…    6.66
+> >  7 Gjc2    11              Purkinje cell degeneration             GSM25…    5.66
+> >  8 Gnb4    3               decreased anxiety-related response     GSM25…    6.98
+> >  9 Tnc     4               abnormal CNS synaptic transmission     GSM25…    5.39
+> > 10 Trf     9               abnormal circulating phosphate level   GSM25…    9.18
+> > # … with 21,044 more rows, and abbreviated variable name ¹​log_expression
 > > ~~~
 > > {: .output}
 > >
@@ -660,22 +663,23 @@ rna %>%
 ~~~
 # A tibble: 32,428 × 19
 # Groups:   gene [1,474]
-   gene    sample  expression organism   age sex   infection strain  time tissue
-   <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
- 1 Asl     GSM254…       1170 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 2 Apod    GSM254…      36194 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 3 Cyp2d22 GSM254…       4060 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 4 Klk6    GSM254…        287 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 5 Fcrls   GSM254…         85 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 6 Slc2a4  GSM254…        782 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 7 Exd2    GSM254…       1619 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 8 Gjc2    GSM254…        288 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 9 Plp1    GSM254…      43217 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-10 Gnb4    GSM254…       1071 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-# … with 32,418 more rows, and 9 more variables: mouse <dbl>, ENTREZID <dbl>,
-#   product <chr>, ensembl_gene_id <chr>, external_synonym <chr>,
-#   chromosome_name <chr>, gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>
+   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ~~~
 {: .output}
 
@@ -699,22 +703,23 @@ rna %>%
 ~~~
 # A tibble: 32,428 × 19
 # Groups:   sample [22]
-   gene    sample  expression organism   age sex   infection strain  time tissue
-   <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
- 1 Asl     GSM254…       1170 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 2 Apod    GSM254…      36194 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 3 Cyp2d22 GSM254…       4060 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 4 Klk6    GSM254…        287 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 5 Fcrls   GSM254…         85 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 6 Slc2a4  GSM254…        782 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 7 Exd2    GSM254…       1619 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 8 Gjc2    GSM254…        288 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 9 Plp1    GSM254…      43217 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-10 Gnb4    GSM254…       1071 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
-# … with 32,418 more rows, and 9 more variables: mouse <dbl>, ENTREZID <dbl>,
-#   product <chr>, ensembl_gene_id <chr>, external_synonym <chr>,
-#   chromosome_name <chr>, gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>
+   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ~~~
 {: .output}
 
@@ -928,7 +933,7 @@ rna %>%
 ~~~
 {: .output}
 
-The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `rna %>% count()` is equivalent to:
+The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `rna %>% count(infection)` is equivalent to:
 
 
 ~~~
@@ -1240,22 +1245,23 @@ rna %>%
 
 ~~~
 # A tibble: 32,428 × 19
-   gene  sample    expression organism   age sex   infection strain  time tissue
-   <chr> <chr>          <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
- 1 Aamp  GSM25453…       5621 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 2 Aamp  GSM25453…       4049 Mus mus…     8 Fema… NonInfec… C57BL…     0 Cereb…
- 3 Aamp  GSM25453…       3797 Mus mus…     8 Fema… NonInfec… C57BL…     0 Cereb…
- 4 Aamp  GSM25453…       4375 Mus mus…     8 Fema… Influenz… C57BL…     4 Cereb…
- 5 Aamp  GSM25453…       4095 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
- 6 Aamp  GSM25453…       3867 Mus mus…     8 Male  Influenz… C57BL…     8 Cereb…
- 7 Aamp  GSM25453…       3578 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
- 8 Aamp  GSM25453…       5097 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
- 9 Aamp  GSM25453…       4202 Mus mus…     8 Fema… Influenz… C57BL…     4 Cereb…
-10 Aamp  GSM25453…       4701 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
-# … with 32,418 more rows, and 9 more variables: mouse <dbl>, ENTREZID <dbl>,
-#   product <chr>, ensembl_gene_id <chr>, external_synonym <chr>,
-#   chromosome_name <chr>, gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>
+   gene  sample    expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr> <chr>       <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 Aamp  GSM25453…    5621 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 2 Aamp  GSM25453…    4049 Mus mu…     8 Fema… NonInf… C57BL…     0 Cereb…     9
+ 3 Aamp  GSM25453…    3797 Mus mu…     8 Fema… NonInf… C57BL…     0 Cereb…    10
+ 4 Aamp  GSM25453…    4375 Mus mu…     8 Fema… Influe… C57BL…     4 Cereb…    15
+ 5 Aamp  GSM25453…    4095 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 6 Aamp  GSM25453…    3867 Mus mu…     8 Male  Influe… C57BL…     8 Cereb…     6
+ 7 Aamp  GSM25453…    3578 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…     5
+ 8 Aamp  GSM25453…    5097 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 9 Aamp  GSM25453…    4202 Mus mu…     8 Fema… Influe… C57BL…     4 Cereb…    22
+10 Aamp  GSM25453…    4701 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    13
+# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ~~~
 {: .output}
 
@@ -1276,23 +1282,25 @@ between, the samples.
 
 ~~~
 # A tibble: 1,474 × 23
-   gene    GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
-   <chr>        <dbl>      <dbl>      <dbl>      <dbl>      <dbl>      <dbl>
- 1 Asl           1170        361        400        586        626        988
- 2 Apod         36194      10347       9173      10620      13021      29594
- 3 Cyp2d22       4060       1616       1603       1901       2171       3349
- 4 Klk6           287        629        641        578        448        195
- 5 Fcrls           85        233        244        237        180         38
- 6 Slc2a4         782        231        248        265        313        786
- 7 Exd2          1619       2288       2235       2513       2366       1359
- 8 Gjc2           288        595        568        551        310        146
- 9 Plp1         43217     101241      96534      58354      53126      27173
-10 Gnb4          1071       1791       1867       1430       1355        798
-# … with 1,464 more rows, and 16 more variables: GSM2545342 <dbl>,
-#   GSM2545343 <dbl>, GSM2545344 <dbl>, GSM2545345 <dbl>, GSM2545346 <dbl>,
-#   GSM2545347 <dbl>, GSM2545348 <dbl>, GSM2545349 <dbl>, GSM2545350 <dbl>,
-#   GSM2545351 <dbl>, GSM2545352 <dbl>, GSM2545353 <dbl>, GSM2545354 <dbl>,
-#   GSM2545362 <dbl>, GSM2545363 <dbl>, GSM2545380 <dbl>
+   gene  GSM25…¹ GSM25…² GSM25…³ GSM25…⁴ GSM25…⁵ GSM25…⁶ GSM25…⁷ GSM25…⁸ GSM25…⁹
+   <chr>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
+ 1 Asl      1170     361     400     586     626     988     836     535     586
+ 2 Apod    36194   10347    9173   10620   13021   29594   24959   13668   13230
+ 3 Cyp2…    4060    1616    1603    1901    2171    3349    3122    2008    2254
+ 4 Klk6      287     629     641     578     448     195     186    1101     537
+ 5 Fcrls      85     233     244     237     180      38      68     375     199
+ 6 Slc2…     782     231     248     265     313     786     528     249     266
+ 7 Exd2     1619    2288    2235    2513    2366    1359    1474    3126    2379
+ 8 Gjc2      288     595     568     551     310     146     186     791     454
+ 9 Plp1    43217  101241   96534   58354   53126   27173   28728   98658   61356
+10 Gnb4     1071    1791    1867    1430    1355     798     806    2437    1394
+# … with 1,464 more rows, 13 more variables: GSM2545345 <dbl>,
+#   GSM2545346 <dbl>, GSM2545347 <dbl>, GSM2545348 <dbl>, GSM2545349 <dbl>,
+#   GSM2545350 <dbl>, GSM2545351 <dbl>, GSM2545352 <dbl>, GSM2545353 <dbl>,
+#   GSM2545354 <dbl>, GSM2545362 <dbl>, GSM2545363 <dbl>, GSM2545380 <dbl>, and
+#   abbreviated variable names ¹​GSM2545336, ²​GSM2545337, ³​GSM2545338,
+#   ⁴​GSM2545339, ⁵​GSM2545340, ⁶​GSM2545341, ⁷​GSM2545342, ⁸​GSM2545343,
+#   ⁹​GSM2545344
 ~~~
 {: .output}
 
@@ -1369,23 +1377,25 @@ rna_wide
 
 ~~~
 # A tibble: 1,474 × 23
-   gene    GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
-   <chr>        <dbl>      <dbl>      <dbl>      <dbl>      <dbl>      <dbl>
- 1 Asl           1170        361        400        586        626        988
- 2 Apod         36194      10347       9173      10620      13021      29594
- 3 Cyp2d22       4060       1616       1603       1901       2171       3349
- 4 Klk6           287        629        641        578        448        195
- 5 Fcrls           85        233        244        237        180         38
- 6 Slc2a4         782        231        248        265        313        786
- 7 Exd2          1619       2288       2235       2513       2366       1359
- 8 Gjc2           288        595        568        551        310        146
- 9 Plp1         43217     101241      96534      58354      53126      27173
-10 Gnb4          1071       1791       1867       1430       1355        798
-# … with 1,464 more rows, and 16 more variables: GSM2545342 <dbl>,
-#   GSM2545343 <dbl>, GSM2545344 <dbl>, GSM2545345 <dbl>, GSM2545346 <dbl>,
-#   GSM2545347 <dbl>, GSM2545348 <dbl>, GSM2545349 <dbl>, GSM2545350 <dbl>,
-#   GSM2545351 <dbl>, GSM2545352 <dbl>, GSM2545353 <dbl>, GSM2545354 <dbl>,
-#   GSM2545362 <dbl>, GSM2545363 <dbl>, GSM2545380 <dbl>
+   gene  GSM25…¹ GSM25…² GSM25…³ GSM25…⁴ GSM25…⁵ GSM25…⁶ GSM25…⁷ GSM25…⁸ GSM25…⁹
+   <chr>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
+ 1 Asl      1170     361     400     586     626     988     836     535     586
+ 2 Apod    36194   10347    9173   10620   13021   29594   24959   13668   13230
+ 3 Cyp2…    4060    1616    1603    1901    2171    3349    3122    2008    2254
+ 4 Klk6      287     629     641     578     448     195     186    1101     537
+ 5 Fcrls      85     233     244     237     180      38      68     375     199
+ 6 Slc2…     782     231     248     265     313     786     528     249     266
+ 7 Exd2     1619    2288    2235    2513    2366    1359    1474    3126    2379
+ 8 Gjc2      288     595     568     551     310     146     186     791     454
+ 9 Plp1    43217  101241   96534   58354   53126   27173   28728   98658   61356
+10 Gnb4     1071    1791    1867    1430    1355     798     806    2437    1394
+# … with 1,464 more rows, 13 more variables: GSM2545345 <dbl>,
+#   GSM2545346 <dbl>, GSM2545347 <dbl>, GSM2545348 <dbl>, GSM2545349 <dbl>,
+#   GSM2545350 <dbl>, GSM2545351 <dbl>, GSM2545352 <dbl>, GSM2545353 <dbl>,
+#   GSM2545354 <dbl>, GSM2545362 <dbl>, GSM2545363 <dbl>, GSM2545380 <dbl>, and
+#   abbreviated variable names ¹​GSM2545336, ²​GSM2545337, ³​GSM2545338,
+#   ⁴​GSM2545339, ⁵​GSM2545340, ⁶​GSM2545341, ⁷​GSM2545342, ⁸​GSM2545343,
+#   ⁹​GSM2545344
 ~~~
 {: .output}
 

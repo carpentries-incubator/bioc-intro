@@ -3,8 +3,8 @@
 # Instead, please edit 40-visualization.md in _episodes_rmd/
 source: Rmd
 title: "Data visualization"
-teaching: XX
-exercises: XX
+teaching: 60
+exercises: 60
 questions:
 - "Visualization in R"
 objectives:
@@ -140,7 +140,7 @@ ggplot(data = rna, mapping = aes(x = expression)) +
 ~~~
 {: .output}
 
-<img src="../fig/rmd-first-ggplot-1.png" title="plot of chunk first-ggplot" alt="plot of chunk first-ggplot" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-first-ggplot-1.png" alt="plot of chunk first-ggplot" width="612" style="display: block; margin: auto;" />
 
 The `+` in the **`ggplot2`** package is particularly useful because it
 allows you to modify existing `ggplot` objects. This means you can
@@ -182,7 +182,7 @@ rna_plot + geom_histogram()
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
 > > 
 > > ~~~
 > > # change binwidth
@@ -191,7 +191,7 @@ rna_plot + geom_histogram()
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-5-2.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-5-2.png" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -224,7 +224,7 @@ ggplot(rna, aes(x = expression_log)) + geom_histogram()
 ~~~
 {: .output}
 
-<img src="../fig/rmd-second-ggplot-1.png" title="plot of chunk second-ggplot" alt="plot of chunk second-ggplot" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-second-ggplot-1.png" alt="plot of chunk second-ggplot" width="612" style="display: block; margin: auto;" />
 
 From now on we will work on the log-transformed expression values.
 
@@ -271,7 +271,7 @@ From now on we will work on the log-transformed expression values.
 > > ~~~
 > > {: .warning}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -338,7 +338,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-create-ggplot-object-1.png" title="plot of chunk create-ggplot-object" alt="plot of chunk create-ggplot-object" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-create-ggplot-object-1.png" alt="plot of chunk create-ggplot-object" width="612" style="display: block; margin: auto;" />
 
 Then, we start modifying this plot to extract more information from it. For
 instance, we can add transparency (`alpha`) to avoid overplotting:
@@ -350,7 +350,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-adding-transparency-1.png" title="plot of chunk adding-transparency" alt="plot of chunk adding-transparency" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-adding-transparency-1.png" alt="plot of chunk adding-transparency" width="612" style="display: block; margin: auto;" />
 
 
 We can also add colors for all the points:
@@ -362,7 +362,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-adding-colors-1.png" title="plot of chunk adding-colors" alt="plot of chunk adding-colors" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-adding-colors-1.png" alt="plot of chunk adding-colors" width="612" style="display: block; margin: auto;" />
 
 Or to color each gene in the plot differently, you could use a
 vector as an input to the argument **color**. **`ggplot2`** will
@@ -377,7 +377,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-color-by-gene_biotype1-1.png" title="plot of chunk color-by-gene_biotype1" alt="plot of chunk color-by-gene_biotype1" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-color-by-gene_biotype1-1.png" alt="plot of chunk color-by-gene_biotype1" width="612" style="display: block; margin: auto;" />
 
 We can also specify the colors directly inside the mapping provided in
 the `ggplot()` function. This will be seen by any geom layers and the
@@ -391,7 +391,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-color-by-gene_biotype2-1.png" title="plot of chunk color-by-gene_biotype2" alt="plot of chunk color-by-gene_biotype2" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-color-by-gene_biotype2-1.png" alt="plot of chunk color-by-gene_biotype2" width="612" style="display: block; margin: auto;" />
 
 Finally, we could also add a diagonal line with the `geom_abline()` function:
 
@@ -404,7 +404,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-adding-diag-1.png" title="plot of chunk adding-diag" alt="plot of chunk adding-diag" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-adding-diag-1.png" alt="plot of chunk adding-diag" width="612" style="display: block; margin: auto;" />
 
 Notice that we can change the geom layer from `geom_point` to `geom_jitter` and colors will be still determined by `gene_biotype`.
 
@@ -417,7 +417,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-color-by-gene_biotype3-1.png" title="plot of chunk color-by-gene_biotype3" alt="plot of chunk color-by-gene_biotype3" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-color-by-gene_biotype3-1.png" alt="plot of chunk color-by-gene_biotype3" width="612" style="display: block; margin: auto;" />
 
 > ## Challenge
 >
@@ -475,7 +475,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 > > ~~~
 > > {: .warning}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -495,7 +495,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -512,7 +512,7 @@ ggplot(data = rna,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-boxplot-1.png" title="plot of chunk boxplot" alt="plot of chunk boxplot" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-boxplot-1.png" alt="plot of chunk boxplot" width="612" style="display: block; margin: auto;" />
 
 By adding points to boxplot, we can have a better idea of the number of
 measurements and of their distribution:
@@ -526,7 +526,7 @@ ggplot(data = rna,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-boxplot-with-points-1.png" title="plot of chunk boxplot-with-points" alt="plot of chunk boxplot-with-points" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-boxplot-with-points-1.png" alt="plot of chunk boxplot-with-points" width="612" style="display: block; margin: auto;" />
 
 > ## Challenge
 > Note how the boxplot layer is in front of the jitter layer? What do you
@@ -544,7 +544,7 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-boxplot-with-points2-1.png" title="plot of chunk boxplot-with-points2" alt="plot of chunk boxplot-with-points2" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-boxplot-with-points2-1.png" alt="plot of chunk boxplot-with-points2" width="612" style="display: block; margin: auto;" />
 > >
 > {: .solution}
 {: .challenge}
@@ -561,7 +561,7 @@ ggplot(data = rna,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-boxplot-xaxis-rotated-1.png" title="plot of chunk boxplot-xaxis-rotated" alt="plot of chunk boxplot-xaxis-rotated" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-boxplot-xaxis-rotated-1.png" alt="plot of chunk boxplot-xaxis-rotated" width="612" style="display: block; margin: auto;" />
 
 > ## Challenge
 >
@@ -584,7 +584,7 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-boxplot-color-time-1.png" title="plot of chunk boxplot-color-time" alt="plot of chunk boxplot-color-time" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-boxplot-color-time-1.png" alt="plot of chunk boxplot-color-time" width="612" style="display: block; margin: auto;" />
 > > 
 > > ~~~
 > > # time as factor
@@ -597,7 +597,7 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-boxplot-color-time-2.png" title="plot of chunk boxplot-color-time" alt="plot of chunk boxplot-color-time" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-boxplot-color-time-2.png" alt="plot of chunk boxplot-color-time" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -620,7 +620,7 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -637,7 +637,7 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-11-1.png" alt="plot of chunk unnamed-chunk-11" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -678,7 +678,7 @@ ggplot(data = mean_exp_by_time, mapping = aes(x = time, y = mean_exp)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-first-time-series-1.png" title="plot of chunk first-time-series" alt="plot of chunk first-time-series" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-first-time-series-1.png" alt="plot of chunk first-time-series" width="612" style="display: block; margin: auto;" />
 
 Unfortunately, this does not work because we plotted data for all the genes
 together. We need to tell ggplot to draw a line for each gene by modifying
@@ -692,7 +692,7 @@ ggplot(data = mean_exp_by_time,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-time-series-by-gene-1.png" title="plot of chunk time-series-by-gene" alt="plot of chunk time-series-by-gene" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-time-series-by-gene-1.png" alt="plot of chunk time-series-by-gene" width="612" style="display: block; margin: auto;" />
 
 We will be able to distinguish genes in the plot if we add colors
 (using `color` also automatically groups the data):
@@ -705,7 +705,7 @@ ggplot(data = mean_exp_by_time,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-time-series-with-colors-1.png" title="plot of chunk time-series-with-colors" alt="plot of chunk time-series-with-colors" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-time-series-with-colors-1.png" alt="plot of chunk time-series-with-colors" width="612" style="display: block; margin: auto;" />
 
 ## Faceting
 
@@ -724,7 +724,7 @@ ggplot(data = mean_exp_by_time,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-first-facet-1.png" title="plot of chunk first-facet" alt="plot of chunk first-facet" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-first-facet-1.png" alt="plot of chunk first-facet" width="612" style="display: block; margin: auto;" />
 Here both x- and y-axis have the same scale for all the sub plots. You can change this default behavior by modifying `scales` in order to allow a free scale for the y-axis:
 
 
@@ -736,7 +736,7 @@ ggplot(data = mean_exp_by_time,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-first-facet-scales-1.png" title="plot of chunk first-facet-scales" alt="plot of chunk first-facet-scales" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-first-facet-scales-1.png" alt="plot of chunk first-facet-scales" width="612" style="display: block; margin: auto;" />
 
 
 Now we would like to split the line in each plot by the sex of the mice. To do that we need to calculate the mean expression in the data frame grouped by `gene`, `time`, and `sex`:
@@ -768,7 +768,7 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-facet-by-gene-and-sex-1.png" title="plot of chunk facet-by-gene-and-sex" alt="plot of chunk facet-by-gene-and-sex" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-facet-by-gene-and-sex-1.png" alt="plot of chunk facet-by-gene-and-sex" width="612" style="display: block; margin: auto;" />
 
 Usually plots with white background look more readable when printed.  We can set
 the background to white using the function `theme_bw()`. Additionally, we can remove
@@ -785,7 +785,7 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-facet-by-gene-and-sex-white-bg-1.png" title="plot of chunk facet-by-gene-and-sex-white-bg" alt="plot of chunk facet-by-gene-and-sex-white-bg" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-facet-by-gene-and-sex-white-bg-1.png" alt="plot of chunk facet-by-gene-and-sex-white-bg" width="612" style="display: block; margin: auto;" />
 
 
 > ## Challenge
@@ -821,7 +821,7 @@ ggplot(data = mean_exp_by_time_sex,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-mean-exp-chromosome-time-series-1.png" title="plot of chunk mean-exp-chromosome-time-series" alt="plot of chunk mean-exp-chromosome-time-series" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-mean-exp-chromosome-time-series-1.png" alt="plot of chunk mean-exp-chromosome-time-series" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -845,7 +845,7 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean-exp-time-facet-sex-rows-1.png" title="plot of chunk mean-exp-time-facet-sex-rows" alt="plot of chunk mean-exp-time-facet-sex-rows" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-mean-exp-time-facet-sex-rows-1.png" alt="plot of chunk mean-exp-time-facet-sex-rows" width="612" style="display: block; margin: auto;" />
 
 
 ~~~
@@ -857,7 +857,7 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean-exp-time-facet-sex-columns-1.png" title="plot of chunk mean-exp-time-facet-sex-columns" alt="plot of chunk mean-exp-time-facet-sex-columns" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-mean-exp-time-facet-sex-columns-1.png" alt="plot of chunk mean-exp-time-facet-sex-columns" width="612" style="display: block; margin: auto;" />
 
 ## **`ggplot2`** themes
 
@@ -902,7 +902,7 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean_exp-time-with-right-labels-1.png" title="plot of chunk mean_exp-time-with-right-labels" alt="plot of chunk mean_exp-time-with-right-labels" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-mean_exp-time-with-right-labels-1.png" alt="plot of chunk mean_exp-time-with-right-labels" width="612" style="display: block; margin: auto;" />
 
 The axes have more informative names, but their readability can be improved by
 increasing the font size:
@@ -922,7 +922,7 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean_exp-time-with-right-labels-xfont-size-1.png" title="plot of chunk mean_exp-time-with-right-labels-xfont-size" alt="plot of chunk mean_exp-time-with-right-labels-xfont-size" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-mean_exp-time-with-right-labels-xfont-size-1.png" alt="plot of chunk mean_exp-time-with-right-labels-xfont-size" width="612" style="display: block; margin: auto;" />
 
 Note that it is also possible to change the fonts of your plots. If you are on
 Windows, you may have to install
@@ -950,7 +950,7 @@ ggplot(data = mean_exp_by_time_sex,
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean_exp-time-with-theme-1.png" title="plot of chunk mean_exp-time-with-theme" alt="plot of chunk mean_exp-time-with-theme" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-mean_exp-time-with-theme-1.png" alt="plot of chunk mean_exp-time-with-theme" width="612" style="display: block; margin: auto;" />
 
 If you like the changes you created better than the default theme, you can save them as
 an object to be able to easily apply them to other plots you may create. Here is an example with the histogram we have previously created.
@@ -971,7 +971,7 @@ ggplot(rna, aes(x = expression_log)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-mean_exp-time-with-right-labels-xfont-1.png" title="plot of chunk mean_exp-time-with-right-labels-xfont" alt="plot of chunk mean_exp-time-with-right-labels-xfont" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-mean_exp-time-with-right-labels-xfont-1.png" alt="plot of chunk mean_exp-time-with-right-labels-xfont" width="612" style="display: block; margin: auto;" />
 
 > ## Challenge
 >
@@ -1001,7 +1001,7 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-13-1.png" alt="plot of chunk unnamed-chunk-13" width="612" style="display: block; margin: auto;" />
 > >
 > >
 > > We can customize it the following ways:
@@ -1017,7 +1017,7 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-14-1.png" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
 > > 
 > > ~~~
 > > # change the name of the legend and the labels
@@ -1031,7 +1031,7 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-2.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-14-2.png" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
 > > 
 > > ~~~
 > > # using a different color palette
@@ -1045,7 +1045,7 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-3.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-14-3.png" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
 > > 
 > > ~~~
 > > # manually specifying the colors
@@ -1060,7 +1060,7 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-4.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-14-4.png" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -1093,7 +1093,7 @@ count_gene_chromosome
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-sub1-1.png" title="plot of chunk sub1" alt="plot of chunk sub1" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-sub1-1.png" alt="plot of chunk sub1" width="612" style="display: block; margin: auto;" />
 
 Below, we also remove the legend altogether by setting the `legend.position` to `"none"`.
 
@@ -1109,7 +1109,7 @@ exp_boxplot_sex
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-sub2-1.png" title="plot of chunk sub2" alt="plot of chunk sub2" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-sub2-1.png" alt="plot of chunk sub2" width="612" style="display: block; margin: auto;" />
 
 
 The [**patchwork**](https://github.com/thomasp85/patchwork) package
@@ -1131,7 +1131,7 @@ count_gene_chromosome + exp_boxplot_sex
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-15-1.png" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
 
 ~~~
 ## or count_gene_chromosome | exp_boxplot_sex
@@ -1144,7 +1144,7 @@ count_gene_chromosome / exp_boxplot_sex
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-16-1.png" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
 
 We can combine further control the layout of the final composition
 with `plot_layout` to create more complex layouts:
@@ -1155,7 +1155,7 @@ count_gene_chromosome + exp_boxplot_sex + plot_layout(ncol = 1)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-17-1.png" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
 
 
 ~~~
@@ -1166,7 +1166,7 @@ count_gene_chromosome +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-18-1.png" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
 
 The last plot can also be created using the `|` and `/` composers:
 
@@ -1178,7 +1178,7 @@ count_gene_chromosome /
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-19-1.png" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
 
 Learn more about `patchwork` on its
 [webpage](https://patchwork.data-imaginist.com/) or in this
@@ -1195,12 +1195,12 @@ install.packages("gridExtra")
 
 
 ~~~
-library(gridExtra)
+library("gridExtra")
 grid.arrange(count_gene_chromosome, exp_boxplot_sex, ncol = 2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-gridarrange-example-1.png" title="plot of chunk gridarrange-example" alt="plot of chunk gridarrange-example" width="720" style="display: block; margin: auto;" />
+<img src="../fig/rmd-gridarrange-example-1.png" alt="plot of chunk gridarrange-example" width="720" style="display: block; margin: auto;" />
 
 In addition to the `ncol` and `nrow` arguments, used to make simple
 arrangements, there are tools for [constructing more complex
@@ -1281,7 +1281,7 @@ rect(5, 5, 15, 15, lwd = 3)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-paintermodel-1.png" title="Successive layers added on top of each other." alt="Successive layers added on top of each other." width="864" style="display: block; margin: auto;" />
+<img src="../fig/rmd-paintermodel-1.png" alt="Successive layers added on top of each other." width="864" style="display: block; margin: auto;" />
 
 Another main difference is that base graphics' plotting function try
 to do *the right* thing based on their input type, i.e. they will
@@ -1302,7 +1302,7 @@ hist(matrix(rnorm(100), ncol = 10))
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-plotmethod-1.png" title="Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right)." alt="Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right)." width="576" style="display: block; margin: auto;" />
+<img src="../fig/rmd-plotmethod-1.png" alt="Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right)." width="576" style="display: block; margin: auto;" />
 
 The out-of-the-box approach in base graphics can be very efficient for
 simple, standard figures, that can be produced very quickly with a

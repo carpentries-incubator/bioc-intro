@@ -3,8 +3,8 @@
 # Instead, please edit 10-data-organisation.md in _episodes_rmd/
 source: Rmd
 title: "Data organisation with Spreadsheets"
-teaching: XX
-exercises: XX
+teaching: 30
+exercises: 30
 questions:
 - "How to organise tabular data?"
 objectives:
@@ -703,7 +703,7 @@ To save a file you have opened in Excel in CSV format:
 An important note for backwards compatibility: you can open CSV files
 in Excel!
 
-<img src="../fig/excel-to-csv.png" title="Saving an Excel file to CSV." alt="Saving an Excel file to CSV." width="70%" style="display: block; margin: auto;" />
+<img src="../fig/excel-to-csv.png" alt="Saving an Excel file to CSV." width="70%" style="display: block; margin: auto;" />
 
 **A note on R and `xls`**: There are R packages that can read `xls`
 files (as well as Google spreadsheets). It is even possible to access
@@ -743,7 +743,7 @@ to read the above into Excel (or other spreadsheet program), we will
 get something like this:
 
 
-<img src="../fig/csv-mistake.png" title="The risks of having commas inside comma-separated data." alt="The risks of having commas inside comma-separated data." width="80%" style="display: block; margin: auto;" />
+<img src="../fig/csv-mistake.png" alt="The risks of having commas inside comma-separated data." width="80%" style="display: block; margin: auto;" />
 
 The value for `taxa` was split into two columns (instead of being put
 in one column `D`). This can propagate to a number of further
@@ -800,7 +800,7 @@ build relevant scripts.
 
 ## Summary
 
-<img src="../fig/analysis.png" title="A typical data analysis workflow." alt="A typical data analysis workflow." style="display: block; margin: auto;" />
+<img src="../fig/analysis.png" alt="A typical data analysis workflow." style="display: block; margin: auto;" />
 
 A typical data analysis worflow is illustrated in the figure above,
 where data is repeatedly tranformed, visualised, modelled. This

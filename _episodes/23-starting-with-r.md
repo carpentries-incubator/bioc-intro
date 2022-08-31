@@ -3,8 +3,8 @@
 # Instead, please edit 23-starting-with-r.md in _episodes_rmd/
 source: Rmd
 title: "Introduction to R"
-teaching: XX
-exercises: XX
+teaching: 60
+exercises: 60
 questions:
 - "First commands in R"
 objectives:
@@ -1278,7 +1278,7 @@ There are similar constructors for characters and logicals, named
 > > ## Solution
 > > 
 > > ~~~
-> > character(2) ## the empty charater
+> > character(2) ## the empty character
 > > ~~~
 > > {: .language-r}
 > > 
@@ -1538,14 +1538,14 @@ sample(1:5, 10, replace = TRUE)
 > set the random number generation seed manually with `set.seed()`
 > before drawing the random sample.
 >
-> - Test this feature with your neighbour. First draw two random
->   permutations of `1:10` independently and observe that you get
->   different results.
+> Test this feature with your neighbour. First draw two random
+> permutations of `1:10` independently and observe that you get
+> different results.
 >
-> - Now set the seed with, for example, `set.seed(123)` and repeat the
->   random draw. Observe that you now get the same random draws.
+> Now set the seed with, for example, `set.seed(123)` and repeat the
+> random draw. Observe that you now get the same random draws.
 >
-> - Repeat by setting a different seed.
+> Repeat by setting a different seed.
 > > ## Solution
 > > Different permutations
 > >
@@ -1647,7 +1647,7 @@ sample from a normal distribution. Two normal distributions of means 0
 and 100 and standard deviations 1 and 5, noted noted *N(0, 1)* and
 *N(100, 5)*, are shown below
 
-<img src="../fig/rmd-unnamed-chunk-61-1.png" title="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="864" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-61-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="864" style="display: block; margin: auto;" />
 
 The three arguments, `n`, `mean` and `sd`, define the size of the
 sample, and the parameters of the normal distribution, i.e the mean

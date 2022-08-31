@@ -3,8 +3,8 @@
 # Instead, please edit 25-starting-with-data.md in _episodes_rmd/
 source: Rmd
 title: "Starting with data"
-teaching: XX
-exercises: XX
+teaching: 30
+exercises: 30
 questions:
 - "First data analysis in R"
 objectives:
@@ -551,7 +551,7 @@ plot(sex)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-firstfactorplot-1.png" title="Bar plot of the number of females and males." alt="Bar plot of the number of females and males." width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-firstfactorplot-1.png" alt="Bar plot of the number of females and males." width="612" style="display: block; margin: auto;" />
 
 If we want to rename these factor, it is sufficient to change its
 levels:
@@ -592,12 +592,34 @@ plot(sex)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-16-1.png" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
 
 > ## Challenge:
 >
 > - Rename "female" and "male" to "Female" and "Male" respectively.
 >
+> > ## Solution
+> >
+> > 
+> > ~~~
+> > levels(sex)
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > [1] "M" "F"
+> > ~~~
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
+> > levels(sex) <- c("Male", "Female")
+> > ~~~
+> > {: .language-r}
+> {: .solution}
 {: .challenge }
 
 > ## Challenge:
@@ -650,6 +672,33 @@ plot(sex)
 >        )
 > ~~~
 > {: .language-r}
+> > ## Solution
+> >
+> > 
+> > ~~~
+> > country_climate <- data.frame(
+> >        country = c("Canada", "Panama", "South Africa", "Australia"),
+> >        climate = c("cold", "hot", "temperate", "hot/temperate"),
+> >        temperature = c(10, 30, 18, "15"),
+> >        northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+> >        has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+> >        )
+> > str(country_climate)
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > 'data.frame':	4 obs. of  5 variables:
+> >  $ country            : chr  "Canada" "Panama" "South Africa" "Australia"
+> >  $ climate            : chr  "cold" "hot" "temperate" "hot/temperate"
+> >  $ temperature        : chr  "10" "30" "18" "15"
+> >  $ northern_hemisphere: chr  "TRUE" "TRUE" "FALSE" "FALSE"
+> >  $ has_kangaroo       : num  0 0 0 1
+> > ~~~
+> > {: .output}
+> {: .solution}
 {: .challenge}
 
 
@@ -1104,8 +1153,6 @@ l[1]   ## a list of length 1
 {: .output}
 ## Exporting and saving data {#sec:exportandsave}
 
-**TODO: use `rna` data below.**
-
 ### Exporting tabular data {-}
 
 We have seen how to read a text-based spreadsheet into R using the
@@ -1113,16 +1160,21 @@ We have seen how to read a text-based spreadsheet into R using the
 text-based spreadsheet, we can use the `write.table` set of functions
 (`write.csv`, `write.delim`, ...). They all take the variable to be
 exported and the file to be exported to. For example, to export the
-`surveys` data to the `my_surveys.csv` file in the `data_output`
+`rna` data to the `my_rna.csv` file in the `data_output`
 directory, we would execute:
 
 
 ~~~
-write.csv(surveys, file = "data_output/my_surveys.csv")
+write.csv(rna, file = "data_output/my_rna.csv")
 ~~~
 {: .language-r}
+
 This new csv file can now be shared with other collaborators who
-aren't familiar with R.
+aren't familiar with R. Note that even though there are commas in some of 
+the fields in the `data.frame` (see for example the "product" column), R will 
+by default surround each field with quotes, and thus we will be able to 
+read it back into R correctly, despite also using commas as column 
+separators. 
 
 ### Saving data {-}
 
@@ -1141,10 +1193,10 @@ function.
 
 
 ~~~
-save(surveys, file = "data_output/surveys.rda")
-rm(surveys)
-load("data_output/surveys.rda")
-head(surveys)
+save(rna, file = "data_output/rna.rda")
+rm(rna)
+load("data_output/rna.rda")
+head(rna)
 ~~~
 {: .language-r}
 
@@ -1161,12 +1213,14 @@ output of `readRDS` in a variable:
 
 
 ~~~
-saveRDS(surveys, file = "data_output/surveys.rds")
-rm(surveys)
-surveys <- readRDS("data_output/surveys.rds")
-head(surveys)
+saveRDS(rna, file = "data_output/rna.rds")
+rm(rna)
+rna <- readRDS("data_output/rna.rds")
+head(rna)
 ~~~
 {: .language-r}
+
+To save space on our hard disk, we'll now remove the two files we just saved.
 
 
 

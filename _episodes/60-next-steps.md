@@ -3,8 +3,8 @@
 # Instead, please edit 60-next-steps.md in _episodes_rmd/
 source: Rmd
 title: "Next steps"
-teaching: XX
-exercises: XX
+teaching: 45
+exercises: 45
 questions:
 - "SummarizedExperiment"
 objectives:
@@ -42,7 +42,7 @@ class.
 
 The figure below represents the anatomy of the SummarizedExperiment class.
 
-<img src="https://uclouvain-cbio.github.io/WSBIM1322/figs/SE.svg" title="plot of chunk SE" alt="plot of chunk SE" width="80%" style="display: block; margin: auto;" />
+<img src="https://uclouvain-cbio.github.io/WSBIM1322/figs/SE.svg" alt="plot of chunk SE" width="80%" style="display: block; margin: auto;" />
 
 
 Objects of the class SummarizedExperiment contain :
@@ -174,20 +174,21 @@ gene_metadata
 
 ~~~
 # A tibble: 1,474 × 9
-   gene    ENTREZID product     ensembl_gene_id external_synonym chromosome_name
-   <chr>      <dbl> <chr>       <chr>           <chr>            <chr>          
- 1 Asl       109900 argininosu… ENSMUSG0000002… 2510006M18Rik    5              
- 2 Apod       11815 apolipopro… ENSMUSG0000002… <NA>             16             
- 3 Cyp2d22    56448 cytochrome… ENSMUSG0000006… 2D22             15             
- 4 Klk6       19144 kallikrein… ENSMUSG0000005… Bssp             7              
- 5 Fcrls      80891 Fc recepto… ENSMUSG0000001… 2810439C17Rik    3              
- 6 Slc2a4     20528 solute car… ENSMUSG0000001… Glut-4           11             
- 7 Exd2       97827 exonucleas… ENSMUSG0000003… 4930539P14Rik    12             
- 8 Gjc2      118454 gap juncti… ENSMUSG0000004… B230382L12Rik    11             
- 9 Plp1       18823 proteolipi… ENSMUSG0000003… DM20             X              
-10 Gnb4       14696 guanine nu… ENSMUSG0000002… 6720453A21Rik    3              
-# … with 1,464 more rows, and 3 more variables: gene_biotype <chr>,
-#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>
+   gene    ENTREZID product      ensem…¹ exter…² chrom…³ gene_…⁴ pheno…⁵ hsapi…⁶
+   <chr>      <dbl> <chr>        <chr>   <chr>   <chr>   <chr>   <chr>   <chr>  
+ 1 Asl       109900 argininosuc… ENSMUS… 251000… 5       protei… abnorm… ASL    
+ 2 Apod       11815 apolipoprot… ENSMUS… <NA>    16      protei… abnorm… APOD   
+ 3 Cyp2d22    56448 cytochrome … ENSMUS… 2D22    15      protei… abnorm… CYP2D6 
+ 4 Klk6       19144 kallikrein … ENSMUS… Bssp    7       protei… abnorm… KLK6   
+ 5 Fcrls      80891 Fc receptor… ENSMUS… 281043… 3       protei… decrea… FCRL2  
+ 6 Slc2a4     20528 solute carr… ENSMUS… Glut-4  11      protei… abnorm… SLC2A4 
+ 7 Exd2       97827 exonuclease… ENSMUS… 493053… 12      protei… <NA>    EXD2   
+ 8 Gjc2      118454 gap junctio… ENSMUS… B23038… 11      protei… Purkin… GJC2   
+ 9 Plp1       18823 proteolipid… ENSMUS… DM20    X       protei… abnorm… PLP1   
+10 Gnb4       14696 guanine nuc… ENSMUS… 672045… 3       protei… decrea… GNB4   
+# … with 1,464 more rows, and abbreviated variable names ¹​ensembl_gene_id,
+#   ²​external_synonym, ³​chromosome_name, ⁴​gene_biotype, ⁵​phenotype_description,
+#   ⁶​hsapiens_homolog_associated_gene_name
 ~~~
 {: .output}
 

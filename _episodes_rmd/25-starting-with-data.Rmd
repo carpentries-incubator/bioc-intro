@@ -1,8 +1,8 @@
 ---
 source: Rmd
 title: "Starting with data"
-teaching: XX
-exercises: XX
+teaching: 30
+exercises: 30
 questions:
 - "First data analysis in R"
 objectives:
@@ -406,6 +406,13 @@ plot(sex)
 >
 > - Rename "female" and "male" to "Female" and "Male" respectively.
 >
+> > ## Solution
+> >
+> > ```{r, eval=TRUE}
+> > levels(sex)
+> > levels(sex) <- c("Male", "Female")
+> > ```
+> {: .solution}
 {: .challenge }
 
 > ## Challenge:
@@ -454,6 +461,19 @@ plot(sex)
 >        has_kangaroo = c(FALSE, FALSE, FALSE, 1)
 >        )
 > ```
+> > ## Solution
+> >
+> > ```{r, eval=TRUE}
+> > country_climate <- data.frame(
+> >        country = c("Canada", "Panama", "South Africa", "Australia"),
+> >        climate = c("cold", "hot", "temperate", "hot/temperate"),
+> >        temperature = c(10, 30, 18, "15"),
+> >        northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+> >        has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+> >        )
+> > str(country_climate)
+> > ```
+> {: .solution}
 {: .challenge}
 
 
@@ -697,8 +717,6 @@ l[1]   ## a list of length 1
 ```
 ## Exporting and saving data {#sec:exportandsave}
 
-**TODO: use `rna` data below.**
-
 ### Exporting tabular data {-}
 
 We have seen how to read a text-based spreadsheet into R using the
@@ -706,14 +724,19 @@ We have seen how to read a text-based spreadsheet into R using the
 text-based spreadsheet, we can use the `write.table` set of functions
 (`write.csv`, `write.delim`, ...). They all take the variable to be
 exported and the file to be exported to. For example, to export the
-`surveys` data to the `my_surveys.csv` file in the `data_output`
+`rna` data to the `my_rna.csv` file in the `data_output`
 directory, we would execute:
 
 ```{r, eval = FALSE}
-write.csv(surveys, file = "data_output/my_surveys.csv")
+write.csv(rna, file = "data_output/my_rna.csv")
 ```
+
 This new csv file can now be shared with other collaborators who
-aren't familiar with R.
+aren't familiar with R. Note that even though there are commas in some of 
+the fields in the `data.frame` (see for example the "product" column), R will 
+by default surround each field with quotes, and thus we will be able to 
+read it back into R correctly, despite also using commas as column 
+separators. 
 
 ### Saving data {-}
 
@@ -731,10 +754,10 @@ produce the same object once loaded back into R using the `load`
 function.
 
 ```{r, eval = FALSE}
-save(surveys, file = "data_output/surveys.rda")
-rm(surveys)
-load("data_output/surveys.rda")
-head(surveys)
+save(rna, file = "data_output/rna.rda")
+rm(rna)
+load("data_output/rna.rda")
+head(rna)
 ```
 
 Note about how the function `load` loads the object in the file
@@ -749,15 +772,17 @@ the data from disk and returns it. It is this necessary to store the
 output of `readRDS` in a variable:
 
 ```{r, eval=FALSE}
-saveRDS(surveys, file = "data_output/surveys.rds")
-rm(surveys)
-surveys <- readRDS("data_output/surveys.rds")
-head(surveys)
+saveRDS(rna, file = "data_output/rna.rds")
+rm(rna)
+rna <- readRDS("data_output/rna.rds")
+head(rna)
 ```
 
+To save space on our hard disk, we'll now remove the two files we just saved.
+
 ```{r echo=FALSE}
-unlink("data_output/surveys.rda")
-unlink("data_output/surveys.rds")
+unlink("data_output/rna.rda")
+unlink("data_output/rna.rds")
 ```
 
 To conclude, when it comes to saving data from R that will be loaded

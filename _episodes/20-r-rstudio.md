@@ -3,8 +3,8 @@
 # Instead, please edit 20-r-rstudio.md in _episodes_rmd/
 source: Rmd
 title: "R and RStudio"
-teaching: XX
-exercises: XX
+teaching: 30
+exercises: 0
 questions:
 - "What are R and RStudio?"
 objectives:
@@ -86,7 +86,7 @@ genetics, and a lot more.
 [^whatarepkgs]: i.e. add-ons that confer R with new functionality,
     such as bioinformatics data analysis.
 
-<img src="../fig/cran.png" title="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018." alt="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018." style="display: block; margin: auto;" />
+<img src="../fig/cran.png" alt="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018." style="display: block; margin: auto;" />
 
 ### R works on data of all shapes and sizes
 
@@ -142,7 +142,7 @@ the plots we will generate. RStudio can also be used for other things
 we will not cover during the workshop.
 
 
-<img src="../fig/rstudio-screenshot.png" title="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console." alt="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console." width="100%" style="display: block; margin: auto;" />
+<img src="../fig/rstudio-screenshot.png" alt="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console." width="100%" style="display: block; margin: auto;" />
 
 The RStudio window is divided into 4 "Panes":
 
@@ -194,14 +194,14 @@ RStudio's default preferences generally work well, but saving a workspace to
 To turn that off, go to Tools --> 'Global Options' and select the 'Never' option
 for 'Save workspace to .RData' on exit.'
 
-<img src="../fig/rstudio-preferences.png" title="Set 'Save workspace to .RData on exit' to 'Never'" alt="Set 'Save workspace to .RData on exit' to 'Never'" width="70%" style="display: block; margin: auto;" />
+<img src="../fig/rstudio-preferences.png" alt="Set 'Save workspace to .RData on exit' to 'Never'" width="70%" style="display: block; margin: auto;" />
 
 To avoid [character encoding issue between Windows and other operating
 systems](https://yihui.name/en/2018/11/biggest-regret-knitr/), we are
 going to set UTF-8 by default:
 
 
-<img src="../fig/utf8.png" title="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above)." alt="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above)." width="70%" style="display: block; margin: auto;" />
+<img src="../fig/utf8.png" alt="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above)." width="70%" style="display: block; margin: auto;" />
 
 ### Organizing your working directory
 
@@ -232,7 +232,7 @@ your project needs, but these should form the backbone of your working
 directory.
 
 
-<img src="../fig/working-directory-structure.png" title="Example of a working directory structure." alt="Example of a working directory structure." width="100%" style="display: block; margin: auto;" />
+<img src="../fig/working-directory-structure.png" alt="Example of a working directory structure." width="100%" style="display: block; margin: auto;" />
 
 For this course, we will need a `data/` folder to store our raw data,
 and we will use `data_output/` for when we learn how to export data as
@@ -253,7 +253,7 @@ easier.
 
 Your working directory should now look like this:
 
-<img src="../fig/r-starting-how-it-should-look-like.png" title="How it should look like at the beginning of this lesson" alt="How it should look like at the beginning of this lesson" width="100%" style="display: block; margin: auto;" />
+<img src="../fig/r-starting-how-it-should-look-like.png" alt="How it should look like at the beginning of this lesson" width="100%" style="display: block; margin: auto;" />
 
 **Project management** is also applicable to bioinformatics projects,
 of course[^bioindatascience]. William Noble (@Noble:2009) proposes the
@@ -276,7 +276,7 @@ following directory structure:
 > scripts.
 
 
-<img src="../fig/noble-bioinfo-project.png" title="Directory structure for a sample bioinformatics project." alt="Directory structure for a sample bioinformatics project." width="100%" style="display: block; margin: auto;" />
+<img src="../fig/noble-bioinfo-project.png" alt="Directory structure for a sample bioinformatics project." width="100%" style="display: block; margin: auto;" />
 
 The most important aspect of a well defined and well documented
 project directory is to enable someone unfamiliar with the
@@ -407,13 +407,13 @@ suit your purpose might make it easier for you to get started.
     here, but will only manage to scratch the surface of the wealth of
     what is possible to do with R.
 
-<img src="../fig/kitten-try-things.jpg" title="plot of chunk kitten" alt="plot of chunk kitten" width="400px" style="display: block; margin: auto;" />
+<img src="../fig/kitten-try-things.jpg" alt="plot of chunk kitten" width="400px" style="display: block; margin: auto;" />
 
 ## Seeking help
 
 ### Use the built-in RStudio help interface to search for more information on R functions
 
-<img src="../fig/rstudiohelp.png" title="RStudio help interface." alt="RStudio help interface." width="70%" style="display: block; margin: auto;" />
+<img src="../fig/rstudiohelp.png" alt="RStudio help interface." width="70%" style="display: block; margin: auto;" />
 
 One of the fastest ways to get help, is to use the RStudio help
 interface. This panel by default can be found at the lower right hand
@@ -589,11 +589,11 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] knitr_1.39
+[1] knitr_1.40
 
 loaded via a namespace (and not attached):
 [1] compiler_4.2.1 magrittr_2.0.3 tools_4.2.1    stringi_1.7.8  highr_0.9     
-[6] stringr_1.4.0  xfun_0.31      evaluate_0.15 
+[6] stringr_1.4.1  xfun_0.32      evaluate_0.16 
 ~~~
 {: .output}
 

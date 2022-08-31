@@ -3,8 +3,8 @@
 # Instead, please edit 50-joining-tables.md in _episodes_rmd/
 source: Rmd
 title: "Joining tables"
-teaching: XX
-exercises: XX
+teaching: 30
+exercises: 30
 questions:
 - "Join tables in R"
 objectives:
@@ -61,6 +61,20 @@ if (!require("rWSBIM1207"))
 
 ~~~
 library("rWSBIM1207")
+~~~
+{: .language-r}
+
+
+
+~~~
+
+This is 'rWSBIM1207' version 0.1.15 
+~~~
+{: .output}
+
+
+
+~~~
 data(jdf)
 ~~~
 {: .language-r}
@@ -191,19 +205,20 @@ Joining, by = "uniprot"
 
 ~~~
 # A tibble: 25 × 6
-   uniprot  organelle                       entry gene_name description organism
-   <chr>    <chr>                           <chr> <chr>     <chr>       <chr>   
- 1 P26039   Actin cytoskeleton              TLN1… Tln1      Talin-1     Mmus    
- 2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… Rrbp1     Ribosome-b… Mmus    
- 3 Q6PB66   Mitochondrion                   LPPR… Lrpprc    Leucine-ri… Mmus    
- 4 P11276   Extracellular matrix            FINC… Fn1       Fibronectin Mmus    
- 5 Q6PR54   Nucleus - Chromatin             RIF1… Rif1      Telomere-a… Mmus    
- 6 Q05793   Extracellular matrix            PGBM… Hspg2     Basement m… Mmus    
- 7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
- 8 Q9JKF1   Plasma membrane                 IQGA… Iqgap1    Ras GTPase… Mmus    
- 9 Q9QZQ1-2 Plasma membrane                 AFAD… Mllt4     Isoform 1 … Mmus    
-10 Q6NS46   Nucleus - Non-chromatin         RRP5… Pdcd11    Protein RR… Mmus    
-# … with 15 more rows
+   uniprot  organelle                             entry  gene_…¹ descr…² organ…³
+   <chr>    <chr>                                 <chr>  <chr>   <chr>   <chr>  
+ 1 P26039   Actin cytoskeleton                    TLN1_… Tln1    Talin-1 Mmus   
+ 2 Q99PL5   Endoplasmic reticulum/Golgi apparatus RRBP1… Rrbp1   Riboso… Mmus   
+ 3 Q6PB66   Mitochondrion                         LPPRC… Lrpprc  Leucin… Mmus   
+ 4 P11276   Extracellular matrix                  FINC_… Fn1     Fibron… Mmus   
+ 5 Q6PR54   Nucleus - Chromatin                   RIF1_… Rif1    Telome… Mmus   
+ 6 Q05793   Extracellular matrix                  PGBM_… Hspg2   Baseme… Mmus   
+ 7 P19096   Cytosol                               FAS_M… Fasn    Fatty … Mmus   
+ 8 Q9JKF1   Plasma membrane                       IQGA1… Iqgap1  Ras GT… Mmus   
+ 9 Q9QZQ1-2 Plasma membrane                       AFAD_… Mllt4   Isofor… Mmus   
+10 Q6NS46   Nucleus - Non-chromatin               RRP5_… Pdcd11  Protei… Mmus   
+# … with 15 more rows, and abbreviated variable names ¹​gene_name, ²​description,
+#   ³​organism
 ~~~
 {: .output}
 
@@ -271,19 +286,20 @@ full_join(jdf1, jdf3, by = c("uniprot" = "UniProt"))
 
 ~~~
 # A tibble: 25 × 6
-   uniprot  organelle                       entry gene_name description organism
-   <chr>    <chr>                           <chr> <chr>     <chr>       <chr>   
- 1 P26039   Actin cytoskeleton              TLN1… Tln1      Talin-1     Mmus    
- 2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… Rrbp1     Ribosome-b… Mmus    
- 3 Q6PB66   Mitochondrion                   LPPR… Lrpprc    Leucine-ri… Mmus    
- 4 P11276   Extracellular matrix            FINC… Fn1       Fibronectin Mmus    
- 5 Q6PR54   Nucleus - Chromatin             RIF1… Rif1      Telomere-a… Mmus    
- 6 Q05793   Extracellular matrix            PGBM… Hspg2     Basement m… Mmus    
- 7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
- 8 Q9JKF1   Plasma membrane                 IQGA… Iqgap1    Ras GTPase… Mmus    
- 9 Q9QZQ1-2 Plasma membrane                 AFAD… Mllt4     Isoform 1 … Mmus    
-10 Q6NS46   Nucleus - Non-chromatin         RRP5… Pdcd11    Protein RR… Mmus    
-# … with 15 more rows
+   uniprot  organelle                             entry  gene_…¹ descr…² organ…³
+   <chr>    <chr>                                 <chr>  <chr>   <chr>   <chr>  
+ 1 P26039   Actin cytoskeleton                    TLN1_… Tln1    Talin-1 Mmus   
+ 2 Q99PL5   Endoplasmic reticulum/Golgi apparatus RRBP1… Rrbp1   Riboso… Mmus   
+ 3 Q6PB66   Mitochondrion                         LPPRC… Lrpprc  Leucin… Mmus   
+ 4 P11276   Extracellular matrix                  FINC_… Fn1     Fibron… Mmus   
+ 5 Q6PR54   Nucleus - Chromatin                   RIF1_… Rif1    Telome… Mmus   
+ 6 Q05793   Extracellular matrix                  PGBM_… Hspg2   Baseme… Mmus   
+ 7 P19096   Cytosol                               FAS_M… Fasn    Fatty … Mmus   
+ 8 Q9JKF1   Plasma membrane                       IQGA1… Iqgap1  Ras GT… Mmus   
+ 9 Q9QZQ1-2 Plasma membrane                       AFAD_… Mllt4   Isofor… Mmus   
+10 Q6NS46   Nucleus - Non-chromatin               RRP5_… Pdcd11  Protei… Mmus   
+# … with 15 more rows, and abbreviated variable names ¹​gene_name, ²​description,
+#   ³​organism
 ~~~
 {: .output}
 
@@ -313,22 +329,23 @@ in the joined one.
 > > 
 > > ~~~
 > > # A tibble: 14 × 6
-> >    uniprot  organelle                       entry gene_name description organism
-> >    <chr>    <chr>                           <chr> <chr>     <chr>       <chr>   
-> >  1 P26039   Actin cytoskeleton              TLN1… <NA>      <NA>        <NA>    
-> >  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… <NA>      <NA>        <NA>    
-> >  3 Q6PB66   Mitochondrion                   LPPR… <NA>      <NA>        <NA>    
-> >  4 P11276   Extracellular matrix            FINC… <NA>      <NA>        <NA>    
-> >  5 Q6PR54   Nucleus - Chromatin             RIF1… <NA>      <NA>        <NA>    
-> >  6 Q05793   Extracellular matrix            PGBM… <NA>      <NA>        <NA>    
-> >  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
-> >  8 Q9JKF1   Plasma membrane                 IQGA… <NA>      <NA>        <NA>    
-> >  9 Q9QZQ1-2 Plasma membrane                 AFAD… <NA>      <NA>        <NA>    
-> > 10 Q6NS46   Nucleus - Non-chromatin         RRP5… <NA>      <NA>        <NA>    
-> > 11 P02468   <NA>                            <NA>  Lamc1     Laminin su… Mmus    
-> > 12 P08113   <NA>                            <NA>  Hsp90b1   Endoplasmin Mmus    
-> > 13 Q8BI84   <NA>                            <NA>  Mia3      Melanoma i… Mmus    
-> > 14 Q6P5D8   <NA>                            <NA>  Smchd1    Structural… Mmus    
+> >    uniprot  organelle                             entry  gene_…¹ descr…² organ…³
+> >    <chr>    <chr>                                 <chr>  <chr>   <chr>   <chr>  
+> >  1 P26039   Actin cytoskeleton                    TLN1_… <NA>    <NA>    <NA>   
+> >  2 Q99PL5   Endoplasmic reticulum/Golgi apparatus RRBP1… <NA>    <NA>    <NA>   
+> >  3 Q6PB66   Mitochondrion                         LPPRC… <NA>    <NA>    <NA>   
+> >  4 P11276   Extracellular matrix                  FINC_… <NA>    <NA>    <NA>   
+> >  5 Q6PR54   Nucleus - Chromatin                   RIF1_… <NA>    <NA>    <NA>   
+> >  6 Q05793   Extracellular matrix                  PGBM_… <NA>    <NA>    <NA>   
+> >  7 P19096   Cytosol                               FAS_M… Fasn    Fatty … Mmus   
+> >  8 Q9JKF1   Plasma membrane                       IQGA1… <NA>    <NA>    <NA>   
+> >  9 Q9QZQ1-2 Plasma membrane                       AFAD_… <NA>    <NA>    <NA>   
+> > 10 Q6NS46   Nucleus - Non-chromatin               RRP5_… <NA>    <NA>    <NA>   
+> > 11 P02468   <NA>                                  <NA>   Lamc1   Lamini… Mmus   
+> > 12 P08113   <NA>                                  <NA>   Hsp90b1 Endopl… Mmus   
+> > 13 Q8BI84   <NA>                                  <NA>   Mia3    Melano… Mmus   
+> > 14 Q6P5D8   <NA>                                  <NA>   Smchd1  Struct… Mmus   
+> > # … with abbreviated variable names ¹​gene_name, ²​description, ³​organism
 > > ~~~
 > > {: .output}
 > >
@@ -349,7 +366,7 @@ that are present in only one or both tables.
 - An **inner join** keeps observations that are present in both
   tables.
 
-<img src="../fig/join-inner.png" title="An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from *R for Data Science*." alt="An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from *R for Data Science*." width="70%" style="display: block; margin: auto;" />
+<img src="../fig/join-inner.png" alt="An inner join matches pairs of observation matching in both tables, this dropping those that are unique to one table. Figure taken from *R for Data Science*." width="70%" style="display: block; margin: auto;" />
 
 - A **left join** keeps observations that are present in the left
   (first) table, dropping those that are only present in the other.
@@ -358,7 +375,7 @@ that are present in only one or both tables.
 - A **full join** keeps all observations.
 
 
-<img src="../fig/join-outer.png" title="Outer joins match observations that appear in at least on table, filling up missing values with `NA` values. Figure taken from *R for Data Science*." alt="Outer joins match observations that appear in at least on table, filling up missing values with `NA` values. Figure taken from *R for Data Science*." width="70%" style="display: block; margin: auto;" />
+<img src="../fig/join-outer.png" alt="Outer joins match observations that appear in at least on table, filling up missing values with `NA` values. Figure taken from *R for Data Science*." width="70%" style="display: block; margin: auto;" />
 
 > ## Challenge
 > Join tables `jdf4` and `jdf5`, keeping only observations in `jdf4`.
@@ -381,18 +398,19 @@ that are present in only one or both tables.
 > > 
 > > ~~~
 > > # A tibble: 10 × 6
-> >    uniprot  organelle                       entry gene_name description organism
-> >    <chr>    <chr>                           <chr> <chr>     <chr>       <chr>   
-> >  1 P26039   Actin cytoskeleton              TLN1… <NA>      <NA>        <NA>    
-> >  2 Q99PL5   Endoplasmic reticulum/Golgi ap… RRBP… <NA>      <NA>        <NA>    
-> >  3 Q6PB66   Mitochondrion                   LPPR… <NA>      <NA>        <NA>    
-> >  4 P11276   Extracellular matrix            FINC… <NA>      <NA>        <NA>    
-> >  5 Q6PR54   Nucleus - Chromatin             RIF1… <NA>      <NA>        <NA>    
-> >  6 Q05793   Extracellular matrix            PGBM… <NA>      <NA>        <NA>    
-> >  7 P19096   Cytosol                         FAS_… Fasn      Fatty acid… Mmus    
-> >  8 Q9JKF1   Plasma membrane                 IQGA… <NA>      <NA>        <NA>    
-> >  9 Q9QZQ1-2 Plasma membrane                 AFAD… <NA>      <NA>        <NA>    
-> > 10 Q6NS46   Nucleus - Non-chromatin         RRP5… <NA>      <NA>        <NA>    
+> >    uniprot  organelle                             entry  gene_…¹ descr…² organ…³
+> >    <chr>    <chr>                                 <chr>  <chr>   <chr>   <chr>  
+> >  1 P26039   Actin cytoskeleton                    TLN1_… <NA>    <NA>    <NA>   
+> >  2 Q99PL5   Endoplasmic reticulum/Golgi apparatus RRBP1… <NA>    <NA>    <NA>   
+> >  3 Q6PB66   Mitochondrion                         LPPRC… <NA>    <NA>    <NA>   
+> >  4 P11276   Extracellular matrix                  FINC_… <NA>    <NA>    <NA>   
+> >  5 Q6PR54   Nucleus - Chromatin                   RIF1_… <NA>    <NA>    <NA>   
+> >  6 Q05793   Extracellular matrix                  PGBM_… <NA>    <NA>    <NA>   
+> >  7 P19096   Cytosol                               FAS_M… Fasn    Fatty … Mmus   
+> >  8 Q9JKF1   Plasma membrane                       IQGA1… <NA>    <NA>    <NA>   
+> >  9 Q9QZQ1-2 Plasma membrane                       AFAD_… <NA>    <NA>    <NA>   
+> > 10 Q6NS46   Nucleus - Non-chromatin               RRP5_… <NA>    <NA>    <NA>   
+> > # … with abbreviated variable names ¹​gene_name, ²​description, ³​organism
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -419,13 +437,14 @@ that are present in only one or both tables.
 > > 
 > > ~~~
 > > # A tibble: 5 × 6
-> >   uniprot organelle entry     gene_name description                     organism
-> >   <chr>   <chr>     <chr>     <chr>     <chr>                           <chr>   
-> > 1 P19096  Cytosol   FAS_MOUSE Fasn      Fatty acid synthase             Mmus    
-> > 2 P02468  <NA>      <NA>      Lamc1     Laminin subunit gamma-1         Mmus    
-> > 3 P08113  <NA>      <NA>      Hsp90b1   Endoplasmin                     Mmus    
-> > 4 Q8BI84  <NA>      <NA>      Mia3      Melanoma inhibitory activity p… Mmus    
-> > 5 Q6P5D8  <NA>      <NA>      Smchd1    Structural maintenance of chro… Mmus    
+> >   uniprot organelle entry     gene_name description                      organ…¹
+> >   <chr>   <chr>     <chr>     <chr>     <chr>                            <chr>  
+> > 1 P19096  Cytosol   FAS_MOUSE Fasn      Fatty acid synthase              Mmus   
+> > 2 P02468  <NA>      <NA>      Lamc1     Laminin subunit gamma-1          Mmus   
+> > 3 P08113  <NA>      <NA>      Hsp90b1   Endoplasmin                      Mmus   
+> > 4 Q8BI84  <NA>      <NA>      Mia3      Melanoma inhibitory activity pr… Mmus   
+> > 5 Q6P5D8  <NA>      <NA>      Smchd1    Structural maintenance of chrom… Mmus   
+> > # … with abbreviated variable name ¹​organism
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -508,13 +527,14 @@ Joining, by = "uniprot"
 
 ~~~
 # A tibble: 5 × 7
-  uniprot organelle             entry     isoform gene_name description organism
-  <chr>   <chr>                 <chr>       <dbl> <chr>     <chr>       <chr>   
-1 P26039  Actin cytoskeleton    TLN1_MOU…       1 Tln1      Talin-1     Mmus    
-2 Q99PL5  Endoplasmic reticulum RRBP1_MO…       1 Rrbp1     Ribosome-b… Mmus    
-3 Q99PL5  Golgi apparatus       RRBP1_MO…       2 Rrbp1     Ribosome-b… Mmus    
-4 Q6PB66  Mitochondrion         LPPRC_MO…       1 Lrpprc    Leucine-ri… Mmus    
-5 P11276  Extracellular matrix  FINC_MOU…       1 Fn1       Fibronectin Mmus    
+  uniprot organelle             entry       isoform gene_name descript…¹ organ…²
+  <chr>   <chr>                 <chr>         <dbl> <chr>     <chr>      <chr>  
+1 P26039  Actin cytoskeleton    TLN1_MOUSE        1 Tln1      Talin-1    Mmus   
+2 Q99PL5  Endoplasmic reticulum RRBP1_MOUSE       1 Rrbp1     Ribosome-… Mmus   
+3 Q99PL5  Golgi apparatus       RRBP1_MOUSE       2 Rrbp1     Ribosome-… Mmus   
+4 Q6PB66  Mitochondrion         LPPRC_MOUSE       1 Lrpprc    Leucine-r… Mmus   
+5 P11276  Extracellular matrix  FINC_MOUSE        1 Fn1       Fibronect… Mmus   
+# … with abbreviated variable names ¹​description, ²​organism
 ~~~
 {: .output}
 
@@ -534,13 +554,14 @@ jdf7
 
 ~~~
 # A tibble: 5 × 6
-  gene_name description                     uniprot organism isoform_num measure
-  <chr>     <chr>                           <chr>   <chr>          <dbl>   <dbl>
-1 Rrbp1     Ribosome-binding protein 1      Q99PL5  Mmus               1     102
-2 Rrbp1     Ribosome-binding protein 1      Q99PL5  Mmus               2       3
-3 Iqgap1    Ras GTPase-activating-like pro… Q9JKF1  Mmus               1      13
-4 Hspa5     78 kDa glucose-regulated prote… P20029  Mmus               1      54
-5 Pdcd11    Protein RRP5 homolog            Q6NS46  Mmus               1      28
+  gene_name description                          uniprot organ…¹ isofo…² measure
+  <chr>     <chr>                                <chr>   <chr>     <dbl>   <dbl>
+1 Rrbp1     Ribosome-binding protein 1           Q99PL5  Mmus          1     102
+2 Rrbp1     Ribosome-binding protein 1           Q99PL5  Mmus          2       3
+3 Iqgap1    Ras GTPase-activating-like protein … Q9JKF1  Mmus          1      13
+4 Hspa5     78 kDa glucose-regulated protein     P20029  Mmus          1      54
+5 Pdcd11    Protein RRP5 homolog                 Q6NS46  Mmus          1      28
+# … with abbreviated variable names ¹​organism, ²​isoform_num
 ~~~
 {: .output}
 
@@ -564,13 +585,14 @@ Joining, by = "uniprot"
 
 ~~~
 # A tibble: 4 × 9
-  uniprot organelle     entry isoform gene_name description organism isoform_num
-  <chr>   <chr>         <chr>   <dbl> <chr>     <chr>       <chr>          <dbl>
-1 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               1
-2 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               2
-3 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               1
-4 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               2
-# … with 1 more variable: measure <dbl>
+  uniprot organelle        entry isoform gene_…¹ descr…² organ…³ isofo…⁴ measure
+  <chr>   <chr>            <chr>   <dbl> <chr>   <chr>   <chr>     <dbl>   <dbl>
+1 Q99PL5  Endoplasmic ret… RRBP…       1 Rrbp1   Riboso… Mmus          1     102
+2 Q99PL5  Endoplasmic ret… RRBP…       1 Rrbp1   Riboso… Mmus          2       3
+3 Q99PL5  Golgi apparatus  RRBP…       2 Rrbp1   Riboso… Mmus          1     102
+4 Q99PL5  Golgi apparatus  RRBP…       2 Rrbp1   Riboso… Mmus          2       3
+# … with abbreviated variable names ¹​gene_name, ²​description, ³​organism,
+#   ⁴​isoform_num
 ~~~
 {: .output}
 
@@ -584,7 +606,7 @@ Joining, by = "uniprot"
 > > two different quantitative measurements (variable `measure`). When
 > > joining the duplicated keys, you get all possible combinations.
 > >
-> > <img src="../fig/join-many-to-many.png" title="Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from *R for Data Science*." alt="Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from *R for Data Science*." width="70%" style="display: block; margin: auto;" />
+> > <img src="../fig/join-many-to-many.png" alt="Joins with duplicated keys in both tables, producing all possible combinations. Figure taken from *R for Data Science*." width="70%" style="display: block; margin: auto;" />
 > >
 > > In this case, we obtain wrong information: both proteins in the ER and
 > > in the GA both have value 102 and 3.
@@ -606,13 +628,14 @@ Joining, by = "uniprot"
 > > 
 > > ~~~
 > > # A tibble: 4 × 9
-> >   uniprot organelle     entry isoform gene_name description organism isoform_num
-> >   <chr>   <chr>         <chr>   <dbl> <chr>     <chr>       <chr>          <dbl>
-> > 1 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               1
-> > 2 Q99PL5  Endoplasmic … RRBP…       1 Rrbp1     Ribosome-b… Mmus               2
-> > 3 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               1
-> > 4 Q99PL5  Golgi appara… RRBP…       2 Rrbp1     Ribosome-b… Mmus               2
-> > # … with 1 more variable: measure <dbl>
+> >   uniprot organelle        entry isoform gene_…¹ descr…² organ…³ isofo…⁴ measure
+> >   <chr>   <chr>            <chr>   <dbl> <chr>   <chr>   <chr>     <dbl>   <dbl>
+> > 1 Q99PL5  Endoplasmic ret… RRBP…       1 Rrbp1   Riboso… Mmus          1     102
+> > 2 Q99PL5  Endoplasmic ret… RRBP…       1 Rrbp1   Riboso… Mmus          2       3
+> > 3 Q99PL5  Golgi apparatus  RRBP…       2 Rrbp1   Riboso… Mmus          1     102
+> > 4 Q99PL5  Golgi apparatus  RRBP…       2 Rrbp1   Riboso… Mmus          2       3
+> > # … with abbreviated variable names ¹​gene_name, ²​description, ³​organism,
+> > #   ⁴​isoform_num
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -660,13 +683,14 @@ jdf7
 
 ~~~
 # A tibble: 5 × 6
-  gene_name description                     uniprot organism isoform_num measure
-  <chr>     <chr>                           <chr>   <chr>          <dbl>   <dbl>
-1 Rrbp1     Ribosome-binding protein 1      Q99PL5  Mmus               1     102
-2 Rrbp1     Ribosome-binding protein 1      Q99PL5  Mmus               2       3
-3 Iqgap1    Ras GTPase-activating-like pro… Q9JKF1  Mmus               1      13
-4 Hspa5     78 kDa glucose-regulated prote… P20029  Mmus               1      54
-5 Pdcd11    Protein RRP5 homolog            Q6NS46  Mmus               1      28
+  gene_name description                          uniprot organ…¹ isofo…² measure
+  <chr>     <chr>                                <chr>   <chr>     <dbl>   <dbl>
+1 Rrbp1     Ribosome-binding protein 1           Q99PL5  Mmus          1     102
+2 Rrbp1     Ribosome-binding protein 1           Q99PL5  Mmus          2       3
+3 Iqgap1    Ras GTPase-activating-like protein … Q9JKF1  Mmus          1      13
+4 Hspa5     78 kDa glucose-regulated protein     P20029  Mmus          1      54
+5 Pdcd11    Protein RRP5 homolog                 Q6NS46  Mmus          1      28
+# … with abbreviated variable names ¹​organism, ²​isoform_num
 ~~~
 {: .output}
 
@@ -699,10 +723,11 @@ inner_join(jdf6, jdf7, by = c("uniprot" = "uniprot", "isoform" = "isoform_num"))
 
 ~~~
 # A tibble: 2 × 8
-  uniprot organelle         entry isoform gene_name description organism measure
-  <chr>   <chr>             <chr>   <dbl> <chr>     <chr>       <chr>      <dbl>
-1 Q99PL5  Endoplasmic reti… RRBP…       1 Rrbp1     Ribosome-b… Mmus         102
-2 Q99PL5  Golgi apparatus   RRBP…       2 Rrbp1     Ribosome-b… Mmus           3
+  uniprot organelle             entry    isoform gene_…¹ descr…² organ…³ measure
+  <chr>   <chr>                 <chr>      <dbl> <chr>   <chr>   <chr>     <dbl>
+1 Q99PL5  Endoplasmic reticulum RRBP1_M…       1 Rrbp1   Riboso… Mmus        102
+2 Q99PL5  Golgi apparatus       RRBP1_M…       2 Rrbp1   Riboso… Mmus          3
+# … with abbreviated variable names ¹​gene_name, ²​description, ³​organism
 ~~~
 {: .output}
 
@@ -727,13 +752,14 @@ jdf7 %>% rename(isoform = isoform_num)
 
 ~~~
 # A tibble: 5 × 6
-  gene_name description                         uniprot organism isoform measure
-  <chr>     <chr>                               <chr>   <chr>      <dbl>   <dbl>
-1 Rrbp1     Ribosome-binding protein 1          Q99PL5  Mmus           1     102
-2 Rrbp1     Ribosome-binding protein 1          Q99PL5  Mmus           2       3
-3 Iqgap1    Ras GTPase-activating-like protein… Q9JKF1  Mmus           1      13
-4 Hspa5     78 kDa glucose-regulated protein    P20029  Mmus           1      54
-5 Pdcd11    Protein RRP5 homolog                Q6NS46  Mmus           1      28
+  gene_name description                          uniprot organ…¹ isoform measure
+  <chr>     <chr>                                <chr>   <chr>     <dbl>   <dbl>
+1 Rrbp1     Ribosome-binding protein 1           Q99PL5  Mmus          1     102
+2 Rrbp1     Ribosome-binding protein 1           Q99PL5  Mmus          2       3
+3 Iqgap1    Ras GTPase-activating-like protein … Q9JKF1  Mmus          1      13
+4 Hspa5     78 kDa glucose-regulated protein     P20029  Mmus          1      54
+5 Pdcd11    Protein RRP5 homolog                 Q6NS46  Mmus          1      28
+# … with abbreviated variable name ¹​organism
 ~~~
 {: .output}
 
@@ -757,10 +783,11 @@ Joining, by = c("uniprot", "isoform")
 
 ~~~
 # A tibble: 2 × 8
-  uniprot organelle         entry isoform gene_name description organism measure
-  <chr>   <chr>             <chr>   <dbl> <chr>     <chr>       <chr>      <dbl>
-1 Q99PL5  Endoplasmic reti… RRBP…       1 Rrbp1     Ribosome-b… Mmus         102
-2 Q99PL5  Golgi apparatus   RRBP…       2 Rrbp1     Ribosome-b… Mmus           3
+  uniprot organelle             entry    isoform gene_…¹ descr…² organ…³ measure
+  <chr>   <chr>                 <chr>      <dbl> <chr>   <chr>   <chr>     <dbl>
+1 Q99PL5  Endoplasmic reticulum RRBP1_M…       1 Rrbp1   Riboso… Mmus        102
+2 Q99PL5  Golgi apparatus       RRBP1_M…       2 Rrbp1   Riboso… Mmus          3
+# … with abbreviated variable names ¹​gene_name, ²​description, ³​organism
 ~~~
 {: .output}
 
