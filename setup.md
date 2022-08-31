@@ -45,7 +45,7 @@ title: Setup
 >  the [CRAN website](https://cran.r-project.org/bin/windows/base/release.htm).
 > * Run the `.exe` file that was just downloaded
 > * Go to the [RStudio download page](https://www.rstudio.com/products/rstudio/download/#download)
-> * Under *Installers* select **RStudio x.yy.zzz - Windows Vista/7/8/10** (where x, y, and z represent version numbers)
+> * Under *All Installers* select **RStudio xxxx.yy.zz-uuu.exe - Windows 10/11** (where x, y, z, and u represent version numbers)
 > * Double click the file to install it
 > * Once it's installed, open RStudio to make sure it works and you don't get any
 > error messages
@@ -81,8 +81,7 @@ title: Setup
 > * It is also a good idea to install [XQuartz](https://www.xquartz.org/) (needed
 >   by some packages)
 > * Go to the [RStudio download page](https://www.rstudio.com/products/rstudio/download/#download)
-> * Under *Installers* select **RStudio x.yy.zzz - Mac OS X 10.6+ (64-bit)**
->   (where x, y, and z represent version numbers)
+> * Under *All Installers* select **RStudio xxxx.yy.zz-uuu.dmg - macOS 10.15+** (where x, y, z, and u represent version numbers)
 > * Double click the file to install RStudio
 > * Once it's installed, open RStudio to make sure it works and you don't get any
 >   error messages.
@@ -102,12 +101,12 @@ title: Setup
 >  distributions, you could use your package manager (e.g., for Debian/Ubuntu run
 >  `sudo apt-get install r-base`, and for Fedora `sudo yum install R`), but we
 >  don't recommend this approach as the versions provided by this are
->  usually out of date. In any case, make sure you have at least R 3.5.1.
+>  usually out of date. In any case, make sure you have at least R 4.2.0.
 > * Go to the [RStudio download
 >   page](https://www.rstudio.com/products/rstudio/download/#download)
-> * Under *Installers* select the version that matches your distribution, and
+> * Under *All Installers* select the version that matches your distribution, and
 >    install it with your preferred method (e.g., with Debian/Ubuntu `sudo dpkg -i
->    rstudio-x.yy.zzz-amd64.deb` at the terminal).
+>    rstudio-xxxx.yy.zz-uuu-amd64.deb` at the terminal).
 > * Once it's installed, open RStudio to make sure it works and you don't get any
 >    error messages.
 > * Follow the steps in the [instructions for everyone](#for-everyone)
@@ -126,7 +125,8 @@ commands. For now, simply follow the instructions below:
 ```r
 install.packages("BiocManager")
 BiocManager::install(c("tidyverse", "SummarizedExperiment",
-                       "UCLouvain-CBIO/rWSBIM1207"))
+                       "UCLouvain-CBIO/rWSBIM1207", "hexbin",
+                       "patchwork", "gridExtra", "lubridate"))
 ```
 
 

@@ -1,8 +1,8 @@
 ---
 source: Rmd
 title: "Introduction to R"
-teaching: XX
-exercises: XX
+teaching: 60
+exercises: 60
 questions:
 - "First commands in R"
 objectives:
@@ -669,7 +669,7 @@ There are similar constructors for characters and logicals, named
 >
 > > ## Solution
 > > ```{r}
-> > character(2) ## the empty charater
+> > character(2) ## the empty character
 > > logical(2)   ## FALSE
 > > ```
 > {: .solution}
@@ -779,14 +779,14 @@ sample(1:5, 10, replace = TRUE)
 > set the random number generation seed manually with `set.seed()`
 > before drawing the random sample.
 >
-> - Test this feature with your neighbour. First draw two random
->   permutations of `1:10` independently and observe that you get
->   different results.
+> Test this feature with your neighbour. First draw two random
+> permutations of `1:10` independently and observe that you get
+> different results.
 >
-> - Now set the seed with, for example, `set.seed(123)` and repeat the
->   random draw. Observe that you now get the same random draws.
+> Now set the seed with, for example, `set.seed(123)` and repeat the
+> random draw. Observe that you now get the same random draws.
 >
-> - Repeat by setting a different seed.
+> Repeat by setting a different seed.
 > > ## Solution
 > > Different permutations
 > >
