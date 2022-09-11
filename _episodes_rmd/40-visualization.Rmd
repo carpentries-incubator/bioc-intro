@@ -318,6 +318,10 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
   geom_abline(intercept = 0)
 ```
 
+```{r, echo = FALSE, message = FALSE}
+library("hexbin")
+```
+
 > ## Challenge
 >
 > Scatter plots can be useful exploratory tools for small datasets. For
