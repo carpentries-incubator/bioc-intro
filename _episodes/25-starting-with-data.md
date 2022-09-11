@@ -28,7 +28,7 @@ We are going to use part of the data published by [Blackmore *et al.*
 (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5544260/), *The
 effect of upper-respiratory infection on transcriptomic changes in the
 CNS*. The goal of the study was to determine the effect of an
-upper-respiratory infection on changes in RNA transcription occuring
+upper-respiratory infection on changes in RNA transcription occurring
 in the cerebellum and spinal cord post infection. Gender matched eight
 week old C57BL/6 mice were inoculated with saline or with Influenza A by
 intranasal route and transcriptomic changes in the cerebellum and
@@ -362,7 +362,7 @@ correct names of the columns.
 >
 > 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
 >
-> - Use that number to pull out just that last row in the inital
+> - Use that number to pull out just that last row in the initial
 >   `rna` data frame.
 >
 > - Compare that with what you see as the last row using `tail()` to
@@ -943,7 +943,7 @@ x
 ~~~
 {: .output}
 
-Now we apply this function to the `x` dataset. We first dreate a
+Now we apply this function to the `x` dataset. We first create a
 character vector from the `year`, `month`, and `day` columns of `x`
 using `paste()`:
 
@@ -1207,7 +1207,7 @@ directly in the global environment.
 There is also the `saveRDS` and `readRDS` functions that save R
 objects to binary files (using the `rds` extension here) and read
 these back into R. From a user's perspective, main different is that,
-`load` loads an object in the gloval environment while `readRDS` reads
+`load` loads an object in the global environment while `readRDS` reads
 the data from disk and returns it. It is this necessary to store the
 output of `readRDS` in a variable:
 
