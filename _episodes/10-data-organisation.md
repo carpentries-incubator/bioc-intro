@@ -298,15 +298,15 @@ used for variables** and **rows are used for observations**:
 After you go through this exercise, we'll discuss as a group what was wrong
 with this data and how you would fix it.
 
-- Take about 10 minutes to work on this exercise.
-- All the mistakes in the *common mistakes* section below are present
-  in the messy dataset. If the exercise is done during a workshop, ask
-  people what they saw as wrong with the data. As they bring up
-  different points, you can refer to the common mistakes or expand a
-  bit on the point they brought up.
-- If you get a response where they've fixed the date, you can pause
-  and go to the dates lesson. Or you can say you'll come back to dates
-  at the end.
+<!-- - Take about 10 minutes to work on this exercise. -->
+<!-- - All the mistakes in the *common mistakes* section below are present -->
+<!--   in the messy dataset. If the exercise is done during a workshop, ask -->
+<!--   people what they saw as wrong with the data. As they bring up -->
+<!--   different points, you can refer to the common mistakes or expand a -->
+<!--   bit on the point they brought up. -->
+<!-- - If you get a response where they've fixed the date, you can pause -->
+<!--   and go to the dates lesson. Or you can say you'll come back to dates -->
+<!--   at the end. -->
 
 
 > ## Challenge: Once you have tidied up the data, answer the following questions:
@@ -468,7 +468,7 @@ before analysis. Other times different null values are used to convey
 different reasons why the data isn't there. This is important
 information to capture, but is in effect using one column to capture
 two pieces of information. Like for [using formatting to convey
-information]((#formatting) it would be good here to create a new
+information](#formatting) it would be good here to create a new
 column like 'data_missing' and use that column to capture the
 different reasons.
 
@@ -786,7 +786,7 @@ values are not included in "" but which have commas as both delimiters
 and parts of data values, you are potentially facing a major problem
 with data cleaning. If the dataset you're dealing with contains
 hundreds or thousands of records, cleaning them up manually (by either
-removing commas from the data values or putting the values into quotes - "") 
+removing commas from the data values or putting the values into quotes - "")
 is not only going to take hours and hours but may potentially
 end up with you accidentally introducing many errors.
 
