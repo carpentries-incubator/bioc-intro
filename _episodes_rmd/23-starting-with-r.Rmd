@@ -756,7 +756,7 @@ sample(1:10)
 
 Without further arguments, `sample` will return a permutation of all
 elements of the vector. If I want a random sample of a certain size, I
-would set this value as second argument. Below, I sample 5 random
+would set this value as the second argument. Below, I sample 5 random
 letters from the alphabet contained in the pre-defined `letters` vector:
 
 ```{r}
