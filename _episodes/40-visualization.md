@@ -419,6 +419,8 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 
 <img src="../fig/rmd-color-by-gene_biotype3-1.png" alt="plot of chunk color-by-gene_biotype3" width="612" style="display: block; margin: auto;" />
 
+
+
 > ## Challenge
 >
 > Scatter plots can be useful exploratory tools for small datasets. For
@@ -449,33 +451,14 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 > > 
 > > ~~~
 > > library("hexbin")
-> > ~~~
-> > {: .language-r}
 > > 
-> > 
-> > 
-> > ~~~
-> > Error in library("hexbin"): there is no package called 'hexbin'
-> > ~~~
-> > {: .error}
-> > 
-> > 
-> > 
-> > ~~~
 > > ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 > >   geom_hex() +
 > >   geom_abline(intercept = 0)
 > > ~~~
 > > {: .language-r}
 > > 
-> > 
-> > 
-> > ~~~
-> > Warning: Computation failed in `stat_binhex()`:
-> > ~~~
-> > {: .warning}
-> > 
-> > <img src="../fig/rmd-unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -495,7 +478,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -620,7 +603,7 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-11-1.png" alt="plot of chunk unnamed-chunk-11" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -637,7 +620,7 @@ ggplot(data = rna,
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-11-1.png" alt="plot of chunk unnamed-chunk-11" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-12-1.png" alt="plot of chunk unnamed-chunk-12" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -1001,7 +984,7 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-13-1.png" alt="plot of chunk unnamed-chunk-13" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-14-1.png" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
 > >
 > >
 > > We can customize it the following ways:
@@ -1017,7 +1000,7 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-1.png" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-15-1.png" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
 > > 
 > > ~~~
 > > # change the name of the legend and the labels
@@ -1031,7 +1014,7 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-2.png" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-15-2.png" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
 > > 
 > > ~~~
 > > # using a different color palette
@@ -1045,7 +1028,7 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-3.png" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-15-3.png" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
 > > 
 > > ~~~
 > > # manually specifying the colors
@@ -1060,7 +1043,7 @@ ggplot(rna, aes(x = expression_log)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > <img src="../fig/rmd-unnamed-chunk-14-4.png" alt="plot of chunk unnamed-chunk-14" width="612" style="display: block; margin: auto;" />
+> > <img src="../fig/rmd-unnamed-chunk-15-4.png" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
 
@@ -1131,7 +1114,7 @@ count_gene_chromosome + exp_boxplot_sex
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-15-1.png" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-16-1.png" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
 
 ~~~
 ## or count_gene_chromosome | exp_boxplot_sex
@@ -1144,7 +1127,7 @@ count_gene_chromosome / exp_boxplot_sex
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-16-1.png" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-17-1.png" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
 
 We can combine further control the layout of the final composition
 with `plot_layout` to create more complex layouts:
@@ -1155,7 +1138,7 @@ count_gene_chromosome + exp_boxplot_sex + plot_layout(ncol = 1)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-17-1.png" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-18-1.png" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
 
 
 ~~~
@@ -1166,7 +1149,7 @@ count_gene_chromosome +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-18-1.png" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-19-1.png" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
 
 The last plot can also be created using the `|` and `/` composers:
 
@@ -1178,7 +1161,7 @@ count_gene_chromosome /
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-19-1.png" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-20-1.png" alt="plot of chunk unnamed-chunk-20" width="612" style="display: block; margin: auto;" />
 
 Learn more about `patchwork` on its
 [webpage](https://patchwork.data-imaginist.com/) or in this
