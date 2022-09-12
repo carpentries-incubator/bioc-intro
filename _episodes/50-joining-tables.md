@@ -67,10 +67,10 @@ data(jdf)
 
 The data is composed of several tables.
 
-The first table, `jdf1`, contains protein [UniProt](https://www.uniprot.org/)[^up] unique
-accession number (`uniprot` variable), the most likely sub-cellular
-localisation of these respective proteins (`organelle` variable) as
-well as the proteins identifier (`entry`).
+The first table, `jdf1`, contains the proteins'
+[UniProt](https://www.uniprot.org/)[^up] unique accession number (`uniprot`
+variable), the most likely sub-cellular localisation of each protein
+(`organelle` variable) as well as the proteins' identifier (`entry`).
 
 [^up]: UniProt is the protein information database. Its mission is to *provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information*.
 
@@ -102,7 +102,7 @@ jdf1
 
 The second table, `jdf2`, contains the name of the gene that codes for the
 protein (`gene_name` variable), a description of the gene
-(`description` variable), the uniprot accession number (this is the
+(`description` variable), the UniProt accession number (this is the
 common variable that can be used to join tables) and the species the
 protein information comes from (`organism` variable).
 
@@ -213,7 +213,7 @@ tables are uniquely identified by their UniProt accession number. Such
 variables are called **keys**. Keys are used to match observations
 across different tables.
 
-Now let's look at a third table, `jdf3`. It also contains the column uniProt,
+Now let's look at a third table, `jdf3`. It also contains the column UniProt,
 but it is written differently!
 
 
@@ -470,7 +470,7 @@ that are present in only one or both tables.
 Sometimes, keys aren't unique.
 
 In the `jdf6` table below, we see that the accession number `Q99PL5` is repeated
-twice. According to this table, the ribosomial protein binding protein 1 localises in the
+twice. According to this table, the ribosomal protein binding protein 1 localises in the
 endoplasmic reticulum and in the Golgi apparatus.
 
 
@@ -527,9 +527,9 @@ Joining, by = "uniprot"
 In the case above, repeating is useful, as it completes `jdf6` with
 correct information from `jdf2`.
 
-But one needs however to be careful when duplicated keys exist in both tables.
+But one needs to be careful when duplicated keys exist in both tables.
 
-Let's now use jdf7 for the join. It also has 2 entries for the uniprot `Q99PL5`
+Let's now use `jdf7` for the join. It also has 2 entries for the UniProt accession `Q99PL5`
 
 ~~~
 jdf7
@@ -552,7 +552,7 @@ jdf7
 {: .output}
 
 
-Let's we create an inner join between `jdf6` and `jdf7` (both having duplicated `Q99PL5` entries)
+Let's create an inner join between `jdf6` and `jdf7` (both having duplicated `Q99PL5` entries)
 
 
 ~~~
@@ -633,7 +633,7 @@ Joining, by = "uniprot"
 So far, we have matched tables using a single key (possibly with
 different names in the two tables). Sometimes, it is necessary to
 match tables using multiple keys. A typical example is when multiple
-variables are needed to discriminate different rows in a tables.
+variables are needed to discriminate different rows in the tables.
 
 Following up from the last example, we see that the duplicated UniProt
 accession numbers in the `jdf6` and `jdf7` tables refer to different
@@ -782,12 +782,12 @@ Joining, by = c("uniprot", "isoform")
 ## Row and column binding
 
 There are two other important functions in R, `rbind` and `cbind`,
-that can be used to combine two dataframes.
+that can be used to combine two data frames.
 
 
 
-- `cbind` can be used to bind two data frames by columns, but both must have the same
-number of rows.
+- `cbind` can be used to bind two data frames by columns, but both must have the
+same number of rows.
 
 
 ~~~
