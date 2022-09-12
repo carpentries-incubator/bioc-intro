@@ -1431,7 +1431,9 @@ rna_with_missing_values
 ~~~
 {: .output}
 
-By default, the `pivot_wider()` function will add `NA` for missing values.
+By default, the `pivot_wider()` function will add `NA` for missing
+values. This can be parametrises with the `values_full` argument of
+the `pivot_wider()` function.
 
 
 ~~~
@@ -1450,6 +1452,28 @@ rna_with_missing_values %>%
 1 Asl           1170        361        400
 2 Apod         36194      10347       9173
 3 Cyp2d22         NA         NA       1603
+~~~
+{: .output}
+
+
+
+~~~
+rna_with_missing_values %>%
+  pivot_wider(names_from = sample,
+              values_from = expression,
+              values_fill = 0)
+~~~
+{: .language-r}
+
+
+
+~~~
+# A tibble: 3 × 4
+  gene    GSM2545336 GSM2545337 GSM2545338
+  <chr>        <dbl>      <dbl>      <dbl>
+1 Asl           1170        361        400
+2 Apod         36194      10347       9173
+3 Cyp2d22          0          0       1603
 ~~~
 {: .output}
 
