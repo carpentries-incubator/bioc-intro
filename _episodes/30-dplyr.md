@@ -1432,7 +1432,7 @@ rna_with_missing_values
 {: .output}
 
 By default, the `pivot_wider()` function will add `NA` for missing
-values. This can be parametrises with the `values_full` argument of
+values. This can be parametrised with the `values_full` argument of
 the `pivot_wider()` function.
 
 
