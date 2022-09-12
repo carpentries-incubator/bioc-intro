@@ -286,14 +286,11 @@ objects besides `data.frame`.
 >
 > - What is the class of the object `rna`?
 > - How many rows and how many columns are in this object?
-> - How many genes (as defined by the `gene` variable) have been
->   measured in this experiment?
 >
 > > ## Solution
 > >
 > > - class: data frame
 > > - how many rows: 66465, how many columns: 11
-> > - how many genes: 1477
 > {: .solution}
 {: .challenge}
 
@@ -1170,11 +1167,11 @@ write.csv(rna, file = "data_output/my_rna.csv")
 {: .language-r}
 
 This new csv file can now be shared with other collaborators who
-aren't familiar with R. Note that even though there are commas in some of 
-the fields in the `data.frame` (see for example the "product" column), R will 
-by default surround each field with quotes, and thus we will be able to 
-read it back into R correctly, despite also using commas as column 
-separators. 
+aren't familiar with R. Note that even though there are commas in some of
+the fields in the `data.frame` (see for example the "product" column), R will
+by default surround each field with quotes, and thus we will be able to
+read it back into R correctly, despite also using commas as column
+separators.
 
 ### Saving data {-}
 
