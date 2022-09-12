@@ -490,9 +490,9 @@ rna3
 
 > ## Challenge:
 >
-> Using pipes, subset the `rna` data to keep genes with an expression higher
-> than 50000 in female mice at time 0, and retain only the columns `gene`,
-> `sample`, `time`, `expression` and `age`
+> Using pipes, subset the `rna` data to keep observations in female mice at time 0, 
+> where the gene has an expression higher than 50000, and retain only the columns 
+> `gene`, `sample`, `time`, `expression` and `age`
 >
 > > ## Solution
 > >
@@ -616,7 +616,7 @@ rna %>%
 > > rna %>%
 > >   filter(chromosome_name != "X", chromosome_name != "Y") %>%
 > >   mutate(log_expression = log(expression)) %>%
-> >   select(gene, chromosome_name, phenotype_description, sample, log_expression) %>%
+> >   select(gene, chromosome_name, phenotype_description, sample, expression, log_expression) %>%
 > >   filter(!is.na(phenotype_description))
 > > ~~~
 > > {: .language-r}
@@ -624,20 +624,21 @@ rna %>%
 > > 
 > > 
 > > ~~~
-> > # A tibble: 21,054 × 5
-> >    gene    chromosome_name phenotype_description                  sample log_e…¹
-> >    <chr>   <chr>           <chr>                                  <chr>    <dbl>
-> >  1 Asl     5               abnormal circulating amino acid level  GSM25…    7.06
-> >  2 Apod    16              abnormal lipid homeostasis             GSM25…   10.5 
-> >  3 Cyp2d22 15              abnormal skin morphology               GSM25…    8.31
-> >  4 Klk6    7               abnormal cytokine level                GSM25…    5.66
-> >  5 Fcrls   3               decreased CD8-positive alpha-beta T c… GSM25…    4.44
-> >  6 Slc2a4  11              abnormal circulating glucose level     GSM25…    6.66
-> >  7 Gjc2    11              Purkinje cell degeneration             GSM25…    5.66
-> >  8 Gnb4    3               decreased anxiety-related response     GSM25…    6.98
-> >  9 Tnc     4               abnormal CNS synaptic transmission     GSM25…    5.39
-> > 10 Trf     9               abnormal circulating phosphate level   GSM25…    9.18
-> > # … with 21,044 more rows, and abbreviated variable name ¹​log_expression
+> > # A tibble: 21,054 × 6
+> >    gene    chromosome_name phenotype_description          sample expre…¹ log_e…²
+> >    <chr>   <chr>           <chr>                          <chr>    <dbl>   <dbl>
+> >  1 Asl     5               abnormal circulating amino ac… GSM25…    1170    7.06
+> >  2 Apod    16              abnormal lipid homeostasis     GSM25…   36194   10.5 
+> >  3 Cyp2d22 15              abnormal skin morphology       GSM25…    4060    8.31
+> >  4 Klk6    7               abnormal cytokine level        GSM25…     287    5.66
+> >  5 Fcrls   3               decreased CD8-positive alpha-… GSM25…      85    4.44
+> >  6 Slc2a4  11              abnormal circulating glucose … GSM25…     782    6.66
+> >  7 Gjc2    11              Purkinje cell degeneration     GSM25…     288    5.66
+> >  8 Gnb4    3               decreased anxiety-related res… GSM25…    1071    6.98
+> >  9 Tnc     4               abnormal CNS synaptic transmi… GSM25…     219    5.39
+> > 10 Trf     9               abnormal circulating phosphat… GSM25…    9719    9.18
+> > # … with 21,044 more rows, and abbreviated variable names ¹​expression,
+> > #   ²​log_expression
 > > ~~~
 > > {: .output}
 > >
