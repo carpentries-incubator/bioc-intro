@@ -275,10 +275,12 @@ rna %>%
 
 > ## Challenge
 >
-> Create a new data frame from the `rna` data that meets the following criteria:
-> contains only the `gene`, `chromosome_name`, `phenotype_description`, `sample`,
-> and `expression` columns and a new column giving the log expression the gene.
-> This data frame must only contain genes located on autosomes and associated with a phenotype_description.
+> Create a new data frame from the `rna` data that meets the following
+> criteria: contains only the `gene`, `chromosome_name`,
+> `phenotype_description`, `sample`, and `expression` columns and a
+> new column giving the log expression of the genes.  This data frame must
+> only contain genes located on autosomes and associated with a
+> phenotype_description.
 >
 > **Hint**: think about how the commands should be ordered to produce
 > this data frame!
