@@ -229,9 +229,9 @@ rna3
 
 > ## Challenge:
 >
-> Using pipes, subset the `rna` data to keep genes with an expression higher
-> than 50000 in female mice at time 0, and retain only the columns `gene`,
-> `sample`, `time`, `expression` and `age`
+> Using pipes, subset the `rna` data to keep observations in female mice at time 0, 
+> where the gene has an expression higher than 50000, and retain only the columns 
+> `gene`, `sample`, `time`, `expression` and `age`
 >
 > > ## Solution
 > >
@@ -292,7 +292,7 @@ rna %>%
 > > rna %>%
 > >   filter(chromosome_name != "X", chromosome_name != "Y") %>%
 > >   mutate(log_expression = log(expression)) %>%
-> >   select(gene, chromosome_name, phenotype_description, sample, log_expression) %>%
+> >   select(gene, chromosome_name, phenotype_description, sample, expression, log_expression) %>%
 > >   filter(!is.na(phenotype_description))
 > > ```
 > >
