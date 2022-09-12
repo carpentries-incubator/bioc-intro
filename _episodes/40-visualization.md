@@ -306,7 +306,7 @@ rna_plot
 ## Building your plots iteratively
 
 We will now draw a scatter plot with two continuous variables and the `geom_point()` function.
-This graph will represent the log2 fold changes of expression comparing time 8 versus time 0 and time 4 versus time 0. To this end, we first need to compute the means of the log-transformed expression values by gene and time then the log fold changes by subtracting the mean log expressions between time 8 and time 0 and between time 4 and time 0. Note that we also include here the gene biotype that we will use later on to represent the genes. We will save the fold changes in a new data frame called `rna_fc.`
+This graph will represent the log2 fold changes of expression comparing time 8 versus time 0, and time 4 versus time 0. To this end, we first need to compute the means of the log-transformed expression values by gene and time, then the log fold changes by subtracting the mean log expressions between time 8 and time 0 and between time 4 and time 0. Note that we also include here the gene biotype that we will use later on to represent the genes. We will save the fold changes in a new data frame called `rna_fc.`
 
 
 ~~~
@@ -406,7 +406,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 
 <img src="../fig/rmd-adding-diag-1.png" alt="plot of chunk adding-diag" width="612" style="display: block; margin: auto;" />
 
-Notice that we can change the geom layer from `geom_point` to `geom_jitter` and colors will be still determined by `gene_biotype`.
+Notice that we can change the geom layer from `geom_point` to `geom_jitter` and colors will be still be determined by `gene_biotype`.
 
 
 ~~~
@@ -708,7 +708,7 @@ ggplot(data = mean_exp_by_time,
 {: .language-r}
 
 <img src="../fig/rmd-first-facet-1.png" alt="plot of chunk first-facet" width="612" style="display: block; margin: auto;" />
-Here both x- and y-axis have the same scale for all the sub plots. You can change this default behavior by modifying `scales` in order to allow a free scale for the y-axis:
+Here both x- and y-axis have the same scale for all the subplots. You can change this default behavior by modifying `scales` in order to allow a free scale for the y-axis:
 
 
 ~~~
