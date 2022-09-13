@@ -712,9 +712,8 @@ l[[1]] ## first element
 l[1:2] ## a list of length 2
 l[1]   ## a list of length 1
 ```
-## Exporting and saving data {#sec:exportandsave}
 
-### Exporting tabular data {-}
+## Exporting and saving tabular data {#sec:exportandsave}
 
 We have seen how to read a text-based spreadsheet into R using the
 `read.table` family of functions. To export a `data.frame` to a
@@ -735,54 +734,4 @@ by default surround each field with quotes, and thus we will be able to
 read it back into R correctly, despite also using commas as column
 separators.
 
-### Saving data {-}
 
-Exporting data to a spreadsheet has several limitations, such as those
-described in the first chapter such as possible inconsistencies with
-`,` and `.` for decimal separators and lack of variable type
-definitions. Furthermore, exporting data to a spreadsheet is only
-relevant for rectangular data such as dataframes and matrices.
-
-A more general way to save data, that is specific to R and is
-guaranteed to work on any operating system, is to use the `save`
-function. Saving objects will generate a binary representation of the
-object on disk, a *R Data* file (`rda` extension) that guarantees to
-produce the same object once loaded back into R using the `load`
-function.
-
-```{r, eval = FALSE}
-save(rna, file = "data_output/rna.rda")
-rm(rna)
-load("data_output/rna.rda")
-head(rna)
-```
-
-Note about how the function `load` loads the object in the file
-directly in the global environment.
-
-
-There is also the `saveRDS` and `readRDS` functions that save R
-objects to binary files (using the `rds` extension here) and read
-these back into R. From a user's perspective, main different is that,
-`load` loads an object in the global environment while `readRDS` reads
-the data from disk and returns it. It is this necessary to store the
-output of `readRDS` in a variable:
-
-```{r, eval=FALSE}
-saveRDS(rna, file = "data_output/rna.rds")
-rm(rna)
-rna <- readRDS("data_output/rna.rds")
-head(rna)
-```
-
-To save space on our hard disk, we'll now remove the two files we just saved.
-
-```{r echo=FALSE}
-unlink("data_output/rna.rda")
-unlink("data_output/rna.rds")
-```
-
-To conclude, when it comes to saving data from R that will be loaded
-again in R, saving and loading is the preferred approach. If tabular
-data need to be shared with somebody that is not using R, then
-exporting to a text-based spreadsheet is a good alternative.
