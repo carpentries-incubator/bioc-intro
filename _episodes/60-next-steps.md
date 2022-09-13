@@ -255,7 +255,7 @@ stopifnot(colnames(count_matrix) == sample_metadata$sample)
 
 
 ~~~
-se <- SummarizedExperiment(assays = count_matrix,
+se <- SummarizedExperiment(assays = list(counts = count_matrix),
                            colData = sample_metadata,
                            rowData = gene_metadata)
 se
@@ -268,7 +268,7 @@ se
 class: SummarizedExperiment 
 dim: 1474 22 
 metadata(0):
-assays(1): ''
+assays(1): counts
 rownames(1474): Asl Apod ... Lmx1a Pbx1
 rowData names(9): gene ENTREZID ... phenotype_description
   hsapiens_homolog_associated_gene_name
@@ -277,7 +277,7 @@ colData names(9): sample organism ... tissue mouse
 ~~~
 {: .output}
 
-### Saving data {-}
+### Saving data
 
 Exporting data to a spreadsheet, as we did in a previous episode, 
 has several limitations, such as those
@@ -493,7 +493,7 @@ se1
 class: SummarizedExperiment 
 dim: 5 3 
 metadata(0):
-assays(1): ''
+assays(1): counts
 rownames(5): Asl Apod Cyp2d22 Klk6 Fcrls
 rowData names(9): gene ENTREZID ... phenotype_description
   hsapiens_homolog_associated_gene_name
@@ -578,7 +578,7 @@ se1
 class: SummarizedExperiment 
 dim: 7 7 
 metadata(0):
-assays(1): ''
+assays(1): counts
 rownames(7): Mir1901 Mir378a ... Mir128-1 Mir7682
 rowData names(9): gene ENTREZID ... phenotype_description
   hsapiens_homolog_associated_gene_name
@@ -697,13 +697,6 @@ Mir7682                                     NA
 'load()' function.-->
 
 
-~~~
-download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/bioinfo-training-01-intro-r/master/data/SE.rda",
-              destfile = "data/SE.rda")
-
-load("data/SE.rda")
-~~~
-{: .language-r}
 
 > ## Challenge
 >
