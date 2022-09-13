@@ -75,11 +75,42 @@ The metadata slots can grow additional co-variates
 
 ### Creating a SummarizedExperiment
 
+In order to create a `SummarizedExperiment`, we will first create the individual 
+components (the count matrix, the sample and gene metadata). 
 
 
-Remember the `rna` dataset that we have used previously.
+~~~
+rna <- read_csv("data/rnaseq.csv")
 
-From this table, we have already created 3 different tables.
+## count matrix
+counts <- rna %>%
+  select(gene, sample, expression) %>%
+  pivot_wider(names_from = sample,
+              values_from = expression)
+
+## convert to matrix and set row names
+count_matrix <- counts %>% select(-gene) %>% as.matrix()
+rownames(count_matrix) <- counts$gene
+
+## sample annotation
+sample_metadata <- rna %>%
+  select(sample, organism, age, sex, infection, strain, time, tissue, mouse)
+
+## remove redundancy
+sample_metadata <- unique(sample_metadata)
+
+## gene annotation
+gene_metadata <- rna %>%
+  select(gene, ENTREZID, product, ensembl_gene_id, external_synonym, 
+         chromosome_name, gene_biotype, phenotype_description, 
+         hsapiens_homolog_associated_gene_name)
+
+# remove redundancy
+gene_metadata <- unique(gene_metadata)
+~~~
+{: .language-r}
+
+To summarize, we now have:
 
 - **An expression matrix**
 
@@ -210,6 +241,18 @@ library("SummarizedExperiment")
 ~~~
 {: .language-r}
 
+First, we make sure that the samples are in the same order in the count 
+matrix and the sample annotation, and the same for the genes in the count matrix 
+and the gene annotation.
+
+
+~~~
+stopifnot(rownames(count_matrix) == gene_metadata$gene)
+stopifnot(colnames(count_matrix) == sample_metadata$sample)
+~~~
+{: .language-r}
+
+
 
 ~~~
 se <- SummarizedExperiment(assays = count_matrix,
@@ -234,11 +277,37 @@ colData names(9): sample organism ... tissue mouse
 ~~~
 {: .output}
 
+### Saving data {-}
 
+Exporting data to a spreadsheet, as we did in a previous episode, 
+has several limitations, such as those
+described in the first chapter (possible inconsistencies with
+`,` and `.` for decimal separators and lack of variable type
+definitions). Furthermore, exporting data to a spreadsheet is only
+relevant for rectangular data such as dataframes and matrices.
+
+A more general way to save data, that is specific to R and is
+guaranteed to work on any operating system, is to use the `saveRDS`
+function. Saving objects like this will generate a binary representation
+on disk (using the `rds` file extension here), which can be loaded back into R 
+using the `readRDS` function.
+
+
+~~~
+saveRDS(se, file = "data_output/se.rds")
+rm(se)
+se <- readRDS("data_output/se.rds")
+head(se)
+~~~
+{: .language-r}
+
+To conclude, when it comes to saving data from R that will be loaded
+again in R, saving and loading with `saveRDS` and `readRDS` is the 
+preferred approach. If tabular data need to be shared with somebody that 
+is not using R, then exporting to a text-based spreadsheet is a good alternative.
 
 Using this data structure, we can access the expression matrix with
 the `assay` function:
-
 
 
 ~~~
@@ -623,16 +692,16 @@ Mir7682                                     NA
 
 
 
-For the following exercise, you should download the SE.rda object
+<!--For the following exercise, you should download the SE.rda object
 (that contains the `se` object), and open the file using the
-'load()' function.
+'load()' function.-->
 
 
 ~~~
 download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/bioinfo-training-01-intro-r/master/data/SE.rda",
               destfile = "data/SE.rda")
 
-load(file = "data/SE.rda")
+load("data/SE.rda")
 ~~~
 {: .language-r}
 
