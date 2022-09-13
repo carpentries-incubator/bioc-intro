@@ -143,49 +143,10 @@ to match observations from the first and second table.
 
 
 ~~~
-library("dplyr")
-~~~
-{: .language-r}
-
-
-
-~~~
-
-Attaching package: 'dplyr'
-~~~
-{: .output}
-
-
-
-~~~
-The following objects are masked from 'package:stats':
-
-    filter, lag
-~~~
-{: .output}
-
-
-
-~~~
-The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union
-~~~
-{: .output}
-
-
-
-~~~
+library("dplyr") ## or tidyverse
 full_join(jdf1, jdf2)
 ~~~
 {: .language-r}
-
-
-
-~~~
-Joining, by = "uniprot"
-~~~
-{: .output}
 
 
 
