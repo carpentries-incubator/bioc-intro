@@ -161,13 +161,13 @@ stopifnot(colnames(count_matrix) == sample_metadata$sample)
 
 
 ```{r}
-se <- SummarizedExperiment(assays = count_matrix,
+se <- SummarizedExperiment(assays = list(counts = count_matrix),
                            colData = sample_metadata,
                            rowData = gene_metadata)
 se
 ```
 
-### Saving data {-}
+### Saving data
 
 Exporting data to a spreadsheet, as we did in a previous episode, 
 has several limitations, such as those
@@ -255,7 +255,7 @@ rowData(se1)
 (that contains the `se` object), and open the file using the
 'load()' function.-->
 
-```{r, eval = FALSE, echo - FALSE}
+```{r, eval = FALSE, echo = FALSE}
 download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/bioinfo-training-01-intro-r/master/data/SE.rda",
               destfile = "data/SE.rda")
 
