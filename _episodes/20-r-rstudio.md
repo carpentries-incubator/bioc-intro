@@ -593,7 +593,7 @@ other attached packages:
 
 loaded via a namespace (and not attached):
 [1] compiler_4.2.1 magrittr_2.0.3 tools_4.2.1    stringi_1.7.8  highr_0.9     
-[6] stringr_1.4.1  xfun_0.32      evaluate_0.16 
+[6] stringr_1.4.1  xfun_0.33      evaluate_0.16 
 ~~~
 {: .output}
 

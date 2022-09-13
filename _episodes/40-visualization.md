@@ -45,7 +45,7 @@ rna <- read.csv("data/rnaseq.csv")
 {: .language-r}
 
 The [Data Visualization Cheat
-Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+Sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)
 will cover the basics and more advanced features of `ggplot2` and will
 help, in addition to serve as a reminder, getting an overview of the
 many data representations available in the package. The following
