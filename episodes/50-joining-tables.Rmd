@@ -96,8 +96,8 @@ so,
 Th function will automatically find the common variable (in this case `uniprot`)
 to match observations from the first and second table.
 
-```{r join1}
-library("dplyr")
+```{r join1, message = FALSE}
+library("dplyr") ## or tidyverse
 full_join(jdf1, jdf2)
 ```
 
