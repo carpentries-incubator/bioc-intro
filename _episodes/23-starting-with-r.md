@@ -114,8 +114,8 @@ automatically check for issues in the styling of your code.
 > known as `variables` in many other programming languages. Depending
 > on the context, `object` and `variable` can have drastically
 > different meanings. However, in this lesson, the two words are used
-> synonymously. For more information see:
-> https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects
+> synonymously. For more information
+> [see here.](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects)
 
 
 When assigning a value to an object, R does not print anything. You
