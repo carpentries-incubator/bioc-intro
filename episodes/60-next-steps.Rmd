@@ -252,6 +252,32 @@ colData(se)
 This illustrates that the metadata slots can grow indefinitely without affecting
 the other structures!
 
+### Saving data {-}
+
+Exporting data to a spreadsheet, as we did in a previous episode, 
+has several limitations, such as those
+described in the first chapter (possible inconsistencies with
+`,` and `.` for decimal separators and lack of variable type
+definitions). Furthermore, exporting data to a spreadsheet is only
+relevant for rectangular data such as dataframes and matrices.
+
+A more general way to save data, that is specific to R and is
+guaranteed to work on any operating system, is to use the `saveRDS`
+function. Saving objects like this will generate a binary representation
+on disk (using the `rds` file extension here), which can be loaded back into R 
+using the `readRDS` function.
+
+```{r, eval = FALSE}
+saveRDS(rna, file = "data_output/rna.rds")
+rm(rna)
+rna <- readRDS("data_output/rna.rds")
+head(rna)
+```
+
+To conclude, when it comes to saving data from R that will be loaded
+again in R, saving and loading with `saveRDS` and `readRDS` is the 
+preferred approach. If tabular data need to be shared with somebody that 
+is not using R, then exporting to a text-based spreadsheet is a good alternative.
 
 
 **Take-home message**
