@@ -229,8 +229,8 @@ rna3
 
 > ## Challenge:
 >
-> Using pipes, subset the `rna` data to keep observations in female mice at time 0, 
-> where the gene has an expression higher than 50000, and retain only the columns 
+> Using pipes, subset the `rna` data to keep observations in female mice at time 0,
+> where the gene has an expression higher than 50000, and retain only the columns
 > `gene`, `sample`, `time`, `expression` and `age`
 >
 > > ## Solution
@@ -275,10 +275,12 @@ rna %>%
 
 > ## Challenge
 >
-> Create a new data frame from the `rna` data that meets the following criteria:
-> contains only the `gene`, `chromosome_name`, `phenotype_description`, `sample`,
-> and `expression` columns and a new column giving the log expression the gene.
-> This data frame must only contain genes located on autosomes and associated with a phenotype_description.
+> Create a new data frame from the `rna` data that meets the following
+> criteria: contains only the `gene`, `chromosome_name`,
+> `phenotype_description`, `sample`, and `expression` columns and a
+> new column giving the log expression of the genes.  This data frame must
+> only contain genes located on autosomes and associated with a
+> phenotype_description.
 >
 > **Hint**: think about how the commands should be ordered to produce
 > this data frame!
@@ -594,7 +596,7 @@ rna_with_missing_values
 ```
 
 By default, the `pivot_wider()` function will add `NA` for missing
-values. This can be parametrised with the `values_full` argument of
+values. This can be parametrised with the `values_fill` argument of
 the `pivot_wider()` function.
 
 ```{r, purl = FALSE}
