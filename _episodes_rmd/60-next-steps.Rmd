@@ -292,6 +292,82 @@ This illustrates that the metadata slots can grow indefinitely without affecting
 the other structures!
 
 
+### tidySummarizedExperiment
+
+You may be wondering, can we use tidyverse commands to interact with SummarizedExperiment objects. The answer is yes, we can with the tidySummarizedExperiment package.
+
+Remember what our SummarizedExperiment object looks like.
+
+```{r, message = FALSE}
+se
+```
+
+Load tidySummarizedExperiment and then take a look at the se object again.
+
+```{r, message = FALSE}
+#BiocManager::install("tidySummarizedExperiment")
+library("tidySummarizedExperiment")
+
+se
+```
+
+It's still a SummarizedExperiment object, so maintains the efficient structure, but now we can view it as a tibble. Note the first line of the output says this, it's a SummarizedExperiment-tibble abstraction. We can also see in the second line of the output the number of transcripts and samples. 
+
+If we want to revert to the standard SummarizedExperiment view we can do that.
+```{r}
+options("restore_SummarizedExperiment_show" = TRUE)
+se
+```
+
+But here we will use the tibble view.
+
+```{r}
+options("restore_SummarizedExperiment_show" = FALSE)
+se
+```
+
+We can now use tidyverse commands to interact with the SummarizedExperiment object.
+
+We can use `filter` to filter for rows using a condition e.g. to view all rows for one sample.
+
+```{r}
+se %>% filter(.sample == "GSM2545336")
+```
+
+We can use `select` to specify columns we want to view.
+
+```{r}
+se %>% select(.sample)
+```
+
+We can use `mutate` to add metadata info.
+
+```{r}
+se %>% mutate(center = "Heidelberg University")
+```
+
+We can also combine commands with the tidyverse pipe `%>%`. For example, we could combine `group_by` and `summarise` to get the total counts for each sample.
+
+```{r}
+se %>%
+    group_by(.sample) %>%
+    summarise(total_counts=sum(counts))
+```
+
+We can treat the tidy SummarizedExperiment object as a normal tibble for plotting.
+
+Here we plot the distribution of counts per sample.
+
+```{r tidySE-plot}
+se %>%
+    ggplot(aes(counts + 1, group=.sample, color=infection)) +
+    geom_density() +
+    scale_x_log10() +
+    theme_bw()
+```
+
+For more information on tidySummarizedExperiment, see the package website [here](https://stemangiola.github.io/tidySummarizedExperiment/).
+
 
 **Take-home message**
 
