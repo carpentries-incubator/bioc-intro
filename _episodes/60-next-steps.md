@@ -806,6 +806,286 @@ This illustrates that the metadata slots can grow indefinitely without affecting
 the other structures!
 
 
+### tidySummarizedExperiment
+
+You may be wondering, can we use tidyverse commands to interact with SummarizedExperiment objects. The answer is yes, we can with the tidySummarizedExperiment package.
+
+Remember what our SummarizedExperiment object looks like.
+
+
+~~~
+se
+~~~
+{: .language-r}
+
+
+
+~~~
+class: SummarizedExperiment 
+dim: 1474 22 
+metadata(0):
+assays(1): counts
+rownames(1474): Asl Apod ... Lmx1a Pbx1
+rowData names(9): gene ENTREZID ... phenotype_description
+  hsapiens_homolog_associated_gene_name
+colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
+colData names(10): sample organism ... mouse center
+~~~
+{: .output}
+
+Load tidySummarizedExperiment and then take a look at the se object again.
+
+
+~~~
+#BiocManager::install("tidySummarizedExperiment")
+library("tidySummarizedExperiment")
+
+se
+~~~
+{: .language-r}
+
+
+
+~~~
+# A SummarizedExperiment-tibble abstraction: 32,428 × 22
+# [90mFeatures=1474 | Samples=22 | Assays=counts[0m
+   .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
+   <chr>   <chr>    <dbl> <chr>  <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr> 
+ 1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 4 Klk6    GSM254…    287 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 5 Fcrls   GSM254…     85 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 6 Slc2a4  GSM254…    782 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 7 Exd2    GSM254…   1619 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+# … with 40 more rows, 11 more variables: mouse <dbl>, center <chr>,
+#   gene <chr>, ENTREZID <dbl>, product <chr>, ensembl_gene_id <chr>,
+#   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
+#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
+#   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
+~~~
+{: .output}
+
+It's still a SummarizedExperiment object, so maintains the efficient structure, but now we can view it as a tibble. Note the first line of the output says this, it's a SummarizedExperiment-tibble abstraction. We can also see in the second line of the output the number of transcripts and samples. 
+
+If we want to revert to the standard SummarizedExperiment view we can do that.
+
+~~~
+options("restore_SummarizedExperiment_show" = TRUE)
+se
+~~~
+{: .language-r}
+
+
+
+~~~
+class: SummarizedExperiment 
+dim: 1474 22 
+metadata(0):
+assays(1): counts
+rownames(1474): Asl Apod ... Lmx1a Pbx1
+rowData names(9): gene ENTREZID ... phenotype_description
+  hsapiens_homolog_associated_gene_name
+colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
+colData names(10): sample organism ... mouse center
+~~~
+{: .output}
+
+But here we will use the tibble view.
+
+
+~~~
+options("restore_SummarizedExperiment_show" = FALSE)
+se
+~~~
+{: .language-r}
+
+
+
+~~~
+# A SummarizedExperiment-tibble abstraction: 32,428 × 22
+# [90mFeatures=1474 | Samples=22 | Assays=counts[0m
+   .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
+   <chr>   <chr>    <dbl> <chr>  <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr> 
+ 1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 4 Klk6    GSM254…    287 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 5 Fcrls   GSM254…     85 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 6 Slc2a4  GSM254…    782 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 7 Exd2    GSM254…   1619 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+# … with 40 more rows, 11 more variables: mouse <dbl>, center <chr>,
+#   gene <chr>, ENTREZID <dbl>, product <chr>, ensembl_gene_id <chr>,
+#   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
+#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
+#   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
+~~~
+{: .output}
+
+We can now use tidyverse commands to interact with the SummarizedExperiment object.
+
+We can use `filter` to filter for rows using a condition e.g. to view all rows for one sample.
+
+
+~~~
+se %>% filter(.sample == "GSM2545336")
+~~~
+{: .language-r}
+
+
+
+~~~
+# A SummarizedExperiment-tibble abstraction: 1,474 × 1
+# [90mFeatures=1474 | Samples=1 | Assays=counts[0m
+   .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
+   <chr>   <chr>    <dbl> <chr>  <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr> 
+ 1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 4 Klk6    GSM254…    287 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 5 Fcrls   GSM254…     85 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 6 Slc2a4  GSM254…    782 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 7 Exd2    GSM254…   1619 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+# … with 40 more rows, 11 more variables: mouse <dbl>, center <chr>,
+#   gene <chr>, ENTREZID <dbl>, product <chr>, ensembl_gene_id <chr>,
+#   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
+#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
+#   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
+~~~
+{: .output}
+
+We can use `select` to specify columns we want to view.
+
+
+~~~
+se %>% select(.sample)
+~~~
+{: .language-r}
+
+
+
+~~~
+tidySummarizedExperiment says: Key columns are missing. A data frame is returned for independent data analysis.
+~~~
+{: .output}
+
+
+
+~~~
+# A tibble: 32,428 × 1
+   .sample   
+   <chr>     
+ 1 GSM2545336
+ 2 GSM2545336
+ 3 GSM2545336
+ 4 GSM2545336
+ 5 GSM2545336
+ 6 GSM2545336
+ 7 GSM2545336
+ 8 GSM2545336
+ 9 GSM2545336
+10 GSM2545336
+# … with 32,418 more rows
+~~~
+{: .output}
+
+We can use `mutate` to add metadata info.
+
+
+~~~
+se %>% mutate(center = "Heidelberg University")
+~~~
+{: .language-r}
+
+
+
+~~~
+# A SummarizedExperiment-tibble abstraction: 32,428 × 22
+# [90mFeatures=1474 | Samples=22 | Assays=counts[0m
+   .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
+   <chr>   <chr>    <dbl> <chr>  <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr> 
+ 1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 4 Klk6    GSM254…    287 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 5 Fcrls   GSM254…     85 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 6 Slc2a4  GSM254…    782 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 7 Exd2    GSM254…   1619 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+ 9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
+# … with 40 more rows, 11 more variables: mouse <dbl>, center <chr>,
+#   gene <chr>, ENTREZID <dbl>, product <chr>, ensembl_gene_id <chr>,
+#   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
+#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
+#   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
+~~~
+{: .output}
+
+We can also combine commands with the tidyverse pipe `%>%`. For example, we could combine `group_by` and `summarise` to get the total counts for each sample.
+
+
+~~~
+se %>%
+    group_by(.sample) %>%
+    summarise(total_counts=sum(counts))
+~~~
+{: .language-r}
+
+
+
+~~~
+tidySummarizedExperiment says: A data frame is returned for independent data analysis.
+~~~
+{: .output}
+
+
+
+~~~
+# A tibble: 22 × 2
+   .sample    total_counts
+   <chr>             <dbl>
+ 1 GSM2545336      3039671
+ 2 GSM2545337      2602360
+ 3 GSM2545338      2458618
+ 4 GSM2545339      2500082
+ 5 GSM2545340      2479024
+ 6 GSM2545341      2413723
+ 7 GSM2545342      2349728
+ 8 GSM2545343      3105652
+ 9 GSM2545344      2524137
+10 GSM2545345      2506038
+# … with 12 more rows
+~~~
+{: .output}
+
+We can treat the tidy SummarizedExperiment object as a normal tibble for plotting.
+
+Here we plot the distribution of counts per sample.
+
+
+~~~
+se %>%
+    ggplot(aes(counts + 1, group=.sample, color=infection)) +
+    geom_density() +
+    scale_x_log10() +
+    theme_bw()
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-tidySE-plot-1.png" alt="plot of chunk tidySE-plot" width="612" style="display: block; margin: auto;" />
+
+For more information on tidySummarizedExperiment, see the package website [here](https://stemangiola.github.io/tidySummarizedExperiment/).
+
 
 **Take-home message**
 
