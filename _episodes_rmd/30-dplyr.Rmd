@@ -75,8 +75,9 @@ library("tidyverse")
 
 ## Loading data with tidyverse
 
-Instead of `read.csv()`, we will read in our data using the `read_csv()` function, from the
-tidyverse package **`readr`**, .
+Instead of `read.csv()`, we will read in our data using the `read_csv()`
+function (notice the `_` instead of the `.`), from the tidyverse package
+**`readr`**.
 
 
 ```{r, message = FALSE, purl = FALSE}
