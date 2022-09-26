@@ -1668,7 +1668,7 @@ so every replicate has the same composition.
 > rows, and the mean expression of genes located in each chromosome as the values,
 > as in the following tibble: 
 > 
-> ![](./figs/Exercise_pivot_W.png)   
+> ![](./fig/Exercise_pivot_W.png)   
 > 
 > You will need to summarize before reshaping!
 > 
