@@ -1807,10 +1807,11 @@ so every replicate has the same composition.
 
 > ## Question
 >
-> Use the `rna` dataset to create an expression matrix were each row represents
-> the mean expression levels of genes and columns represent the different timepoints.
+> Use the `rna` dataset to create an expression matrix were each row
+> represents the mean expression levels of genes and columns represent
+> the different timepoints.
 >
-> > # Solution
+> > ## Solution
 > >
 > > Let's first calculate the mean expression by gene and by time
 > > 
@@ -2043,7 +2044,7 @@ so every replicate has the same composition.
 >
 > > ## Solution
 > >
-> > starting from the rna_time tibble:
+> > Starting from the rna_time tibble:
 > > 
 > > ~~~
 > > rna_time
