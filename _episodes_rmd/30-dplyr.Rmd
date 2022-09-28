@@ -848,6 +848,95 @@ so every replicate has the same composition.
 
 
 
+
+## Joining tables
+
+In many real life situations, data are spread across multiple tables.
+Usually this occurs because different types of information are collected 
+from different sources. 
+
+It may be desirable for some analyses to combine data from two or more 
+tables into a single data frame based on acolumn that would be common 
+to all the tables.
+
+The `dplyr` package provides a set of join functions for combining 
+two data frames based on matches within specified columns.
+
+For further reading, please refer to the chapter about [table
+joins](https://r4ds.had.co.nz/relational-data.html#understanding-joins)
+in @r4ds:2017.
+
+The [Data Transformation Cheat
+Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+also provides a short overview on table joins.
+
+We are going to illustrate join using a first table, `rna_mini`, which 
+is just a subset of the original `rna` table.
+
+```{r}
+load(file = "data/rna_mini.rda")
+rna_mini
+```
+
+The second table, `annot1`, contains 2 columns, gene and gene_description. 
+
+```{r, message= FALSE}
+annot1 <- read_csv(file = "data/annot1.csv")
+annot1
+```
+
+We now want to join these two tables into a single one containing all variables.
+
+We are going to use the `full_join` function of dplyr to do so.
+
+The function will automatically find the common variable to match columns from the first and second table. 
+In this case, `gene` is the common variable. Such variables are called keys. 
+Keys are used to match observations across different tables.
+
+```{r}
+full_join(rna_mini, annot1)
+```
+
+In real life, gene annotations are sometimes labelled differently.
+The `annot1` table is exactly the same than `annot2` except that gene names are 
+labelled differently.
+
+```{r, message= FALSE}
+annot2 <- read_csv(file = "data/annot2.csv")
+annot2
+```
+
+In case none of the variable names match, we can set manually the variables to use for the matching. 
+These variables can be set using the `by` argument, as shown below with rna_mini and annot2 tables.
+
+```{r}
+full_join(rna_mini, annot2, by = c("gene" = "external_gene_name"))
+```
+
+As can be seen above, the variable name of the first table is retained in the joined one.
+
+> ## Challenge:
+>
+> Load the annot3 table.
+> Using the `full_join` function, join tables `rna_mini`
+> and `annot3`. What has happened for genes *Klk6*, *mt-Tf*, *mt-Rnr1*, *mt-Tv*, 
+> *mt-Rnr2*, and *mt-Tl1* ?
+>
+> > ## Solution
+> >
+> > ```{r, message = FALSE}
+> > annot3 <- read_csv("data/annot3.csv")
+> > full_join(rna_mini, annot3)
+> > ```
+> >
+> > 
+> > Genes *Klk6* is only present in `rna_mini`, while genes *mt-Tf*, *mt-Rnr1*, *mt-Tv*, 
+> > *mt-Rnr2*, and *mt-Tl1* are only present in `annot3` table.Their respective values for the 
+> > variables of the table have been encoded as missing.
+> >
+> {: .solution}
+{: .challenge}
+
 ## Exporting data
 
 Now that you have learned how to use `dplyr` to extract information from
