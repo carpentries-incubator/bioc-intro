@@ -566,7 +566,10 @@ rna_exp
 3. the `values_from`: the column whose values will fill the new
    columns.
 
-![](./fig/pivot_wider.png)
+```{r, fig.cap = "Wide pivot of the `rna` data.", echo = FALSE, message = FALSE}
+knitr::include_graphics("../fig/pivot_wider.png")
+```
+
 
 ```{r, purl = FALSE}
 rna_wide <- rna_exp %>%
@@ -629,7 +632,10 @@ associated with the column names.
 4. the names of the columns to be used to populate the `names_to` and
    `values_to` variables (or to drop).
 
-![](./fig/pivot_longer.png)
+
+```{r, fig.cap = "Long pivot of the `rna` data.", echo = FALSE, message = FALSE}
+knitr::include_graphics("../fig/pivot_longer.png")
+```
 
 To recreate `rna_long` from `rna_long` we would create a key
 called `sample` and value called `expression` and use all columns
@@ -698,8 +704,9 @@ so every replicate has the same composition.
 > rows, and the mean expression of genes located in each chromosome as the values,
 > as in the following tibble:
 >
-> ![](./fig/Exercise_pivot_W.png)
->
+> ```{r, echo = FALSE, message = FALSE}
+> knitr::include_graphics("../fig/Exercise_pivot_W.png")
+> ```
 > You will need to summarize before reshaping!
 >
 > Let's first calculate the mean expression level of X and Y linked genes from

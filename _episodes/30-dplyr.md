@@ -1366,7 +1366,8 @@ rna_exp
 3. the `values_from`: the column whose values will fill the new
    columns.
 
-![](./fig/pivot_wider.png)
+<img src="../fig/pivot_wider.png" alt="Wide pivot of the `rna` data." style="display: block; margin: auto;" />
+
 
 
 ~~~
@@ -1499,7 +1500,8 @@ associated with the column names.
 4. the names of the columns to be used to populate the `names_to` and
    `values_to` variables (or to drop).
 
-![](./fig/pivot_longer.png)
+
+<img src="../fig/pivot_longer.png" alt="Long pivot of the `rna` data." style="display: block; margin: auto;" />
 
 To recreate `rna_long` from `rna_long` we would create a key
 called `sample` and value called `expression` and use all columns
@@ -1696,8 +1698,7 @@ so every replicate has the same composition.
 > rows, and the mean expression of genes located in each chromosome as the values,
 > as in the following tibble:
 >
-> ![](./fig/Exercise_pivot_W.png)
->
+> <img src="../fig/Exercise_pivot_W.png" alt="plot of chunk unnamed-chunk-45" style="display: block; margin: auto;" />
 > You will need to summarize before reshaping!
 >
 > Let's first calculate the mean expression level of X and Y linked genes from
