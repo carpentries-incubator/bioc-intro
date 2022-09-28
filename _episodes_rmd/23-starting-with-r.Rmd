@@ -85,7 +85,7 @@ first. You can install the
 [**`lintr`**](https://github.com/jimhester/lintr) package to
 automatically check for issues in the styling of your code.
 
-> **Objects vs. variables** What are known as `objects` in `R` are
+> **Objects vs. variables**: What are known as `objects` in `R` are
 > known as `variables` in many other programming languages. Depending
 > on the context, `object` and `variable` can have drastically
 > different meanings. However, in this lesson, the two words are used
@@ -546,7 +546,7 @@ molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
 ## Names
 
 It is possible to name each element of a vector. The code chunk below
-show a initial vector without any names, how names are set, and
+shows a initial vector without any names, how names are set, and
 retrieved.
 
 ```{r}
@@ -724,7 +724,7 @@ by steps of 2, one would use:
 seq(from = 1, to = 20, by = 2)
 ```
 
-The default value of `by` is 1 and, given that the generate of a
+The default value of `by` is 1 and, given that the generation of a
 sequence of one value to another with steps of 1 is frequently used,
 there's a shortcut:
 
@@ -746,7 +746,7 @@ seq(from = 1, to = 20, length.out = 3)
 A last group of useful functions are those that generate random
 data. The first one, `sample`, generates a random permutation of
 another vector. For example, to draw a random order to 10 students
-oral exam, I first assign each student a number from 1 to then (for
+oral exam, I first assign each student a number from 1 to ten (for
 instance based on the alphabetic order of their name) and then:
 
 ```{r}
@@ -818,8 +818,8 @@ sample(1:5, 10, replace = TRUE)
 
 The last function we are going to see is `rnorm`, that draws a random
 sample from a normal distribution. Two normal distributions of means 0
-and 100 and standard deviations 1 and 5, noted noted *N(0, 1)* and
-*N(100, 5)*, are shown below
+and 100 and standard deviations 1 and 5, noted *N(0, 1)* and
+*N(100, 5)*, are shown below.
 
 ```{r echo=FALSE, fig.width = 12, fig.height = 6, fig.cap = "Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right."}
 par(mfrow = c(1, 2))
