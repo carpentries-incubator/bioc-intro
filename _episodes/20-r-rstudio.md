@@ -21,8 +21,8 @@ keypoints:
 ## What is R? What is RStudio?
 
 The term [R](https://www.r-project.org/) is used to refer to both the
-*programming language*, the *environment for statistical computing*
-and *the software* that interprets the scripts written using it.
+*programming language* and the *environment for statistical computing*
+i.e. *the software* that interprets the scripts written using it.
 
 [RStudio](https://rstudio.com) is currently a very popular way to not
 only write your R scripts but also to interact with the R
@@ -35,7 +35,7 @@ therefore both need to be installed on your computer.
     while providing numerous very advanced features.
 
 The [RStudio IDE Cheat
-Sheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
+Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
 provides much more information that will be covered here, but can be
 useful to learn keyboard shortcuts and discover new features.
 
@@ -192,7 +192,7 @@ tutorial below.
 RStudio's default preferences generally work well, but saving a workspace to
 .RData can be cumbersome, especially if you are working with larger datasets.
 To turn that off, go to Tools --> 'Global Options' and select the 'Never' option
-for 'Save workspace to .RData' on exit.'
+for 'Save workspace to .RData' on exit.
 
 <img src="../fig/rstudio-preferences.png" alt="Set 'Save workspace to .RData on exit' to 'Never'" width="70%" style="display: block; margin: auto;" />
 
@@ -364,7 +364,7 @@ by the cursor) or all of the commands in the currently selected text
 will be sent to the console and executed when you press `Ctrl` +
 `Enter`. You can find other keyboard shortcuts in this [RStudio
 cheatsheet about the RStudio
-IDE](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf).
+IDE](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf).
 
 At some point in your analysis you may want to check the content of a
 variable or the structure of an object, without necessarily keeping a
