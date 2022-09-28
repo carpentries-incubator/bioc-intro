@@ -1701,83 +1701,83 @@ so every replicate has the same composition.
 > <img src="../fig/Exercise_pivot_W.png" alt="plot of chunk unnamed-chunk-45" style="display: block; margin: auto;" />
 > You will need to summarize before reshaping!
 >
-> Let's first calculate the mean expression level of X and Y linked genes from
-> male and female samples...
->
-> 
-> ~~~
->  rna %>%
->   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
->   group_by(sex, chromosome_name) %>%
->   summarize(mean = mean(expression))
-> ~~~
-> {: .language-r}
-> 
-> 
-> 
-> ~~~
-> `summarise()` has grouped output by 'sex'. You can override using the `.groups`
-> argument.
-> ~~~
-> {: .output}
-> 
-> 
-> 
-> ~~~
-> # A tibble: 4 × 3
-> # Groups:   sex [2]
->   sex    chromosome_name  mean
->   <chr>  <chr>           <dbl>
-> 1 Female X               3504.
-> 2 Female Y                  3 
-> 3 Male   X               2497.
-> 4 Male   Y               2117.
-> ~~~
-> {: .output}
->
-> And pivot the table to wide format
->
-> 
-> ~~~
-> rna_1 <- rna %>%
->   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
->   group_by(sex, chromosome_name) %>%
->   summarize(mean = mean(expression)) %>%
->   pivot_wider(names_from = sex,
->               values_from = mean)
-> ~~~
-> {: .language-r}
-> 
-> 
-> 
-> ~~~
-> `summarise()` has grouped output by 'sex'. You can override using the `.groups`
-> argument.
-> ~~~
-> {: .output}
-> 
-> 
-> 
-> ~~~
-> rna_1
-> ~~~
-> {: .language-r}
-> 
-> 
-> 
-> ~~~
-> # A tibble: 2 × 3
->   chromosome_name Female  Male
->   <chr>            <dbl> <dbl>
-> 1 X                3504. 2497.
-> 2 Y                   3  2117.
-> ~~~
-> {: .output}
->
-> Now take that data frame and transform it with `pivot_longer()` so
-> each row is a unique `chromosome_name` by `gender` combination.
->
 > > ## Solution
+> >
+> > Let's first calculate the mean expression level of X and Y linked genes from
+> > male and female samples...
+> >
+> > 
+> > ~~~
+> >  rna %>%
+> >   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
+> >   group_by(sex, chromosome_name) %>%
+> >   summarize(mean = mean(expression))
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > `summarise()` has grouped output by 'sex'. You can override using the `.groups`
+> > argument.
+> > ~~~
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
+> > # A tibble: 4 × 3
+> > # Groups:   sex [2]
+> >   sex    chromosome_name  mean
+> >   <chr>  <chr>           <dbl>
+> > 1 Female X               3504.
+> > 2 Female Y                  3 
+> > 3 Male   X               2497.
+> > 4 Male   Y               2117.
+> > ~~~
+> > {: .output}
+> >
+> > And pivot the table to wide format
+> >
+> > 
+> > ~~~
+> > rna_1 <- rna %>%
+> >   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
+> >   group_by(sex, chromosome_name) %>%
+> >   summarize(mean = mean(expression)) %>%
+> >   pivot_wider(names_from = sex,
+> >               values_from = mean)
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > `summarise()` has grouped output by 'sex'. You can override using the `.groups`
+> > argument.
+> > ~~~
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
+> > rna_1
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > # A tibble: 2 × 3
+> >   chromosome_name Female  Male
+> >   <chr>            <dbl> <dbl>
+> > 1 X                3504. 2497.
+> > 2 Y                   3  2117.
+> > ~~~
+> > {: .output}
+> >
+> > Now take that data frame and transform it with `pivot_longer()` so
+> > each row is a unique `chromosome_name` by `gender` combination.
 > >
 > > 
 > > ~~~

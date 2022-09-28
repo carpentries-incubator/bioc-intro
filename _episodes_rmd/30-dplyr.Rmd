@@ -709,33 +709,33 @@ so every replicate has the same composition.
 > ```
 > You will need to summarize before reshaping!
 >
-> Let's first calculate the mean expression level of X and Y linked genes from
-> male and female samples...
->
-> ```{r}
->  rna %>%
->   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
->   group_by(sex, chromosome_name) %>%
->   summarize(mean = mean(expression))
-> ```
->
-> And pivot the table to wide format
->
-> ```{r, answer=TRUE, purl=FALSE}
-> rna_1 <- rna %>%
->   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
->   group_by(sex, chromosome_name) %>%
->   summarize(mean = mean(expression)) %>%
->   pivot_wider(names_from = sex,
->               values_from = mean)
->
-> rna_1
-> ```
->
-> Now take that data frame and transform it with `pivot_longer()` so
-> each row is a unique `chromosome_name` by `gender` combination.
->
 > > ## Solution
+> >
+> > Let's first calculate the mean expression level of X and Y linked genes from
+> > male and female samples...
+> >
+> > ```{r}
+> >  rna %>%
+> >   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
+> >   group_by(sex, chromosome_name) %>%
+> >   summarize(mean = mean(expression))
+> > ```
+> >
+> > And pivot the table to wide format
+> >
+> > ```{r, answer=TRUE, purl=FALSE}
+> > rna_1 <- rna %>%
+> >   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
+> >   group_by(sex, chromosome_name) %>%
+> >   summarize(mean = mean(expression)) %>%
+> >   pivot_wider(names_from = sex,
+> >               values_from = mean)
+> >
+> > rna_1
+> > ```
+> >
+> > Now take that data frame and transform it with `pivot_longer()` so
+> > each row is a unique `chromosome_name` by `gender` combination.
 > >
 > > ```{r, answer=TRUE, purl=FALSE}
 > > rna_1 %>%
