@@ -284,10 +284,10 @@ rna %>%
 >
 > Create a new data frame from the `rna` data that meets the following
 > criteria: contains only the `gene`, `chromosome_name`,
-> `phenotype_description`, `sample`, and `expression` columns and a
-> new column giving the log expression of the genes.  This data frame must
-> only contain genes located on autosomes and associated with a
-> phenotype_description.
+> `phenotype_description`, `sample`, and `expression` columns. The expression 
+> values should be log-transformed. This data frame must
+> only contain genes located on autosomes, associated with a
+> phenotype_description, and with a log expression higher than 10.
 >
 > **Hint**: think about how the commands should be ordered to produce
 > this data frame!
@@ -297,10 +297,11 @@ rna %>%
 > >
 > > ```{r, eval=TRUE, purl=FALSE}
 > > rna %>%
+> >   mutate(expression = log(expression)) %>%
+> >   select(gene, chromosome_name, phenotype_description, sample, expression) %>%
 > >   filter(chromosome_name != "X", chromosome_name != "Y") %>%
-> >   mutate(log_expression = log(expression)) %>%
-> >   select(gene, chromosome_name, phenotype_description, sample, expression, log_expression) %>%
-> >   filter(!is.na(phenotype_description))
+> >   filter(!is.na(phenotype_description)) %>%
+> >   filter(expression > 10)
 > > ```
 > >
 > {: .solution}
