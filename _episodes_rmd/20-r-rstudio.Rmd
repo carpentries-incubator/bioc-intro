@@ -20,7 +20,7 @@ source("../bin/chunk-options.R")
 
 ## What is R? What is RStudio?
 
-The term [R](https://www.r-project.org/) is used to refer to both the
+The term [R](https://www.r-project.org/) is used to refer to the
 *programming language*, the *environment for statistical computing*
 and *the software* that interprets the scripts written using it.
 
@@ -367,9 +367,9 @@ Because we want our code and workflow to be reproducible, it is better
 to type the commands we want in the script editor, and save the
 script. This way, there is a complete record of what we did, and
 anyone (including our future selves!)  can easily replicate the
-results on their computer. Note, however, that merely typing the commands 
-in the script does not automatically *run* them - they still need to 
-be sent to the console for execution. 
+results on their computer. Note, however, that merely typing the commands
+in the script does not automatically *run* them - they still need to
+be sent to the console for execution.
 
 RStudio allows you to execute commands directly from the script editor
 by using the `Ctrl` + `Enter` shortcut (on Macs, `Cmd` + `Return` will
