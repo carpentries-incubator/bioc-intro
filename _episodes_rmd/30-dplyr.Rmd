@@ -286,8 +286,8 @@ rna %>%
 > criteria: contains only the `gene`, `chromosome_name`,
 > `phenotype_description`, `sample`, and `expression` columns. The expression 
 > values should be log-transformed. This data frame must
-> only contain genes located on autosomes, associated with a
-> phenotype_description, and with a log expression higher than 10.
+> only contain genes located on sex chromosome, associated with a
+> phenotype_description, and with a log expression higher than 5.
 >
 > **Hint**: think about how the commands should be ordered to produce
 > this data frame!
@@ -299,9 +299,9 @@ rna %>%
 > > rna %>%
 > >   mutate(expression = log(expression)) %>%
 > >   select(gene, chromosome_name, phenotype_description, sample, expression) %>%
-> >   filter(chromosome_name != "X", chromosome_name != "Y") %>%
+> >   filter(chromosome_name == "X" | chromosome_name == "Y") %>%
 > >   filter(!is.na(phenotype_description)) %>%
-> >   filter(expression > 10)
+> >   filter(expression > 5)
 > > ```
 > >
 > {: .solution}
