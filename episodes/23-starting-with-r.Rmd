@@ -546,7 +546,7 @@ molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
 ## Names
 
 It is possible to name each element of a vector. The code chunk below
-shows a initial vector without any names, how names are set, and
+shows an initial vector without any names, how names are set, and
 retrieved.
 
 ```{r}
