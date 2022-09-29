@@ -80,8 +80,8 @@ layers in this fashion allows for extensive flexibility and
 customization of plots.
 
 > The idea behind the Grammar of Graphics it is that you can build every
-> graph from the same 3 components: (1) a data set, (2) a coordinate system,
-> and (3) geoms — i.e. visual marks that represent data points [^three_comp_ggplot2]
+graph from the same 3 components: (1) a data set, (2) a coordinate system,
+and (3) geoms — i.e. visual marks that represent data points [^three_comp_ggplot2]
 
 [^three_comp_ggplot2]: Source: [Data Visualization Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf).
 
@@ -163,7 +163,6 @@ rna_plot + geom_histogram()
 > > ggplot(rna, aes(x = expression)) +
 > >     geom_histogram(binwidth = 2000)
 > > ```
-> >
 > {: .solution} 
 {: .challenge}
 
@@ -206,7 +205,6 @@ From now on we will work on the log-transformed expression values.
 > >   geom_histogram() +
 > >   scale_x_log10()
 > > ```
-> >
 > {: .solution} 
 {: .challenge}
 
@@ -353,13 +351,13 @@ library("hexbin")
 > >
 > > ```{r}
 > > library("hexbin")
-> > 
+> >
 > > ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 > >   geom_hex() +
 > >   geom_abline(intercept = 0)
-> > 
+> >
 > > ```
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 > ## Challenge
@@ -374,7 +372,6 @@ library("hexbin")
 > > ggplot(data = rna, mapping = aes(y = expression_log, x = sample)) +
 > >     geom_point(aes(color = time))
 > > ```
-> >
 > {: .solution} 
 {: .challenge}
 
@@ -405,7 +402,6 @@ ggplot(data = rna,
 > you need to change in the code to put the boxplot below the points?
 >
 > > ## Solution
-> >
 > > We should switch the order of these two geoms:
 > >
 > > ```{r boxplot-with-points2, cache=FALSE}
@@ -415,7 +411,7 @@ ggplot(data = rna,
 > >   geom_jitter(alpha = 0.2, color = "tomato")
 > > ```
 > >
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 You may notice that the values on the x-axis are still not properly
@@ -451,7 +447,7 @@ ggplot(data = rna,
 > >   geom_jitter(alpha = 0.2, aes(color = time)) +
 > >   geom_boxplot(alpha = 0) +
 > >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
-> > 
+> >
 > > # time as factor
 > > ggplot(data = rna,
 > >          mapping = aes(y = expression_log,
@@ -460,7 +456,7 @@ ggplot(data = rna,
 > >   geom_boxplot(alpha = 0) +
 > >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 > > ```
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 > ## Challenge
@@ -480,7 +476,7 @@ ggplot(data = rna,
 > >   geom_violin(aes(fill = as.factor(time))) +
 > >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 > > ```
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 > ## Challenge
@@ -494,7 +490,7 @@ ggplot(data = rna,
 > >   geom_violin(aes(fill = sex)) +
 > >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 > > ```
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 ## Line plots
@@ -615,13 +611,13 @@ ggplot(data = mean_exp_by_time_sex,
 > > mean_exp_by_chromosome <- rna %>%
 > >   group_by(chromosome_name, time) %>%
 > >   summarize(mean_exp = mean(expression_log))
-> > 
+> >
 > > ggplot(data = mean_exp_by_chromosome, mapping = aes(x = time,
 > >                                 y = mean_exp)) +
 > >   geom_line() +
 > >   facet_wrap(~ chromosome_name, scales = "free_y")
 > > ```
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of
@@ -816,8 +812,7 @@ ggplot(rna, aes(x = expression_log)) +
 > >                      values = c("royalblue", "deeppink"))
 > >
 > > ```
-> >
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 ## Composing plots
