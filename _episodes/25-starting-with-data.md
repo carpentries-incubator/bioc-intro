@@ -491,9 +491,23 @@ describing: `"female"`, `"male"` is more descriptive than `1`,
 `2`. Which one is "male"?  You wouldn't be able to tell just from the
 integer data. Factors, on the other hand, have this information built
 in. It is particularly helpful when there are many levels (like the
-species names in our example dataset).
+gene biotype in our example dataset).
 
-### Converting to factors {-}
+When your data is stored as a factor, you can use the `plot()`
+function to get a quick glance at the number of observations
+represented by each factor level. Let's look at the number of males
+and females in our data.
+
+
+~~~
+plot(sex)
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-firstfactorplot-1.png" alt="Bar plot of the number of females and males." width="612" style="display: block; margin: auto;" />
+
+
+### Converting to character {-}
 
 If you need to convert a factor to a character vector, you use
 `as.character(x)`.
@@ -536,19 +550,6 @@ as.character(sex)
 <!--   vector `year_fct` inside the square brackets -->
 
 ### Renaming factors {-}
-
-When your data is stored as a factor, you can use the `plot()`
-function to get a quick glance at the number of observations
-represented by each factor level. Let's look at the number of males
-and females in our data.
-
-
-~~~
-plot(sex)
-~~~
-{: .language-r}
-
-<img src="../fig/rmd-firstfactorplot-1.png" alt="Bar plot of the number of females and males." width="612" style="display: block; margin: auto;" />
 
 If we want to rename these factor, it is sufficient to change its
 levels:
