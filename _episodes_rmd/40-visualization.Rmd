@@ -13,9 +13,6 @@ objectives:
 - Build complex and customized plots from data in a data frame.
 keypoints:
 - "Visualization in R"
-editor_options: 
-  markdown: 
-    wrap: 72
 ---
 
 ```{r loaddata_vis, echo=FALSE, purl=FALSE, message=FALSE, }
@@ -83,17 +80,17 @@ layers in this fashion allows for extensive flexibility and
 customization of plots.
 
 > The idea behind the Grammar of Graphics it is that you can build every
-> graph from the same 3 components: (1) a data set, (2) a coordinate
-> system, and (3) geoms --- i.e. visual marks that represent data points
-> [^1].
+> graph from the same 3 components: (1) a data set, (2) a coordinate system,
+> and (3) geoms — i.e. visual marks that represent data points [^three_comp_ggplot2]
 
-[^1]: Source: [Data Visualization Cheat
-    Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf).
+[^three_comp_ggplot2]: Source: [Data Visualization Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf).
 
 To build a ggplot, we will use the following basic template that can be
 used for different types of plots:
 
-    ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  <GEOM_FUNCTION>()
+```
+ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  <GEOM_FUNCTION>()
+```
 
 -   use the `ggplot()` function and bind the plot to a specific **data
     frame** using the `data` argument
@@ -111,7 +108,7 @@ ggplot(data = rna)
 ggplot(data = rna, mapping = aes(x = expression))
 ```
 
--   add '**geoms**' -- geometries, or graphical representations of the
+-   add '**geoms**' - geometries, or graphical representations of the
     data in the plot (points, lines, bars). `ggplot2` offers many
     different geoms; we will use some common ones today, including:
 
@@ -161,13 +158,14 @@ rna_plot + geom_histogram()
 > > # change bins
 > > ggplot(rna, aes(x = expression)) +
 > >     geom_histogram(bins = 15)
-> > > >
+> >
 > > # change binwidth
 > > ggplot(rna, aes(x = expression)) +
 > >     geom_histogram(binwidth = 2000)
 > > ```
 > >
-> > {: .solution} {: .challenge}
+> {: .solution} 
+{: .challenge}
 
 We can observe here that the data are skewed to the right. We can apply
 log2 transformation to have a more symmetric distribution. Note that we
@@ -209,7 +207,8 @@ From now on we will work on the log-transformed expression values.
 > >   scale_x_log10()
 > > ```
 > >
-> > {: .solution} {: .challenge}
+> {: .solution} 
+{: .challenge}
 
 **Notes**
 
@@ -354,14 +353,14 @@ library("hexbin")
 > >
 > > ```{r}
 > > library("hexbin")
-> > > >
+> > 
 > > ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 > >   geom_hex() +
 > >   geom_abline(intercept = 0)
-> > > >
+> > 
 > > ```
-> >
-> > {: .solution} {: .challenge}
+> {: .solution} 
+{: .challenge}
 
 > ## Challenge
 >
@@ -376,7 +375,8 @@ library("hexbin")
 > >     geom_point(aes(color = time))
 > > ```
 > >
-> > {: .solution} {: .challenge}
+> {: .solution} 
+{: .challenge}
 
 ## Boxplot
 
@@ -415,7 +415,8 @@ ggplot(data = rna,
 > >   geom_jitter(alpha = 0.2, color = "tomato")
 > > ```
 > >
-> > {: .solution} {: .challenge}
+> {: .solution} 
+{: .challenge}
 
 You may notice that the values on the x-axis are still not properly
 readable. Let's change the orientation of the labels and adjust them
@@ -450,7 +451,7 @@ ggplot(data = rna,
 > >   geom_jitter(alpha = 0.2, aes(color = time)) +
 > >   geom_boxplot(alpha = 0) +
 > >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
-> > > >
+> > 
 > > # time as factor
 > > ggplot(data = rna,
 > >          mapping = aes(y = expression_log,
@@ -459,8 +460,8 @@ ggplot(data = rna,
 > >   geom_boxplot(alpha = 0) +
 > >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 > > ```
-> >
-> > {: .solution} {: .challenge}
+> {: .solution} 
+{: .challenge}
 
 > ## Challenge
 >
@@ -473,30 +474,28 @@ ggplot(data = rna,
 >     in the violins according to the time with the argument `fill`.
 >
 > > ## Solution
-> >
 > > ```{r, eval=TRUE, echo=TRUE, cache=FALSE}
 > > ggplot(data = rna,
 > >          mapping = aes(y = expression_log, x = sample)) +
 > >   geom_violin(aes(fill = as.factor(time))) +
 > >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 > > ```
-> >
-> > {: .solution} {: .challenge}
+> {: .solution} 
+{: .challenge}
 
 > ## Challenge
 >
 > -   Modify the violin plot to fill in the violins by `sex`.
 >
 > > ## Solution
-> >
 > > ```{r, eval=TRUE, echo=TRUE, cache=FALSE}
 > > ggplot(data = rna,
 > >          mapping = aes(y = expression_log, x = sample)) +
 > >   geom_violin(aes(fill = sex)) +
 > >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 > > ```
-> >
-> > {: .solution} {: .challenge}
+> {: .solution} 
+{: .challenge}
 
 ## Line plots
 
@@ -616,14 +615,14 @@ ggplot(data = mean_exp_by_time_sex,
 > > mean_exp_by_chromosome <- rna %>%
 > >   group_by(chromosome_name, time) %>%
 > >   summarize(mean_exp = mean(expression_log))
-> > > >
+> > 
 > > ggplot(data = mean_exp_by_chromosome, mapping = aes(x = time,
 > >                                 y = mean_exp)) +
 > >   geom_line() +
 > >   facet_wrap(~ chromosome_name, scales = "free_y")
 > > ```
-> >
-> > {: .solution} {: .challenge}
+> {: .solution} 
+{: .challenge}
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of
 dimensions to allow them to cleanly fit on one page. On the other hand,
@@ -768,7 +767,6 @@ ggplot(rna, aes(x = expression_log)) +
 > > ## Solution
 > >
 > > For example, based on this plot:
-> >
 > > ```{r}
 > > ggplot(data = mean_exp_by_time_sex,
 > >        mapping = aes(x = time, y = mean_exp, color = sex)) +
@@ -778,8 +776,8 @@ ggplot(rna, aes(x = expression_log)) +
 > >   theme(panel.grid = element_blank())
 > > ```
 > >
-> > We can customize it the following ways:
 > >
+> > We can customize it the following ways:
 > > ```{r}
 > > # change the thickness of the lines
 > > ggplot(data = mean_exp_by_time_sex,
@@ -788,7 +786,7 @@ ggplot(rna, aes(x = expression_log)) +
 > >   facet_wrap(~ gene, scales = "free_y") +
 > >   theme_bw() +
 > >   theme(panel.grid = element_blank())
-> > > >
+> >
 > > # change the name of the legend and the labels
 > > ggplot(data = mean_exp_by_time_sex,
 > >        mapping = aes(x = time, y = mean_exp, color = sex)) +
@@ -797,7 +795,7 @@ ggplot(rna, aes(x = expression_log)) +
 > >   theme_bw() +
 > >   theme(panel.grid = element_blank()) +
 > >   scale_color_discrete(name = "Gender", labels = c("F", "M"))
-> > > >
+> >
 > > # using a different color palette
 > > ggplot(data = mean_exp_by_time_sex,
 > >        mapping = aes(x = time, y = mean_exp, color = sex)) +
@@ -806,7 +804,7 @@ ggplot(rna, aes(x = expression_log)) +
 > >   theme_bw() +
 > >   theme(panel.grid = element_blank()) +
 > >   scale_color_brewer(name = "Gender", labels = c("F", "M"), palette = "Dark2")
-> > > >
+> >
 > > # manually specifying the colors
 > > ggplot(data = mean_exp_by_time_sex,
 > >        mapping = aes(x = time, y = mean_exp, color = sex)) +
@@ -816,10 +814,11 @@ ggplot(rna, aes(x = expression_log)) +
 > >   theme(panel.grid = element_blank()) +
 > >   scale_color_manual(name = "Gender",  labels = c("F", "M"),
 > >                      values = c("royalblue", "deeppink"))
-> > > >
+> >
 > > ```
 > >
-> > {: .solution} {: .challenge}
+> {: .solution} 
+{: .challenge}
 
 ## Composing plots
 
@@ -981,7 +980,7 @@ in the saved plot.
 data* and *tidy tools* pipeline. There are other visualization packages
 in R that shouldn't be ignored.
 
-### Base graphics {.unnumbered}
+### Base graphics {-}
 
 The default graphics system that comes with R, often called *base R
 graphics* is simple and fast. It is based on the *painter's or canvas
@@ -1026,7 +1025,7 @@ single line of code and a single function such as `plot`, or `hist`, or
 and tuning of figures, especially when they become more complex (for
 example to produce facets), can become lengthy and cumbersome.
 
-### The lattice package {.unnumbered}
+### The lattice package {-}
 
 The **`lattice`** package is similar to `ggplot2` in that is uses
 dataframes as input, returns graphical objects and supports faceting.
