@@ -37,7 +37,7 @@ spinal cord tissues were evaluated by RNA-seq at days 0
 
 
 The dataset is stored as a comma separated value (CSV) file.  Each row
-holds information for a single RNA expression measurement, and the
+holds information for a single RNA expression measurement, and the first eleven
 columns represent:
 
 | Column     | Description                                                                                  |

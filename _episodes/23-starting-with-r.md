@@ -69,8 +69,7 @@ objects on the left. So, after executing `x <- 3`, the value of `x` is
 `3`. The arrow can be read as 3 **goes into** `x`.  For historical
 reasons, you can also use `=` for assignments, but not in every
 context. Because of the
-[slight](http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html)
-[differences](http://r.789695.n4.nabble.com/Is-there-any-difference-between-and-tp878594p878598.html)
+[slight differences](http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html)
 in syntax, it is good practice to always use `<-` for assignments.
 
 In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd>
@@ -110,7 +109,7 @@ first. You can install the
 [**`lintr`**](https://github.com/jimhester/lintr) package to
 automatically check for issues in the styling of your code.
 
-> **Objects vs. variables** What are known as `objects` in `R` are
+> **Objects vs. variables**: What are known as `objects` in `R` are
 > known as `variables` in many other programming languages. Depending
 > on the context, `object` and `variable` can have drastically
 > different meanings. However, in this lesson, the two words are used
@@ -973,7 +972,7 @@ molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
 ## Names
 
 It is possible to name each element of a vector. The code chunk below
-show a initial vector without any names, how names are set, and
+shows an initial vector without any names, how names are set, and
 retrieved.
 
 
@@ -1413,7 +1412,7 @@ seq(from = 1, to = 20, by = 2)
 ~~~
 {: .output}
 
-The default value of `by` is 1 and, given that the generate of a
+The default value of `by` is 1 and, given that the generation of a
 sequence of one value to another with steps of 1 is frequently used,
 there's a shortcut:
 
@@ -1479,7 +1478,7 @@ seq(from = 1, to = 20, length.out = 3)
 A last group of useful functions are those that generate random
 data. The first one, `sample`, generates a random permutation of
 another vector. For example, to draw a random order to 10 students
-oral exam, I first assign each student a number from 1 to then (for
+oral exam, I first assign each student a number from 1 to ten (for
 instance based on the alphabetic order of their name) and then:
 
 
@@ -1644,8 +1643,8 @@ sample(1:5, 10, replace = TRUE)
 
 The last function we are going to see is `rnorm`, that draws a random
 sample from a normal distribution. Two normal distributions of means 0
-and 100 and standard deviations 1 and 5, noted noted *N(0, 1)* and
-*N(100, 5)*, are shown below
+and 100 and standard deviations 1 and 5, noted *N(0, 1)* and
+*N(100, 5)*, are shown below.
 
 <img src="../fig/rmd-unnamed-chunk-61-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right." width="864" style="display: block; margin: auto;" />
 
