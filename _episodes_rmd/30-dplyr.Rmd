@@ -139,12 +139,18 @@ filter(rna, sex == "Male" & infection == "NonInfected")
 Now let's imagine we are interested in the human homologs of the mouse
 genes analysed in this dataset. This information can be found in the
 last column of the `rna` tibble, named `hsapiens_homolog_associated_gene_name`.
+To visualise it easily, we will create a new table containing just the 2 columns 
+`gene` and `hsapiens_homolog_associated_gene_name`. 
+
+```{r}
+genes <- select(rna, gene, hsapiens_homolog_associated_gene_name)
+genes
+```
 Some mouse gene have no human homologs. These can be retrieved using a `filter()`
-in the chain, and the `is.na()` function that determines whether something is an `NA`.
+and the `is.na()` function in the chain, that determines whether something is an `NA`.
 
 ```{r, purl = FALSE}
-rna_NA <- filter(rna, is.na(hsapiens_homolog_associated_gene_name))
-select(rna_NA, gene, hsapiens_homolog_associated_gene_name)
+filter(genes, is.na(hsapiens_homolog_associated_gene_name))
 ```
 
 If we want to keep only mouse gene that have a human homolog, we can insert a "!"
@@ -152,8 +158,7 @@ symbol that negates the result, so we're asking for every row where
 hsapiens_homolog_associated_gene_name *is not* an `NA`.
 
 ```{r, purl = FALSE}
-rna_no_NA <- filter(rna, !is.na(hsapiens_homolog_associated_gene_name))
-select(rna_no_NA, gene, hsapiens_homolog_associated_gene_name)
+filter(genes, !is.na(hsapiens_homolog_associated_gene_name))
 ```
 
 ## Pipes
@@ -187,10 +192,11 @@ The last option, *pipes*, are a recent addition to R. Pipes let you take
 the output of one function and send it directly to the next, which is useful
 when you need to do many things to the same dataset.
 
-Pipes in R look like `%>%` and are made available via the **`magrittr`** package,
-installed automatically with **`dplyr`**. If you use RStudio, you can type the pipe with <kbd>Ctrl</kbd>
-+ <kbd>Shift</kbd> + <kbd>M</kbd> if you have a PC or <kbd>Cmd</kbd> +
-<kbd>Shift</kbd> + <kbd>M</kbd> if you have a Mac.
+Pipes in R look like `%>%` and are made available via the **`magrittr`**
+package, installed automatically with **`dplyr`**. If you use RStudio,
+you can type the pipe with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
+<kbd>M</kbd> if you have a PC or <kbd>Cmd</kbd> + <kbd>Shift</kbd> +
+<kbd>M</kbd> if you have a Mac.
 
 In the above code, we use the pipe to send the `rna` dataset first through
 `filter()` to keep rows where `sex` is Male, then through `select()`
@@ -863,19 +869,21 @@ The `dplyr` package provides a set of join functions for combining
 two data frames based on matches within specified columns.
 
 For further reading, please refer to the chapter about [table
-joins](https://r4ds.had.co.nz/relational-data.html#understanding-joins)
-in @r4ds:2017.
+joins](https://uclouvain-cbio.github.io/WSBIM1207/sec-join.html)
+from the WSBIM1207 course.
 
 The [Data Transformation Cheat
 Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
 also provides a short overview on table joins.
 
-We are going to illustrate join using a first table, `rna_mini`, which 
-is just a subset of the original `rna` table.
+We are going to illustrate join using a small table, `rna_mini` that we will
+create by subsetting the original `rna` table, keeping only 3 columns and 10 lines.
 
 ```{r}
-load(file = "data/rna_mini.rda")
-rna_mini
+rna_mini <- rna %>% 
+   select(gene, sample, expression) %>% 
+   head(10) 
+
 ```
 
 The second table, `annot1`, contains 2 columns, gene and gene_description. 
@@ -898,8 +906,8 @@ full_join(rna_mini, annot1)
 ```
 
 In real life, gene annotations are sometimes labelled differently.
-The `annot1` table is exactly the same than `annot2` except that gene names are 
-labelled differently.
+The `annot1` table is exactly the same than `annot2` except that the variable
+containing gene names is labelled differently.
 
 ```{r, message= FALSE}
 annot2 <- read_csv(file = "data/annot2.csv")
@@ -907,7 +915,7 @@ annot2
 ```
 
 In case none of the variable names match, we can set manually the variables to use for the matching. 
-These variables can be set using the `by` argument, as shown below with rna_mini and annot2 tables.
+These variables can be set using the `by` argument, as shown below with `rna_mini` and `annot2` tables.
 
 ```{r}
 full_join(rna_mini, annot2, by = c("gene" = "external_gene_name"))
