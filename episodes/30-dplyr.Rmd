@@ -964,7 +964,9 @@ in the joined one.
 
 > ## Challenge:
 >
-> Load the annot3 table.
+> Download the annot3 table by clicking 
+> [here](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot3.csv)
+> and put the table in your data/ repository.
 > Using the `full_join` function, join tables `rna_mini`
 > and `annot3`. What has happened for genes *Klk6*, *mt-Tf*, *mt-Rnr1*, *mt-Tv*,
 > *mt-Rnr2*, and *mt-Tl1* ?
