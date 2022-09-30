@@ -48,7 +48,6 @@ The figure below represents the anatomy of the SummarizedExperiment class.
 knitr::include_graphics("https://uclouvain-cbio.github.io/WSBIM1322/figs/SE.svg")
 ```
 
-
 Objects of the class SummarizedExperiment contain :
 
 - **One (or more) assay(s)** containing the quantitative omics data
@@ -65,24 +64,25 @@ Objects of the class SummarizedExperiment contain :
   expression data.
 
 The coordinated nature of the SummarizedExperiment guarantees that
-during data manipulation, the
-dimensions of the different slots will always match (i.e the columns
-in the expression data and then rows in the sample metadata, as well
-as the rows in the expression data and feature metadata) during data
-manipulation. For example, if we had to exclude one sample from the assay,
-it would be automatically removed from the sample metadata in the same operation.
+during data manipulation, the dimensions of the different slots will
+always match (i.e the columns in the expression data and then rows in
+the sample metadata, as well as the rows in the expression data and
+feature metadata) during data manipulation. For example, if we had to
+exclude one sample from the assay, it would be automatically removed
+from the sample metadata in the same operation.
 
 The metadata slots can grow additional co-variates
 (columns) without affecting the other structures.
 
 
-
 ### Creating a SummarizedExperiment
 
-In order to create a `SummarizedExperiment`, we will first create the individual 
-components (the count matrix, the sample and gene metadata). 
+In order to create a `SummarizedExperiment`, we will create the
+individual components, i.e the count matrix, the sample and gene
+metadata from csv files. These are typically how RNA-Seq data are
+provided (after raw data have been processed).
 
-```{r, echo = TRUE, message = FALSE}
+```{r, echo = FALSE, message = FALSE}
 rna <- read_csv("data/rnaseq.csv")
 
 ## count matrix
@@ -104,19 +104,28 @@ sample_metadata <- unique(sample_metadata)
 
 ## gene annotation
 gene_metadata <- rna %>%
-  select(gene, ENTREZID, product, ensembl_gene_id, external_synonym, 
-         chromosome_name, gene_biotype, phenotype_description, 
+  select(gene, ENTREZID, product, ensembl_gene_id, external_synonym,
+         chromosome_name, gene_biotype, phenotype_description,
          hsapiens_homolog_associated_gene_name)
 
 # remove redundancy
 gene_metadata <- unique(gene_metadata)
+
+## write to csv
+write.csv(count_matrix, file = "data/count_matrix.csv")
+write.csv(gene_metadata, file = "data/gene_metadata.csv", row.names = FALSE)
+write.csv(sample_metadata, file = "data/sample_metadata.csv", row.names = FALSE)
 ```
 
-To summarize, we now have:
-
-- **An expression matrix**
+- **An expression matrix**: we load the count matrix, specifying that
+  the first columns contains row/gene names, and convert the
+  `data.frame` to a `matrix`.
 
 ```{r}
+count_matrix <- read.csv("data/count_matrix.csv",
+                         row.names = 1) %>%
+    as.matrix()
+
 count_matrix[1:5, ]
 dim(count_matrix)
 ```
@@ -125,34 +134,40 @@ dim(count_matrix)
 - **A table describing the samples**
 
 ```{r}
+sample_metadata <- read.csv("data/sample_metadata.csv")
 sample_metadata
+dim(sample_metadata)
 ```
 
 - **A table describing the genes**
 
 ```{r}
-gene_metadata
+gene_metadata <- read.csv("data/gene_metadata.csv")
+gene_metadata[1:10, 1:4]
+dim(gene_metadata)
 ```
 
 We will create a `SummarizedExperiment` from these tables:
 
 - The count matrix that will be used as the **`assay`**
 
-- The table describing the samples will be used as the **sample metadata** slot
+- The table describing the samples will be used as the **sample
+  metadata** slot
 
-- The table describing the genes will be used as the **features metadata** slot
+- The table describing the genes will be used as the **features
+  metadata** slot
 
 To do this we can put the different parts together using the
 `SummarizedExperiment` constructor:
 
 ```{r, message = FALSE}
-#BiocManager::install("SummarizedExperiment")
+## BiocManager::install("SummarizedExperiment")
 library("SummarizedExperiment")
 ```
 
-First, we make sure that the samples are in the same order in the count 
-matrix and the sample annotation, and the same for the genes in the count matrix 
-and the gene annotation.
+First, we make sure that the samples are in the same order in the
+count matrix and the sample annotation, and the same for the genes in
+the count matrix and the gene annotation.
 
 ```{r}
 stopifnot(rownames(count_matrix) == gene_metadata$gene)
@@ -169,18 +184,18 @@ se
 
 ### Saving data
 
-Exporting data to a spreadsheet, as we did in a previous episode, 
-has several limitations, such as those
-described in the first chapter (possible inconsistencies with
-`,` and `.` for decimal separators and lack of variable type
-definitions). Furthermore, exporting data to a spreadsheet is only
-relevant for rectangular data such as dataframes and matrices.
+Exporting data to a spreadsheet, as we did in a previous episode, has
+several limitations, such as those described in the first chapter
+(possible inconsistencies with `,` and `.` for decimal separators and
+lack of variable type definitions). Furthermore, exporting data to a
+spreadsheet is only relevant for rectangular data such as dataframes
+and matrices.
 
 A more general way to save data, that is specific to R and is
 guaranteed to work on any operating system, is to use the `saveRDS`
-function. Saving objects like this will generate a binary representation
-on disk (using the `rds` file extension here), which can be loaded back into R 
-using the `readRDS` function.
+function. Saving objects like this will generate a binary
+representation on disk (using the `rds` file extension here), which
+can be loaded back into R using the `readRDS` function.
 
 ```{r, eval = FALSE}
 saveRDS(se, file = "data_output/se.rds")
@@ -190,9 +205,10 @@ head(se)
 ```
 
 To conclude, when it comes to saving data from R that will be loaded
-again in R, saving and loading with `saveRDS` and `readRDS` is the 
-preferred approach. If tabular data need to be shared with somebody that 
-is not using R, then exporting to a text-based spreadsheet is a good alternative.
+again in R, saving and loading with `saveRDS` and `readRDS` is the
+preferred approach. If tabular data need to be shared with somebody
+that is not using R, then exporting to a text-based spreadsheet is a
+good alternative.
 
 Using this data structure, we can access the expression matrix with
 the `assay` function:
@@ -216,14 +232,13 @@ head(rowData(se))
 dim(rowData(se))
 ```
 
-
 ### Subsetting a SummarizedExperiment
 
-SummarizedExperiment can be subset just like with data frames,
-with numerics or with characters of logicals.
+SummarizedExperiment can be subset just like with data frames, with
+numerics or with characters of logicals.
 
-Below, we create a new instance of class SummarizedExperiment that contains only
-the 5 first features for the 3 first samples.
+Below, we create a new instance of class SummarizedExperiment that
+contains only the 5 first features for the 3 first samples.
 
 ```{r}
 se1 <- se[1:5, 1:3]
@@ -236,8 +251,10 @@ rowData(se1)
 ```
 
 
-We can also use the `colData()` function to subset on something from the sample metadata or the `rowData()` to subset on something from the feature metadata.
-For example, here we keep only miRNAs and the non infected samples:
+We can also use the `colData()` function to subset on something from
+the sample metadata or the `rowData()` to subset on something from the
+feature metadata.  For example, here we keep only miRNAs and the non
+infected samples:
 
 ```{r}
 se1 <- se[rowData(se)$gene_biotype == "miRNA",
@@ -249,22 +266,20 @@ rowData(se1)
 ```
 
 
-
-
 <!--For the following exercise, you should download the SE.rda object
-(that contains the `se` object), and open the file using the
-'load()' function.-->
+(that contains the `se` object), and open the file using the 'load()'
+function.-->
 
-```{r, eval = FALSE, echo = FALSE}
-download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/bioinfo-training-01-intro-r/master/data/SE.rda",
-              destfile = "data/SE.rda")
-
-load("data/SE.rda")
-```
+<!-- ```{r, eval = FALSE, echo = FALSE} -->
+<!-- download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/bioinfo-training-01-intro-r/master/data/SE.rda", -->
+<!--               destfile = "data/SE.rda") -->
+<!-- load("data/SE.rda") -->
+<!-- ``` -->
 
 > ## Challenge
 >
-> Extract the gene expression levels of the 3 first genes in samples at time 0 and at time 8.
+> Extract the gene expression levels of the 3 first genes in samples
+> at time 0 and at time 8.
 >
 > > ## Solution
 > >
@@ -278,6 +293,25 @@ load("data/SE.rda")
 > {: .solution}
 {: .challenge}
 
+> ## Challenge
+>
+> Verify that you get the same values using the long `rna` table.
+>
+> > ## Solution
+> >
+> >
+> > ```{r, purl=FALSE}
+> > rna |>
+> >     filter(gene %in% c("Asl", "Apod", "Cyd2d22")) |>
+> >     filter(time != 4) |> select(expression)
+> > ```
+> >
+> > The long table and the `SummarizedExperiment` contain the same
+> > information, but structured differently.
+> >
+> {: .solution}
+{: .challenge}
+
 #### Adding variables to metadata
 
 We can also add information to the metadata.
@@ -288,13 +322,15 @@ colData(se)$center <- rep("University of Illinois", nrow(colData(se)))
 colData(se)
 ```
 
-This illustrates that the metadata slots can grow indefinitely without affecting
-the other structures!
+This illustrates that the metadata slots can grow indefinitely without
+affecting the other structures!
 
 
 ### tidySummarizedExperiment
 
-You may be wondering, can we use tidyverse commands to interact with SummarizedExperiment objects. The answer is yes, we can with the tidySummarizedExperiment package.
+You may be wondering, can we use tidyverse commands to interact with
+`SummarizedExperiment` objects. The answer is yes, we can with the
+`tidySummarizedExperiment` package.
 
 Remember what our SummarizedExperiment object looks like.
 
@@ -302,7 +338,8 @@ Remember what our SummarizedExperiment object looks like.
 se
 ```
 
-Load tidySummarizedExperiment and then take a look at the se object again.
+Load `tidySummarizedExperiment` and then take a look at the se object
+again.
 
 ```{r, message = FALSE}
 #BiocManager::install("tidySummarizedExperiment")
@@ -311,9 +348,15 @@ library("tidySummarizedExperiment")
 se
 ```
 
-It's still a SummarizedExperiment object, so maintains the efficient structure, but now we can view it as a tibble. Note the first line of the output says this, it's a SummarizedExperiment-tibble abstraction. We can also see in the second line of the output the number of transcripts and samples. 
+It's still a `SummarizedExperiment` object, so maintains the efficient
+structure, but now we can view it as a tibble. Note the first line of
+the output says this, it's a `SummarizedExperiment`-`tibble`
+abstraction. We can also see in the second line of the output the
+number of transcripts and samples.
 
-If we want to revert to the standard SummarizedExperiment view we can do that.
+If we want to revert to the standard `SummarizedExperiment` view we
+can do that.
+
 ```{r}
 options("restore_SummarizedExperiment_show" = TRUE)
 se
@@ -326,9 +369,11 @@ options("restore_SummarizedExperiment_show" = FALSE)
 se
 ```
 
-We can now use tidyverse commands to interact with the SummarizedExperiment object.
+We can now use tidyverse commands to interact with the
+SummarizedExperiment object.
 
-We can use `filter` to filter for rows using a condition e.g. to view all rows for one sample.
+We can use `filter` to filter for rows using a condition e.g. to view
+all rows for one sample.
 
 ```{r}
 se %>% filter(.sample == "GSM2545336")
@@ -346,15 +391,18 @@ We can use `mutate` to add metadata info.
 se %>% mutate(center = "Heidelberg University")
 ```
 
-We can also combine commands with the tidyverse pipe `%>%`. For example, we could combine `group_by` and `summarise` to get the total counts for each sample.
+We can also combine commands with the tidyverse pipe `%>%`. For
+example, we could combine `group_by` and `summarise` to get the total
+counts for each sample.
 
 ```{r}
 se %>%
-    group_by(.sample) %>%
+    Group_By(.sample) %>%
     summarise(total_counts=sum(counts))
 ```
 
-We can treat the tidy SummarizedExperiment object as a normal tibble for plotting.
+We can treat the tidy SummarizedExperiment object as a normal tibble
+for plotting.
 
 Here we plot the distribution of counts per sample.
 
@@ -366,16 +414,19 @@ se %>%
     theme_bw()
 ```
 
-For more information on tidySummarizedExperiment, see the package website [here](https://stemangiola.github.io/tidySummarizedExperiment/).
+For more information on tidySummarizedExperiment, see the package
+website
+[here](https://stemangiola.github.io/tidySummarizedExperiment/).
 
 
 **Take-home message**
 
-
-- `SummarizedExperiment` represents an efficient way to store and handle omics data.
+- `SummarizedExperiment` represents an efficient way to store and
+  handle omics data.
 
 - They are used in many Bioconductor packages.
 
-If you follow the next training focused on RNA sequencing analysis, you will learn to
-use the Bioconductor `DESeq2` package to do some differential expression analyses.
-The whole analysis of the `DESeq2` package is handled in a `SummarizedExperiment`.
+If you follow the next training focused on RNA sequencing analysis,
+you will learn to use the Bioconductor `DESeq2` package to do some
+differential expression analyses.  The whole analysis of the `DESeq2`
+package is handled in a `SummarizedExperiment`.
