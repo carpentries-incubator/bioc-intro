@@ -163,7 +163,7 @@ rna_plot + geom_histogram()
 > > ggplot(rna, aes(x = expression)) +
 > >     geom_histogram(binwidth = 2000)
 > > ```
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 We can observe here that the data are skewed to the right. We can apply
@@ -205,7 +205,7 @@ From now on we will work on the log-transformed expression values.
 > >   geom_histogram() +
 > >   scale_x_log10()
 > > ```
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 **Notes**
@@ -372,7 +372,7 @@ library("hexbin")
 > > ggplot(data = rna, mapping = aes(y = expression_log, x = sample)) +
 > >     geom_point(aes(color = time))
 > > ```
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 ## Boxplot
@@ -975,7 +975,7 @@ in the saved plot.
 data* and *tidy tools* pipeline. There are other visualization packages
 in R that shouldn't be ignored.
 
-### Base graphics {-}
+### Base graphics
 
 The default graphics system that comes with R, often called *base R
 graphics* is simple and fast. It is based on the *painter's or canvas
@@ -1020,7 +1020,7 @@ single line of code and a single function such as `plot`, or `hist`, or
 and tuning of figures, especially when they become more complex (for
 example to produce facets), can become lengthy and cumbersome.
 
-### The lattice package {-}
+### The lattice package
 
 The **`lattice`** package is similar to `ggplot2` in that is uses
 dataframes as input, returns graphical objects and supports faceting.
