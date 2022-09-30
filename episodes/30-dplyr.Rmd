@@ -897,13 +897,9 @@ In many real life situations, data are spread across multiple tables.
 Usually this occurs because different types of information are
 collected from different sources.
 
-<<<<<<< HEAD
+
 It may be desirable for some analyses to combine data from two or more 
 tables into a single data frame based on a column that would be common 
-=======
-It may be desirable for some analyses to combine data from two or more
-tables into a single data frame based on acolumn that would be common
->>>>>>> 95f7023beca39188d3c0c6de00a0f6403ddb895a
 to all the tables.
 
 The `dplyr` package provides a set of join functions for combining two
@@ -946,14 +942,9 @@ full_join(rna_mini, annot1)
 ```
 
 In real life, gene annotations are sometimes labelled differently.
-<<<<<<< HEAD
+
 The `annot2` table is exactly the same than `annot1` except that the variable
 containing gene names is labelled differently.
-=======
-The `annot1` table is exactly the same than `annot2` except that the
-variable containing gene names is labelled differently.
-
->>>>>>> 95f7023beca39188d3c0c6de00a0f6403ddb895a
 
 ```{r, message= FALSE}
 annot2 <- read_csv(file = "data/annot2.csv")
