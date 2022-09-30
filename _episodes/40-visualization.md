@@ -188,7 +188,7 @@ rna_plot + geom_histogram()
 > > {: .language-r}
 > > 
 > > <img src="../fig/rmd-unnamed-chunk-5-2.png" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 We can observe here that the data are skewed to the right. We can apply
@@ -268,7 +268,7 @@ From now on we will work on the log-transformed expression values.
 > > {: .warning}
 > > 
 > > <img src="../fig/rmd-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 **Notes**
@@ -480,7 +480,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 > > {: .language-r}
 > > 
 > > <img src="../fig/rmd-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
-> {: .solution} 
+> {: .solution}
 {: .challenge}
 
 ## Boxplot
@@ -1262,7 +1262,7 @@ in the saved plot.
 data* and *tidy tools* pipeline. There are other visualization packages
 in R that shouldn't be ignored.
 
-### Base graphics {-}
+### Base graphics
 
 The default graphics system that comes with R, often called *base R
 graphics* is simple and fast. It is based on the *painter's or canvas
@@ -1315,7 +1315,7 @@ single line of code and a single function such as `plot`, or `hist`, or
 and tuning of figures, especially when they become more complex (for
 example to produce facets), can become lengthy and cumbersome.
 
-### The lattice package {-}
+### The lattice package
 
 The **`lattice`** package is similar to `ggplot2` in that is uses
 dataframes as input, returns graphical objects and supports faceting.

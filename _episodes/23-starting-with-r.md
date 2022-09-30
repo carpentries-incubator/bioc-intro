@@ -78,7 +78,7 @@ keystroke in a PC, while typing <kbd>Option</kbd> + <kbd>-</kbd> (push
 <kbd>Option</kbd> at the same time as the <kbd>-</kbd> key) does the
 same in a Mac.
 
-### Naming variables {-}
+### Naming variables
 
 Objects can be given any name such as `x`, `current_temperature`, or
 `subject_id`. You want your object names to be explicit and not too
@@ -362,14 +362,14 @@ It's good practice to put the non-optional arguments (like the number you're
 rounding) first in your function call, and to specify the names of all optional
 arguments.  If you don't, someone reading your code might have to look up the
 definition of a function with unfamiliar arguments to understand what you're
-doing. By specifying the name of the arguments you are also safeguarding 
-against possible future changes in the function interface, which may 
-potentially add new arguments in between the existing ones. 
+doing. By specifying the name of the arguments you are also safeguarding
+against possible future changes in the function interface, which may
+potentially add new arguments in between the existing ones.
 
 ## Vectors and data types
 
 A vector is the most common and basic data type in R, and is pretty much
-the workhorse of R. A vector is composed by a series of values, such as 
+the workhorse of R. A vector is composed by a series of values, such as
 numbers or characters. We can assign a series of values to a vector using
 the `c()` function. For example we can create a vector of animal weights and assign
 it to a new object `weight_g`:
@@ -1217,7 +1217,7 @@ heights[complete.cases(heights)]
 
 
 
-### Constructors {-}
+### Constructors
 
 There exists some functions to generate vectors of different type. To
 generate a vector of numerics, one can use the `numeric()`

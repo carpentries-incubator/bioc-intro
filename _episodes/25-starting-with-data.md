@@ -507,7 +507,7 @@ plot(sex)
 <img src="../fig/rmd-firstfactorplot-1.png" alt="Bar plot of the number of females and males." width="612" style="display: block; margin: auto;" />
 
 
-### Converting to character {-}
+### Converting to character
 
 If you need to convert a factor to a character vector, you use
 `as.character(x)`.
@@ -525,7 +525,7 @@ as.character(sex)
 ~~~
 {: .output}
 
-<!-- ### Numeric factors {-} -->
+<!-- ### Numeric factors -->
 
 <!-- Converting factors where the levels appear as numbers (such as -->
 <!-- concentration levels, or years) to a numeric vector is a little -->
@@ -549,7 +549,7 @@ as.character(sex)
 <!-- * We then access these numeric values using the underlying integers of the -->
 <!--   vector `year_fct` inside the square brackets -->
 
-### Renaming factors {-}
+### Renaming factors
 
 If we want to rename these factor, it is sufficient to change its
 levels:
@@ -828,7 +828,7 @@ One of the most common issues that new (and experienced!) R users have
 is converting date and time information into a variable that is
 appropriate and usable during analyses.
 
-### Note on dates in spreadsheet programs {-}
+### Note on dates in spreadsheet programs
 
 Dates in spreadsheets are generally stored in a single column. While
 this seems the most natural way to record dates, it actually is not
@@ -1172,5 +1172,3 @@ the fields in the `data.frame` (see for example the "product" column), R will
 by default surround each field with quotes, and thus we will be able to
 read it back into R correctly, despite also using commas as column
 separators.
-
-
