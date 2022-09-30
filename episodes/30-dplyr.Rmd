@@ -138,24 +138,30 @@ filter(rna, sex == "Male" & infection == "NonInfected")
 
 Now let's imagine we are interested in the human homologs of the mouse
 genes analysed in this dataset. This information can be found in the
-last column of the `rna` tibble, named `hsapiens_homolog_associated_gene_name`.
-To visualise it easily, we will create a new table containing just the 2 columns 
-`gene` and `hsapiens_homolog_associated_gene_name`. 
+last column of the `rna` tibble, named
+`hsapiens_homolog_associated_gene_name`.  To visualise it easily, we
+will create a new table containing just the 2 columns `gene` and
+`hsapiens_homolog_associated_gene_name`.
+
 
 ```{r}
 genes <- select(rna, gene, hsapiens_homolog_associated_gene_name)
 genes
 ```
-Some mouse gene have no human homologs. These can be retrieved using a `filter()`
-and the `is.na()` function in the chain, that determines whether something is an `NA`.
+
+Some mouse gene have no human homologs. These can be retrieved using a
+`filter()` and the `is.na()` function, that determines whether
+something is an `NA`.
 
 ```{r, purl = FALSE}
 filter(genes, is.na(hsapiens_homolog_associated_gene_name))
 ```
 
-If we want to keep only mouse gene that have a human homolog, we can insert a "!"
-symbol that negates the result, so we're asking for every row where
-hsapiens_homolog_associated_gene_name *is not* an `NA`.
+If we want to keep only mouse gene that have a human homolog, we can
+insert a "!"  symbol that negates the result, so we're asking for
+every row where hsapiens_homolog_associated_gene_name *is not* an
+`NA`.
+
 
 ```{r, purl = FALSE}
 filter(genes, !is.na(hsapiens_homolog_associated_gene_name))
@@ -175,10 +181,12 @@ rna3 <- select(rna2, gene, sample, tissue, expression)
 rna3
 ```
 
-This is readable, but can clutter up your workspace with lots of intermediate objects
-that you have to name individually. With multiple steps, that can be hard to keep track of.
+This is readable, but can clutter up your workspace with lots of
+intermediate objects that you have to name individually. With multiple
+steps, that can be hard to keep track of.
 
-You can also nest functions (i.e. one function inside of another), like this:
+You can also nest functions (i.e. one function inside of another),
+like this:
 
 ```{r, purl = FALSE}
 rna3 <- select(filter(rna, sex == "Male"), gene, sample, tissue, expression)
@@ -192,19 +200,21 @@ The last option, *pipes*, are a recent addition to R. Pipes let you take
 the output of one function and send it directly to the next, which is useful
 when you need to do many things to the same dataset.
 
-Pipes in R look like `%>%` and are made available via the **`magrittr`**
-package, installed automatically with **`dplyr`**. If you use RStudio,
-you can type the pipe with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
-<kbd>M</kbd> if you have a PC or <kbd>Cmd</kbd> + <kbd>Shift</kbd> +
-<kbd>M</kbd> if you have a Mac.
+Pipes in R look like `%>%` (made available via the **`magrittr`**
+package) or `|>` (through base R). If you use RStudio, you can type
+the pipe with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you
+have a PC or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you
+have a Mac.
 
-In the above code, we use the pipe to send the `rna` dataset first through
-`filter()` to keep rows where `sex` is Male, then through `select()`
-to keep only the `gene`, `sample`, `tissue`, and `expression`columns.
+In the above code, we use the pipe to send the `rna` dataset first
+through `filter()` to keep rows where `sex` is Male, then through
+`select()` to keep only the `gene`, `sample`, `tissue`, and
+`expression`columns.
 
-The pipe `%>%` takes the object on its left and passes it directly as the first
-argument to the function on its right, we don't need to explicitly include the data frame
-as an argument to the `filter()` and `select()` functions any more.
+The pipe `%>%` takes the object on its left and passes it directly as
+the first argument to the function on its right, we don't need to
+explicitly include the data frame as an argument to the `filter()` and
+`select()` functions any more.
 
 ```{r, purl = FALSE}
 rna %>%
@@ -218,8 +228,8 @@ in the above example, we took the data frame `rna`, *then* we `filter`ed
 for rows with `sex == "Male"`, *then* we `select`ed columns `gene`, `sample`,
 `tissue`, and `expression`.
 
-The **`dplyr`** functions by themselves are somewhat
-simple, but by combining them into linear workflows with the pipe, we can accomplish
+The **`dplyr`** functions by themselves are somewhat simple, but by
+combining them into linear workflows with the pipe, we can accomplish
 more complex manipulations of data frames.
 
 If we want to create a new object with this smaller version of the data, we
@@ -573,7 +583,10 @@ rna_exp
 3. the `values_from`: the column whose values will fill the new
    columns.
 
-![](./fig/pivot_wider.png)
+```{r, fig.cap = "Wide pivot of the `rna` data.", echo = FALSE, message = FALSE}
+knitr::include_graphics("../fig/pivot_wider.png")
+```
+
 
 ```{r, purl = FALSE}
 rna_wide <- rna_exp %>%
@@ -636,7 +649,10 @@ associated with the column names.
 4. the names of the columns to be used to populate the `names_to` and
    `values_to` variables (or to drop).
 
-![](./fig/pivot_longer.png)
+
+```{r, fig.cap = "Long pivot of the `rna` data.", echo = FALSE, message = FALSE}
+knitr::include_graphics("../fig/pivot_longer.png")
+```
 
 To recreate `rna_long` from `rna_long` we would create a key
 called `sample` and value called `expression` and use all columns
@@ -725,37 +741,38 @@ so every replicate has the same composition.
 > rows, and the mean expression of genes located in each chromosome as the values,
 > as in the following tibble:
 >
-> ![](./fig/Exercise_pivot_W.png)
->
+> ```{r, echo = FALSE, message = FALSE}
+> knitr::include_graphics("../fig/Exercise_pivot_W.png")
+> ```
 > You will need to summarize before reshaping!
 >
-> Let's first calculate the mean expression level of X and Y linked genes from
-> male and female samples...
->
-> ```{r}
->  rna %>%
->   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
->   group_by(sex, chromosome_name) %>%
->   summarize(mean = mean(expression))
-> ```
->
-> And pivot the table to wide format
->
-> ```{r, answer=TRUE, purl=FALSE}
-> rna_1 <- rna %>%
->   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
->   group_by(sex, chromosome_name) %>%
->   summarize(mean = mean(expression)) %>%
->   pivot_wider(names_from = sex,
->               values_from = mean)
->
-> rna_1
-> ```
->
-> Now take that data frame and transform it with `pivot_longer()` so
-> each row is a unique `chromosome_name` by `gender` combination.
->
 > > ## Solution
+> >
+> > Let's first calculate the mean expression level of X and Y linked genes from
+> > male and female samples...
+> >
+> > ```{r}
+> >  rna %>%
+> >   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
+> >   group_by(sex, chromosome_name) %>%
+> >   summarize(mean = mean(expression))
+> > ```
+> >
+> > And pivot the table to wide format
+> >
+> > ```{r, answer=TRUE, purl=FALSE}
+> > rna_1 <- rna %>%
+> >   filter(chromosome_name == "Y" | chromosome_name == "X") %>%
+> >   group_by(sex, chromosome_name) %>%
+> >   summarize(mean = mean(expression)) %>%
+> >   pivot_wider(names_from = sex,
+> >               values_from = mean)
+> >
+> > rna_1
+> > ```
+> >
+> > Now take that data frame and transform it with `pivot_longer()` so
+> > each row is a unique `chromosome_name` by `gender` combination.
 > >
 > > ```{r, answer=TRUE, purl=FALSE}
 > > rna_1 %>%
@@ -771,10 +788,11 @@ so every replicate has the same composition.
 
 > ## Question
 >
-> Use the `rna` dataset to create an expression matrix were each row represents
-> the mean expression levels of genes and columns represent the different timepoints.
+> Use the `rna` dataset to create an expression matrix were each row
+> represents the mean expression levels of genes and columns represent
+> the different timepoints.
 >
-> > # Solution
+> > ## Solution
 > >
 > > Let's first calculate the mean expression by gene and by time
 > > ```{r}
@@ -846,7 +864,7 @@ so every replicate has the same composition.
 >
 > > ## Solution
 > >
-> > starting from the rna_time tibble:
+> > Starting from the rna_time tibble:
 > > ```{r}
 > > rna_time
 > > ```
@@ -873,32 +891,33 @@ so every replicate has the same composition.
 
 
 
-
-
-
 ## Joining tables
 
 In many real life situations, data are spread across multiple tables.
-Usually this occurs because different types of information are collected 
-from different sources. 
+Usually this occurs because different types of information are
+collected from different sources.
 
+<<<<<<< HEAD
 It may be desirable for some analyses to combine data from two or more 
 tables into a single data frame based on a column that would be common 
+=======
+It may be desirable for some analyses to combine data from two or more
+tables into a single data frame based on acolumn that would be common
+>>>>>>> 95f7023beca39188d3c0c6de00a0f6403ddb895a
 to all the tables.
 
-The `dplyr` package provides a set of join functions for combining 
-two data frames based on matches within specified columns.
-
-For further reading, please refer to the chapter about [table
-joins](https://uclouvain-cbio.github.io/WSBIM1207/sec-join.html)
-from the WSBIM1207 course.
-
-The [Data Transformation Cheat
+The `dplyr` package provides a set of join functions for combining two
+data frames based on matches within specified columns. Here, we
+provide a short introduction to joins. For further reading, please
+refer to the chapter about [table
+joins](https://uclouvain-cbio.github.io/WSBIM1207/sec-join.html). The
+[Data Transformation Cheat
 Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
 also provides a short overview on table joins.
 
-We are going to illustrate join using a small table, `rna_mini` that we will
-create by subsetting the original `rna` table, keeping only 3 columns and 10 lines.
+We are going to illustrate join using a small table, `rna_mini` that
+we will create by subsetting the original `rna` table, keeping only 3
+columns and 10 lines.
 
 ```{r}
 rna_mini <- rna %>% 
@@ -907,48 +926,56 @@ rna_mini <- rna %>%
 rna_mini
 ```
 
-The second table, `annot1`, contains 2 columns, gene and gene_description. 
+The second table, `annot1`, contains 2 columns, gene and gene_description.
 
 ```{r, message= FALSE}
 annot1 <- read_csv(file = "data/annot1.csv")
 annot1
 ```
 
-We now want to join these two tables into a single one containing all variables.
+We now want to join these two tables into a single one containing all
+variables using the `full_join` function from the `dplyr` package. The
+function will automatically find the common variable to match columns
+from the first and second table.  In this case, `gene` is the common
+variable. Such variables are called keys.  Keys are used to match
+observations across different tables.
 
-We are going to use the `full_join` function of dplyr to do so.
-
-The function will automatically find the common variable to match columns from the first and second table. 
-In this case, `gene` is the common variable. Such variables are called keys. 
-Keys are used to match observations across different tables.
 
 ```{r}
 full_join(rna_mini, annot1)
 ```
 
 In real life, gene annotations are sometimes labelled differently.
+<<<<<<< HEAD
 The `annot2` table is exactly the same than `annot1` except that the variable
 containing gene names is labelled differently.
+=======
+The `annot1` table is exactly the same than `annot2` except that the
+variable containing gene names is labelled differently.
+
+>>>>>>> 95f7023beca39188d3c0c6de00a0f6403ddb895a
 
 ```{r, message= FALSE}
 annot2 <- read_csv(file = "data/annot2.csv")
 annot2
 ```
 
-In case none of the variable names match, we can set manually the variables to use for the matching. 
-These variables can be set using the `by` argument, as shown below with `rna_mini` and `annot2` tables.
+In case none of the variable names match, we can set manually the
+variables to use for the matching.  These variables can be set using
+the `by` argument, as shown below with `rna_mini` and `annot2` tables.
 
 ```{r}
 full_join(rna_mini, annot2, by = c("gene" = "external_gene_name"))
 ```
 
-As can be seen above, the variable name of the first table is retained in the joined one.
+As can be seen above, the variable name of the first table is retained
+in the joined one.
 
 > ## Challenge:
 >
 > Load the annot3 table.
 > Using the `full_join` function, join tables `rna_mini`
-> and `annot3`. What has happened for genes *Klk6*, *mt-Tf*, *mt-Rnr1*, *mt-Tv*, 
+> and `annot3`. What has happened for genes *Klk6*, *mt-Tf*, *mt-Rnr1*, *mt-Tv*,
 > *mt-Rnr2*, and *mt-Tl1* ?
 >
 > > ## Solution
@@ -958,9 +985,9 @@ As can be seen above, the variable name of the first table is retained in the jo
 > > full_join(rna_mini, annot3)
 > > ```
 > >
-> > 
-> > Genes *Klk6* is only present in `rna_mini`, while genes *mt-Tf*, *mt-Rnr1*, *mt-Tv*, 
-> > *mt-Rnr2*, and *mt-Tl1* are only present in `annot3` table.Their respective values for the 
+> >
+> > Genes *Klk6* is only present in `rna_mini`, while genes *mt-Tf*, *mt-Rnr1*, *mt-Tv*,
+> > *mt-Rnr2*, and *mt-Tl1* are only present in `annot3` table.Their respective values for the
 > > variables of the table have been encoded as missing.
 > >
 > {: .solution}
