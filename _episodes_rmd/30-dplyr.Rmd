@@ -922,7 +922,9 @@ rna_mini <- rna %>%
 rna_mini
 ```
 
-The second table, `annot1`, contains 2 columns, gene and gene_description.
+The second table,
+[`annot1`](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot1.csv),
+contains 2 columns, gene and gene_description.
 
 ```{r, message= FALSE}
 annot1 <- read_csv(file = "data/annot1.csv")
@@ -943,7 +945,8 @@ full_join(rna_mini, annot1)
 
 In real life, gene annotations are sometimes labelled differently.
 
-The `annot2` table is exactly the same than `annot1` except that the variable
+The [`annot2`](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot2.csv) 
+table is exactly the same than `annot1` except that the variable
 containing gene names is labelled differently.
 
 ```{r, message= FALSE}
