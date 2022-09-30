@@ -641,10 +641,10 @@ rna %>%
 >
 > Create a new data frame from the `rna` data that meets the following
 > criteria: contains only the `gene`, `chromosome_name`,
-> `phenotype_description`, `sample`, and `expression` columns and a
-> new column giving the log expression of the genes.  This data frame must
-> only contain genes located on autosomes and associated with a
-> phenotype_description.
+> `phenotype_description`, `sample`, and `expression` columns. The expression 
+> values should be log-transformed. This data frame must
+> only contain genes located on sex chromosome, associated with a
+> phenotype_description, and with a log expression higher than 5.
 >
 > **Hint**: think about how the commands should be ordered to produce
 > this data frame!
@@ -655,31 +655,31 @@ rna %>%
 > > 
 > > ~~~
 > > rna %>%
-> >   filter(chromosome_name != "X", chromosome_name != "Y") %>%
-> >   mutate(log_expression = log(expression)) %>%
-> >   select(gene, chromosome_name, phenotype_description, sample, expression, log_expression) %>%
-> >   filter(!is.na(phenotype_description))
+> >   mutate(expression = log(expression)) %>%
+> >   select(gene, chromosome_name, phenotype_description, sample, expression) %>%
+> >   filter(chromosome_name == "X" | chromosome_name == "Y") %>%
+> >   filter(!is.na(phenotype_description)) %>%
+> >   filter(expression > 5)
 > > ~~~
 > > {: .language-r}
 > > 
 > > 
 > > 
 > > ~~~
-> > # A tibble: 21,054 × 6
-> >    gene    chromosome_name phenotype_description          sample expre…¹ log_e…²
-> >    <chr>   <chr>           <chr>                          <chr>    <dbl>   <dbl>
-> >  1 Asl     5               abnormal circulating amino ac… GSM25…    1170    7.06
-> >  2 Apod    16              abnormal lipid homeostasis     GSM25…   36194   10.5 
-> >  3 Cyp2d22 15              abnormal skin morphology       GSM25…    4060    8.31
-> >  4 Klk6    7               abnormal cytokine level        GSM25…     287    5.66
-> >  5 Fcrls   3               decreased CD8-positive alpha-… GSM25…      85    4.44
-> >  6 Slc2a4  11              abnormal circulating glucose … GSM25…     782    6.66
-> >  7 Gjc2    11              Purkinje cell degeneration     GSM25…     288    5.66
-> >  8 Gnb4    3               decreased anxiety-related res… GSM25…    1071    6.98
-> >  9 Tnc     4               abnormal CNS synaptic transmi… GSM25…     219    5.39
-> > 10 Trf     9               abnormal circulating phosphat… GSM25…    9719    9.18
-> > # … with 21,044 more rows, and abbreviated variable names ¹​expression,
-> > #   ²​log_expression
+> > # A tibble: 649 × 5
+> >    gene   chromosome_name phenotype_description                   sample expre…¹
+> >    <chr>  <chr>           <chr>                                   <chr>    <dbl>
+> >  1 Plp1   X               abnormal CNS glial cell morphology      GSM25…   10.7 
+> >  2 Slc7a3 X               decreased body length                   GSM25…    5.46
+> >  3 Plxnb3 X               abnormal coat appearance                GSM25…    6.58
+> >  4 Rbm3   X               abnormal liver morphology               GSM25…    9.32
+> >  5 Cfp    X               abnormal cardiovascular system physiol… GSM25…    6.18
+> >  6 Ebp    X               abnormal embryonic erythrocyte morphol… GSM25…    6.68
+> >  7 Cd99l2 X               abnormal cellular extravasation         GSM25…    8.04
+> >  8 Piga   X               abnormal brain development              GSM25…    6.06
+> >  9 Pim2   X               decreased T cell proliferation          GSM25…    7.11
+> > 10 Itm2a  X               no abnormal phenotype detected          GSM25…    7.48
+> > # … with 639 more rows, and abbreviated variable name ¹​expression
 > > ~~~
 > > {: .output}
 > >
@@ -768,7 +768,7 @@ rna %>%
 Here our initial `tibble` of 32428 observations is split into
 22 groups based on the `sample` variable.
 
-Once the data have been combined, subsequent operations will be
+Once the data has been grouped, subsequent operations will be
 applied on each group independently.
 
 
@@ -1727,6 +1727,75 @@ wide_with_NA %>%
 Pivoting to wider and longer formats can be a useful way to balance out a dataset
 so every replicate has the same composition.
 
+> ## Question
+>
+> Starting from the rna table, use the `pivot_wider()` function to create 
+> a wide-format table giving the gene expression levels in each mouse.
+> Then use the `pivot_longer()` function to restore a long-format table.
+>
+> > # Solution
+> >
+> > 
+> > ~~~
+> > rna1 <- rna %>% 
+> > select(gene, mouse, expression) %>% 
+> > pivot_wider(names_from = mouse, values_from = expression)
+> > rna1
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > # A tibble: 1,474 × 23
+> >    gene     `14`    `9`  `10`  `15`  `18`   `6`   `5`  `11`  `22`  `13`  `23`
+> >    <chr>   <dbl>  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+> >  1 Asl      1170    361   400   586   626   988   836   535   586   597   938
+> >  2 Apod    36194  10347  9173 10620 13021 29594 24959 13668 13230 15868 27769
+> >  3 Cyp2d22  4060   1616  1603  1901  2171  3349  3122  2008  2254  2277  2985
+> >  4 Klk6      287    629   641   578   448   195   186  1101   537   567   327
+> >  5 Fcrls      85    233   244   237   180    38    68   375   199   177    89
+> >  6 Slc2a4    782    231   248   265   313   786   528   249   266   357   654
+> >  7 Exd2     1619   2288  2235  2513  2366  1359  1474  3126  2379  2173  1531
+> >  8 Gjc2      288    595   568   551   310   146   186   791   454   370   240
+> >  9 Plp1    43217 101241 96534 58354 53126 27173 28728 98658 61356 61647 38019
+> > 10 Gnb4     1071   1791  1867  1430  1355   798   806  2437  1394  1554   960
+> > # … with 1,464 more rows, and 11 more variables: `24` <dbl>, `8` <dbl>,
+> > #   `7` <dbl>, `1` <dbl>, `16` <dbl>, `21` <dbl>, `4` <dbl>, `2` <dbl>,
+> > #   `20` <dbl>, `12` <dbl>, `19` <dbl>
+> > ~~~
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
+> > rna1 %>% 
+> > pivot_longer(names_to = "mouse_id", values_to = "counts", -gene)
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > # A tibble: 32,428 × 3
+> >    gene  mouse_id counts
+> >    <chr> <chr>     <dbl>
+> >  1 Asl   14         1170
+> >  2 Asl   9           361
+> >  3 Asl   10          400
+> >  4 Asl   15          586
+> >  5 Asl   18          626
+> >  6 Asl   6           988
+> >  7 Asl   5           836
+> >  8 Asl   11          535
+> >  9 Asl   22          586
+> > 10 Asl   13          597
+> > # … with 32,418 more rows
+> > ~~~
+> > {: .output}
+> >
+> {: .solution}
+{: .challenge}
 
 
 > ## Question
@@ -1736,7 +1805,7 @@ so every replicate has the same composition.
 > rows, and the mean expression of genes located in each chromosome as the values,
 > as in the following tibble:
 >
-> <img src="../fig/Exercise_pivot_W.png" alt="plot of chunk unnamed-chunk-46" style="display: block; margin: auto;" />
+> <img src="../fig/Exercise_pivot_W.png" alt="plot of chunk unnamed-chunk-47" style="display: block; margin: auto;" />
 > You will need to summarize before reshaping!
 >
 > > ## Solution
@@ -1939,7 +2008,7 @@ so every replicate has the same composition.
 > >
 > > Notice that this generates a tibble with some column names starting by a number.
 > > If we wanted to select the column corresponding to the timepoints,
-> > we could not use the column names directly... What happens when we select the colum 4?
+> > we could not use the column names directly... What happens when we select the column 4?
 > >
 > > 
 > > ~~~
@@ -2184,8 +2253,9 @@ In many real life situations, data are spread across multiple tables.
 Usually this occurs because different types of information are
 collected from different sources.
 
-It may be desirable for some analyses to combine data from two or more
-tables into a single data frame based on acolumn that would be common
+
+It may be desirable for some analyses to combine data from two or more 
+tables into a single data frame based on a column that would be common 
 to all the tables.
 
 The `dplyr` package provides a set of join functions for combining two
@@ -2203,13 +2273,35 @@ columns and 10 lines.
 
 
 ~~~
-rna_mini <- rna %>%
-   select(gene, sample, expression) %>%
-   head(10)
+rna_mini <- rna %>% 
+   select(gene, sample, expression) %>% 
+   head(10) 
+rna_mini
 ~~~
 {: .language-r}
 
-The second table, `annot1`, contains 2 columns, gene and gene_description.
+
+
+~~~
+# A tibble: 10 × 3
+   gene    sample     expression
+   <chr>   <chr>           <dbl>
+ 1 Asl     GSM2545336       1170
+ 2 Apod    GSM2545336      36194
+ 3 Cyp2d22 GSM2545336       4060
+ 4 Klk6    GSM2545336        287
+ 5 Fcrls   GSM2545336         85
+ 6 Slc2a4  GSM2545336        782
+ 7 Exd2    GSM2545336       1619
+ 8 Gjc2    GSM2545336        288
+ 9 Plp1    GSM2545336      43217
+10 Gnb4    GSM2545336       1071
+~~~
+{: .output}
+
+The second table,
+[`annot1`](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot1.csv),
+contains 2 columns, gene and gene_description.
 
 
 ~~~
@@ -2278,9 +2370,10 @@ Joining, by = "gene"
 {: .output}
 
 In real life, gene annotations are sometimes labelled differently.
-The `annot1` table is exactly the same than `annot2` except that the
-variable containing gene names is labelled differently.
 
+The [`annot2`](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot2.csv) 
+table is exactly the same than `annot1` except that the variable
+containing gene names is labelled differently.
 
 
 ~~~
@@ -2342,7 +2435,9 @@ in the joined one.
 
 > ## Challenge:
 >
-> Load the annot3 table.
+> Download the annot3 table by clicking 
+> [here](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot3.csv)
+> and put the table in your data/ repository.
 > Using the `full_join` function, join tables `rna_mini`
 > and `annot3`. What has happened for genes *Klk6*, *mt-Tf*, *mt-Rnr1*, *mt-Tv*,
 > *mt-Rnr2*, and *mt-Tl1* ?
