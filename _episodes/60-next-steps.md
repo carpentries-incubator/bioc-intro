@@ -44,7 +44,6 @@ The figure below represents the anatomy of the SummarizedExperiment class.
 
 <img src="https://uclouvain-cbio.github.io/WSBIM1322/figs/SE.svg" alt="plot of chunk SE" width="80%" style="display: block; margin: auto;" />
 
-
 Objects of the class SummarizedExperiment contain :
 
 - **One (or more) assay(s)** containing the quantitative omics data
@@ -61,61 +60,36 @@ Objects of the class SummarizedExperiment contain :
   expression data.
 
 The coordinated nature of the SummarizedExperiment guarantees that
-during data manipulation, the
-dimensions of the different slots will always match (i.e the columns
-in the expression data and then rows in the sample metadata, as well
-as the rows in the expression data and feature metadata) during data
-manipulation. For example, if we had to exclude one sample from the assay,
-it would be automatically removed from the sample metadata in the same operation.
+during data manipulation, the dimensions of the different slots will
+always match (i.e the columns in the expression data and then rows in
+the sample metadata, as well as the rows in the expression data and
+feature metadata) during data manipulation. For example, if we had to
+exclude one sample from the assay, it would be automatically removed
+from the sample metadata in the same operation.
 
 The metadata slots can grow additional co-variates
 (columns) without affecting the other structures.
 
 
-
 ### Creating a SummarizedExperiment
 
-In order to create a `SummarizedExperiment`, we will first create the individual 
-components (the count matrix, the sample and gene metadata). 
+In order to create a `SummarizedExperiment`, we will create the
+individual components, i.e the count matrix, the sample and gene
+metadata from csv files. These are typically how RNA-Seq data are
+provided (after raw data have been processed).
+
+
+
+- **An expression matrix**: we load the count matrix, specifying that
+  the first columns contains row/gene names, and convert the
+  `data.frame` to a `matrix`.
 
 
 ~~~
-rna <- read_csv("data/rnaseq.csv")
+count_matrix <- read.csv("data/count_matrix.csv",
+                         row.names = 1) %>%
+    as.matrix()
 
-## count matrix
-counts <- rna %>%
-  select(gene, sample, expression) %>%
-  pivot_wider(names_from = sample,
-              values_from = expression)
-
-## convert to matrix and set row names
-count_matrix <- counts %>% select(-gene) %>% as.matrix()
-rownames(count_matrix) <- counts$gene
-
-## sample annotation
-sample_metadata <- rna %>%
-  select(sample, organism, age, sex, infection, strain, time, tissue, mouse)
-
-## remove redundancy
-sample_metadata <- unique(sample_metadata)
-
-## gene annotation
-gene_metadata <- rna %>%
-  select(gene, ENTREZID, product, ensembl_gene_id, external_synonym, 
-         chromosome_name, gene_biotype, phenotype_description, 
-         hsapiens_homolog_associated_gene_name)
-
-# remove redundancy
-gene_metadata <- unique(gene_metadata)
-~~~
-{: .language-r}
-
-To summarize, we now have:
-
-- **An expression matrix**
-
-
-~~~
 count_matrix[1:5, ]
 ~~~
 {: .language-r}
@@ -169,6 +143,7 @@ dim(count_matrix)
 
 
 ~~~
+sample_metadata <- read.csv("data/sample_metadata.csv")
 sample_metadata
 ~~~
 {: .language-r}
@@ -176,20 +151,43 @@ sample_metadata
 
 
 ~~~
-# A tibble: 22 × 9
-   sample     organism       age sex    infection   strain   time tissue   mouse
-   <chr>      <chr>        <dbl> <chr>  <chr>       <chr>   <dbl> <chr>    <dbl>
- 1 GSM2545336 Mus musculus     8 Female InfluenzaA  C57BL/6     8 Cerebel…    14
- 2 GSM2545337 Mus musculus     8 Female NonInfected C57BL/6     0 Cerebel…     9
- 3 GSM2545338 Mus musculus     8 Female NonInfected C57BL/6     0 Cerebel…    10
- 4 GSM2545339 Mus musculus     8 Female InfluenzaA  C57BL/6     4 Cerebel…    15
- 5 GSM2545340 Mus musculus     8 Male   InfluenzaA  C57BL/6     4 Cerebel…    18
- 6 GSM2545341 Mus musculus     8 Male   InfluenzaA  C57BL/6     8 Cerebel…     6
- 7 GSM2545342 Mus musculus     8 Female InfluenzaA  C57BL/6     8 Cerebel…     5
- 8 GSM2545343 Mus musculus     8 Male   NonInfected C57BL/6     0 Cerebel…    11
- 9 GSM2545344 Mus musculus     8 Female InfluenzaA  C57BL/6     4 Cerebel…    22
-10 GSM2545345 Mus musculus     8 Male   InfluenzaA  C57BL/6     4 Cerebel…    13
-# … with 12 more rows
+       sample     organism age    sex   infection  strain time     tissue mouse
+1  GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
+2  GSM2545337 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum     9
+3  GSM2545338 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum    10
+4  GSM2545339 Mus musculus   8 Female  InfluenzaA C57BL/6    4 Cerebellum    15
+5  GSM2545340 Mus musculus   8   Male  InfluenzaA C57BL/6    4 Cerebellum    18
+6  GSM2545341 Mus musculus   8   Male  InfluenzaA C57BL/6    8 Cerebellum     6
+7  GSM2545342 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum     5
+8  GSM2545343 Mus musculus   8   Male NonInfected C57BL/6    0 Cerebellum    11
+9  GSM2545344 Mus musculus   8 Female  InfluenzaA C57BL/6    4 Cerebellum    22
+10 GSM2545345 Mus musculus   8   Male  InfluenzaA C57BL/6    4 Cerebellum    13
+11 GSM2545346 Mus musculus   8   Male  InfluenzaA C57BL/6    8 Cerebellum    23
+12 GSM2545347 Mus musculus   8   Male  InfluenzaA C57BL/6    8 Cerebellum    24
+13 GSM2545348 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum     8
+14 GSM2545349 Mus musculus   8   Male NonInfected C57BL/6    0 Cerebellum     7
+15 GSM2545350 Mus musculus   8   Male  InfluenzaA C57BL/6    4 Cerebellum     1
+16 GSM2545351 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    16
+17 GSM2545352 Mus musculus   8 Female  InfluenzaA C57BL/6    4 Cerebellum    21
+18 GSM2545353 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum     4
+19 GSM2545354 Mus musculus   8   Male NonInfected C57BL/6    0 Cerebellum     2
+20 GSM2545362 Mus musculus   8 Female  InfluenzaA C57BL/6    4 Cerebellum    20
+21 GSM2545363 Mus musculus   8   Male  InfluenzaA C57BL/6    4 Cerebellum    12
+22 GSM2545380 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    19
+~~~
+{: .output}
+
+
+
+~~~
+dim(sample_metadata)
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 22  9
 ~~~
 {: .output}
 
@@ -197,29 +195,61 @@ sample_metadata
 
 
 ~~~
-gene_metadata
+gene_metadata <- read.csv("data/gene_metadata.csv")
+gene_metadata[1:10, 1:4]
 ~~~
 {: .language-r}
 
 
 
 ~~~
-# A tibble: 1,474 × 9
-   gene    ENTREZID product      ensem…¹ exter…² chrom…³ gene_…⁴ pheno…⁵ hsapi…⁶
-   <chr>      <dbl> <chr>        <chr>   <chr>   <chr>   <chr>   <chr>   <chr>  
- 1 Asl       109900 argininosuc… ENSMUS… 251000… 5       protei… abnorm… ASL    
- 2 Apod       11815 apolipoprot… ENSMUS… <NA>    16      protei… abnorm… APOD   
- 3 Cyp2d22    56448 cytochrome … ENSMUS… 2D22    15      protei… abnorm… CYP2D6 
- 4 Klk6       19144 kallikrein … ENSMUS… Bssp    7       protei… abnorm… KLK6   
- 5 Fcrls      80891 Fc receptor… ENSMUS… 281043… 3       protei… decrea… FCRL2  
- 6 Slc2a4     20528 solute carr… ENSMUS… Glut-4  11      protei… abnorm… SLC2A4 
- 7 Exd2       97827 exonuclease… ENSMUS… 493053… 12      protei… <NA>    EXD2   
- 8 Gjc2      118454 gap junctio… ENSMUS… B23038… 11      protei… Purkin… GJC2   
- 9 Plp1       18823 proteolipid… ENSMUS… DM20    X       protei… abnorm… PLP1   
-10 Gnb4       14696 guanine nuc… ENSMUS… 672045… 3       protei… decrea… GNB4   
-# … with 1,464 more rows, and abbreviated variable names ¹​ensembl_gene_id,
-#   ²​external_synonym, ³​chromosome_name, ⁴​gene_biotype, ⁵​phenotype_description,
-#   ⁶​hsapiens_homolog_associated_gene_name
+      gene ENTREZID
+1      Asl   109900
+2     Apod    11815
+3  Cyp2d22    56448
+4     Klk6    19144
+5    Fcrls    80891
+6   Slc2a4    20528
+7     Exd2    97827
+8     Gjc2   118454
+9     Plp1    18823
+10    Gnb4    14696
+                                                                         product
+1                                 argininosuccinate lyase, transcript variant X1
+2                                         apolipoprotein D, transcript variant 3
+3   cytochrome P450, family 2, subfamily d, polypeptide 22, transcript variant 2
+4                           kallikrein related-peptidase 6, transcript variant 2
+5                  Fc receptor-like S, scavenger receptor, transcript variant X1
+6            solute carrier family 2 (facilitated glucose transporter), member 4
+7                                          exonuclease 3'-5' domain containing 2
+8                            gap junction protein, gamma 2, transcript variant 1
+9                           proteolipid protein (myelin) 1, transcript variant 1
+10 guanine nucleotide binding protein (G protein), beta 4, transcript variant X2
+      ensembl_gene_id
+1  ENSMUSG00000025533
+2  ENSMUSG00000022548
+3  ENSMUSG00000061740
+4  ENSMUSG00000050063
+5  ENSMUSG00000015852
+6  ENSMUSG00000018566
+7  ENSMUSG00000032705
+8  ENSMUSG00000043448
+9  ENSMUSG00000031425
+10 ENSMUSG00000027669
+~~~
+{: .output}
+
+
+
+~~~
+dim(gene_metadata)
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 1474    9
 ~~~
 {: .output}
 
@@ -227,23 +257,25 @@ We will create a `SummarizedExperiment` from these tables:
 
 - The count matrix that will be used as the **`assay`**
 
-- The table describing the samples will be used as the **sample metadata** slot
+- The table describing the samples will be used as the **sample
+  metadata** slot
 
-- The table describing the genes will be used as the **features metadata** slot
+- The table describing the genes will be used as the **features
+  metadata** slot
 
 To do this we can put the different parts together using the
 `SummarizedExperiment` constructor:
 
 
 ~~~
-#BiocManager::install("SummarizedExperiment")
+## BiocManager::install("SummarizedExperiment")
 library("SummarizedExperiment")
 ~~~
 {: .language-r}
 
-First, we make sure that the samples are in the same order in the count 
-matrix and the sample annotation, and the same for the genes in the count matrix 
-and the gene annotation.
+First, we make sure that the samples are in the same order in the
+count matrix and the sample annotation, and the same for the genes in
+the count matrix and the gene annotation.
 
 
 ~~~
@@ -279,18 +311,18 @@ colData names(9): sample organism ... tissue mouse
 
 ### Saving data
 
-Exporting data to a spreadsheet, as we did in a previous episode, 
-has several limitations, such as those
-described in the first chapter (possible inconsistencies with
-`,` and `.` for decimal separators and lack of variable type
-definitions). Furthermore, exporting data to a spreadsheet is only
-relevant for rectangular data such as dataframes and matrices.
+Exporting data to a spreadsheet, as we did in a previous episode, has
+several limitations, such as those described in the first chapter
+(possible inconsistencies with `,` and `.` for decimal separators and
+lack of variable type definitions). Furthermore, exporting data to a
+spreadsheet is only relevant for rectangular data such as dataframes
+and matrices.
 
 A more general way to save data, that is specific to R and is
 guaranteed to work on any operating system, is to use the `saveRDS`
-function. Saving objects like this will generate a binary representation
-on disk (using the `rds` file extension here), which can be loaded back into R 
-using the `readRDS` function.
+function. Saving objects like this will generate a binary
+representation on disk (using the `rds` file extension here), which
+can be loaded back into R using the `readRDS` function.
 
 
 ~~~
@@ -302,9 +334,10 @@ head(se)
 {: .language-r}
 
 To conclude, when it comes to saving data from R that will be loaded
-again in R, saving and loading with `saveRDS` and `readRDS` is the 
-preferred approach. If tabular data need to be shared with somebody that 
-is not using R, then exporting to a text-based spreadsheet is a good alternative.
+again in R, saving and loading with `saveRDS` and `readRDS` is the
+preferred approach. If tabular data need to be shared with somebody
+that is not using R, then exporting to a text-based spreadsheet is a
+good alternative.
 
 Using this data structure, we can access the expression matrix with
 the `assay` function:
@@ -376,7 +409,7 @@ colData(se)
 ~~~
 DataFrame with 22 rows and 9 columns
                 sample     organism       age         sex   infection
-           <character>  <character> <numeric> <character> <character>
+           <character>  <character> <integer> <character> <character>
 GSM2545336  GSM2545336 Mus musculus         8      Female  InfluenzaA
 GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
 GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
@@ -389,7 +422,7 @@ GSM2545362  GSM2545362 Mus musculus         8      Female  InfluenzaA
 GSM2545363  GSM2545363 Mus musculus         8        Male  InfluenzaA
 GSM2545380  GSM2545380 Mus musculus         8      Female  InfluenzaA
                 strain      time      tissue     mouse
-           <character> <numeric> <character> <numeric>
+           <character> <integer> <character> <integer>
 GSM2545336     C57BL/6         8  Cerebellum        14
 GSM2545337     C57BL/6         0  Cerebellum         9
 GSM2545338     C57BL/6         0  Cerebellum        10
@@ -431,7 +464,7 @@ head(rowData(se))
 ~~~
 DataFrame with 6 rows and 9 columns
                gene  ENTREZID                product    ensembl_gene_id
-        <character> <numeric>            <character>        <character>
+        <character> <integer>            <character>        <character>
 Asl             Asl    109900 argininosuccinate ly.. ENSMUSG00000025533
 Apod           Apod     11815 apolipoprotein D, tr.. ENSMUSG00000022548
 Cyp2d22     Cyp2d22     56448 cytochrome P450, fam.. ENSMUSG00000061740
@@ -471,14 +504,13 @@ dim(rowData(se))
 ~~~
 {: .output}
 
-
 ### Subsetting a SummarizedExperiment
 
-SummarizedExperiment can be subset just like with data frames,
-with numerics or with characters of logicals.
+SummarizedExperiment can be subset just like with data frames, with
+numerics or with characters of logicals.
 
-Below, we create a new instance of class SummarizedExperiment that contains only
-the 5 first features for the 3 first samples.
+Below, we create a new instance of class SummarizedExperiment that
+contains only the 5 first features for the 3 first samples.
 
 
 ~~~
@@ -513,12 +545,12 @@ colData(se1)
 ~~~
 DataFrame with 3 rows and 9 columns
                 sample     organism       age         sex   infection
-           <character>  <character> <numeric> <character> <character>
+           <character>  <character> <integer> <character> <character>
 GSM2545336  GSM2545336 Mus musculus         8      Female  InfluenzaA
 GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
 GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
                 strain      time      tissue     mouse
-           <character> <numeric> <character> <numeric>
+           <character> <integer> <character> <integer>
 GSM2545336     C57BL/6         8  Cerebellum        14
 GSM2545337     C57BL/6         0  Cerebellum         9
 GSM2545338     C57BL/6         0  Cerebellum        10
@@ -537,7 +569,7 @@ rowData(se1)
 ~~~
 DataFrame with 5 rows and 9 columns
                gene  ENTREZID                product    ensembl_gene_id
-        <character> <numeric>            <character>        <character>
+        <character> <integer>            <character>        <character>
 Asl             Asl    109900 argininosuccinate ly.. ENSMUSG00000025533
 Apod           Apod     11815 apolipoprotein D, tr.. ENSMUSG00000022548
 Cyp2d22     Cyp2d22     56448 cytochrome P450, fam.. ENSMUSG00000061740
@@ -561,8 +593,10 @@ Fcrls                                   FCRL2
 {: .output}
 
 
-We can also use the `colData()` function to subset on something from the sample metadata or the `rowData()` to subset on something from the feature metadata.
-For example, here we keep only miRNAs and the non infected samples:
+We can also use the `colData()` function to subset on something from
+the sample metadata or the `rowData()` to subset on something from the
+feature metadata.  For example, here we keep only miRNAs and the non
+infected samples:
 
 
 ~~~
@@ -628,7 +662,7 @@ colData(se1)
 ~~~
 DataFrame with 7 rows and 9 columns
                 sample     organism       age         sex   infection
-           <character>  <character> <numeric> <character> <character>
+           <character>  <character> <integer> <character> <character>
 GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
 GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
 GSM2545343  GSM2545343 Mus musculus         8        Male NonInfected
@@ -637,7 +671,7 @@ GSM2545349  GSM2545349 Mus musculus         8        Male NonInfected
 GSM2545353  GSM2545353 Mus musculus         8      Female NonInfected
 GSM2545354  GSM2545354 Mus musculus         8        Male NonInfected
                 strain      time      tissue     mouse
-           <character> <numeric> <character> <numeric>
+           <character> <integer> <character> <integer>
 GSM2545337     C57BL/6         0  Cerebellum         9
 GSM2545338     C57BL/6         0  Cerebellum        10
 GSM2545343     C57BL/6         0  Cerebellum        11
@@ -660,7 +694,7 @@ rowData(se1)
 ~~~
 DataFrame with 7 rows and 9 columns
                 gene  ENTREZID        product    ensembl_gene_id
-         <character> <numeric>    <character>        <character>
+         <character> <integer>    <character>        <character>
 Mir1901      Mir1901 100316686  microRNA 1901 ENSMUSG00000084565
 Mir378a      Mir378a    723889  microRNA 378a ENSMUSG00000105200
 Mir133b      Mir133b    723817  microRNA 133b ENSMUSG00000065480
@@ -690,17 +724,20 @@ Mir7682                                     NA
 {: .output}
 
 
-
-
 <!--For the following exercise, you should download the SE.rda object
-(that contains the `se` object), and open the file using the
-'load()' function.-->
+(that contains the `se` object), and open the file using the 'load()'
+function.-->
 
-
+<!-- ```{r, eval = FALSE, echo = FALSE} -->
+<!-- download.file(url = "https://raw.githubusercontent.com/UCLouvain-CBIO/bioinfo-training-01-intro-r/master/data/SE.rda", -->
+<!--               destfile = "data/SE.rda") -->
+<!-- load("data/SE.rda") -->
+<!-- ``` -->
 
 > ## Challenge
 >
-> Extract the gene expression levels of the 3 first genes in samples at time 0 and at time 8.
+> Extract the gene expression levels of the 3 first genes in samples
+> at time 0 and at time 8.
 >
 > > ## Solution
 > >
@@ -757,6 +794,50 @@ Mir7682                                     NA
 > {: .solution}
 {: .challenge}
 
+> ## Challenge
+>
+> Verify that you get the same values using the long `rna` table.
+>
+> > ## Solution
+> >
+> >
+> > 
+> > ~~~
+> > rna |>
+> >     filter(gene %in% c("Asl", "Apod", "Cyd2d22")) |>
+> >     filter(time != 4) |> select(expression)
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > # A tibble: 28 × 1
+> >    expression
+> >         <dbl>
+> >  1       1170
+> >  2      36194
+> >  3        361
+> >  4      10347
+> >  5        400
+> >  6       9173
+> >  7        988
+> >  8      29594
+> >  9        836
+> > 10      24959
+> > # … with 18 more rows
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
+
+The long table and the `SummarizedExperiment` contain the same
+information, but simply structured differently. Both have they
+advantages: the former is a good fit for the `tidyverse` packages,
+while the latter is the preferred structure for many bioinformatics and
+statistical processing steps, such as a typical RNA-Seq analyses using
+the `DESeq2` package.
+
 #### Adding variables to metadata
 
 We can also add information to the metadata.
@@ -774,7 +855,7 @@ colData(se)
 ~~~
 DataFrame with 22 rows and 10 columns
                 sample     organism       age         sex   infection
-           <character>  <character> <numeric> <character> <character>
+           <character>  <character> <integer> <character> <character>
 GSM2545336  GSM2545336 Mus musculus         8      Female  InfluenzaA
 GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
 GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
@@ -787,7 +868,7 @@ GSM2545362  GSM2545362 Mus musculus         8      Female  InfluenzaA
 GSM2545363  GSM2545363 Mus musculus         8        Male  InfluenzaA
 GSM2545380  GSM2545380 Mus musculus         8      Female  InfluenzaA
                 strain      time      tissue     mouse                 center
-           <character> <numeric> <character> <numeric>            <character>
+           <character> <integer> <character> <integer>            <character>
 GSM2545336     C57BL/6         8  Cerebellum        14 University of Illinois
 GSM2545337     C57BL/6         0  Cerebellum         9 University of Illinois
 GSM2545338     C57BL/6         0  Cerebellum        10 University of Illinois
@@ -802,13 +883,15 @@ GSM2545380     C57BL/6         8  Cerebellum        19 University of Illinois
 ~~~
 {: .output}
 
-This illustrates that the metadata slots can grow indefinitely without affecting
-the other structures!
+This illustrates that the metadata slots can grow indefinitely without
+affecting the other structures!
 
 
 ### tidySummarizedExperiment
 
-You may be wondering, can we use tidyverse commands to interact with SummarizedExperiment objects. The answer is yes, we can with the tidySummarizedExperiment package.
+You may be wondering, can we use tidyverse commands to interact with
+`SummarizedExperiment` objects. The answer is yes, we can with the
+`tidySummarizedExperiment` package.
 
 Remember what our SummarizedExperiment object looks like.
 
@@ -833,7 +916,8 @@ colData names(10): sample organism ... mouse center
 ~~~
 {: .output}
 
-Load tidySummarizedExperiment and then take a look at the se object again.
+Load `tidySummarizedExperiment` and then take a look at the se object
+again.
 
 
 ~~~
@@ -850,7 +934,7 @@ se
 # A SummarizedExperiment-tibble abstraction: 32,428 × 22
 # [90mFeatures=1474 | Samples=22 | Assays=counts[0m
    .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
-   <chr>   <chr>    <dbl> <chr>  <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr> 
+   <chr>   <chr>    <int> <chr>  <chr>   <int> <chr> <chr>   <chr>  <int> <chr> 
  1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
@@ -861,17 +945,23 @@ se
  8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
 10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-# … with 40 more rows, 11 more variables: mouse <dbl>, center <chr>,
-#   gene <chr>, ENTREZID <dbl>, product <chr>, ensembl_gene_id <chr>,
+# … with 40 more rows, 11 more variables: mouse <int>, center <chr>,
+#   gene <chr>, ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
 #   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
 #   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
 #   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
 ~~~
 {: .output}
 
-It's still a SummarizedExperiment object, so maintains the efficient structure, but now we can view it as a tibble. Note the first line of the output says this, it's a SummarizedExperiment-tibble abstraction. We can also see in the second line of the output the number of transcripts and samples. 
+It's still a `SummarizedExperiment` object, so maintains the efficient
+structure, but now we can view it as a tibble. Note the first line of
+the output says this, it's a `SummarizedExperiment`-`tibble`
+abstraction. We can also see in the second line of the output the
+number of transcripts and samples.
 
-If we want to revert to the standard SummarizedExperiment view we can do that.
+If we want to revert to the standard `SummarizedExperiment` view we
+can do that.
+
 
 ~~~
 options("restore_SummarizedExperiment_show" = TRUE)
@@ -909,7 +999,7 @@ se
 # A SummarizedExperiment-tibble abstraction: 32,428 × 22
 # [90mFeatures=1474 | Samples=22 | Assays=counts[0m
    .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
-   <chr>   <chr>    <dbl> <chr>  <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr> 
+   <chr>   <chr>    <int> <chr>  <chr>   <int> <chr> <chr>   <chr>  <int> <chr> 
  1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
@@ -920,17 +1010,19 @@ se
  8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
 10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-# … with 40 more rows, 11 more variables: mouse <dbl>, center <chr>,
-#   gene <chr>, ENTREZID <dbl>, product <chr>, ensembl_gene_id <chr>,
+# … with 40 more rows, 11 more variables: mouse <int>, center <chr>,
+#   gene <chr>, ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
 #   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
 #   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
 #   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
 ~~~
 {: .output}
 
-We can now use tidyverse commands to interact with the SummarizedExperiment object.
+We can now use tidyverse commands to interact with the
+SummarizedExperiment object.
 
-We can use `filter` to filter for rows using a condition e.g. to view all rows for one sample.
+We can use `filter` to filter for rows using a condition e.g. to view
+all rows for one sample.
 
 
 ~~~
@@ -944,7 +1036,7 @@ se %>% filter(.sample == "GSM2545336")
 # A SummarizedExperiment-tibble abstraction: 1,474 × 1
 # [90mFeatures=1474 | Samples=1 | Assays=counts[0m
    .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
-   <chr>   <chr>    <dbl> <chr>  <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr> 
+   <chr>   <chr>    <int> <chr>  <chr>   <int> <chr> <chr>   <chr>  <int> <chr> 
  1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
@@ -955,8 +1047,8 @@ se %>% filter(.sample == "GSM2545336")
  8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
 10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-# … with 40 more rows, 11 more variables: mouse <dbl>, center <chr>,
-#   gene <chr>, ENTREZID <dbl>, product <chr>, ensembl_gene_id <chr>,
+# … with 40 more rows, 11 more variables: mouse <int>, center <chr>,
+#   gene <chr>, ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
 #   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
 #   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
 #   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
@@ -1012,7 +1104,7 @@ se %>% mutate(center = "Heidelberg University")
 # A SummarizedExperiment-tibble abstraction: 32,428 × 22
 # [90mFeatures=1474 | Samples=22 | Assays=counts[0m
    .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
-   <chr>   <chr>    <dbl> <chr>  <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr> 
+   <chr>   <chr>    <int> <chr>  <chr>   <int> <chr> <chr>   <chr>  <int> <chr> 
  1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
@@ -1023,20 +1115,22 @@ se %>% mutate(center = "Heidelberg University")
  8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
  9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
 10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-# … with 40 more rows, 11 more variables: mouse <dbl>, center <chr>,
-#   gene <chr>, ENTREZID <dbl>, product <chr>, ensembl_gene_id <chr>,
+# … with 40 more rows, 11 more variables: mouse <int>, center <chr>,
+#   gene <chr>, ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
 #   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
 #   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
 #   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
 ~~~
 {: .output}
 
-We can also combine commands with the tidyverse pipe `%>%`. For example, we could combine `group_by` and `summarise` to get the total counts for each sample.
+We can also combine commands with the tidyverse pipe `%>%`. For
+example, we could combine `group_by` and `summarise` to get the total
+counts for each sample.
 
 
 ~~~
 se %>%
-    group_by(.sample) %>%
+    Group_By(.sample) %>%
     summarise(total_counts=sum(counts))
 ~~~
 {: .language-r}
@@ -1044,31 +1138,12 @@ se %>%
 
 
 ~~~
-tidySummarizedExperiment says: A data frame is returned for independent data analysis.
+Error in Group_By(., .sample): could not find function "Group_By"
 ~~~
-{: .output}
+{: .error}
 
-
-
-~~~
-# A tibble: 22 × 2
-   .sample    total_counts
-   <chr>             <dbl>
- 1 GSM2545336      3039671
- 2 GSM2545337      2602360
- 3 GSM2545338      2458618
- 4 GSM2545339      2500082
- 5 GSM2545340      2479024
- 6 GSM2545341      2413723
- 7 GSM2545342      2349728
- 8 GSM2545343      3105652
- 9 GSM2545344      2524137
-10 GSM2545345      2506038
-# … with 12 more rows
-~~~
-{: .output}
-
-We can treat the tidy SummarizedExperiment object as a normal tibble for plotting.
+We can treat the tidy SummarizedExperiment object as a normal tibble
+for plotting.
 
 Here we plot the distribution of counts per sample.
 
@@ -1084,16 +1159,19 @@ se %>%
 
 <img src="../fig/rmd-tidySE-plot-1.png" alt="plot of chunk tidySE-plot" width="612" style="display: block; margin: auto;" />
 
-For more information on tidySummarizedExperiment, see the package website [here](https://stemangiola.github.io/tidySummarizedExperiment/).
+For more information on tidySummarizedExperiment, see the package
+website
+[here](https://stemangiola.github.io/tidySummarizedExperiment/).
 
 
 **Take-home message**
 
-
-- `SummarizedExperiment` represents an efficient way to store and handle omics data.
+- `SummarizedExperiment` represents an efficient way to store and
+  handle omics data.
 
 - They are used in many Bioconductor packages.
 
-If you follow the next training focused on RNA sequencing analysis, you will learn to
-use the Bioconductor `DESeq2` package to do some differential expression analyses.
-The whole analysis of the `DESeq2` package is handled in a `SummarizedExperiment`.
+If you follow the next training focused on RNA sequencing analysis,
+you will learn to use the Bioconductor `DESeq2` package to do some
+differential expression analyses.  The whole analysis of the `DESeq2`
+package is handled in a `SummarizedExperiment`.
