@@ -305,12 +305,15 @@ function.-->
 > >     filter(gene %in% c("Asl", "Apod", "Cyd2d22")) |>
 > >     filter(time != 4) |> select(expression)
 > > ```
-> >
-> > The long table and the `SummarizedExperiment` contain the same
-> > information, but structured differently.
-> >
 > {: .solution}
 {: .challenge}
+
+The long table and the `SummarizedExperiment` contain the same
+information, but simply structured differently. Both have they
+advantages: the former is a good fit for the `tidyverse` packages,
+while the latter is the preferred structure for many bioinformatics and
+statistical processing steps, such as a typical RNA-Seq analyses using
+the `DESeq2` package.
 
 #### Adding variables to metadata
 
