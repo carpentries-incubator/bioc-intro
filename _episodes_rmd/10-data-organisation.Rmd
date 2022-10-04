@@ -128,14 +128,6 @@ dataset but not another unless you’re doing it on purpose.
 
 ### Using Spreadsheets for Data Entry and Cleaning
 
-However, there are circumstances where you might want to use a spreadsheet
-program to produce “quick and dirty” calculations or figures, and data
-cleaning will help you use some of these features. Data cleaning also
-puts your data in a better format prior to importation into a
-statistical analysis program. We will show you how to use some features of
-spreadsheet programs to check your data quality along the way and produce
-preliminary summary statistics.
-
 In this lesson, we will assume that you are most likely using Excel as
 your primary spreadsheet program - there are others (gnumeric, Calc
 from OpenOffice), and their functionality is similar, but Excel seems
@@ -145,9 +137,7 @@ In this lesson we're going to talk about:
 
 1. Formatting data tables in spreadsheets
 2. Formatting problems
-3. Dates as data
-4. Quality control
-5. Exporting data
+3. Exporting data
 
 ## Formatting data tables in spreadsheets
 
@@ -247,10 +237,9 @@ The cardinal rules of using spreadsheet programs for data:
    (comma-separated values) format. This ensures that anyone can use
    the data, and is required by most data repositories.
 
-For instance, we have data from patients that visited several hospitals
-from Brussels, Belgium. They recorded the date of the visit, the
-hospital, the patients' gender, weight and blood group.
-
+For instance, we have data from patients that visited several
+hospitals in Brussels, Belgium. They recorded the date of the visit,
+the hospital, the patients' gender, weight and blood group.
 
 If we were to keep track of the data like this:
 
@@ -295,8 +284,8 @@ used for variables** and **rows are used for observations**:
 > (raw) data.
 {: .challenge}
 
-After you go through this exercise, we'll discuss as a group what was wrong
-with this data and how you would fix it.
+After you go through this exercise, we'll discuss as a group what was
+wrong with this data and how you would fix it.
 
 <!-- - Take about 10 minutes to work on this exercise. -->
 <!-- - All the mistakes in the *common mistakes* section below are present -->
@@ -307,7 +296,6 @@ with this data and how you would fix it.
 <!-- - If you get a response where they've fixed the date, you can pause -->
 <!--   and go to the dates lesson. Or you can say you'll come back to dates -->
 <!--   at the end. -->
-
 
 > ## Challenge: Once you have tidied up the data, answer the following questions:
 >
@@ -376,20 +364,23 @@ and analysis.
 
 ### Using multiple tables {#tables}
 
-A common strategy is creating multiple data tables within
-one spreadsheet. This confuses the computer, so don't do this!
-When you create multiple tables within one
-spreadsheet, you’re drawing false associations between things for the computer,
-which sees each row as an observation. You’re also potentially using the same
-field name in multiple places, which will make it harder to clean your data up
-into a usable form. The example below depicts the problem:
+A common strategy is creating multiple data tables within one
+spreadsheet. This confuses the computer, so don't do this!  When you
+create multiple tables within one spreadsheet, you’re drawing false
+associations between things for the computer, which sees each row as
+an observation. You’re also potentially using the same field name in
+multiple places, which will make it harder to clean your data up into
+a usable form. The example below depicts the problem:
 
 ![](../fig/2_datasheet_example.jpg)
 
-In the example above, the computer will see (for example) row 4 and assume that all columns A-AF
-refer to the same sample. This row actually represents four distinct samples
-(sample 1 for each of four different collection dates - May 29th, June 12th, June 19th, and June 26th),
-as well as some calculated summary statistics (an average (avr) and standard error of measurement (SEM)) for two of those samples. Other rows are similarly problematic.
+In the example above, the computer will see (for example) row 4 and
+assume that all columns A-AF refer to the same sample. This row
+actually represents four distinct samples (sample 1 for each of four
+different collection dates - May 29th, June 12th, June 19th, and June
+26th), as well as some calculated summary statistics (an average (avr)
+and standard error of measurement (SEM)) for two of those
+samples. Other rows are similarly problematic.
 
 ### Using multiple tabs {#tabs}
 
@@ -437,8 +428,8 @@ writing in the number zero in that column, when it's mostly zeros?
 However, there's a difference between a zero and a blank cell in a
 spreadsheet. To the computer, a zero is actually data. You measured or
 counted it. A blank cell means that it wasn't measured and the
-computer will interpret it as an unknown value (also known as a
-null or missing value).
+computer will interpret it as an unknown value (also known as a null
+or missing value).
 
 The spreadsheets or statistical programs will likely mis-interpret
 blank cells that you intend to be zeros. By not entering the value of
@@ -471,7 +462,6 @@ two pieces of information. Like for [using formatting to convey
 information](#formatting) it would be good here to create a new
 column like 'data_missing' and use that column to capture the
 different reasons.
-
 
 Whatever the reason, it's a problem if unknown or missing data is
 recorded as -999, 999, or 0.
@@ -585,7 +575,7 @@ were a simple web form that can only contain text and spaces.
 ### Inclusion of metadata in data table {#metadata}
 
 **Example**: You add a legend at the top or bottom of your data table
-  explaining column meaning, units, exceptions, etc.
+explaining column meaning, units, exceptions, etc.
 
 **Solution**: Recording data about your data (“metadata”) is
 essential. You may be on intimate terms with your dataset while you
@@ -618,8 +608,8 @@ are encoded, etc. that are important to document but can disrupt the
 formatting of your data file.
 
 Additionally, file or database level metadata describes how files that
-make up the dataset relate to each other; what format they are in;
-and whether they supercede or are superceded by previous files. A
+make up the dataset relate to each other; what format they are in; and
+whether they supercede or are superceded by previous files. A
 folder-level readme.txt file is the classic way of accounting for all
 the files and folders in a project.
 
@@ -790,9 +780,9 @@ values are not included in "" but which have commas as both delimiters
 and parts of data values, you are potentially facing a major problem
 with data cleaning. If the dataset you're dealing with contains
 hundreds or thousands of records, cleaning them up manually (by either
-removing commas from the data values or putting the values into quotes - "")
-is not only going to take hours and hours but may potentially
-end up with you accidentally introducing many errors.
+removing commas from the data values or putting the values into
+quotes - "") is not only going to take hours and hours but may
+potentially end up with you accidentally introducing many errors.
 
 Cleaning up datasets is one of the major problems in many scientific
 disciplines. The approach almost always depends on the particular
@@ -817,5 +807,5 @@ it.
 
 An agile data analysis workflow, with several fast iterations of the
 transform/visualise/model cycle is only feasible is the data is
-formatted in a predictable way and one can reason about the data without
-having to look at it and/or fix it.
+formatted in a predictable way and one can reason about the data
+without having to look at it and/or fix it.
