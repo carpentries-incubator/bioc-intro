@@ -47,6 +47,7 @@
   - [Edge cases](#edge-cases)
   - [Beware of circular dependencies](#beware-of-circular-dependencies)
   - [Reopening third-party namespaces](#reopening-third-party-namespaces)
+  - [Introspection](#introspection)
   - [Encodings](#encodings)
   - [Rules of thumb](#rules-of-thumb)
   - [Debuggers](#debuggers)
@@ -249,7 +250,7 @@ app/controllers/admin/users_controller.rb -> Admin::UsersController
 
 and does not have a file called `admin.rb`, Zeitwerk automatically creates an `Admin` module on your behalf the first time `Admin` is used.
 
-For this to happen, the directory has to contain non-ignored Ruby files, directly or recursively, otherwise it is ignored. This condition is evaluated again on reloads.
+For this to happen, the directory has to contain non-ignored Ruby files with extension `.rb`, directly or recursively, otherwise it is ignored. This condition is evaluated again on reloads.
 
 <a id="markdown-explicit-namespaces" name="explicit-namespaces"></a>
 ### Explicit namespaces
@@ -983,11 +984,35 @@ require "active_job"
 require "active_job/queue_adapters"
 
 require "zeitwerk"
-loader = Zeitwerk::Loader.for_gem
+# By passign the flag, we acknowledge the extra directory lib/active_job
+# has to be managed by the loader and no warning has to be issued for it.
+loader = Zeitwerk::Loader.for_gem(warn_on_extra_files: false)
 loader.setup
 ```
 
 With that, when Zeitwerk scans the file system and reaches the gem directories `lib/active_job` and `lib/active_job/queue_adapters`, it detects the corresponding modules already exist and therefore understands it does not have to manage them. The loader just descends into those directories. Eventually will reach `lib/active_job/queue_adapters/awesome_queue.rb`, and since `ActiveJob::QueueAdapters::AwesomeQueue` is unknown, Zeitwerk will manage it. Which is what happens regularly with the files in your gem. On reload, the namespaces are safe, won't be reloaded. The loader only reloads what it manages, which in this case is the adapter itself.
+
+<a id="markdown-introspection" name="introspection"></a>
+### Introspection
+
+The method `Zeitwerk::Loader#dirs` returns an array with the absolute paths of the root directories as strings:
+
+```ruby
+loader = Zeitwerk::Loader.new
+loader.push_dir(Pathname.new("/foo"))
+loader.dirs # => ["/foo"]
+```
+
+This method accepts an optional `namespaces` keyword argument. If truthy, the method returns a hash table instead. Keys are the absolute paths of the root directories as strings. Values are their corresponding namespaces, class or module objects:
+
+```ruby
+loader = Zeitwerk::Loader.new
+loader.push_dir(Pathname.new("/foo"))
+loader.push_dir(Pathname.new("/bar"), namespace: Bar)
+loader.dirs(namespaces: true) # => { "/foo" => Object, "/bar" => Bar }
+```
+
+These collections are read-only. Please add to them with `Zeitwerk::Loader#push_dir`.
 
 <a id="markdown-encodings" name="encodings"></a>
 ### Encodings
