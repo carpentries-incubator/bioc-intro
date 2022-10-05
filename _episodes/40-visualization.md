@@ -653,7 +653,7 @@ sub_rna <- rna %>%
 
 mean_exp_by_time <- sub_rna %>%
   group_by(gene,time) %>%
-  summarize(mean_exp = mean(expression_log))
+    summarize(mean_exp = mean(expression_log))
 ~~~
 {: .language-r}
 
@@ -662,6 +662,34 @@ mean_exp_by_time <- sub_rna %>%
 ~~~
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
+~~~
+{: .output}
+
+
+
+~~~
+mean_exp_by_time
+~~~
+{: .language-r}
+
+
+
+~~~
+# A tibble: 30 × 3
+# Groups:   gene [10]
+   gene   time mean_exp
+   <chr> <int>    <dbl>
+ 1 Acr       0     5.07
+ 2 Acr       4     5.54
+ 3 Acr       8     7.31
+ 4 Aipl1     0     3.70
+ 5 Aipl1     4     3.89
+ 6 Aipl1     8     6.56
+ 7 Bst1      0     3.20
+ 8 Bst1      4     3.77
+ 9 Bst1      8     5.22
+10 Chil3     0     4.00
+# … with 20 more rows
 ~~~
 {: .output}
 
@@ -745,7 +773,7 @@ grouped by `gene`, `time`, and `sex`:
 ~~~
 mean_exp_by_time_sex <- sub_rna %>%
   group_by(gene, time, sex) %>%
-  summarize(mean_exp = mean(expression_log))
+    summarize(mean_exp = mean(expression_log))
 ~~~
 {: .language-r}
 
@@ -754,6 +782,34 @@ mean_exp_by_time_sex <- sub_rna %>%
 ~~~
 `summarise()` has grouped output by 'gene', 'time'. You can override using the
 `.groups` argument.
+~~~
+{: .output}
+
+
+
+~~~
+mean_exp_by_time_sex
+~~~
+{: .language-r}
+
+
+
+~~~
+# A tibble: 60 × 4
+# Groups:   gene, time [30]
+   gene   time sex    mean_exp
+   <chr> <int> <chr>     <dbl>
+ 1 Acr       0 Female     5.13
+ 2 Acr       0 Male       5.00
+ 3 Acr       4 Female     5.93
+ 4 Acr       4 Male       5.15
+ 5 Acr       8 Female     7.27
+ 6 Acr       8 Male       7.36
+ 7 Aipl1     0 Female     3.67
+ 8 Aipl1     0 Male       3.73
+ 9 Aipl1     4 Female     4.07
+10 Aipl1     4 Male       3.72
+# … with 50 more rows
 ~~~
 {: .output}
 
@@ -1136,7 +1192,7 @@ count_gene_chromosome + exp_boxplot_sex
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-16-1.png" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-patchworkplot1-1.png" alt="plot of chunk patchworkplot1" width="612" style="display: block; margin: auto;" />
 
 ~~~
 ## or count_gene_chromosome | exp_boxplot_sex
@@ -1149,7 +1205,7 @@ count_gene_chromosome / exp_boxplot_sex
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-17-1.png" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-16-1.png" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
 
 We can combine further control the layout of the final composition with
 `plot_layout` to create more complex layouts:
@@ -1160,7 +1216,7 @@ count_gene_chromosome + exp_boxplot_sex + plot_layout(ncol = 1)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-18-1.png" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-17-1.png" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
 
 
 ~~~
@@ -1171,7 +1227,7 @@ count_gene_chromosome +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-19-1.png" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-18-1.png" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
 
 The last plot can also be created using the `|` and `/` composers:
 
@@ -1183,7 +1239,7 @@ count_gene_chromosome /
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-20-1.png" alt="plot of chunk unnamed-chunk-20" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-unnamed-chunk-19-1.png" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
 
 Learn more about `patchwork` on its
 [webpage](https://patchwork.data-imaginist.com/) or in this
