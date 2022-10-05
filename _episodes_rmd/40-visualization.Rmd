@@ -871,24 +871,24 @@ other.
 install.packages("patchwork")
 ```
 
-```{r patchworkplot1, fig.keep = "last"}
+```{r patchworkplot1}
 library("patchwork")
 count_gene_chromosome + exp_boxplot_sex
 ## or count_gene_chromosome | exp_boxplot_sex
 ```
 
-```{r}
+```{r patchwork2}
 count_gene_chromosome / exp_boxplot_sex
 ```
 
 We can combine further control the layout of the final composition with
 `plot_layout` to create more complex layouts:
 
-```{r}
+```{r patchwork3}
 count_gene_chromosome + exp_boxplot_sex + plot_layout(ncol = 1)
 ```
 
-```{r}
+```{r patchwork4}
 count_gene_chromosome +
  (count_gene_chromosome + exp_boxplot_sex) +
  exp_boxplot_sex +
@@ -897,7 +897,7 @@ count_gene_chromosome +
 
 The last plot can also be created using the `|` and `/` composers:
 
-```{r}
+```{r patchwork5}
 count_gene_chromosome /
  (count_gene_chromosome | exp_boxplot_sex) /
  exp_boxplot_sex

@@ -1205,7 +1205,7 @@ count_gene_chromosome / exp_boxplot_sex
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-16-1.png" alt="plot of chunk unnamed-chunk-16" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-patchwork2-1.png" alt="plot of chunk patchwork2" width="612" style="display: block; margin: auto;" />
 
 We can combine further control the layout of the final composition with
 `plot_layout` to create more complex layouts:
@@ -1216,7 +1216,7 @@ count_gene_chromosome + exp_boxplot_sex + plot_layout(ncol = 1)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-17-1.png" alt="plot of chunk unnamed-chunk-17" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-patchwork3-1.png" alt="plot of chunk patchwork3" width="612" style="display: block; margin: auto;" />
 
 
 ~~~
@@ -1227,7 +1227,7 @@ count_gene_chromosome +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-18-1.png" alt="plot of chunk unnamed-chunk-18" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-patchwork4-1.png" alt="plot of chunk patchwork4" width="612" style="display: block; margin: auto;" />
 
 The last plot can also be created using the `|` and `/` composers:
 
@@ -1239,7 +1239,7 @@ count_gene_chromosome /
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-unnamed-chunk-19-1.png" alt="plot of chunk unnamed-chunk-19" width="612" style="display: block; margin: auto;" />
+<img src="../fig/rmd-patchwork5-1.png" alt="plot of chunk patchwork5" width="612" style="display: block; margin: auto;" />
 
 Learn more about `patchwork` on its
 [webpage](https://patchwork.data-imaginist.com/) or in this
