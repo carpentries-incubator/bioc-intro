@@ -511,7 +511,9 @@ sub_rna <- rna %>%
 
 mean_exp_by_time <- sub_rna %>%
   group_by(gene,time) %>%
-  summarize(mean_exp = mean(expression_log))
+    summarize(mean_exp = mean(expression_log))
+
+mean_exp_by_time
 ```
 
 We can build the line plot with duration of the infection on the x-axis
@@ -573,7 +575,9 @@ grouped by `gene`, `time`, and `sex`:
 ```{r data-facet-by-gene-and-sex}
 mean_exp_by_time_sex <- sub_rna %>%
   group_by(gene, time, sex) %>%
-  summarize(mean_exp = mean(expression_log))
+    summarize(mean_exp = mean(expression_log))
+
+mean_exp_by_time_sex
 ```
 
 We can now make the faceted plot by splitting further by sex using
@@ -867,7 +871,7 @@ other.
 install.packages("patchwork")
 ```
 
-```{r}
+```{r patchworkplot1, fig.keep = "last"}
 library("patchwork")
 count_gene_chromosome + exp_boxplot_sex
 ## or count_gene_chromosome | exp_boxplot_sex
