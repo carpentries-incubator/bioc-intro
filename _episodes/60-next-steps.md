@@ -82,7 +82,8 @@ provided (after raw data have been processed).
 
 - **An expression matrix**: we load the count matrix, specifying that
   the first columns contains row/gene names, and convert the
-  `data.frame` to a `matrix`.
+  `data.frame` to a `matrix`. You can download it
+  [here](https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/count_matrix.csv).
 
 
 ~~~
@@ -139,7 +140,8 @@ dim(count_matrix)
 {: .output}
 
 
-- **A table describing the samples**
+- **A table describing the samples**, available
+  [here](https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/sample_metadata.csv).
 
 
 ~~~
@@ -191,7 +193,8 @@ dim(sample_metadata)
 ~~~
 {: .output}
 
-- **A table describing the genes**
+- **A table describing the genes**, available
+  [here](https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/gene_metadata.csv).
 
 
 ~~~
