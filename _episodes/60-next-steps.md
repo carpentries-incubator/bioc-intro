@@ -1133,7 +1133,7 @@ counts for each sample.
 
 ~~~
 se %>%
-    Group_By(.sample) %>%
+    group_by(.sample) %>%
     summarise(total_counts=sum(counts))
 ~~~
 {: .language-r}
@@ -1141,9 +1141,29 @@ se %>%
 
 
 ~~~
-Error in Group_By(., .sample): could not find function "Group_By"
+tidySummarizedExperiment says: A data frame is returned for independent data analysis.
 ~~~
-{: .error}
+{: .output}
+
+
+
+~~~
+# A tibble: 22 × 2
+   .sample    total_counts
+   <chr>             <int>
+ 1 GSM2545336      3039671
+ 2 GSM2545337      2602360
+ 3 GSM2545338      2458618
+ 4 GSM2545339      2500082
+ 5 GSM2545340      2479024
+ 6 GSM2545341      2413723
+ 7 GSM2545342      2349728
+ 8 GSM2545343      3105652
+ 9 GSM2545344      2524137
+10 GSM2545345      2506038
+# … with 12 more rows
+~~~
+{: .output}
 
 We can treat the tidy SummarizedExperiment object as a normal tibble
 for plotting.

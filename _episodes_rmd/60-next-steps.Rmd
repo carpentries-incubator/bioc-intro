@@ -403,7 +403,7 @@ counts for each sample.
 
 ```{r}
 se %>%
-    Group_By(.sample) %>%
+    group_by(.sample) %>%
     summarise(total_counts=sum(counts))
 ```
 
