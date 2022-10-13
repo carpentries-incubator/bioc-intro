@@ -388,7 +388,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > in the following example:
 >
 > ```{r, eval=TRUE}
-> num_logical <- c(1, 2, 3, TRUE)
+> num_logical <- c(1, 2, 3, TRUE, FALSE)
 > char_logical <- c("a", "b", "c", TRUE)
 > combined_logical <- c(num_logical, char_logical)
 > ```
