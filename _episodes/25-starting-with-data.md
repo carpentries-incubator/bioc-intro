@@ -594,7 +594,7 @@ plot(sex)
 
 > ## Challenge:
 >
-> - Rename "female" and "male" to "Female" and "Male" respectively.
+> - Rename "F" and "M" to "Female" and "Male" respectively.
 >
 > > ## Solution
 > >
