@@ -683,7 +683,7 @@ This command will install the `dplyr` package as well as all its
 dependencies, i.e. all the packages that it relies on to function.
 
 
-Bioconductor packages are managed installed using a dedicated package,
+Another major R package repository is maintained by Bioconductor. [Bioconductor packages](https://bioconductor.org/packages/release/BiocViews.html#___Software) are managed and installed using a dedicated package,
 namely `BiocManager`, that can be installed from CRAN with
 
 
@@ -693,7 +693,7 @@ install.packages("BiocManager")
 {: .language-r}
 
 Individual packages such as `SummarizedExperiment` (we will use it
-later), `DESeq2` (for RNA-Seq analysis), and many more can then be
+later), `DESeq2` (for RNA-Seq analysis), and any others from either Bioconductor or CRAN can then be
 installed with `BiocManager::install`.
 
 
@@ -702,3 +702,5 @@ BiocManager::install("SummarizedExperiment")
 BiocManager::install("DESeq2")
 ~~~
 {: .language-r}
+
+By default, `BiocManager::install()` will also check all your installed packages and see if there are newer versions available. If there are, it will show them to you and ask you if you want to `Update all/some/none? [a/s/n]:` and then wait for your answer. While you should strive to have the most up-to-date package versions, in practice we recommend only updating packages in a fresh R session before any packages are loaded. 
