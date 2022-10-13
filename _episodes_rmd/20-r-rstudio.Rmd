@@ -117,7 +117,7 @@ Thousands of people use R daily. Many of them are willing to help you
 through mailing lists and websites such as [Stack
 Overflow](https://stackoverflow.com/), or on the [RStudio
 community](https://community.rstudio.com/). These broad user communities
-extend to specialised areas such as bioinformatics.
+extend to specialised areas such as bioinformatics. One such subset of the R community is [Bioconductor](https://bioconductor.org/), a scientific project for analysis and comprehension "of data from current and emerging biological assays." This workshop was developed by members of the Bioconductor community; for more information on Bioconductor, please see the companion workshop ["The Bioconductor Project"](https://carpentries-incubator.github.io/bioc-project/). 
 
 
 ### Not only is R free, but it is also open-source and cross-platform
