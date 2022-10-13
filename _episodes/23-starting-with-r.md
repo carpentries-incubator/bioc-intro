@@ -564,7 +564,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > ## Challenge:
 >
 > What will happen in each of these examples? (hint: use `class()` to
-> check the data type of your objects):
+> check the data type of your objects and type in their names to see what happens):
 >
 > 
 > ~~~
@@ -592,6 +592,20 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > > 
 > > 
 > > ~~~
+> > num_char
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > [1] "1" "2" "3" "a"
+> > ~~~
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
 > > class(num_logical)
 > > ~~~
 > > {: .language-r}
@@ -600,6 +614,20 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > > 
 > > ~~~
 > > [1] "numeric"
+> > ~~~
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
+> > num_logical
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > [1] 1 2 3 1
 > > ~~~
 > > {: .output}
 > > 
@@ -620,6 +648,20 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > > 
 > > 
 > > ~~~
+> > char_logical
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > [1] "a"    "b"    "c"    "TRUE"
+> > ~~~
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
 > > class(tricky)
 > > ~~~
 > > {: .language-r}
@@ -628,6 +670,20 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > > 
 > > ~~~
 > > [1] "character"
+> > ~~~
+> > {: .output}
+> > 
+> > 
+> > 
+> > ~~~
+> > tricky
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > [1] "1" "2" "3" "4"
 > > ~~~
 > > {: .output}
 > {: .solution}
