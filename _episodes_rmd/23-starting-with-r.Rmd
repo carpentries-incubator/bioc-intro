@@ -351,7 +351,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > ## Challenge:
 >
 > What will happen in each of these examples? (hint: use `class()` to
-> check the data type of your objects):
+> check the data type of your objects and type in their names to see what happens):
 >
 > ```{r, eval=TRUE}
 > num_char <- c(1, 2, 3, "a")
@@ -363,9 +363,13 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > >
 > > ```{r}
 > > class(num_char)
+> > num_char
 > > class(num_logical)
+> > num_logical
 > > class(char_logical)
+> > char_logical
 > > class(tricky)
+> > tricky
 > > ```
 > {: .solution}
 {: .challenge}
