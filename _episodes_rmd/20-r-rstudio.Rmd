@@ -632,7 +632,7 @@ library("ggplot2")
 The default package repository is The *Comprehensive R Archive
 Network* (CRAN), and any package that is available on CRAN can be
 installed with the `install.packages()` function. Below, for example,
-we install the `dplyr` package that we will learn about late.
+we install the `dplyr` package that we will learn about later.
 
 ```{r craninstall, eval=FALSE, purl=FALSE}
 install.packages("dplyr")
