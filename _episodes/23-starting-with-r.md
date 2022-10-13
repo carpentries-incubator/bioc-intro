@@ -569,7 +569,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > 
 > ~~~
 > num_char <- c(1, 2, 3, "a")
-> num_logical <- c(1, 2, 3, TRUE)
+> num_logical <- c(1, 2, 3, TRUE, FALSE)
 > char_logical <- c("a", "b", "c", TRUE)
 > tricky <- c(1, 2, 3, "4")
 > ~~~
@@ -627,7 +627,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > > 
 > > 
 > > ~~~
-> > [1] 1 2 3 1
+> > [1] 1 2 3 1 0
 > > ~~~
 > > {: .output}
 > > 
@@ -708,7 +708,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 >
 > 
 > ~~~
-> num_logical <- c(1, 2, 3, TRUE, FALSE)
+> num_logical <- c(1, 2, 3, TRUE)
 > char_logical <- c("a", "b", "c", TRUE)
 > combined_logical <- c(num_logical, char_logical)
 > ~~~
@@ -728,7 +728,7 @@ important ones are lists (`list`), matrices (`matrix`), data frames
 > >
 > >
 > >~~~
-> >[1] "1"    "2"    "3"    "1"    "0"    "a"    "b"    "c"    "TRUE"
+> >[1] "1"    "2"    "3"    "1"    "a"    "b"    "c"    "TRUE"
 > >~~~
 > >{: .output}
 > {: .solution}
