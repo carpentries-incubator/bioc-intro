@@ -923,10 +923,12 @@ rna_mini
 ```
 
 The second table,
-[`annot1`](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot1.csv),
-contains 2 columns, gene and gene_description.
+`annot1`, contains 2 columns, gene and gene_description. You can either download [annot1.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot1.csv) by clicking on the link and then moving it to the `data/` folder, or you can use the R code below to download it directly to the folder.
 
 ```{r, message= FALSE}
+download.file(url = "[https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot1.csv)",
+              destfile = "data/annot1.csv")
+
 annot1 <- read_csv(file = "data/annot1.csv")
 annot1
 ```
@@ -945,11 +947,13 @@ full_join(rna_mini, annot1)
 
 In real life, gene annotations are sometimes labelled differently.
 
-The [`annot2`](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot2.csv) 
-table is exactly the same than `annot1` except that the variable
-containing gene names is labelled differently.
+The [`annot2`] table is exactly the same than `annot1` except that the variable
+containing gene names is labelled differently. Again, either download [annot2.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot2.csv) yourself and move it to `data/` or use the R code below.
 
 ```{r, message= FALSE}
+download.file(url = "[https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot2.csv)",
+              destfile = "data/annot2.csv")
+
 annot2 <- read_csv(file = "data/annot2.csv")
 annot2
 ```
