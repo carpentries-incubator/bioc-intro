@@ -2300,8 +2300,8 @@ rna_mini
 {: .output}
 
 The second table, `annot1`, contains 2 columns, gene and
-gene_description. You can either download
-[annot1.csv](https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/annot1.csv)
+gene_description. You can either 
+[download annot1.csv](https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/annot1.csv)
 by clicking on the link and then moving it to the `data/` folder, or
 you can use the R code below to download it directly to the folder.
 
@@ -2376,10 +2376,9 @@ Joining, by = "gene"
 
 In real life, gene annotations are sometimes labelled differently.
 
-The [`annot2`] table is exactly the same than `annot1` except that the
+The `annot2` table is exactly the same than `annot1` except that the
 variable containing gene names is labelled differently. Again, either
-download
-[annot2.csv](https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/annot2.csv)
+[download annot2.csv](https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/annot2.csv)
 yourself and move it to `data/` or use the R code below.
 
 
