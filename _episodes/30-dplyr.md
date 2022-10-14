@@ -641,7 +641,7 @@ rna %>%
 >
 > Create a new data frame from the `rna` data that meets the following
 > criteria: contains only the `gene`, `chromosome_name`,
-> `phenotype_description`, `sample`, and `expression` columns. The expression 
+> `phenotype_description`, `sample`, and `expression` columns. The expression
 > values should be log-transformed. This data frame must
 > only contain genes located on sex chromosomes, associated with a
 > phenotype_description, and with a log expression higher than 5.
@@ -1729,7 +1729,7 @@ so every replicate has the same composition.
 
 > ## Question
 >
-> Starting from the rna table, use the `pivot_wider()` function to create 
+> Starting from the rna table, use the `pivot_wider()` function to create
 > a wide-format table giving the gene expression levels in each mouse.
 > Then use the `pivot_longer()` function to restore a long-format table.
 >
@@ -1737,8 +1737,8 @@ so every replicate has the same composition.
 > >
 > > 
 > > ~~~
-> > rna1 <- rna %>% 
-> > select(gene, mouse, expression) %>% 
+> > rna1 <- rna %>%
+> > select(gene, mouse, expression) %>%
 > > pivot_wider(names_from = mouse, values_from = expression)
 > > rna1
 > > ~~~
@@ -1769,7 +1769,7 @@ so every replicate has the same composition.
 > > 
 > > 
 > > ~~~
-> > rna1 %>% 
+> > rna1 %>%
 > > pivot_longer(names_to = "mouse_id", values_to = "counts", -gene)
 > > ~~~
 > > {: .language-r}
@@ -2254,8 +2254,8 @@ Usually this occurs because different types of information are
 collected from different sources.
 
 
-It may be desirable for some analyses to combine data from two or more 
-tables into a single data frame based on a column that would be common 
+It may be desirable for some analyses to combine data from two or more
+tables into a single data frame based on a column that would be common
 to all the tables.
 
 The `dplyr` package provides a set of join functions for combining two
@@ -2273,9 +2273,9 @@ columns and 10 lines.
 
 
 ~~~
-rna_mini <- rna %>% 
-   select(gene, sample, expression) %>% 
-   head(10) 
+rna_mini <- rna %>%
+   select(gene, sample, expression) %>%
+   head(10)
 rna_mini
 ~~~
 {: .language-r}
@@ -2299,53 +2299,18 @@ rna_mini
 ~~~
 {: .output}
 
-The second table,
-`annot1`, contains 2 columns, gene and gene_description. You can either download [annot1.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot1.csv) by clicking on the link and then moving it to the `data/` folder, or you can use the R code below to download it directly to the folder.
+The second table, `annot1`, contains 2 columns, gene and
+gene_description. You can either download
+[annot1.csv](https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/annot1.csv)
+by clicking on the link and then moving it to the `data/` folder, or
+you can use the R code below to download it directly to the folder.
 
 
 ~~~
-download.file(url = "[https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot1.csv)",
+download.file(url = "https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/annot1.csv",
               destfile = "data/annot1.csv")
-~~~
-{: .language-r}
 
-
-
-~~~
-Warning in download.file(url = "[https://github.com/Bioconductor/bioconductor-
-teaching/raw/master/data/GSE96870/rnaseq.csv](https://raw.githubusercontent.com/
-aloriot/bioc-intro/main/_episodes_rmd/data/annot1.csv)", : URL '[https://
-github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/
-rnaseq.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/
-_episodes_rmd/data/annot1.csv)': status was 'URL using bad/illegal format or
-missing URL'
-~~~
-{: .warning}
-
-
-
-~~~
-Error in download.file(url = "[https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot1.csv)", : cannot open URL '[https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot1.csv)'
-~~~
-{: .error}
-
-
-
-~~~
 annot1 <- read_csv(file = "data/annot1.csv")
-~~~
-{: .language-r}
-
-
-
-~~~
-Error: 'data/annot1.csv' does not exist in current working directory ('/home/runner/work/bioc-intro/bioc-intro/_episodes_rmd').
-~~~
-{: .error}
-
-
-
-~~~
 annot1
 ~~~
 {: .language-r}
@@ -2353,9 +2318,21 @@ annot1
 
 
 ~~~
-Error in eval(expr, envir, enclos): object 'annot1' not found
+# A tibble: 10 × 2
+   gene    gene_description                                                     
+   <chr>   <chr>                                                                
+ 1 Cyp2d22 cytochrome P450, family 2, subfamily d, polypeptide 22 [Source:MGI S…
+ 2 Klk6    kallikrein related-peptidase 6 [Source:MGI Symbol;Acc:MGI:1343166]   
+ 3 Fcrls   Fc receptor-like S, scavenger receptor [Source:MGI Symbol;Acc:MGI:19…
+ 4 Plp1    proteolipid protein (myelin) 1 [Source:MGI Symbol;Acc:MGI:97623]     
+ 5 Exd2    exonuclease 3'-5' domain containing 2 [Source:MGI Symbol;Acc:MGI:192…
+ 6 Apod    apolipoprotein D [Source:MGI Symbol;Acc:MGI:88056]                   
+ 7 Gnb4    guanine nucleotide binding protein (G protein), beta 4 [Source:MGI S…
+ 8 Slc2a4  solute carrier family 2 (facilitated glucose transporter), member 4 …
+ 9 Asl     argininosuccinate lyase [Source:MGI Symbol;Acc:MGI:88084]            
+10 Gjc2    gap junction protein, gamma 2 [Source:MGI Symbol;Acc:MGI:2153060]    
 ~~~
-{: .error}
+{: .output}
 
 We now want to join these two tables into a single one containing all
 variables using the `full_join()` function from the `dplyr` package. The
@@ -2374,59 +2351,43 @@ full_join(rna_mini, annot1)
 
 
 ~~~
-Error in is.data.frame(y): object 'annot1' not found
+Joining, by = "gene"
 ~~~
-{: .error}
+{: .output}
+
+
+
+~~~
+# A tibble: 10 × 4
+   gene    sample     expression gene_description                               
+   <chr>   <chr>           <dbl> <chr>                                          
+ 1 Asl     GSM2545336       1170 argininosuccinate lyase [Source:MGI Symbol;Acc…
+ 2 Apod    GSM2545336      36194 apolipoprotein D [Source:MGI Symbol;Acc:MGI:88…
+ 3 Cyp2d22 GSM2545336       4060 cytochrome P450, family 2, subfamily d, polype…
+ 4 Klk6    GSM2545336        287 kallikrein related-peptidase 6 [Source:MGI Sym…
+ 5 Fcrls   GSM2545336         85 Fc receptor-like S, scavenger receptor [Source…
+ 6 Slc2a4  GSM2545336        782 solute carrier family 2 (facilitated glucose t…
+ 7 Exd2    GSM2545336       1619 exonuclease 3'-5' domain containing 2 [Source:…
+ 8 Gjc2    GSM2545336        288 gap junction protein, gamma 2 [Source:MGI Symb…
+ 9 Plp1    GSM2545336      43217 proteolipid protein (myelin) 1 [Source:MGI Sym…
+10 Gnb4    GSM2545336       1071 guanine nucleotide binding protein (G protein)…
+~~~
+{: .output}
 
 In real life, gene annotations are sometimes labelled differently.
 
-The [`annot2`] table is exactly the same than `annot1` except that the variable
-containing gene names is labelled differently. Again, either download [annot2.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot2.csv) yourself and move it to `data/` or use the R code below.
+The [`annot2`] table is exactly the same than `annot1` except that the
+variable containing gene names is labelled differently. Again, either
+download
+[annot2.csv](https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/annot2.csv)
+yourself and move it to `data/` or use the R code below.
 
 
 ~~~
-download.file(url = "[https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot2.csv)",
+download.file(url = "https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/annot2.csv",
               destfile = "data/annot2.csv")
-~~~
-{: .language-r}
 
-
-
-~~~
-Warning in download.file(url = "[https://github.com/Bioconductor/bioconductor-
-teaching/raw/master/data/GSE96870/rnaseq.csv](https://raw.githubusercontent.com/
-aloriot/bioc-intro/main/_episodes_rmd/data/annot2.csv)", : URL '[https://
-github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/
-rnaseq.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/
-_episodes_rmd/data/annot2.csv)': status was 'URL using bad/illegal format or
-missing URL'
-~~~
-{: .warning}
-
-
-
-~~~
-Error in download.file(url = "[https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot2.csv)", : cannot open URL '[https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot2.csv)'
-~~~
-{: .error}
-
-
-
-~~~
 annot2 <- read_csv(file = "data/annot2.csv")
-~~~
-{: .language-r}
-
-
-
-~~~
-Error: 'data/annot2.csv' does not exist in current working directory ('/home/runner/work/bioc-intro/bioc-intro/_episodes_rmd').
-~~~
-{: .error}
-
-
-
-~~~
 annot2
 ~~~
 {: .language-r}
@@ -2434,9 +2395,21 @@ annot2
 
 
 ~~~
-Error in eval(expr, envir, enclos): object 'annot2' not found
+# A tibble: 10 × 2
+   external_gene_name description                                               
+   <chr>              <chr>                                                     
+ 1 Cyp2d22            cytochrome P450, family 2, subfamily d, polypeptide 22 [S…
+ 2 Klk6               kallikrein related-peptidase 6 [Source:MGI Symbol;Acc:MGI…
+ 3 Fcrls              Fc receptor-like S, scavenger receptor [Source:MGI Symbol…
+ 4 Plp1               proteolipid protein (myelin) 1 [Source:MGI Symbol;Acc:MGI…
+ 5 Exd2               exonuclease 3'-5' domain containing 2 [Source:MGI Symbol;…
+ 6 Apod               apolipoprotein D [Source:MGI Symbol;Acc:MGI:88056]        
+ 7 Gnb4               guanine nucleotide binding protein (G protein), beta 4 [S…
+ 8 Slc2a4             solute carrier family 2 (facilitated glucose transporter)…
+ 9 Asl                argininosuccinate lyase [Source:MGI Symbol;Acc:MGI:88084] 
+10 Gjc2               gap junction protein, gamma 2 [Source:MGI Symbol;Acc:MGI:…
 ~~~
-{: .error}
+{: .output}
 
 In case none of the variable names match, we can set manually the
 variables to use for the matching.  These variables can be set using
@@ -2451,21 +2424,32 @@ full_join(rna_mini, annot2, by = c("gene" = "external_gene_name"))
 
 
 ~~~
-Error in is.data.frame(y): object 'annot2' not found
+# A tibble: 10 × 4
+   gene    sample     expression description                                    
+   <chr>   <chr>           <dbl> <chr>                                          
+ 1 Asl     GSM2545336       1170 argininosuccinate lyase [Source:MGI Symbol;Acc…
+ 2 Apod    GSM2545336      36194 apolipoprotein D [Source:MGI Symbol;Acc:MGI:88…
+ 3 Cyp2d22 GSM2545336       4060 cytochrome P450, family 2, subfamily d, polype…
+ 4 Klk6    GSM2545336        287 kallikrein related-peptidase 6 [Source:MGI Sym…
+ 5 Fcrls   GSM2545336         85 Fc receptor-like S, scavenger receptor [Source…
+ 6 Slc2a4  GSM2545336        782 solute carrier family 2 (facilitated glucose t…
+ 7 Exd2    GSM2545336       1619 exonuclease 3'-5' domain containing 2 [Source:…
+ 8 Gjc2    GSM2545336        288 gap junction protein, gamma 2 [Source:MGI Symb…
+ 9 Plp1    GSM2545336      43217 proteolipid protein (myelin) 1 [Source:MGI Sym…
+10 Gnb4    GSM2545336       1071 guanine nucleotide binding protein (G protein)…
 ~~~
-{: .error}
+{: .output}
 
 As can be seen above, the variable name of the first table is retained
 in the joined one.
 
 > ## Challenge:
 >
-> Download the annot3 table by clicking 
-> [here](https://raw.githubusercontent.com/aloriot/bioc-intro/main/_episodes_rmd/data/annot3.csv)
-> and put the table in your data/ repository.
-> Using the `full_join()` function, join tables `rna_mini`
-> and `annot3`. What has happened for genes *Klk6*, *mt-Tf*, *mt-Rnr1*, *mt-Tv*,
-> *mt-Rnr2*, and *mt-Tl1* ?
+> Download the `annot3` table by clicking
+> [here](https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/annot3.csv)
+> and put the table in your data/ repository.  Using the `full_join()`
+> function, join tables `rna_mini` and `annot3`. What has happened for
+> genes *Klk6*, *mt-Tf*, *mt-Rnr1*, *mt-Tv*, *mt-Rnr2*, and *mt-Tl1* ?
 >
 > > ## Solution
 > >
