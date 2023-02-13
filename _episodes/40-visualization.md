@@ -263,7 +263,7 @@ From now on we will work on the log-transformed expression values.
 > > 
 > > 
 > > ~~~
-> > Warning: Removed 507 rows containing non-finite values (stat_bin).
+> > Warning: Removed 507 rows containing non-finite values (`stat_bin()`).
 > > ~~~
 > > {: .warning}
 > > 
@@ -1075,6 +1075,14 @@ ggplot(rna, aes(x = expression_log)) +
 > >   theme(panel.grid = element_blank())
 > > ~~~
 > > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+> > ℹ Please use `linewidth` instead.
+> > ~~~
+> > {: .warning}
 > > 
 > > <img src="../fig/rmd-unnamed-chunk-15-1.png" alt="plot of chunk unnamed-chunk-15" width="612" style="display: block; margin: auto;" />
 > > 

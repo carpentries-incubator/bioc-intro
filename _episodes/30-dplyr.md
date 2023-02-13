@@ -793,18 +793,18 @@ rna %>%
 
 ~~~
 # A tibble: 1,474 × 2
-   gene    mean_expression
-   <chr>             <dbl>
- 1 Aamp            4751.  
- 2 Abca12             4.55
- 3 Abcc8           2498.  
- 4 Abhd14a          525.  
- 5 Abi2            4909.  
- 6 Abi3bp          1002.  
- 7 Abl2            2124.  
- 8 Acadl           2053.  
- 9 Acap3           3536.  
-10 Acbd4           1431.  
+   gene     mean_expression
+   <chr>              <dbl>
+ 1 AI504432         1053.  
+ 2 AW046200          131.  
+ 3 AW551984          295.  
+ 4 Aamp             4751.  
+ 5 Abca12              4.55
+ 6 Abcc8            2498.  
+ 7 Abhd14a           525.  
+ 8 Abi2             4909.  
+ 9 Abi3bp           1002.  
+10 Abl2             2124.  
 # … with 1,464 more rows
 ~~~
 {: .output}
@@ -862,18 +862,18 @@ the `.groups` argument.
 ~~~
 # A tibble: 4,422 × 4
 # Groups:   gene, infection [2,948]
-   gene    infection    time mean_expression
-   <chr>   <chr>       <dbl>           <dbl>
- 1 Aamp    InfluenzaA      4         4870   
- 2 Aamp    InfluenzaA      8         4763.  
- 3 Aamp    NonInfected     0         4603.  
- 4 Abca12  InfluenzaA      4            4.25
- 5 Abca12  InfluenzaA      8            4.14
- 6 Abca12  NonInfected     0            5.29
- 7 Abcc8   InfluenzaA      4         2609.  
- 8 Abcc8   InfluenzaA      8         2292.  
- 9 Abcc8   NonInfected     0         2576.  
-10 Abhd14a InfluenzaA      4          547.  
+   gene     infection    time mean_expression
+   <chr>    <chr>       <dbl>           <dbl>
+ 1 AI504432 InfluenzaA      4           1104.
+ 2 AI504432 InfluenzaA      8           1014 
+ 3 AI504432 NonInfected     0           1034.
+ 4 AW046200 InfluenzaA      4            152.
+ 5 AW046200 InfluenzaA      8             81 
+ 6 AW046200 NonInfected     0            155.
+ 7 AW551984 InfluenzaA      4            302.
+ 8 AW551984 InfluenzaA      8            342.
+ 9 AW551984 NonInfected     0            238 
+10 Aamp     InfluenzaA      4           4870 
 # … with 4,412 more rows
 ~~~
 {: .output}
@@ -904,18 +904,18 @@ the `.groups` argument.
 ~~~
 # A tibble: 4,422 × 5
 # Groups:   gene, infection [2,948]
-   gene    infection    time mean_expression median_expression
-   <chr>   <chr>       <dbl>           <dbl>             <dbl>
- 1 Aamp    InfluenzaA      4         4870               4708  
- 2 Aamp    InfluenzaA      8         4763.              4813  
- 3 Aamp    NonInfected     0         4603.              4717  
- 4 Abca12  InfluenzaA      4            4.25               4.5
- 5 Abca12  InfluenzaA      8            4.14               4  
- 6 Abca12  NonInfected     0            5.29               5  
- 7 Abcc8   InfluenzaA      4         2609.              2424. 
- 8 Abcc8   InfluenzaA      8         2292.              2224  
- 9 Abcc8   NonInfected     0         2576.              2578  
-10 Abhd14a InfluenzaA      4          547.               523  
+   gene     infection    time mean_expression median_expression
+   <chr>    <chr>       <dbl>           <dbl>             <dbl>
+ 1 AI504432 InfluenzaA      4           1104.             1094.
+ 2 AI504432 InfluenzaA      8           1014               985 
+ 3 AI504432 NonInfected     0           1034.             1016 
+ 4 AW046200 InfluenzaA      4            152.              144.
+ 5 AW046200 InfluenzaA      8             81                82 
+ 6 AW046200 NonInfected     0            155.              163 
+ 7 AW551984 InfluenzaA      4            302.              245 
+ 8 AW551984 InfluenzaA      8            342.              287 
+ 9 AW551984 NonInfected     0            238               265 
+10 Aamp     InfluenzaA      4           4870              4708 
 # … with 4,412 more rows
 ~~~
 {: .output}
@@ -1287,18 +1287,18 @@ rna %>%
 
 ~~~
 # A tibble: 32,428 × 19
-   gene  sample    expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-   <chr> <chr>       <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
- 1 Aamp  GSM25453…    5621 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 2 Aamp  GSM25453…    4049 Mus mu…     8 Fema… NonInf… C57BL…     0 Cereb…     9
- 3 Aamp  GSM25453…    3797 Mus mu…     8 Fema… NonInf… C57BL…     0 Cereb…    10
- 4 Aamp  GSM25453…    4375 Mus mu…     8 Fema… Influe… C57BL…     4 Cereb…    15
- 5 Aamp  GSM25453…    4095 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
- 6 Aamp  GSM25453…    3867 Mus mu…     8 Male  Influe… C57BL…     8 Cereb…     6
- 7 Aamp  GSM25453…    3578 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…     5
- 8 Aamp  GSM25453…    5097 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
- 9 Aamp  GSM25453…    4202 Mus mu…     8 Fema… Influe… C57BL…     4 Cereb…    22
-10 Aamp  GSM25453…    4701 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    13
+   gene     sample expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>    <chr>    <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 AI504432 GSM25…    1230 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 2 AI504432 GSM25…    1085 Mus mu…     8 Fema… NonInf… C57BL…     0 Cereb…     9
+ 3 AI504432 GSM25…     969 Mus mu…     8 Fema… NonInf… C57BL…     0 Cereb…    10
+ 4 AI504432 GSM25…    1284 Mus mu…     8 Fema… Influe… C57BL…     4 Cereb…    15
+ 5 AI504432 GSM25…     966 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 6 AI504432 GSM25…     918 Mus mu…     8 Male  Influe… C57BL…     8 Cereb…     6
+ 7 AI504432 GSM25…     985 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…     5
+ 8 AI504432 GSM25…     972 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 9 AI504432 GSM25…    1000 Mus mu…     8 Fema… Influe… C57BL…     4 Cereb…    22
+10 AI504432 GSM25…     816 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    13
 # … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
 #   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
 #   gene_biotype <chr>, phenotype_description <chr>,
@@ -1942,18 +1942,18 @@ so every replicate has the same composition.
 > > ~~~
 > > # A tibble: 4,422 × 3
 > > # Groups:   gene [1,474]
-> >    gene     time mean_exp
-> >    <chr>   <dbl>    <dbl>
-> >  1 Aamp        0  4603.  
-> >  2 Aamp        4  4870   
-> >  3 Aamp        8  4763.  
-> >  4 Abca12      0     5.29
-> >  5 Abca12      4     4.25
-> >  6 Abca12      8     4.14
-> >  7 Abcc8       0  2576.  
-> >  8 Abcc8       4  2609.  
-> >  9 Abcc8       8  2292.  
-> > 10 Abhd14a     0   591.  
+> >    gene      time mean_exp
+> >    <chr>    <dbl>    <dbl>
+> >  1 AI504432     0    1034.
+> >  2 AI504432     4    1104.
+> >  3 AI504432     8    1014 
+> >  4 AW046200     0     155.
+> >  5 AW046200     4     152.
+> >  6 AW046200     8      81 
+> >  7 AW551984     0     238 
+> >  8 AW551984     4     302.
+> >  9 AW551984     8     342.
+> > 10 Aamp         0    4603.
 > > # … with 4,412 more rows
 > > ~~~
 > > {: .output}
@@ -1990,18 +1990,18 @@ so every replicate has the same composition.
 > > ~~~
 > > # A tibble: 1,474 × 4
 > > # Groups:   gene [1,474]
-> >    gene        `0`     `4`     `8`
-> >    <chr>     <dbl>   <dbl>   <dbl>
-> >  1 Aamp    4603.   4870    4763.  
-> >  2 Abca12     5.29    4.25    4.14
-> >  3 Abcc8   2576.   2609.   2292.  
-> >  4 Abhd14a  591.    547.    432.  
-> >  5 Abi2    4881.   4903.   4945.  
-> >  6 Abi3bp  1175.   1061.    762.  
-> >  7 Abl2    2170.   2078.   2131.  
-> >  8 Acadl   2059.   2099    1995.  
-> >  9 Acap3   3745    3446.   3431.  
-> > 10 Acbd4   1219.   1410.   1668.  
+> >    gene         `0`     `4`     `8`
+> >    <chr>      <dbl>   <dbl>   <dbl>
+> >  1 AI504432 1034.   1104.   1014   
+> >  2 AW046200  155.    152.     81   
+> >  3 AW551984  238     302.    342.  
+> >  4 Aamp     4603.   4870    4763.  
+> >  5 Abca12      5.29    4.25    4.14
+> >  6 Abcc8    2576.   2609.   2292.  
+> >  7 Abhd14a   591.    547.    432.  
+> >  8 Abi2     4881.   4903.   4945.  
+> >  9 Abi3bp   1175.   1061.    762.  
+> > 10 Abl2     2170.   2078.   2131.  
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
@@ -2034,18 +2034,18 @@ so every replicate has the same composition.
 > > ~~~
 > > # A tibble: 1,474 × 2
 > > # Groups:   gene [1,474]
-> >    gene        `8`
-> >    <chr>     <dbl>
-> >  1 Aamp    4763.  
-> >  2 Abca12     4.14
-> >  3 Abcc8   2292.  
-> >  4 Abhd14a  432.  
-> >  5 Abi2    4945.  
-> >  6 Abi3bp   762.  
-> >  7 Abl2    2131.  
-> >  8 Acadl   1995.  
-> >  9 Acap3   3431.  
-> > 10 Acbd4   1668.  
+> >    gene         `8`
+> >    <chr>      <dbl>
+> >  1 AI504432 1014   
+> >  2 AW046200   81   
+> >  3 AW551984  342.  
+> >  4 Aamp     4763.  
+> >  5 Abca12      4.14
+> >  6 Abcc8    2292.  
+> >  7 Abhd14a   432.  
+> >  8 Abi2     4945.  
+> >  9 Abi3bp    762.  
+> > 10 Abl2     2131.  
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
@@ -2076,18 +2076,18 @@ so every replicate has the same composition.
 > > ~~~
 > > # A tibble: 1,474 × 2
 > > # Groups:   gene [1,474]
-> >    gene        `4`
-> >    <chr>     <dbl>
-> >  1 Aamp    4870   
-> >  2 Abca12     4.25
-> >  3 Abcc8   2609.  
-> >  4 Abhd14a  547.  
-> >  5 Abi2    4903.  
-> >  6 Abi3bp  1061.  
-> >  7 Abl2    2078.  
-> >  8 Acadl   2099   
-> >  9 Acap3   3446.  
-> > 10 Acbd4   1410.  
+> >    gene         `4`
+> >    <chr>      <dbl>
+> >  1 AI504432 1104.  
+> >  2 AW046200  152.  
+> >  3 AW551984  302.  
+> >  4 Aamp     4870   
+> >  5 Abca12      4.25
+> >  6 Abcc8    2609.  
+> >  7 Abhd14a   547.  
+> >  8 Abi2     4903.  
+> >  9 Abi3bp   1061.  
+> > 10 Abl2     2078.  
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
@@ -2120,18 +2120,18 @@ so every replicate has the same composition.
 > > ~~~
 > > # A tibble: 1,474 × 2
 > > # Groups:   gene [1,474]
-> >    gene      time4
-> >    <chr>     <dbl>
-> >  1 Aamp    4870   
-> >  2 Abca12     4.25
-> >  3 Abcc8   2609.  
-> >  4 Abhd14a  547.  
-> >  5 Abi2    4903.  
-> >  6 Abi3bp  1061.  
-> >  7 Abl2    2078.  
-> >  8 Acadl   2099   
-> >  9 Acap3   3446.  
-> > 10 Acbd4   1410.  
+> >    gene       time4
+> >    <chr>      <dbl>
+> >  1 AI504432 1104.  
+> >  2 AW046200  152.  
+> >  3 AW551984  302.  
+> >  4 Aamp     4870   
+> >  5 Abca12      4.25
+> >  6 Abcc8    2609.  
+> >  7 Abhd14a   547.  
+> >  8 Abi2     4903.  
+> >  9 Abi3bp   1061.  
+> > 10 Abl2     2078.  
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
@@ -2163,18 +2163,18 @@ so every replicate has the same composition.
 > > ~~~
 > > # A tibble: 1,474 × 4
 > > # Groups:   gene [1,474]
-> >    gene        `0`     `4`     `8`
-> >    <chr>     <dbl>   <dbl>   <dbl>
-> >  1 Aamp    4603.   4870    4763.  
-> >  2 Abca12     5.29    4.25    4.14
-> >  3 Abcc8   2576.   2609.   2292.  
-> >  4 Abhd14a  591.    547.    432.  
-> >  5 Abi2    4881.   4903.   4945.  
-> >  6 Abi3bp  1175.   1061.    762.  
-> >  7 Abl2    2170.   2078.   2131.  
-> >  8 Acadl   2059.   2099    1995.  
-> >  9 Acap3   3745    3446.   3431.  
-> > 10 Acbd4   1219.   1410.   1668.  
+> >    gene         `0`     `4`     `8`
+> >    <chr>      <dbl>   <dbl>   <dbl>
+> >  1 AI504432 1034.   1104.   1014   
+> >  2 AW046200  155.    152.     81   
+> >  3 AW551984  238     302.    342.  
+> >  4 Aamp     4603.   4870    4763.  
+> >  5 Abca12      5.29    4.25    4.14
+> >  6 Abcc8    2576.   2609.   2292.  
+> >  7 Abhd14a   591.    547.    432.  
+> >  8 Abi2     4881.   4903.   4945.  
+> >  9 Abi3bp   1175.   1061.    762.  
+> > 10 Abl2     2170.   2078.   2131.  
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
@@ -2193,18 +2193,18 @@ so every replicate has the same composition.
 > > ~~~
 > > # A tibble: 1,474 × 6
 > > # Groups:   gene [1,474]
-> >    gene        `0`     `4`     `8` time_8_vs_0 time_8_vs_4
-> >    <chr>     <dbl>   <dbl>   <dbl>       <dbl>       <dbl>
-> >  1 Aamp    4603.   4870    4763.         1.03        0.978
-> >  2 Abca12     5.29    4.25    4.14       0.784       0.975
-> >  3 Abcc8   2576.   2609.   2292.         0.889       0.878
-> >  4 Abhd14a  591.    547.    432.         0.731       0.791
-> >  5 Abi2    4881.   4903.   4945.         1.01        1.01 
-> >  6 Abi3bp  1175.   1061.    762.         0.649       0.719
-> >  7 Abl2    2170.   2078.   2131.         0.982       1.03 
-> >  8 Acadl   2059.   2099    1995.         0.969       0.950
-> >  9 Acap3   3745    3446.   3431.         0.916       0.996
-> > 10 Acbd4   1219.   1410.   1668.         1.37        1.18 
+> >    gene         `0`     `4`     `8` time_8_vs_0 time_8_vs_4
+> >    <chr>      <dbl>   <dbl>   <dbl>       <dbl>       <dbl>
+> >  1 AI504432 1034.   1104.   1014          0.981       0.918
+> >  2 AW046200  155.    152.     81          0.522       0.532
+> >  3 AW551984  238     302.    342.         1.44        1.13 
+> >  4 Aamp     4603.   4870    4763.         1.03        0.978
+> >  5 Abca12      5.29    4.25    4.14       0.784       0.975
+> >  6 Abcc8    2576.   2609.   2292.         0.889       0.878
+> >  7 Abhd14a   591.    547.    432.         0.731       0.791
+> >  8 Abi2     4881.   4903.   4945.         1.01        1.01 
+> >  9 Abi3bp   1175.   1061.    762.         0.649       0.719
+> > 10 Abl2     2170.   2078.   2131.         0.982       1.03 
 > > # … with 1,464 more rows
 > > ~~~
 > > {: .output}
@@ -2226,18 +2226,18 @@ so every replicate has the same composition.
 > > ~~~
 > > # A tibble: 2,948 × 6
 > > # Groups:   gene [1,474]
-> >    gene        `0`     `4`     `8` comparisons Fold_changes
-> >    <chr>     <dbl>   <dbl>   <dbl> <chr>              <dbl>
-> >  1 Aamp    4603.   4870    4763.   time_8_vs_0        1.03 
-> >  2 Aamp    4603.   4870    4763.   time_8_vs_4        0.978
-> >  3 Abca12     5.29    4.25    4.14 time_8_vs_0        0.784
-> >  4 Abca12     5.29    4.25    4.14 time_8_vs_4        0.975
-> >  5 Abcc8   2576.   2609.   2292.   time_8_vs_0        0.889
-> >  6 Abcc8   2576.   2609.   2292.   time_8_vs_4        0.878
-> >  7 Abhd14a  591.    547.    432.   time_8_vs_0        0.731
-> >  8 Abhd14a  591.    547.    432.   time_8_vs_4        0.791
-> >  9 Abi2    4881.   4903.   4945.   time_8_vs_0        1.01 
-> > 10 Abi2    4881.   4903.   4945.   time_8_vs_4        1.01 
+> >    gene         `0`     `4`     `8` comparisons Fold_changes
+> >    <chr>      <dbl>   <dbl>   <dbl> <chr>              <dbl>
+> >  1 AI504432 1034.   1104.   1014    time_8_vs_0        0.981
+> >  2 AI504432 1034.   1104.   1014    time_8_vs_4        0.918
+> >  3 AW046200  155.    152.     81    time_8_vs_0        0.522
+> >  4 AW046200  155.    152.     81    time_8_vs_4        0.532
+> >  5 AW551984  238     302.    342.   time_8_vs_0        1.44 
+> >  6 AW551984  238     302.    342.   time_8_vs_4        1.13 
+> >  7 Aamp     4603.   4870    4763.   time_8_vs_0        1.03 
+> >  8 Aamp     4603.   4870    4763.   time_8_vs_4        0.978
+> >  9 Abca12      5.29    4.25    4.14 time_8_vs_0        0.784
+> > 10 Abca12      5.29    4.25    4.14 time_8_vs_4        0.975
 > > # … with 2,938 more rows
 > > ~~~
 > > {: .output}
@@ -2351,7 +2351,7 @@ full_join(rna_mini, annot1)
 
 
 ~~~
-Joining, by = "gene"
+Joining with `by = join_by(gene)`
 ~~~
 {: .output}
 
