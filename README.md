@@ -38,12 +38,21 @@ issue.
 
 ## Maintainer(s)
 
-Current maintainers of this lesson are
+Current authors/maintainers of this lesson are
 
-* Laurent Gatto
-* Charlotte Soneson
-* Jenny Drnevich
-* Robert Castelo
+- Laurent Gatto
+- Charlotte Soneson
+- Jenny Drnevich
+- Robert Castelo
+- Kevin Rue-Albert
+
+We would also like to acknowledge the contributions of:
+
+- Oliver Crook, Sarah Kaspar, Nick Hirschmueller, Lisa Breckels and Maria Doyle for their contributions during the Bioconductor introduction workshop in Heidelberg, as part of EuroBioc2021 |> 2022.
+- Axelle Loriot, Marco Chiapelle, Manon Martin and Toby Hodges for various contributions and discussions.
+- lmsimp, alorot, manonmartin, mchiapello, stavares843, JennyZadeh, csdaw, ninja-1337, fursham-h, lagerratrobe, fmichonneau, federicomarini, tobyhodges for pull requests.
+
+If we have contributed but we missed you, apologies, and feel free to add yourself with a PR.
 
 ## Authors
 
