@@ -1,27 +1,32 @@
 ---
 source: Rmd
-title: "Introduction to R"
+title: Introduction to R
 teaching: 60
 exercises: 60
-questions:
-- "First commands in R"
-objectives:
-- "Define the following terms as they relate to R: object, assign, call, function, arguments, options."
-- "Assign values to objects in R."
-- "Learn how to _name_ objects"
-- "Use comments to inform script."
-- "Solve simple arithmetic operations in R."
-- "Call functions and use arguments to change their default options."
-- "Inspect the content of vectors and manipulate their content."
-- "Subset and extract values from vectors."
-- "Analyze vectors with missing data."
-keypoints:
-- "How to interact with R"
 ---
 
 ```{r, include=FALSE}
-source("../bin/chunk-options.R")
 ```
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Define the following terms as they relate to R: object, assign, call, function, arguments, options.
+- Assign values to objects in R.
+- Learn how to *name* objects
+- Use comments to inform script.
+- Solve simple arithmetic operations in R.
+- Call functions and use arguments to change their default options.
+- Inspect the content of vectors and manipulate their content.
+- Subset and extract values from vectors.
+- Analyze vectors with missing data.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- First commands in R
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Creating objects in R
 
@@ -32,8 +37,8 @@ You can get output from R simply by typing math in the console:
 12 / 7
 ```
 
-However, to do useful and interesting things, we need to assign _values_ to
-_objects_. To create an object, we need to give it a name followed by the
+However, to do useful and interesting things, we need to assign *values* to
+*objects*. To create an object, we need to give it a name followed by the
 assignment operator `<-`, and the value we want to give it:
 
 ```{r, purl=FALSE}
@@ -45,13 +50,13 @@ objects on the left. So, after executing `x <- 3`, the value of `x` is
 `3`. The arrow can be read as 3 **goes into** `x`.  For historical
 reasons, you can also use `=` for assignments, but not in every
 context. Because of the
-[slight differences](http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html)
+[slight differences](https://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html)
 in syntax, it is good practice to always use `<-` for assignments.
 
-In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd>
-at the same time as the <kbd>-</kbd> key) will write `<-` in a single
-keystroke in a PC, while typing <kbd>Option</kbd> + <kbd>-</kbd> (push
-<kbd>Option</kbd> at the same time as the <kbd>-</kbd> key) does the
+In RStudio, typing <kbd>Alt</kbd> + <kbd>\-</kbd> (push <kbd>Alt</kbd>
+at the same time as the <kbd>\-</kbd> key) will write `<-` in a single
+keystroke in a PC, while typing <kbd>Option</kbd> + <kbd>\-</kbd> (push
+<kbd>Option</kbd> at the same time as the <kbd>\-</kbd> key) does the
 same in a Mac.
 
 ### Naming variables
@@ -77,7 +82,7 @@ your code (where you put spaces, how you name objects, etc.). Using a
 consistent coding style makes your code clearer to read for your
 future self and your collaborators. In R, some popular style guides
 are [Google's](https://google.github.io/styleguide/Rguide.xml), the
-[tidyverse's](http://style.tidyverse.org/) style and the [Bioconductor
+[tidyverse's](https://style.tidyverse.org/) style and the [Bioconductor
 style
 guide](https://bioconductor.org/developers/how-to/coding-style/). The
 tidyverse's is very comprehensive and may seem overwhelming at
@@ -91,7 +96,6 @@ automatically check for issues in the styling of your code.
 > different meanings. However, in this lesson, the two words are used
 > synonymously. For more information
 > [see here.](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects)
-
 
 When assigning a value to an object, R does not print anything. You
 can force R to print the value by using parentheses or by typing the
@@ -131,12 +135,15 @@ and then change `weight_kg` to 100.
 weight_kg <- 100
 ```
 
-> ## Challenge:
->
-> What do you think is the current content of the object `weight_lb`?
-> 126.5 or 220?
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
 
+## Challenge:
+
+What do you think is the current content of the object `weight_lb`?
+126\.5 or 220?
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Comments
 
@@ -151,20 +158,21 @@ you only want to comment out one line, you can put the cursor at any
 location of that line (i.e. no need to select the whole line), then
 press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.
 
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Challenge
->
-> What are the values after each statement in the following?
->
-> ```{r, purl=FALSE}
-> mass <- 47.5            # mass?
-> age  <- 122             # age?
-> mass <- mass * 2.0      # mass?
-> age  <- age - 20        # age?
-> mass_index <- mass/age  # mass_index?
-> ```
-{: .challenge}
+## Challenge
 
+What are the values after each statement in the following?
+
+```{r, purl=FALSE}
+mass <- 47.5            # mass?
+age  <- 122             # age?
+mass <- mass * 2.0      # mass?
+age  <- age - 20        # age?
+mass_index <- mass/age  # mass_index?
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Functions and their arguments
 
@@ -200,7 +208,7 @@ of your choice which will be used instead of the default.
 
 Let's try a function that can take multiple arguments: `round()`.
 
-```{r, results='show', purl=FALSE}
+```{r, results="show", purl=FALSE}
 round(3.14159)
 ```
 
@@ -210,7 +218,7 @@ whole number. If we want more digits we can see how to do that by getting
 information about the `round` function.  We can use `args(round)` or look at the
 help for this function using `?round`.
 
-```{r, results='show', purl=FALSE}
+```{r, results="show", purl=FALSE}
 args(round)
 ```
 
@@ -221,20 +229,20 @@ args(round)
 We see that if we want a different number of digits, we can
 type `digits=2` or however many we want.
 
-```{r, results='show', purl=FALSE}
+```{r, results="show", purl=FALSE}
 round(3.14159, digits = 2)
 ```
 
 If you provide the arguments in the exact same order as they are defined you
 don't have to name them:
 
-```{r, results='show', purl=FALSE}
+```{r, results="show", purl=FALSE}
 round(3.14159, 2)
 ```
 
 And if you do name the arguments, you can switch their order:
 
-```{r, results='show', purl=FALSE}
+```{r, results="show", purl=FALSE}
 round(digits = 2, x = 3.14159)
 ```
 
@@ -334,96 +342,133 @@ Vectors are one of the many **data structures** that R uses. Other
 important ones are lists (`list`), matrices (`matrix`), data frames
 (`data.frame`), factors (`factor`) and arrays (`array`).
 
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Challenge:
->
-> We've seen that atomic vectors can be of type character, numeric (or
-> double), integer, and logical. But what happens if we try to mix
-> these types in a single vector?
->
-> > ## Solution
-> >
-> > R implicitly converts them to all be the same type
-> {: .solution}
-{: .challenge}
+## Challenge:
 
+We've seen that atomic vectors can be of type character, numeric (or
+double), integer, and logical. But what happens if we try to mix
+these types in a single vector?
 
-> ## Challenge:
->
-> What will happen in each of these examples? (hint: use `class()` to
-> check the data type of your objects and type in their names to see what happens):
->
-> ```{r, eval=TRUE}
-> num_char <- c(1, 2, 3, "a")
-> num_logical <- c(1, 2, 3, TRUE, FALSE)
-> char_logical <- c("a", "b", "c", TRUE)
-> tricky <- c(1, 2, 3, "4")
-> ```
-> > ## Solution
-> >
-> > ```{r}
-> > class(num_char)
-> > num_char
-> > class(num_logical)
-> > num_logical
-> > class(char_logical)
-> > char_logical
-> > class(tricky)
-> > tricky
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::  solution
+
+## Solution
+
+R implicitly converts them to all be the same type
 
 
-> ## Challenge:
->
-> Why do you think it happens?
-> > ## Solution
-> > Vectors can be of only one data type. R tries to convert (coerce)
-> > the content of this vector to find a *common denominator* that
-> > doesn't lose any information.
-> {: .solution}
-{: .challenge}
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge:
+
+What will happen in each of these examples? (hint: use `class()` to
+check the data type of your objects and type in their names to see what happens):
+
+```{r, eval=TRUE}
+num_char <- c(1, 2, 3, "a")
+num_logical <- c(1, 2, 3, TRUE, FALSE)
+char_logical <- c("a", "b", "c", TRUE)
+tricky <- c(1, 2, 3, "4")
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r}
+class(num_char)
+num_char
+class(num_logical)
+num_logical
+class(char_logical)
+char_logical
+class(tricky)
+tricky
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge:
+
+Why do you think it happens?
+
+:::::::::::::::  solution
+
+## Solution
+
+Vectors can be of only one data type. R tries to convert (coerce)
+the content of this vector to find a *common denominator* that
+doesn't lose any information.
 
 
-> ## Challenge:
->
-> How many values in `combined_logical` are `"TRUE"` (as a character)
-> in the following example:
->
-> ```{r, eval=TRUE}
-> num_logical <- c(1, 2, 3, TRUE)
-> char_logical <- c("a", "b", "c", TRUE)
-> combined_logical <- c(num_logical, char_logical)
-> ```
-> > ## Solution
-> >
-> > Only one. There is no memory of past data types, and the coercion
-> > happens the first time the vector is evaluated. Therefore, the `TRUE`
-> > in `num_logical` gets converted into a `1` before it gets converted
-> > into `"1"` in `combined_logical`.
-> >```{r}
-> > combined_logical
-> > ```
-> {: .solution}
-{: .challenge}
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge:
+
+How many values in `combined_logical` are `"TRUE"` (as a character)
+in the following example:
+
+```{r, eval=TRUE}
+num_logical <- c(1, 2, 3, TRUE)
+char_logical <- c("a", "b", "c", TRUE)
+combined_logical <- c(num_logical, char_logical)
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+Only one. There is no memory of past data types, and the coercion
+happens the first time the vector is evaluated. Therefore, the `TRUE`
+in `num_logical` gets converted into a `1` before it gets converted
+into `"1"` in `combined_logical`.
+
+```{r}
+combined_logical
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge:
+
+In R, we call converting objects from one class into another class
+*coercion*. These conversions happen according to a hierarchy,
+whereby some types get preferentially coerced into other types. Can
+you draw a diagram that represents the hierarchy of how these data
+types are coerced?
+
+:::::::::::::::  solution
+
+## Solution
+
+logical → numeric → character ← logical
 
 
-> ## Challenge:
->
-> In R, we call converting objects from one class into another class
-> _coercion_. These conversions happen according to a hierarchy,
-> whereby some types get preferentially coerced into other types. Can
-> you draw a diagram that represents the hierarchy of how these data
-> types are coerced?
-> > ## Solution
-> > logical &#8594; numeric &#8594; character &#8592; logical
-> {: .solution}
-{: .challenge}
 
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ```{r, echo=FALSE, eval=FALSE, purl=TRUE}
-## We’ve seen that atomic vectors can be of type character, numeric, integer, and
+## We've seen that atomic vectors can be of type character, numeric, integer, and
 ## logical. But what happens if we try to mix these types in a single
 ## vector?
 
@@ -453,7 +498,7 @@ tricky <- c(1, 2, 3, "4")
 If we want to extract one or several values from a vector, we must
 provide one or several indices in square brackets. For instance:
 
-```{r, results='show', purl=FALSE}
+```{r, results="show", purl=FALSE}
 molecules <- c("dna", "rna", "peptide", "protein")
 molecules[2]
 molecules[c(3, 2)]
@@ -462,7 +507,7 @@ molecules[c(3, 2)]
 We can also repeat the indices to create an object with more elements
 than the original one:
 
-```{r, results='show', purl=FALSE}
+```{r, results="show", purl=FALSE}
 more_molecules <- molecules[c(1, 2, 3, 2, 1, 4)]
 more_molecules
 ```
@@ -487,7 +532,7 @@ molecules[c(-1, -3)] ## all but 1st/3rd ones
 Another common way of subsetting is by using a logical vector. `TRUE` will
 select the element with the same index, while `FALSE` will not:
 
-```{r, purl = FALSE}
+```{r, purl=FALSE}
 weight_g <- c(21, 34, 39, 54, 55)
 weight_g[c(TRUE, FALSE, TRUE, TRUE, FALSE)]
 ```
@@ -496,7 +541,7 @@ Typically, these logical vectors are not typed by hand, but are the
 output of other functions or logical tests. For instance, if you
 wanted to select only the values above 50:
 
-```{r, purl = FALSE}
+```{r, purl=FALSE}
 ## will return logicals with TRUE for the indices that meet
 ## the condition
 weight_g > 50
@@ -507,7 +552,7 @@ weight_g[weight_g > 50]
 You can combine multiple tests using `&` (both conditions are true,
 AND) or `|` (at least one of the conditions is true, OR):
 
-```{r, results='show', purl=FALSE}
+```{r, results="show", purl=FALSE}
 weight_g[weight_g < 30 | weight_g > 50]
 weight_g[weight_g >= 30 & weight_g == 21]
 ```
@@ -523,29 +568,36 @@ use the "or" operator `|` to test for equality to multiple values, but
 this can quickly become tedious. The function `%in%` allows you to
 test if any of the elements of a search vector are found:
 
-```{r, purl = FALSE}
+```{r, purl=FALSE}
 molecules <- c("dna", "rna", "protein", "peptide")
 molecules[molecules == "rna" | molecules == "dna"] # returns both rna and dna
 molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")
 molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Challenge:
->
-> Can you figure out why `"four" > "five"` returns `TRUE`?
-> > ## Solution
-> >
-> > ```{r}
-> > "four" > "five"
-> > ```
-> >
-> > When using `>` or `<` on strings, R compares their alphabetical order.
-> > Here `"four"` comes after `"five"`, and therefore is *greater than*
-> > it.
-> {: .solution}
-{: .challenge}
+## Challenge:
 
+Can you figure out why `"four" > "five"` returns `TRUE`?
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r}
+"four" > "five"
+```
+
+When using `>` or `<` on strings, R compares their alphabetical order.
+Here `"four"` comes after `"five"`, and therefore is *greater than*
+it.
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Names
 
@@ -592,7 +644,6 @@ If your data include missing values, you may want to become familiar
 with the functions `is.na()`, `na.omit()`, and `complete.cases()`. See
 below for examples.
 
-
 ```{r}
 ## Extract those elements which are not missing values.
 heights[!is.na(heights)]
@@ -608,39 +659,45 @@ na.omit(heights)
 heights[complete.cases(heights)]
 ```
 
+:::::::::::::::::::::::::::::::::::::::  challenge
 
+## Challenge:
 
-> ## Challenge:
->
-> 1. Using this vector of heights in inches, create a new vector with the NAs removed.
-> ```{r}
-> heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
-> ```
-> 2. Use the function `median()` to calculate the median of the `heights` vector.
-> 3. Use R to figure out how many people in the set are taller than 67 inches.
->
-> > ## Solution
-> >```{r}
-> >heights_no_na <- heights[!is.na(heights)]
-> >## or
-> >heights_no_na <- na.omit(heights)
-> >```
-> >
-> >```{r}
-> >median(heights, na.rm = TRUE)
-> >```
-> >
-> >```{r}
-> >heights_above_67 <- heights_no_na[heights_no_na > 67]
-> >length(heights_above_67)
-> >```
-> {: .solution}
-{: .challenge}
+1. Using this vector of heights in inches, create a new vector with the NAs removed.
 
+```{r}
+heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
+```
+
+2. Use the function `median()` to calculate the median of the `heights` vector.
+3. Use R to figure out how many people in the set are taller than 67 inches.
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r}
+heights_no_na <- heights[!is.na(heights)]
+## or
+heights_no_na <- na.omit(heights)
+```
+
+```{r}
+median(heights, na.rm = TRUE)
+```
+
+```{r}
+heights_above_67 <- heights_no_na[heights_no_na > 67]
+length(heights_above_67)
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Generating vectors {#sec:genvec}
 
-```{r, echo = FALSE}
+```{r, echo=FALSE}
 set.seed(1)
 ```
 
@@ -666,17 +723,24 @@ numeric(0)
 There are similar constructors for characters and logicals, named
 `character()` and `logical()` respectively.
 
-> ## Challenge:
->
-> What are the defaults for character and logical vectors?
->
-> > ## Solution
-> > ```{r}
-> > character(2) ## the empty character
-> > logical(2)   ## FALSE
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge:
+
+What are the defaults for character and logical vectors?
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r}
+character(2) ## the empty character
+logical(2)   ## FALSE
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Replicate elements
 
@@ -704,19 +768,26 @@ values 1, 2 and 3 five times, we would do the following:
 rep(c(1, 2, 3), 5)
 ```
 
-> ## Challenge:
->
-> What if we wanted to repeat the values 1, 2 and 3 five times, but
-> obtain five 1s, five 2s and five 3s in that order? There are two
-> possibilities - see `?rep` or `?sort` for help.
->
-> > ## Solution
-> > ```{r}
-> > rep(c(1, 2, 3), each = 5)
-> > sort(rep(c(1, 2, 3), 5))
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge:
+
+What if we wanted to repeat the values 1, 2 and 3 five times, but
+obtain five 1s, five 2s and five 3s in that order? There are two
+possibilities - see `?rep` or `?sort` for help.
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r}
+rep(c(1, 2, 3), each = 5)
+sort(rep(c(1, 2, 3), 5))
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Sequence generation
 
@@ -774,49 +845,57 @@ argument to `TRUE`:
 sample(1:5, 10, replace = TRUE)
 ```
 
-> ## Challenge:
->
-> When trying the functions above out, you will have realised that the
-> samples are indeed random and that one doesn't get the same
-> permutation twice. To be able to reproduce these random draws, one can
-> set the random number generation seed manually with `set.seed()`
-> before drawing the random sample.
->
-> Test this feature with your neighbour. First draw two random
-> permutations of `1:10` independently and observe that you get
-> different results.
->
-> Now set the seed with, for example, `set.seed(123)` and repeat the
-> random draw. Observe that you now get the same random draws.
->
-> Repeat by setting a different seed.
-> > ## Solution
-> > Different permutations
-> >
-> > ```{r}
-> > sample(1:10)
-> > sample(1:10)
-> > ```
-> >
-> > Same permutations with seed 123
-> >
-> > ```{r}
-> > set.seed(123)
-> > sample(1:10)
-> > set.seed(123)
-> > sample(1:10)
-> > ```
-> >
-> > A different seed
-> >
-> > ```{r}
-> > set.seed(1)
-> > sample(1:10)
-> > set.seed(1)
-> > sample(1:10)
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge:
+
+When trying the functions above out, you will have realised that the
+samples are indeed random and that one doesn't get the same
+permutation twice. To be able to reproduce these random draws, one can
+set the random number generation seed manually with `set.seed()`
+before drawing the random sample.
+
+Test this feature with your neighbour. First draw two random
+permutations of `1:10` independently and observe that you get
+different results.
+
+Now set the seed with, for example, `set.seed(123)` and repeat the
+random draw. Observe that you now get the same random draws.
+
+Repeat by setting a different seed.
+
+:::::::::::::::  solution
+
+## Solution
+
+Different permutations
+
+```{r}
+sample(1:10)
+sample(1:10)
+```
+
+Same permutations with seed 123
+
+```{r}
+set.seed(123)
+sample(1:10)
+set.seed(123)
+sample(1:10)
+```
+
+A different seed
+
+```{r}
+set.seed(1)
+sample(1:10)
+set.seed(1)
+sample(1:10)
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Drawing samples from a normal distribution
 
@@ -825,7 +904,7 @@ sample from a normal distribution. Two normal distributions of means 0
 and 100 and standard deviations 1 and 5, noted *N(0, 1)* and
 *N(100, 5)*, are shown below.
 
-```{r echo=FALSE, fig.width = 12, fig.height = 6, fig.cap = "Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right."}
+```{r, echo=FALSE, fig.width=12, fig.height=6, fig.cap="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right."}
 par(mfrow = c(1, 2))
 plot(density(rnorm(1000)), main = "", sub = "N(0, 1)")
 plot(density(rnorm(1000, 100, 5)), main = "", sub = "N(100, 5)")
@@ -834,7 +913,6 @@ plot(density(rnorm(1000, 100, 5)), main = "", sub = "N(100, 5)")
 The three arguments, `n`, `mean` and `sd`, define the size of the
 sample, and the parameters of the normal distribution, i.e the mean
 and its standard deviation. The defaults of the latter are 0 and 1.
-
 
 ```{r}
 rnorm(5)
@@ -845,3 +923,11 @@ rnorm(5, 100, 5)
 Now that we have learned how to write scripts, and the basics of R's
 data structures, we are ready to start working with larger data, and
 learn about data frames.
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- How to interact with R
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

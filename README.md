@@ -2,8 +2,6 @@
 
 [![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
 
-
-
 ## Contributing
 
 We welcome all contributions to improve the lesson! Maintainers will
@@ -23,18 +21,17 @@ Project](http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project)
 in Pro Git by Scott Chacon.
 
 Look for the tag
-![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg). This
+![good\_first\_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg). This
 indicates that the maintainers will welcome a pull request fixing this
 issue.
 
 ## Useful links
 
-* If you're going to be developing lesson material for the first time
+- If you're going to be developing lesson material for the first time
   according to our design principles, consider reading the
   [Carpentries Curriculum Development Handbook][cdh]
-* Consult the [Lesson Example][lesson-example] website to find out more about
+- Consult the [Lesson Example][lesson-example] website to find out more about
   working with the lesson template
-
 
 ## Maintainer(s)
 
@@ -62,6 +59,8 @@ A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
 
 To cite this lesson, please consult with [CITATION](CITATION)
 
-[cdh]: https://cdh.carpentries.org
-[community-lessons]: https://carpentries.org/community-lessons
 [lesson-example]: https://carpentries.github.io/lesson-example
+[cdh]: https://cdh.carpentries.org
+
+
+

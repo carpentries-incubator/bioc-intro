@@ -1,22 +1,27 @@
 ---
 source: Rmd
-title: "R and RStudio"
+title: R and RStudio
 teaching: 30
 exercises: 0
-questions:
-- "What are R and RStudio?"
-objectives:
-- "Describe the purpose of the RStudio Script, Console, Environment, and Plots panes."
-- "Organise files and directories for a set of analyses as an R project, and understand the purpose of the working directory."
-- "Use the built-in RStudio help interface to search for more information on R functions."
-- "Demonstrate how to provide sufficient information for troubleshooting with the R user community."
-keypoints:
-- "Start using R and RStudio"
 ---
 
 ```{r, include=FALSE}
-source("../bin/chunk-options.R")
 ```
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Describe the purpose of the RStudio Script, Console, Environment, and Plots panes.
+- Organise files and directories for a set of analyses as an R project, and understand the purpose of the working directory.
+- Use the built-in RStudio help interface to search for more information on R functions.
+- Demonstrate how to provide sufficient information for troubleshooting with the R user community.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- What are R and RStudio?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## What is R? What is RStudio?
 
@@ -30,9 +35,9 @@ software[^plainr]. To function correctly, RStudio needs R and
 therefore both need to be installed on your computer.
 
 [^plainr]: As opposed to using R directly from the command line
-    console. There exist other software that interface and integrate
-    with R, but RStudio is particularly well suited for beginners
-    while providing numerous very advanced features.
+console. There exist other software that interface and integrate
+with R, but RStudio is particularly well suited for beginners
+while providing numerous very advanced features.
 
 The [RStudio IDE Cheat
 Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
@@ -84,10 +89,10 @@ R has packages for image analysis, GIS, time series, population
 genetics, and a lot more.
 
 [^whatarepkgs]: i.e. add-ons that confer R with new functionality,
-    such as bioinformatics data analysis.
+such as bioinformatics data analysis.
 
-```{r, fig.cap = "Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", echo = FALSE, message = FALSE}
-knitr::include_graphics("../fig/cran.png")
+```{r, fig.cap="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", echo=FALSE, message=FALSE}
+knitr::include_graphics("fig/cran.png")
 ```
 
 ### R works on data of all shapes and sizes
@@ -103,13 +108,11 @@ factors convenient.
 R can connect to spreadsheets, databases, and many other data formats,
 on your computer or on the web.
 
-
 ### R produces high-quality graphics
 
 The plotting functionalities in R are extensive, and allow you to adjust
 any aspect of your graph to convey most effectively the message from
 your data.
-
 
 ### R has a large and welcoming community
 
@@ -117,8 +120,7 @@ Thousands of people use R daily. Many of them are willing to help you
 through mailing lists and websites such as [Stack
 Overflow](https://stackoverflow.com/), or on the [RStudio
 community](https://community.rstudio.com/). These broad user communities
-extend to specialised areas such as bioinformatics. One such subset of the R community is [Bioconductor](https://bioconductor.org/), a scientific project for analysis and comprehension "of data from current and emerging biological assays." This workshop was developed by members of the Bioconductor community; for more information on Bioconductor, please see the companion workshop ["The Bioconductor Project"](https://carpentries-incubator.github.io/bioc-project/). 
-
+extend to specialised areas such as bioinformatics. One such subset of the R community is [Bioconductor](https://bioconductor.org/), a scientific project for analysis and comprehension "of data from current and emerging biological assays." This workshop was developed by members of the Bioconductor community; for more information on Bioconductor, please see the companion workshop ["The Bioconductor Project"](https://carpentries-incubator.github.io/bioc-project/).
 
 ### Not only is R free, but it is also open-source and cross-platform
 
@@ -143,9 +145,8 @@ the plots we will generate. RStudio can also be used for other things
 (e.g., version control, developing packages, writing Shiny apps) that
 we will not cover during the workshop.
 
-
-```{r, results='markup', fig.cap="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("../fig/rstudio-screenshot.png")
+```{r, results="markup", fig.cap="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("fig/rstudio-screenshot.png")
 ```
 
 The RStudio window is divided into 4 "Panes":
@@ -188,8 +189,8 @@ tutorial below.
 2. Under the `File` menu, click on `New project`. Choose `New directory`, then
   `New project`.
 3. Enter a name for this new folder (or "directory"), and choose a
-   convenient location for it. This will be your **working directory**
-   for this session (or whole course) (e.g., `bioc-intro`).
+  convenient location for it. This will be your **working directory**
+  for this session (or whole course) (e.g., `bioc-intro`).
 4. Click on `Create project`.
 5. (Optional) Set Preferences to 'Never' save workspace in RStudio.
 
@@ -198,17 +199,16 @@ RStudio's default preferences generally work well, but saving a workspace to
 To turn that off, go to Tools --> 'Global Options' and select the 'Never' option
 for 'Save workspace to .RData' on exit.
 
-```{r, results='markup', fig.cap="Set 'Save workspace to .RData on exit' to 'Never'", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
-knitr::include_graphics("../fig/rstudio-preferences.png")
+```{r, results="markup", fig.cap="Set 'Save workspace to .RData on exit' to 'Never'", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/rstudio-preferences.png")
 ```
 
 To avoid [character encoding issues between Windows and other operating
 systems](https://yihui.name/en/2018/11/biggest-regret-knitr/), we are
 going to set UTF-8 by default:
 
-
-```{r, results='markup', fig.cap="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above).", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
-knitr::include_graphics("../fig/utf8.png")
+```{r, results="markup", fig.cap="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above).", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/utf8.png")
 ```
 
 ### Organizing your working directory
@@ -218,44 +218,47 @@ organised, and will also make it easy to find/file things in the future. This
 can be especially helpful when you have multiple projects. In general, you may
 create directories (folders) for **scripts**, **data**, and **documents**.
 
- - **`data/`** Use this folder to store your raw data and intermediate
-   datasets you may create for the need of a particular analysis. For
-   the sake of transparency and
-   [provenance](https://en.wikipedia.org/wiki/Provenance), you should
-   *always* keep a copy of your raw data accessible and do as much of
-   your data cleanup and preprocessing programmatically (i.e., with
-   scripts, rather than manually) as possible. Separating raw data
-   from processed data is also a good idea. For example, you could
-   have files `data/raw/tree_survey.plot1.txt` and `...plot2.txt` kept
-   separate from a `data/processed/tree.survey.csv` file generated by
-   the `scripts/01.preprocess.tree_survey.R` script.
- - **`documents/`** This would be a place to keep outlines, drafts,
-   and other text.
- - **`scripts/`** (or `src`) This would be the location to keep your R
-   scripts for different analyses or plotting, and potentially a
-   separate folder for your functions (more on that later).
+- **`data/`** Use this folder to store your raw data and intermediate
+  datasets you may create for the need of a particular analysis. For
+  the sake of transparency and
+  [provenance](https://en.wikipedia.org/wiki/Provenance), you should
+  *always* keep a copy of your raw data accessible and do as much of
+  your data cleanup and preprocessing programmatically (i.e., with
+  scripts, rather than manually) as possible. Separating raw data
+  from processed data is also a good idea. For example, you could
+  have files `data/raw/tree_survey.plot1.txt` and `...plot2.txt` kept
+  separate from a `data/processed/tree.survey.csv` file generated by
+  the `scripts/01.preprocess.tree_survey.R` script.
+- **`documents/`** This would be a place to keep outlines, drafts,
+  and other text.
+- **`scripts/`** (or `src`) This would be the location to keep your R
+  scripts for different analyses or plotting, and potentially a
+  separate folder for your functions (more on that later).
 
 You may want additional directories or subdirectories depending on
 your project needs, but these should form the backbone of your working
 directory.
 
-
-```{r, results='markup', fig.cap="Example of a working directory structure.", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("../fig/working-directory-structure.png")
+```{r, results="markup", fig.cap="Example of a working directory structure.", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("fig/working-directory-structure.png")
 ```
 
 For this course, we will need a `data/` folder to store our raw data,
 and we will use `data_output/` for when we learn how to export data as
 CSV files, and `fig_output/` folder for the figures that we will save.
 
-> ## Challenge: create your project directory structure
->
-> Under the `Files` tab on the right of the screen, click on `New Folder` and
-> create a folder named `data` within your newly created working directory
-> (e.g., `~/bioc-intro/data`). (Alternatively, type `dir.create("data")` at
-> your R console.) Repeat these operations to create a `data_output/` and a
-> `fig_output` folders.
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge: create your project directory structure
+
+Under the `Files` tab on the right of the screen, click on `New Folder` and
+create a folder named `data` within your newly created working directory
+(e.g., `~/bioc-intro/data`). (Alternatively, type `dir.create("data")` at
+your R console.) Repeat these operations to create a `data_output/` and a
+`fig_output` folders.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 We are going to keep the script in the root of our working directory
 because we are only going to use one file and it will make things
@@ -263,8 +266,8 @@ easier.
 
 Your working directory should now look like this:
 
-```{r, results='markup',fig.cap="How it should look like at the beginning of this lesson", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("../fig/r-starting-how-it-should-look-like.png")
+```{r, results="markup", fig.cap="How it should look like at the beginning of this lesson", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("fig/r-starting-how-it-should-look-like.png")
 ```
 
 **Project management** is also applicable to bioinformatics projects,
@@ -272,7 +275,7 @@ of course[^bioindatascience]. William Noble (@Noble:2009) proposes the
 following directory structure:
 
 [^bioindatascience]: In this course, we consider bioinformatics as
-    data science applied to biological or bio-medical data.
+data science applied to biological or bio-medical data.
 
 > Directory names are in large typeface, and filenames are in smaller
 > typeface. Only a subset of the files are shown here. Note that the
@@ -287,9 +290,8 @@ following directory structure:
 > `bin/parse-sqt.py` script is called by both of the `runall` driver
 > scripts.
 
-
-```{r bioinfoproj, fig.cap="Directory structure for a sample bioinformatics project.", out.width='100%', echo=FALSE}
-knitr::include_graphics("../fig/noble-bioinfo-project.png")
+```{r bioinfoproj, fig.cap="Directory structure for a sample bioinformatics project.", out.width="100%", echo=FALSE}
+knitr::include_graphics("fig/noble-bioinfo-project.png")
 ```
 
 The most important aspect of a well defined and well documented
@@ -297,16 +299,15 @@ project directory is to enable someone unfamiliar with the
 project[^futureself] to
 
 1. understand what the project is about, what data are available, what
-   analyses were run, and what results were produced and, most
-   importantly to
+  analyses were run, and what results were produced and, most
+  importantly to
 
 2. repeat the analysis over again - with new data, or changing some
-   analysis parameters.
+  analysis parameters.
 
 [^futureself]: That someone could be, and very likely will be your
-    future self, a couple of months or years after the analyses were
-    run.
-
+future self, a couple of months or years after the analyses were
+run.
 
 ### The working directory
 
@@ -403,7 +404,6 @@ thought you finished typing your command, click inside the console
 window and press `Esc`; this will cancel the incomplete command and
 return you to the `>` prompt.
 
-
 ## How to learn more during and after the course?
 
 The material we cover during this course will give you an initial
@@ -418,19 +418,19 @@ people make their code available online, modifying existing code to
 suit your purpose might make it easier for you to get started.
 
 [^inthiscoure]: We will introduce most of these (except statistics)
-    here, but will only manage to scratch the surface of the wealth of
-    what is possible to do with R.
+here, but will only manage to scratch the surface of the wealth of
+what is possible to do with R.
 
-```{r kitten, results='markup', echo=FALSE, purl=FALSE, out.width='400px', fig.align='center'}
-knitr::include_graphics("../fig/kitten-try-things.jpg")
+```{r kitten, results="markup", echo=FALSE, purl=FALSE, out.width="400px", fig.align="center"}
+knitr::include_graphics("fig/kitten-try-things.jpg")
 ```
 
 ## Seeking help
 
 ### Use the built-in RStudio help interface to search for more information on R functions
 
-```{r rstudiohelp, fig.cap="RStudio help interface.", results='markup', echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
-knitr::include_graphics("../fig/rstudiohelp.png")
+```{r rstudiohelp, fig.cap="RStudio help interface.", results="markup", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/rstudiohelp.png")
 ```
 
 One of the fastest ways to get help, is to use the RStudio help
@@ -467,10 +467,10 @@ match to your search request
 ```
 
 If you can't find what you are looking for, you can use
-the [rdocumentation.org](http://www.rdocumentation.org) website that searches
+the [rdocumentation.org](https://www.rdocumentation.org) website that searches
 through the help files across all packages available.
 
-Finally, a generic Google or internet search "R \<task\>" will often either send
+Finally, a generic Google or internet search "R \<task>" will often either send
 you to the appropriate package documentation or a helpful forum where someone
 else has already asked your question.
 
@@ -488,13 +488,13 @@ questions have already been answered, but the challenge is to use the right
 words in the search to find the
 answers:
 
-[http://stackoverflow.com/questions/tagged/r](http://stackoverflow.com/questions/tagged/r)
+[http://stackoverflow.com/questions/tagged/r](https://stackoverflow.com/questions/tagged/r)
 
-The [Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.pdf) can
+The [Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.pdf) can
 also be dense for people with little programming experience but it is a good
 place to understand the underpinnings of the R language.
 
-The [R FAQ](http://cran.r-project.org/doc/FAQ/R-FAQ.html) is dense and technical
+The [R FAQ](https://cran.r-project.org/doc/FAQ/R-FAQ.html) is dense and technical
 but it is full of useful information.
 
 ### Asking for help
@@ -519,13 +519,13 @@ field can understand the question. For instance instead of using a
 subset of your real dataset, create a small (3 columns, 5 rows)
 generic one. For more information on how to write a reproducible
 example see [this article by Hadley
-Wickham](http://adv-r.had.co.nz/Reproducibility.html).
+Wickham](https://adv-r.had.co.nz/Reproducibility.html).
 
 To share an object with someone else, if it's relatively small, you
 can use the function `dput()`. It will output R code that can be used
 to recreate the exact same object as the one in memory:
 
-```{r, results='show', purl=FALSE}
+```{r, results="show", purl=FALSE}
 ## iris is an example data frame that comes with R and head() is a
 ## function that returns the first part of the data frame
 dput(head(iris))
@@ -556,23 +556,23 @@ as it provides critical information about your platform, the versions of R and
 the packages that you are using, and other information that can be very helpful
 to understand your problem.
 
-```{r, results='show', purl=FALSE}
+```{r, results="show", purl=FALSE}
 sessionInfo()
 ```
 
 ### Where to ask for help?
 
-* The person sitting next to you during the course. Don't hesitate to
+- The person sitting next to you during the course. Don't hesitate to
   talk to your neighbour during the workshop, compare your answers,
   and ask for help.
-* Your friendly colleagues: if you know someone with more experience
+- Your friendly colleagues: if you know someone with more experience
   than you, they might be able and willing to help you.
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/r): if
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/r): if
   your question hasn't been answered before and is well crafted,
   chances are you will get an answer in less than 5 min. Remember to
   follow their guidelines on [how to ask a good
-  question](http://stackoverflow.com/help/how-to-ask).
-* The [R-help mailing
+  question](https://stackoverflow.com/help/how-to-ask).
+- The [R-help mailing
   list](https://stat.ethz.ch/mailman/listinfo/r-help): it is read by a
   lot of people (including most of the R core team), a lot of people
   post to it, but the tone can be pretty dry, and it is not always
@@ -583,27 +583,27 @@ sessionInfo()
   to the misuse of your words rather than answering your
   question). You will also have more success if your question is about
   a base function rather than a specific package.
-* If your question is about a specific package, see if there is a
+- If your question is about a specific package, see if there is a
   mailing list for it. Usually it's included in the DESCRIPTION file
   of the package that can be accessed using
   `packageDescription("name-of-package")`. You may also want to try to
   email the author of the package directly, or open an issue on the
   code repository (e.g., GitHub).
-* There are also some topic-specific mailing lists (GIS,
+- There are also some topic-specific mailing lists (GIS,
   phylogenetics, etc...), the complete list is
-  [here](http://www.r-project.org/mail.html).
+  [here](https://www.r-project.org/mail.html).
 
 ### More resources
 
-- The [Posting Guide](http://www.r-project.org/posting-guide.html) for
+- The [Posting Guide](https://www.r-project.org/posting-guide.html) for
   the R mailing lists.
 
 - [How to ask for R
-  help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)
+  help](https://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)
   useful guidelines.
 
 - [This blog post by Jon
-  Skeet](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
+  Skeet](https://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
   has quite comprehensive advice on how to ask programming questions.
 
 - The [reprex](https://cran.rstudio.com/web/packages/reprex/) package
@@ -641,11 +641,10 @@ install.packages("dplyr")
 This command will install the `dplyr` package as well as all its
 dependencies, i.e. all the packages that it relies on to function.
 
-
 Another major R package repository is maintained by Bioconductor. [Bioconductor packages](https://bioconductor.org/packages/release/BiocViews.html#___Software) are managed and installed using a dedicated package,
 namely `BiocManager`, that can be installed from CRAN with
 
-```{r, eval = FALSE}
+```{r, eval=FALSE}
 install.packages("BiocManager")
 ```
 
@@ -653,9 +652,17 @@ Individual packages such as `SummarizedExperiment` (we will use it
 later), `DESeq2` (for RNA-Seq analysis), and any others from either Bioconductor or CRAN can then be
 installed with `BiocManager::install`.
 
-```{r, eval = FALSE}
+```{r, eval=FALSE}
 BiocManager::install("SummarizedExperiment")
 BiocManager::install("DESeq2")
 ```
 
-By default, `BiocManager::install()` will also check all your installed packages and see if there are newer versions available. If there are, it will show them to you and ask you if you want to `Update all/some/none? [a/s/n]:` and then wait for your answer. While you should strive to have the most up-to-date package versions, in practice we recommend only updating packages in a fresh R session before any packages are loaded. 
+By default, `BiocManager::install()` will also check all your installed packages and see if there are newer versions available. If there are, it will show them to you and ask you if you want to `Update all/some/none? [a/s/n]:` and then wait for your answer. While you should strive to have the most up-to-date package versions, in practice we recommend only updating packages in a fresh R session before any packages are loaded.
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Start using R and RStudio
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

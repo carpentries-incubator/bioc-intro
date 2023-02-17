@@ -1,23 +1,28 @@
 ---
 source: Rmd
-title: "Data organisation with spreadsheets"
+title: Data organisation with spreadsheets
 teaching: 30
 exercises: 30
-questions:
-- "How to organise tabular data?"
-objectives:
-- "Learn about spreadsheets, their strengths and weaknesses."
-- "How do we format data in spreadsheets for effective data use?"
-- "Learn about common spreadsheet errors and how to correct them."
-- "Organise your data according to tidy data principles."
-- "Learn about text-based spreadsheet formats such as the comma-separated (CSV) or tab-separated (TSV) formats."
-keypoints:
-- "Good data organization is the foundation of any research project."
 ---
 
 ```{r, include=FALSE}
-source("../bin/chunk-options.R")
 ```
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Learn about spreadsheets, their strengths and weaknesses.
+- How do we format data in spreadsheets for effective data use?
+- Learn about common spreadsheet errors and how to correct them.
+- Organise your data according to tidy data principles.
+- Learn about text-based spreadsheet formats such as the comma-separated (CSV) or tab-separated (TSV) formats.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- How to organise tabular data?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Spreadsheet programs
 
@@ -59,7 +64,6 @@ If you're looking to do this, a good reference is [Head First
 Excel](https://www.amazon.com/Head-First-Excel-learners-spreadsheets/dp/0596807694/),
 published by O'Reilly.
 
-
 ### Why aren't we teaching data analysis in spreadsheets
 
 - Data analysis in spreadsheets usually requires a lot of manual
@@ -91,15 +95,19 @@ formatted as tables is also the main theme of this chapter, and we
 will see how to organise data into tables in a standardised way to
 ensure efficient downstream analysis.
 
-> ## Challenge: Discuss the following points with your neighbour
->
-> - Have you used spreadsheets, in your research, courses,
->   or at home?
-> - What kind of operations do you do in spreadsheets?
-> - Which ones do you think spreadsheets are good for?
-> - Have you accidentally done something in a spreadsheet program that made you
->   frustrated or sad?
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge: Discuss the following points with your neighbour
+
+- Have you used spreadsheets, in your research, courses,
+  or at home?
+- What kind of operations do you do in spreadsheets?
+- Which ones do you think spreadsheets are good for?
+- Have you accidentally done something in a spreadsheet program that made you
+  frustrated or sad?
+  
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Problems with spreadsheets
 
@@ -109,7 +117,7 @@ to create data tables for publications, to generate summary
 statistics, and make figures.
 
 Generating tables for publications in a spreadsheet is not
-optimal - often, when formatting a data table for publication, we’re
+optimal - often, when formatting a data table for publication, we're
 reporting key summary statistics in a way that is not really meant to
 be read as data, and often involves special formatting
 (merging cells, creating borders, making it pretty). We advise you to
@@ -120,11 +128,11 @@ be used with caution: because of the graphical, drag and drop nature of
 spreadsheet programs, it can be very difficult, if not impossible, to
 replicate your steps (much less retrace anyone else's), particularly if your
 stats or figures require you to do more complex calculations. Furthermore,
-in doing calculations in a spreadsheet, it’s easy to accidentally apply a
+in doing calculations in a spreadsheet, it's easy to accidentally apply a
 slightly different formula to multiple adjacent cells. When using a
-command-line based statistics program like R or SAS, it’s practically
+command-line based statistics program like R or SAS, it's practically
 impossible to apply a calculation to one observation in your
-dataset but not another unless you’re doing it on purpose.
+dataset but not another unless you're doing it on purpose.
 
 ### Using spreadsheets for data entry and cleaning
 
@@ -176,7 +184,7 @@ more effective and faster ways, but to use that power, we have to set
 up our data for the computer to be able to understand it (and
 computers are very literal).
 
-This is why it’s extremely important to set up well-formatted tables
+This is why it's extremely important to set up well-formatted tables
 from the outset - before you even start entering data from your very
 first preliminary experiment. Data organization is the foundation of
 your research project. It can make it easier or harder to work with
@@ -210,32 +218,31 @@ instructor asks for a different analysis, you should
 
 This might be an example of a spreadsheet setup:
 
-![](../fig/spreadsheet-setup-updated.png)
+![](fig/spreadsheet-setup-updated.png)
 
 Put these principles in to practice today during your exercises.
 
 While versioning is out of scope for this course, you can look at the
 Carpentries lesson on
-['Git'](http://swcarpentry.github.io/git-novice/) to learn how to
+['Git'](https://swcarpentry.github.io/git-novice/) to learn how to
 maintain **version control** over your data. See also this [blog
 post](https://lgatto.github.io/github-intro/) for a quick tutorial or
 @Perez-Riverol:2016 for a more research-oriented use-case.
-
 
 ### Structuring data in spreadsheets
 
 The cardinal rules of using spreadsheet programs for data:
 
 1. Put all your variables in columns - the thing you're measuring,
-   like 'weight' or 'temperature'.
+  like 'weight' or 'temperature'.
 2. Put each observation in its own row.
 3. Don't combine multiple pieces of information in one cell. Sometimes
-   it just seems like one thing, but think if that's the only way
-   you'll want to be able to use or sort that data.
+  it just seems like one thing, but think if that's the only way
+  you'll want to be able to use or sort that data.
 4. Leave the raw data raw - don't change it!
 5. Export the cleaned data to a text-based format like CSV
-   (comma-separated values) format. This ensures that anyone can use
-   the data, and is required by most data repositories.
+  (comma-separated values) format. This ensures that anyone can use
+  the data, and is required by most data repositories.
 
 For instance, we have data from patients that visited several
 hospitals in Brussels, Belgium. They recorded the date of the visit,
@@ -243,7 +250,7 @@ the hospital, the patients' gender, weight and blood group.
 
 If we were to keep track of the data like this:
 
-![](../fig/multiple-info.png)
+![](fig/multiple-info.png)
 
 the problem is that the ABO and Rhesus groups are in the same `Blood`
 type column. So, if they wanted to look at all observations of the A
@@ -251,7 +258,7 @@ group or look at weight distributions by ABO group, it would be tricky
 to do this using this data setup. If instead we put the ABO and Rhesus
 groups in different columns, you can see that it would be much easier.
 
-![](../fig/single-info.png)
+![](fig/single-info.png)
 
 An important rule when setting up a datasheet, is that **columns are
 used for variables** and **rows are used for observations**:
@@ -260,53 +267,69 @@ used for variables** and **rows are used for observations**:
 - rows are observations
 - cells are individual values
 
-> ## Challenge: We're going to take a messy dataset and describe how we would clean it up.
->
-> 1. Download a messy dataset by clicking
->    [here](https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx).
->
-> 2. Open up the data in a spreadsheet program.
->
-> 3. You can see that there are two tabs. The data contains various
->    clinical variables recorded in various hospitals in Brussels during
->    the first and second COVID-19 waves in 2020. As you can see, the
->    data have been recorded differently during the March and November
->    waves. Now you're the person in charge of this project and you want
->    to be able to start analyzing the data.
->
-> 4. With the person next to you, identify what is wrong with this
->    spreadsheet. Also discuss the steps you would need to take to clean
->    up first and second wave tabs, and to put them all together in one
->    spreadsheet.
->
-> **Important:** Do not forget our first piece of advice: to create a
-> new file (or tab) for the cleaned data, never modify your original
-> (raw) data.
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge: We're going to take a messy dataset and describe how we would clean it up.
+
+1. Download a messy dataset by clicking
+  [here](https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx).
+
+2. Open up the data in a spreadsheet program.
+
+3. You can see that there are two tabs. The data contains various
+  clinical variables recorded in various hospitals in Brussels during
+  the first and second COVID-19 waves in 2020. As you can see, the
+  data have been recorded differently during the March and November
+  waves. Now you're the person in charge of this project and you want
+  to be able to start analyzing the data.
+
+4. With the person next to you, identify what is wrong with this
+  spreadsheet. Also discuss the steps you would need to take to clean
+  up first and second wave tabs, and to put them all together in one
+  spreadsheet.
+
+**Important:** Do not forget our first piece of advice: to create a
+new file (or tab) for the cleaned data, never modify your original
+(raw) data.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 After you go through this exercise, we'll discuss as a group what was
 wrong with this data and how you would fix it.
 
 <!-- - Take about 10 minutes to work on this exercise. -->
+
 <!-- - All the mistakes in the *common mistakes* section below are present -->
+
 <!--   in the messy dataset. If the exercise is done during a workshop, ask -->
+
 <!--   people what they saw as wrong with the data. As they bring up -->
+
 <!--   different points, you can refer to the common mistakes or expand a -->
+
 <!--   bit on the point they brought up. -->
+
 <!-- - If you get a response where they've fixed the date, you can pause -->
+
 <!--   and go to the dates lesson. Or you can say you'll come back to dates -->
+
 <!--   at the end. -->
 
-> ## Challenge: Once you have tidied up the data, answer the following questions:
->
-> - How many men and women took part in the study?
-> - How many A, AB, and B types have been tested?
-> - As above, but disregarding the contaminated samples?
-> - How many Rhesus + and - have been tested?
-> - How many universal donors (O-) have been tested?
-> - What is the average weight of AB men?
-> - How many samples have been tested in the different hospitals?
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge: Once you have tidied up the data, answer the following questions:
+
+- How many men and women took part in the study?
+- How many A, AB, and B types have been tested?
+- As above, but disregarding the contaminated samples?
+- How many Rhesus + and - have been tested?
+- How many universal donors (O-) have been tested?
+- What is the average weight of AB men?
+- How many samples have been tested in the different hospitals?
+  
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 An **excellent reference**, in particular with regard to R scripting
 is the *Tidy Data* paper @Wickham:2014.
@@ -337,8 +360,11 @@ is the *Tidy Data* paper @Wickham:2014.
 - Record metadata in a separate plain text file.
 
 <!-- This lesson is meant to be used as a reference for discussion as -->
+
 <!-- learners identify issues with the messy dataset discussed in the -->
+
 <!-- previous lesson. Instructors: don't go through this lesson except to -->
+
 <!-- refer to responses to the exercise in the previous lesson. -->
 
 There are a few potential errors to be on the lookout for in your own
@@ -366,13 +392,13 @@ and analysis.
 
 A common strategy is creating multiple data tables within one
 spreadsheet. This confuses the computer, so don't do this!  When you
-create multiple tables within one spreadsheet, you’re drawing false
+create multiple tables within one spreadsheet, you're drawing false
 associations between things for the computer, which sees each row as
-an observation. You’re also potentially using the same field name in
+an observation. You're also potentially using the same field name in
 multiple places, which will make it harder to clean your data up into
 a usable form. The example below depicts the problem:
 
-![](../fig/2_datasheet_example.jpg)
+![](fig/2_datasheet_example.jpg)
 
 In the example above, the computer will see (for example) row 4 and
 assume that all columns A-AF refer to the same sample. This row
@@ -394,24 +420,24 @@ separate tab for each day you take a measurement.
 This isn't good practice for two reasons:
 
 1. you are more likely to accidentally add inconsistencies to your
-   data if each time you take a measurement, you start recording data
-   in a new tab, and
+  data if each time you take a measurement, you start recording data
+  in a new tab, and
 
 2. even if you manage to prevent all inconsistencies from creeping in,
-   you will add an extra step for yourself before you analyse the data
-   because you will have to combine these data into a single
-   datatable. You will have to explicitly tell the computer how to
-   combine tabs - and if the tabs are inconsistently formatted, you
-   might even have to do it manually.
+  you will add an extra step for yourself before you analyse the data
+  because you will have to combine these data into a single
+  datatable. You will have to explicitly tell the computer how to
+  combine tabs - and if the tabs are inconsistently formatted, you
+  might even have to do it manually.
 
-The next time you’re entering data, and you go to create another tab
+The next time you're entering data, and you go to create another tab
 or table, ask yourself if you could avoid adding this tab by adding
 another column to your original spreadsheet. We used multiple tabs in
 our example of a messy data file, but now you've seen how you can
 reorganise your data to consolidate across tabs.
 
 Your data sheet might get very long over the course of the
-experiment. This makes it harder to enter data if you can’t see your
+experiment. This makes it harder to enter data if you can't see your
 headers at the top of the spreadsheet. But don't repeat your header
 row. These can easily get mixed into the data, leading to problems
 down the road. Instead you can [freeze the column
@@ -441,11 +467,10 @@ computer can't guess the value of the missing observations). Because
 of this, it's very important to record zeros as zeros and truly
 missing data as nulls.
 
-
 ### Using problematic null values {#null}
 
 **Example**: using -999 or other numerical values (or zero) to
-  represent missing data.
+represent missing data.
 
 **Solutions**:
 
@@ -454,13 +479,13 @@ within a dataset. Sometimes confusing null values are automatically
 recorded from the measuring device. If that's the case, there's not
 much you can do, but it can be addressed in data cleaning with a tool
 like
-[OpenRefine](http://www.datacarpentry.org/OpenRefine-ecology-lesson/)
+[OpenRefine](https://www.datacarpentry.org/OpenRefine-ecology-lesson/)
 before analysis. Other times different null values are used to convey
 different reasons why the data isn't there. This is important
 information to capture, but is in effect using one column to capture
 two pieces of information. Like for [using formatting to convey
 information](#formatting) it would be good here to create a new
-column like 'data_missing' and use that column to capture the
+column like 'data\_missing' and use that column to capture the
 different reasons.
 
 Whatever the reason, it's a problem if unknown or missing data is
@@ -475,43 +500,40 @@ Blanks (most applications) and NA (for R) are good
 choices. @White:2013 explain good choices for indicating null values
 for different software applications in their article:
 
-![](../fig/3_white_table_1.jpg)
+![](fig/3_white_table_1.jpg)
 
 ### Using formatting to convey information {#formatting}
 
 **Example**: highlighting cells, rows or columns that should be
-  excluded from an analysis, leaving blank rows to indicate
-  separations in data.
+excluded from an analysis, leaving blank rows to indicate
+separations in data.
 
-![](../fig/formatting.png)
+![](fig/formatting.png)
 
 **Solution**: create a new field to encode which data should be
-  excluded.
+excluded.
 
-![](../fig/good_formatting.png)
+![](fig/good_formatting.png)
 
-
-### Using formatting to make the data sheet look pretty {#formatting_pretty}
+### Using formatting to make the data sheet look pretty {#formatting\_pretty}
 
 **Example**: merging cells.
 
-**Solution**: If you’re not careful, formatting a worksheet to be more
-aesthetically pleasing can compromise your computer’s ability to see
+**Solution**: If you're not careful, formatting a worksheet to be more
+aesthetically pleasing can compromise your computer's ability to see
 associations in the data. Merged cells will make your data unreadable
 by statistics software. Consider restructuring your data in such a way
 that you will not need to merge cells to organise your data.
-
 
 ### Placing comments or units in cells {#units}
 
 Most analysis software can't see Excel or LibreOffice comments, and
 would be confused by comments placed within your data cells. As
 described above for formatting, create another field if you need to
-add notes to cells. Similarly, don’t include units in cells: ideally,
+add notes to cells. Similarly, don't include units in cells: ideally,
 all the measurements you place in one column should be in the same
-unit, but if for some reason they aren’t, create another field and
+unit, but if for some reason they aren't, create another field and
 specify the units the cell is in.
-
 
 ### Entering more than one piece of information in a cell {#info}
 
@@ -524,12 +546,12 @@ you need both these measurements, design your data sheet to include
 this information. For example, include one column for the ABO group and
 one for the Rhesus group.
 
-### Using problematic field names {#field_name}
+### Using problematic field names {#field\_name}
 
 Choose descriptive field names, but be careful not to include spaces,
 numbers, or special characters of any kind. Spaces can be
 misinterpreted by parsers that use whitespace as delimiters and some
-programs don’t like field names that are text strings that start with
+programs don't like field names that are text strings that start with
 numbers.
 
 Underscores (`_`) are a good alternative to spaces. Consider writing
@@ -541,16 +563,15 @@ confusion and enables others to readily interpret your fields.
 
 **Examples**
 
-| Good Name | Good Alternative | Avoid  |
-|-----------|------------------|--------|
-| Max_temp_C | MaxTemp | Maximum Temp (°C)  |
-| Precipitation_mm | Precipitation | precmm |
-| Mean_year_growth | MeanYearGrowth  | Mean growth/year |
-| sex | sex | M/F |
-| weight | weight | w.|
-| cell_type | CellType | Cell Type |
-| Observation_01  | first_observation | 1st Obs |
-
+| Good Name        | Good Alternative  | Avoid             | 
+| ---------------- | ----------------- | ----------------- |
+| Max\_temp\_C       | MaxTemp           | Maximum Temp (°C) | 
+| Precipitation\_mm | Precipitation     | precmm            | 
+| Mean\_year\_growth | MeanYearGrowth    | Mean growth/year  | 
+| sex              | sex               | M/F               | 
+| weight           | weight            | w.                | 
+| cell\_type        | CellType          | Cell Type         | 
+| Observation\_01   | first\_observation | 1st Obs           | 
 
 ### Using special characters in data {#special}
 
@@ -571,13 +592,12 @@ General best practice is to avoid adding characters such as newlines,
 tabs, and vertical tabs. In other words, treat a text cell as if it
 were a simple web form that can only contain text and spaces.
 
-
 ### Inclusion of metadata in data table {#metadata}
 
 **Example**: You add a legend at the top or bottom of your data table
 explaining column meaning, units, exceptions, etc.
 
-**Solution**: Recording data about your data (“metadata”) is
+**Solution**: Recording data about your data ("metadata") is
 essential. You may be on intimate terms with your dataset while you
 are collecting and analysing it, but the chances that you will still
 remember that the variable "sglmemgp" means single member of group,
@@ -614,11 +634,10 @@ folder-level readme.txt file is the classic way of accounting for all
 the files and folders in a project.
 
 (Text on metadata adapted from the online course Research Data
-[MANTRA](http://datalib.edina.ac.uk/mantra) by EDINA and Data Library,
+[MANTRA](https://datalib.edina.ac.uk/mantra) by EDINA and Data Library,
 University of Edinburgh. MANTRA is licensed under a [Creative Commons
 Attribution 4.0 International
 License](https://creativecommons.org/licenses/by/4.0/).)
-
 
 ## Exporting data
 
@@ -646,7 +665,7 @@ default file format (`*.xls` or `*.xlsx` - depending on the Excel
 version) isn't a good idea. Why?
 
 - Because it is a proprietary format, and it is possible that in the
-  future, technology won’t exist (or will become sufficiently rare) to
+  future, technology won't exist (or will become sufficiently rare) to
   make it inconvenient, if not impossible, to open the file.
 
 - Other spreadsheet software may not be able to open files saved in a
@@ -665,7 +684,6 @@ version) isn't a good idea. Why?
   formats used by LibreOffice / Open Office. These formats are not
   static and do not get parsed the same way by different software
   packages.
-
 
 Storing data in a universal, open, and static format will help deal
 with this problem. Try tab-delimited (tab separated values or TSV) or
@@ -686,15 +704,15 @@ To save a file you have opened in Excel in CSV format:
 
 1. From the top menu select 'File' and 'Save as'.
 2. In the 'Format' field, from the list, select 'Comma Separated
-   Values' (`*.csv`).
+  Values' (`*.csv`).
 3. Double check the file name and the location where you want to save
-   it and hit 'Save'.
+  it and hit 'Save'.
 
 An important note for backwards compatibility: you can open CSV files
 in Excel!
 
-```{r, results='markup', fig.cap="Saving an Excel file to CSV.", echo=FALSE, purl=FALSE, out.width='70%', fig.align='center'}
-knitr::include_graphics("../fig/excel-to-csv.png")
+```{r, results="markup", fig.cap="Saving an Excel file to CSV.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/excel-to-csv.png")
 ```
 
 **A note on R and `xls`**: There are R packages that can read `xls`
@@ -718,7 +736,6 @@ most likely incorrectly display the data in columns. This is because
 the commas which are a part of the data values will be interpreted as
 delimiters.
 
-
 For example, our data might look like this:
 
 ```
@@ -734,9 +751,8 @@ value for `taxa` includes a comma (`Rodent, not censused`).  If we try
 to read the above into Excel (or other spreadsheet program), we will
 get something like this:
 
-
-```{r, results='markup', fig.cap = "The risks of having commas inside comma-separated data.", echo=FALSE, purl=FALSE, out.width='80%', fig.align='center'}
-knitr::include_graphics("../fig/csv-mistake.png")
+```{r, results="markup", fig.cap="The risks of having commas inside comma-separated data.", echo=FALSE, purl=FALSE, out.width="80%", fig.align="center"}
+knitr::include_graphics("fig/csv-mistake.png")
 ```
 
 The value for `taxa` was split into two columns (instead of being put
@@ -770,10 +786,10 @@ working with TSV files. TSV files can be exported from spreadsheet
 programs in the same way as CSV files.
 
 [^decsep]: This is particularly relevant in European
-           countries where the comma is used as a decimal
-           separator. In such cases, the default value separator in a
-           csv file will be the semi-colon (;), or values will be
-           systematically quoted.
+countries where the comma is used as a decimal
+separator. In such cases, the default value separator in a
+csv file will be the semi-colon (;), or values will be
+systematically quoted.
 
 If you are working with an already existing dataset in which the data
 values are not included in "" but which have commas as both delimiters
@@ -791,11 +807,10 @@ automated fashion, for example by writing and running a script. The
 Python and R lessons will give you the basis for developing skills to
 build relevant scripts.
 
-
 ## Summary
 
-```{r analysis, results='asis', fig.margin=TRUE, fig.cap="A typical data analysis workflow.", fig.width=7, fig.height=4, echo=FALSE, purl=FALSE}
-knitr::include_graphics("../fig/analysis.png")
+```{r analysis, results="asis", fig.margin=TRUE, fig.cap="A typical data analysis workflow.", fig.width=7, fig.height=4, echo=FALSE, purl=FALSE}
+knitr::include_graphics("fig/analysis.png")
 ```
 
 A typical data analysis workflow is illustrated in the figure above,
@@ -809,3 +824,11 @@ An agile data analysis workflow, with several fast iterations of the
 transform/visualise/model cycle is only feasible if the data is
 formatted in a predictable way and one can reason about the data
 without having to look at it and/or fix it.
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Good data organization is the foundation of any research project.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

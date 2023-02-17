@@ -1,11 +1,15 @@
 ---
 source: Rmd
-title: "Starting with data"
+title: Starting with data
 teaching: 30
 exercises: 30
-questions:
-- "First data analysis in R"
-objectives:
+---
+
+```{r, include=FALSE}
+```
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
 - Describe what a data frame is.
 - Load external data from a .csv file into a data frame.
 - Summarize the contents of a data frame.
@@ -14,13 +18,14 @@ objectives:
 - Reorder and rename factors.
 - Format dates.
 - Export and save data.
-keypoints:
-- "Tabular data in R"
----
 
-```{r, include=FALSE}
-source("../bin/chunk-options.R")
-```
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- First data analysis in R
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Presentation of the gene expression data
 
@@ -35,24 +40,23 @@ intranasal route and transcriptomic changes in the cerebellum and
 spinal cord tissues were evaluated by RNA-seq at days 0
 (non-infected), 4 and 8.
 
-
 The dataset is stored as a comma separated value (CSV) file.  Each row
 holds information for a single RNA expression measurement, and the first eleven
 columns represent:
 
-| Column     | Description                                                                                  |
-|------------|----------------------------------------------------------------------------------------------|
-| gene       | The name of the gene that was measured                                                       |
-| sample     | The name of the sample the gene expression was measured in                                   |
-| expression | The value of the gene expression                                                             |
-| organism   | The organism/species - here all data stem from mice                                          |
-| age        | The age of the mouse (all mice were 8 weeks here)                                            |
-| sex        | The sex of the mouse                                                                         |
-| infection  | The infection state of the mouse, i.e. infected with Influenza A or not infected.            |
-| strain     | The Influenza A strain; C57BL/6 in all cases.                                                |
-| time       | The duration of the infection (in days).                                                     |
-| tissue     | The tissue that was used for the gene expression experiment, i.e. cerebellum or spinal cord. |
-| mouse      | The mouse unique identifier.                                                                 |
+| Column     | Description                                                                                  | 
+| ---------- | -------------------------------------------------------------------------------------------- |
+| gene       | The name of the gene that was measured                                                       | 
+| sample     | The name of the sample the gene expression was measured in                                   | 
+| expression | The value of the gene expression                                                             | 
+| organism   | The organism/species - here all data stem from mice                                          | 
+| age        | The age of the mouse (all mice were 8 weeks here)                                            | 
+| sex        | The sex of the mouse                                                                         | 
+| infection  | The infection state of the mouse, i.e. infected with Influenza A or not infected.            | 
+| strain     | The Influenza A strain; C57BL/6 in all cases.                                                | 
+| time       | The duration of the infection (in days).                                                     | 
+| tissue     | The tissue that was used for the gene expression experiment, i.e. cerebellum or spinal cord. | 
+| mouse      | The mouse unique identifier.                                                                 | 
 
 We are going to use the R function `download.file()` to download the
 CSV file that contains the gene expression data, and we will use
@@ -66,16 +70,14 @@ local machine. You'll need to have a folder on your machine called
 remote file, names it `"rnaseq.csv"` and adds it to a preexisting
 folder named `"data"`.
 
-
-```{r, eval = TRUE}
+```{r, eval=TRUE}
 download.file(url = "https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv",
               destfile = "data/rnaseq.csv")
 ```
 
 You are now ready to load the data:
 
-
-```{r, eval = TRUE}
+```{r, eval=TRUE}
 rna <- read.csv("data/rnaseq.csv")
 ```
 
@@ -84,7 +86,7 @@ recall, assignments don't display anything. If we want to check that
 our data has been loaded, we can see the contents of the data frame by
 typing its name
 
-```{r, eval = FALSE}
+```{r, eval=FALSE}
 rna
 ```
 
@@ -114,7 +116,7 @@ the main `read.table()` function with different arguments.  As such,
 the data above could have also been loaded by using `read.table()`
 with the separation argument as `,`. The code is as follows:
 
-```{r, eval = TRUE}
+```{r, eval=TRUE}
 rna <- read.table(file = "data/rnaseq.csv",
                   sep = ",",
                   header = TRUE)
@@ -126,7 +128,7 @@ FALSE.
 
 ## What are data frames?
 
-Data frames are the _de facto_ data structure for most tabular data,
+Data frames are the *de facto* data structure for most tabular data,
 and what we use for statistics and plotting.
 
 A data frame can be created by hand, but most commonly they are
@@ -141,7 +143,6 @@ depicting a data frame comprising a numeric, a character, and a
 logical vector.
 
 ![](./figs/data-frame.svg)
-
 
 We can see this when inspecting the <b>str</b>ucture of a data frame
 with the function `str()`:
@@ -160,8 +161,8 @@ content/structure of the data. Let's try them out!
 **Size**:
 
 - `dim(rna)` - returns a vector with the number of rows in the first
-   element, and the number of columns as the second element (the
-   **dim**ensions of the object)
+  element, and the number of columns as the second element (the
+  **dim**ensions of the object)
 - `nrow(rna)` - returns the number of rows
 - `ncol(rna)` - returns the number of columns
 
@@ -173,7 +174,7 @@ content/structure of the data. Let's try them out!
 **Names**:
 
 - `names(rna)` - returns the column names (synonym of `colnames()` for
-   `data.frame` objects)
+  `data.frame` objects)
 - `rownames(rna)` - returns the row names
 
 **Summary**:
@@ -182,26 +183,31 @@ content/structure of the data. Let's try them out!
   class, length and content of each column
 - `summary(rna)` - summary statistics for each column
 
-
 Note: most of these functions are "generic", they can be used on other types of
 objects besides `data.frame`.
 
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Challenge:
->
-> Based on the output of `str(rna)`, can you answer the following
-> questions?
->
-> - What is the class of the object `rna`?
-> - How many rows and how many columns are in this object?
->
-> > ## Solution
-> >
-> > - class: data frame
-> > - how many rows: 66465, how many columns: 11
-> {: .solution}
-{: .challenge}
+## Challenge:
 
+Based on the output of `str(rna)`, can you answer the following
+questions?
+
+- What is the class of the object `rna`?
+- How many rows and how many columns are in this object?
+
+:::::::::::::::  solution
+
+## Solution
+
+- class: data frame
+- how many rows: 66465, how many columns: 11
+  
+  
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Indexing and subsetting data frames
 
@@ -211,8 +217,7 @@ want to extract some specific data from it, we need to specify the
 column numbers. However, note that different ways of specifying these
 coordinates lead to results with different classes.
 
-
-```{r, eval = FALSE}
+```{r, eval=FALSE}
 # first element in the first column of the data frame (as a vector)
 rna[1, 1]
 # first element in the 6th column (as a vector)
@@ -232,11 +237,11 @@ head_rna
 
 `:` is a special function that creates numeric vectors of integers in
 increasing or decreasing order, test `1:10` and `10:1` for
-instance. See section \@ref(sec:genvec) for details.
+instance. See section @ref(sec:genvec) for details.
 
 You can also exclude certain indices of a data frame using the "`-`" sign:
 
-```{r, eval = FALSE}
+```{r, eval=FALSE}
 rna[, -1]          ## The whole data frame, except the first column
 rna[-c(7:66465), ] ## Equivalent to head(rna)
 ```
@@ -244,7 +249,7 @@ rna[-c(7:66465), ] ## Equivalent to head(rna)
 Data frames can be subset by calling indices (as shown previously),
 but also by calling their column names directly:
 
-```{r, eval = FALSE}
+```{r, eval=FALSE}
 rna["gene"]       # Result is a data.frame
 rna[, "gene"]     # Result is a vector
 rna[["gene"]]     # Result is a vector
@@ -254,48 +259,53 @@ rna$gene          # Result is a vector
 In RStudio, you can use the autocompletion feature to get the full and
 correct names of the columns.
 
-> ## Challenge
->
-> 1. Create a `data.frame` (`rna_200`) containing only the data in
->    row 200 of the `rna` dataset.
->
-> 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
->
-> - Use that number to pull out just that last row in the initial
->   `rna` data frame.
->
-> - Compare that with what you see as the last row using `tail()` to
->   make sure it's meeting expectations.
->
-> - Pull out that last row using `nrow()` instead of the row number.
->
-> - Create a new data frame (`rna_last`) from that last row.
->
-> 3. Use `nrow()` to extract the row that is in the middle of the
->    `rna` dataframe. Store the content of this row in an object
->    named `rna_middle`.
->
-> 4. Combine `nrow()` with the `-` notation above to reproduce the
->    behavior of `head(rna)`, keeping just the first through 6th
->    rows of the rna dataset.
->
-> > ## Solution
-> >
-> > ```{r}
-> > ## 1.
-> > rna_200 <- rna[200, ]
-> > ## 2.
-> > ## Saving `n_rows` to improve readability and reduce duplication
-> > n_rows <- nrow(rna)
-> > rna_last <- rna[n_rows, ]
-> > ## 3.
-> > rna_middle <- rna[n_rows / 2, ]
-> > ## 4.
-> > rna_head <- rna[-(7:n_rows), ]
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
 
+## Challenge
+
+1. Create a `data.frame` (`rna_200`) containing only the data in
+  row 200 of the `rna` dataset.
+
+2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
+
+- Use that number to pull out just that last row in the initial
+  `rna` data frame.
+
+- Compare that with what you see as the last row using `tail()` to
+  make sure it's meeting expectations.
+
+- Pull out that last row using `nrow()` instead of the row number.
+
+- Create a new data frame (`rna_last`) from that last row.
+
+3. Use `nrow()` to extract the row that is in the middle of the
+  `rna` dataframe. Store the content of this row in an object
+  named `rna_middle`.
+
+4. Combine `nrow()` with the `-` notation above to reproduce the
+  behavior of `head(rna)`, keeping just the first through 6th
+  rows of the rna dataset.
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r}
+## 1.
+rna_200 <- rna[200, ]
+## 2.
+## Saving `n_rows` to improve readability and reduce duplication
+n_rows <- nrow(rna)
+rna_last <- rna[n_rows, ]
+## 3.
+rna_middle <- rna[n_rows / 2, ]
+## 4.
+rna_head <- rna[-(7:n_rows), ]
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Factors
 
@@ -318,7 +328,6 @@ R will assign `1` to the level `"female"` and `2` to the level
 in this vector is `"male"`). You can see this by using the function
 `levels()` and you can find the number of levels using `nlevels()`:
 
-
 ```{r}
 levels(sex)
 nlevels(sex)
@@ -329,7 +338,6 @@ might want to specify the order because it is meaningful (e.g., "low",
 "medium", "high"), it improves your visualization, or it is required
 by a particular type of analysis. Here, one way to reorder our levels
 in the `sex` vector would be:
-
 
 ```{r}
 sex ## current order
@@ -350,10 +358,9 @@ function to get a quick glance at the number of observations
 represented by each factor level. Let's look at the number of males
 and females in our data.
 
-```{r firstfactorplot, fig.cap = "Bar plot of the number of females and males."}
+```{r firstfactorplot, fig.cap="Bar plot of the number of females and males."}
 plot(sex)
 ```
-
 
 ### Converting to character
 
@@ -367,25 +374,39 @@ as.character(sex)
 <!-- ### Numeric factors -->
 
 <!-- Converting factors where the levels appear as numbers (such as -->
+
 <!-- concentration levels, or years) to a numeric vector is a little -->
+
 <!-- trickier. The `as.numeric()` function returns the index values of the -->
+
 <!-- factor, not its levels, so it will result in an entirely new (and -->
+
 <!-- unwanted in this case) set of numbers.  One method to avoid this is to -->
+
 <!-- convert factors to characters, and then to numbers.  Another method is -->
+
 <!-- to use the `levels()` function. Compare: -->
 
 <!-- ```{r} -->
+
 <!-- year_fct <- factor(c(1990, 1983, 1977, 1998, 1990)) -->
+
 <!-- as.numeric(year_fct)  ## Wrong! And there is no warning... -->
+
 <!-- as.numeric(as.character(year_fct)) ## Works... -->
+
 <!-- as.numeric(levels(year_fct))[year_fct] ## The recommended way. -->
+
 <!-- ```
 
 <!-- Notice that in the `levels()` approach, three important steps occur: -->
 
 <!-- * We obtain all the factor levels using `levels(year_fct)` -->
+
 <!-- * We convert these levels to numeric values using `as.numeric(levels(year_fct))` -->
+
 <!-- * We then access these numeric values using the underlying integers of the -->
+
 <!--   vector `year_fct` inside the square brackets -->
 
 ### Renaming factors
@@ -400,80 +421,97 @@ sex
 plot(sex)
 ```
 
-> ## Challenge:
->
-> - Rename "F" and "M" to "Female" and "Male" respectively.
->
-> > ## Solution
-> >
-> > ```{r, eval=TRUE}
-> > levels(sex)
-> > levels(sex) <- c("Male", "Female")
-> > ```
-> {: .solution}
-{: .challenge }
+::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Challenge:
->
-> We have seen how data frames are created when using `read.csv()`, but
-> they can also be created by hand with the `data.frame()` function.
-> There are a few mistakes in this hand-crafted `data.frame`. Can you
-> spot and fix them?  Don't hesitate to experiment!
->
-> ```{r, eval=FALSE}
-> animal_data <- data.frame(
->        animal = c(dog, cat, sea cucumber, sea urchin),
->        feel = c("furry", "squishy", "spiny"),
->        weight = c(45, 8 1.1, 0.8))
-> ```
-> > ## Solution
-> >
-> > - missing quotations around the names of the animals
-> > - missing one entry in the "feel" column (probably for one of the furry animals)
-> > - missing one comma in the weight column
-> >
-> {: .solution}
-{: .challenge}
+## Challenge:
 
+- Rename "F" and "M" to "Female" and "Male" respectively.
 
-> ## Challenge:
->
-> Can you predict the class for each of the columns in the following
-> example?
->
-> Check your guesses using `str(country_climate)`:
->
-> - Are they what you expected?  Why? Why not?
->
-> - Try again by adding `stringsAsFactors = TRUE` after the last
->   variable when creating the data frame? What is happening now?
->   `stringsAsFactors` can also be set when reading text-based
->   spreadsheets into R using `read.csv()`.
->
-> ```{r, eval = FALSE}
-> country_climate <- data.frame(
->        country = c("Canada", "Panama", "South Africa", "Australia"),
->        climate = c("cold", "hot", "temperate", "hot/temperate"),
->        temperature = c(10, 30, 18, "15"),
->        northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
->        has_kangaroo = c(FALSE, FALSE, FALSE, 1)
->        )
-> ```
-> > ## Solution
-> >
-> > ```{r, eval=TRUE}
-> > country_climate <- data.frame(
-> >        country = c("Canada", "Panama", "South Africa", "Australia"),
-> >        climate = c("cold", "hot", "temperate", "hot/temperate"),
-> >        temperature = c(10, 30, 18, "15"),
-> >        northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
-> >        has_kangaroo = c(FALSE, FALSE, FALSE, 1)
-> >        )
-> > str(country_climate)
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::  solution
 
+## Solution
+
+```{r, eval=TRUE}
+levels(sex)
+levels(sex) <- c("Male", "Female")
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge:
+
+We have seen how data frames are created when using `read.csv()`, but
+they can also be created by hand with the `data.frame()` function.
+There are a few mistakes in this hand-crafted `data.frame`. Can you
+spot and fix them?  Don't hesitate to experiment!
+
+```{r, eval=FALSE}
+animal_data <- data.frame(
+       animal = c(dog, cat, sea cucumber, sea urchin),
+       feel = c("furry", "squishy", "spiny"),
+       weight = c(45, 8 1.1, 0.8))
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+- missing quotations around the names of the animals
+- missing one entry in the "feel" column (probably for one of the furry animals)
+- missing one comma in the weight column
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge:
+
+Can you predict the class for each of the columns in the following
+example?
+
+Check your guesses using `str(country_climate)`:
+
+- Are they what you expected?  Why? Why not?
+
+- Try again by adding `stringsAsFactors = TRUE` after the last
+  variable when creating the data frame? What is happening now?
+  `stringsAsFactors` can also be set when reading text-based
+  spreadsheets into R using `read.csv()`.
+
+```{r, eval=FALSE}
+country_climate <- data.frame(
+       country = c("Canada", "Panama", "South Africa", "Australia"),
+       climate = c("cold", "hot", "temperate", "hot/temperate"),
+       temperature = c(10, 30, 18, "15"),
+       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+       has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+       )
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r, eval=TRUE}
+country_climate <- data.frame(
+       country = c("Canada", "Panama", "South Africa", "Australia"),
+       climate = c("cold", "hot", "temperate", "hot/temperate"),
+       temperature = c(10, 30, 18, "15"),
+       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+       has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+       )
+str(country_climate)
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 The automatic conversion of data type is sometimes a blessing, sometimes an
 annoyance. Be aware that it exists, learn the rules, and double check that data
@@ -505,55 +543,61 @@ m
 
 [^ncol]: Either the number of rows or columns are enough, as the other one can be deduced from the length of the values. Try out what happens if the values and number of rows/columns don't add up.
 
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Challenge:
->
-> Using the function `installed.packages()`, create a `character` matrix
-> containing the information about all packages currently installed on
-> your computer. Explore it.
->
-> > ## Solution:
-> >
-> > ```{r pkg_sln, eval = FALSE}
-> > ## create the matrix
-> > ip <- installed.packages()
-> > head(ip)
-> > ## try also View(ip)
-> > ## number of package
-> > nrow(ip)
-> > ## names of all installed packages
-> > rownames(ip)
-> > ## type of information we have about each package
-> > colnames(ip)
-> > ```
-> >
-> {: .solution}
-{: .challenge}
+## Challenge:
+
+Using the function `installed.packages()`, create a `character` matrix
+containing the information about all packages currently installed on
+your computer. Explore it.
+
+:::::::::::::::  solution
+
+## Solution:
+
+```{r pkg_sln, eval=FALSE}
+## create the matrix
+ip <- installed.packages()
+head(ip)
+## try also View(ip)
+## number of package
+nrow(ip)
+## names of all installed packages
+rownames(ip)
+## type of information we have about each package
+colnames(ip)
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 It is often useful to create large random data matrices as test
 data. The exercise below asks you to create such a matrix with random
 data drawn from a normal distribution of mean 0 and standard deviation
 1, which can be done with the `rnorm()` function.
 
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Challenge:
->
-> Construct a matrix of dimension 1000 by 3 of normally distributed data
-> (mean 0, standard deviation 1)
->
-> > ## Solution
-> >
-> > ```{r rnormmat_sln}
-> > set.seed(123)
-> > m <- matrix(rnorm(3000), ncol = 3)
-> > dim(m)
-> > head(m)
-> > ```
-> >
-> {: .solution}
-{: .challenge}
+## Challenge:
 
+Construct a matrix of dimension 1000 by 3 of normally distributed data
+(mean 0, standard deviation 1)
 
+:::::::::::::::  solution
+
+## Solution
+
+```{r rnormmat_sln}
+set.seed(123)
+m <- matrix(rnorm(3000), ncol = 3)
+dim(m)
+head(m)
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Formatting Dates
 
@@ -585,7 +629,6 @@ data](https://datacarpentry.org/spreadsheet-ecology-lesson/03-dates-as-data/inde
 section of the Data Carpentry lesson provides additional insights
 about pitfalls of dates with spreadsheets.
 
-
 We are going to use the `ymd()` function from the package
 **`lubridate`** (which belongs to the **`tidyverse`**; learn more
 [here](https://www.tidyverse.org/)). . **`lubridate`** gets installed
@@ -606,7 +649,6 @@ it to a `Date` vector. `Date` is a class of data recognized by R as
 being a date and can be manipulated as such. The argument that the
 function requires is flexible, but, as a best practice, is a character
 vector formatted as "YYYY-MM-DD".
-
 
 Let's create a date object and inspect the structure:
 
@@ -689,7 +731,7 @@ A data type that we haven't seen yet, but that is useful to know, and
 follows from the summary that we have just seen are lists:
 
 - **`list`**: one dimension, every item can be of a different data
-    type.
+  type.
 
 Below, let's create a list containing a vector of numbers, characters,
 a matrix, a dataframe and another list:
@@ -724,7 +766,7 @@ exported and the file to be exported to. For example, to export the
 `rna` data to the `my_rna.csv` file in the `data_output`
 directory, we would execute:
 
-```{r, eval = FALSE}
+```{r, eval=FALSE}
 write.csv(rna, file = "data_output/my_rna.csv")
 ```
 
@@ -734,3 +776,11 @@ the fields in the `data.frame` (see for example the "product" column), R will
 by default surround each field with quotes, and thus we will be able to
 read it back into R correctly, despite also using commas as column
 separators.
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Tabular data in R
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

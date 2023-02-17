@@ -1,25 +1,31 @@
 ---
 source: Rmd
-title: "Data visualization"
+title: Data visualization
 teaching: 60
 exercises: 60
-questions:
-- "Visualization in R"
-objectives:
+---
+
+```{r loaddata_vis, echo=FALSE, purl=FALSE, message=FALSE}
+if (!file.exists("data/rnaseq.csv"))
+download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor-teaching/master/data/GSE96870/rnaseq.csv",
+              destfile = "data/rnaseq.csv")
+```
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
 - Produce scatter plots, boxplots, line plots, etc. using ggplot.
 - Set universal plot settings.
 - Describe what faceting is and apply faceting in ggplot.
 - Modify the aesthetics of an existing ggplot plot (including axis labels and color).
 - Build complex and customized plots from data in a data frame.
-keypoints:
-- "Visualization in R"
----
 
-```{r loaddata_vis, echo=FALSE, purl=FALSE, message=FALSE, }
-if (!file.exists("data/rnaseq.csv"))
-download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor-teaching/master/data/GSE96870/rnaseq.csv",
-              destfile = "data/rnaseq.csv")
-```
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- Visualization in R
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ```{r, include=FALSE}
 source("../bin/chunk-options.R")
@@ -69,7 +75,7 @@ and tweaking.
 There is a book about `ggplot2` (@ggplot2book) that provides a good
 overview, but it is outdated. The 3rd edition is in preparation and will
 be [freely available online](https://ggplot2-book.org/). The `ggplot2`
-webpage (<https://ggplot2.tidyverse.org>) provides ample documentation.
+webpage ([https://ggplot2.tidyverse.org](https://ggplot2.tidyverse.org)) provides ample documentation.
 
 `ggplot2` functions like data in the 'long' format, i.e., a column for
 every dimension, and a row for every observation. Well-structured data
@@ -80,10 +86,10 @@ layers in this fashion allows for extensive flexibility and
 customization of plots.
 
 > The idea behind the Grammar of Graphics it is that you can build every
-graph from the same 3 components: (1) a data set, (2) a coordinate system,
-and (3) geoms — i.e. visual marks that represent data points [^three_comp_ggplot2]
+> graph from the same 3 components: (1) a data set, (2) a coordinate system,
+> and (3) geoms — i.e. visual marks that represent data points [^three\_comp\_ggplot2]
 
-[^three_comp_ggplot2]: Source: [Data Visualization Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf).
+[^three\_comp\_ggplot2]: Source: [Data Visualization Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf).
 
 To build a ggplot, we will use the following basic template that can be
 used for different types of plots:
@@ -92,30 +98,32 @@ used for different types of plots:
 ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  <GEOM_FUNCTION>()
 ```
 
--   use the `ggplot()` function and bind the plot to a specific **data
-    frame** using the `data` argument
+- use the `ggplot()` function and bind the plot to a specific **data
+  frame** using the `data` argument
 
 ```{r, eval=FALSE}
 ggplot(data = rna)
 ```
 
--   define a **mapping** (using the aesthetic (`aes`) function), by
-    selecting the variables to be plotted and specifying how to present
-    them in the graph, e.g. as x/y positions or characteristics such as
-    size, shape, color, etc.
+- define a **mapping** (using the aesthetic (`aes`) function), by
+  selecting the variables to be plotted and specifying how to present
+  them in the graph, e.g. as x/y positions or characteristics such as
+  size, shape, color, etc.
 
 ```{r, eval=FALSE}
 ggplot(data = rna, mapping = aes(x = expression))
 ```
 
--   add '**geoms**' - geometries, or graphical representations of the
-    data in the plot (points, lines, bars). `ggplot2` offers many
-    different geoms; we will use some common ones today, including:
-
-        * `geom_point()` for scatter plots, dot plots, etc.
-        * `geom_histogram()` for histograms
-        * `geom_boxplot()` for, well, boxplots!
-        * `geom_line()` for trend lines, time series, etc.
+- add '**geoms**' - geometries, or graphical representations of the
+  data in the plot (points, lines, bars). `ggplot2` offers many
+  different geoms; we will use some common ones today, including:
+  
+  ```
+  * `geom_point()` for scatter plots, dot plots, etc.
+  * `geom_histogram()` for histograms
+  * `geom_boxplot()` for, well, boxplots!
+  * `geom_line()` for trend lines, time series, etc.
+  ```
 
 To add a geom(etry) to the plot use the `+` operator. Let's use
 `geom_histogram()` first:
@@ -130,7 +138,7 @@ allows you to modify existing `ggplot` objects. This means you can
 easily set up plot templates and conveniently explore different types of
 plots, so the above plot can also be generated with code like this:
 
-```{r, first-ggplot-with-plus, eval=FALSE}
+```{r, eval=FALSE}
 # Assign plot to a variable
 rna_plot <- ggplot(data = rna,
                    mapping = aes(x = expression))
@@ -139,32 +147,38 @@ rna_plot <- ggplot(data = rna,
 rna_plot + geom_histogram()
 ```
 
-> ## Challenge
->
-> You have probably noticed an automatic message that appears when
-> drawing the histogram:
->
-> ```{r, echo=FALSE, fig.show='hide'}
-> ggplot(rna, aes(x = expression)) +
->   geom_histogram()
-> ```
->
-> Change the arguments `bins` or `binwidth` of `geom_histogram()` to
-> change the number or width of the bins.
->
-> > ## Solution
-> >
-> > ```{r}
-> > # change bins
-> > ggplot(rna, aes(x = expression)) +
-> >     geom_histogram(bins = 15)
-> >
-> > # change binwidth
-> > ggplot(rna, aes(x = expression)) +
-> >     geom_histogram(binwidth = 2000)
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge
+
+You have probably noticed an automatic message that appears when
+drawing the histogram:
+
+```{r, echo=FALSE, fig.show="hide"}
+ggplot(rna, aes(x = expression)) +
+  geom_histogram()
+```
+
+Change the arguments `bins` or `binwidth` of `geom_histogram()` to
+change the number or width of the bins.
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r}
+# change bins
+ggplot(rna, aes(x = expression)) +
+    geom_histogram(bins = 15)
+
+# change binwidth
+ggplot(rna, aes(x = expression)) +
+    geom_histogram(binwidth = 2000)
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 We can observe here that the data are skewed to the right. We can apply
 log2 transformation to have a more symmetric distribution. Note that we
@@ -185,43 +199,49 @@ ggplot(rna, aes(x = expression_log)) + geom_histogram()
 
 From now on we will work on the log-transformed expression values.
 
-> ## Challenge
->
-> Another way to visualize this transformation is to consider the scale
-> of the observations. For example, it may be worth changing the scale
-> of the axis to better distribute the observations in the space of the
-> plot. Changing the scale of the axes is done similarly to
-> adding/modifying other components (i.e., by incrementally adding
-> commands). Try making this modification:
->
-> -   Represent the un-transformed expression on the log10 scale; see
->     `scale_x_log10()`. Compare it with the previous graph. Why do you
->     now have warning messages appearing?
->
-> > ## Solution
-> >
-> > ```{r, eval=TRUE, purl=TRUE, echo=TRUE}
-> > ggplot(data = rna,mapping = aes(x = expression))+
-> >   geom_histogram() +
-> >   scale_x_log10()
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge
+
+Another way to visualize this transformation is to consider the scale
+of the observations. For example, it may be worth changing the scale
+of the axis to better distribute the observations in the space of the
+plot. Changing the scale of the axes is done similarly to
+adding/modifying other components (i.e., by incrementally adding
+commands). Try making this modification:
+
+- Represent the un-transformed expression on the log10 scale; see
+  `scale_x_log10()`. Compare it with the previous graph. Why do you
+  now have warning messages appearing?
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r, eval=TRUE, purl=TRUE, echo=TRUE}
+ggplot(data = rna,mapping = aes(x = expression))+
+  geom_histogram() +
+  scale_x_log10()
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 **Notes**
 
--   Anything you put in the `ggplot()` function can be seen by any geom
-    layers that you add (i.e., these are global plot settings). This
-    includes the x- and y-axis mapping you set up in `aes()`.
--   You can also specify mappings for a given geom independently of the
-    mappings defined globally in the `ggplot()` function.
--   The `+` sign used to add new layers must be placed at the end of the
-    line containing the *previous* layer. If, instead, the `+` sign is
-    added at the beginning of the line containing the new layer,
-    `ggplot2` will not add the new layer and will return an error
-    message.
+- Anything you put in the `ggplot()` function can be seen by any geom
+  layers that you add (i.e., these are global plot settings). This
+  includes the x- and y-axis mapping you set up in `aes()`.
+- You can also specify mappings for a given geom independently of the
+  mappings defined globally in the `ggplot()` function.
+- The `+` sign used to add new layers must be placed at the end of the
+  line containing the *previous* layer. If, instead, the `+` sign is
+  added at the beginning of the line containing the new layer,
+  `ggplot2` will not add the new layer and will return an error
+  message.
 
-```{r, ggplot-with-plus-position, eval=FALSE}
+```{r, eval=FALSE}
 # This is the correct syntax for adding layers
 rna_plot +
   geom_histogram()
@@ -320,60 +340,72 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
   geom_abline(intercept = 0)
 ```
 
-```{r, echo = FALSE, message = FALSE}
+```{r, echo=FALSE, message=FALSE}
 library("hexbin")
 ```
 
-> ## Challenge
->
-> Scatter plots can be useful exploratory tools for small datasets. For
-> data sets with large numbers of observations, such as the `rna_fc`
-> data set, overplotting of points can be a limitation of scatter plots.
-> One strategy for handling such settings is to use hexagonal binning of
-> observations. The plot space is tessellated into hexagons. Each
-> hexagon is assigned a color based on the number of observations that
-> fall within its boundaries.
->
-> -   To use hexagonal binning in `ggplot2`, first install the R package
->     `hexbin` from CRAN and load it.
->
-> -   Then use the `geom_hex()` function to produce the hexbin figure.
->
-> -   What are the relative strengths and weaknesses of a hexagonal bin
->     plot compared to a scatter plot? Examine the above scatter plot
->     and compare it with the hexagonal bin plot that you created.
->
-> > ## Solution
-> >
-> > ```{r, eval = FALSE}
-> > install.packages("hexbin")
-> > ```
-> >
-> > ```{r}
-> > library("hexbin")
-> >
-> > ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
-> >   geom_hex() +
-> >   geom_abline(intercept = 0)
-> >
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Challenge
->
-> Use what you just learned to create a scatter plot of `expression_log`
-> over `sample` from the `rna` dataset with the time showing in
-> different colors. Is this a good way to show this type of data?
->
-> > ## Solution
-> >
-> > ```{r, eval = TRUE}
-> > ggplot(data = rna, mapping = aes(y = expression_log, x = sample)) +
-> >     geom_point(aes(color = time))
-> > ```
-> {: .solution}
-{: .challenge}
+## Challenge
+
+Scatter plots can be useful exploratory tools for small datasets. For
+data sets with large numbers of observations, such as the `rna_fc`
+data set, overplotting of points can be a limitation of scatter plots.
+One strategy for handling such settings is to use hexagonal binning of
+observations. The plot space is tessellated into hexagons. Each
+hexagon is assigned a color based on the number of observations that
+fall within its boundaries.
+
+- To use hexagonal binning in `ggplot2`, first install the R package
+  `hexbin` from CRAN and load it.
+
+- Then use the `geom_hex()` function to produce the hexbin figure.
+
+- What are the relative strengths and weaknesses of a hexagonal bin
+  plot compared to a scatter plot? Examine the above scatter plot
+  and compare it with the hexagonal bin plot that you created.
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r, eval=FALSE}
+install.packages("hexbin")
+```
+
+```{r}
+library("hexbin")
+
+ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
+  geom_hex() +
+  geom_abline(intercept = 0)
+
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge
+
+Use what you just learned to create a scatter plot of `expression_log`
+over `sample` from the `rna` dataset with the time showing in
+different colors. Is this a good way to show this type of data?
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r, eval=TRUE}
+ggplot(data = rna, mapping = aes(y = expression_log, x = sample)) +
+    geom_point(aes(color = time))
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Boxplot
 
@@ -396,23 +428,29 @@ ggplot(data = rna,
   geom_boxplot(alpha = 0)
 ```
 
-> ## Challenge
->
-> Note how the boxplot layer is in front of the jitter layer? What do
-> you need to change in the code to put the boxplot below the points?
->
-> > ## Solution
-> > We should switch the order of these two geoms:
-> >
-> > ```{r boxplot-with-points2, cache=FALSE}
-> > ggplot(data = rna,
-> >          mapping = aes(y = expression_log, x = sample)) +
-> >   geom_boxplot(alpha = 0) +
-> >   geom_jitter(alpha = 0.2, color = "tomato")
-> > ```
-> >
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge
+
+Note how the boxplot layer is in front of the jitter layer? What do
+you need to change in the code to put the boxplot below the points?
+
+:::::::::::::::  solution
+
+## Solution
+
+We should switch the order of these two geoms:
+
+```{r boxplot-with-points2, cache=FALSE}
+ggplot(data = rna,
+         mapping = aes(y = expression_log, x = sample)) +
+  geom_boxplot(alpha = 0) +
+  geom_jitter(alpha = 0.2, color = "tomato")
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 You may notice that the values on the x-axis are still not properly
 readable. Let's change the orientation of the labels and adjust them
@@ -428,70 +466,90 @@ ggplot(data = rna,
   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 ```
 
-> ## Challenge
->
-> Add color to the data points on your boxplot according to the duration
-> of the infection (`time`).
->
-> *Hint:* Check the class for `time`. Consider changing the class of
-> `time` from integer to factor directly in the ggplot mapping. Why does
-> this change how R makes the graph?
->
-> > ## Solution
-> >
-> > ```{r boxplot-color-time, cache=FALSE}
-> > # time as integer
-> > ggplot(data = rna,
-> >          mapping = aes(y = expression_log,
-> >                        x = sample)) +
-> >   geom_jitter(alpha = 0.2, aes(color = time)) +
-> >   geom_boxplot(alpha = 0) +
-> >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
-> >
-> > # time as factor
-> > ggplot(data = rna,
-> >          mapping = aes(y = expression_log,
-> >                        x = sample)) +
-> >   geom_jitter(alpha = 0.2, aes(color = as.factor(time))) +
-> >   geom_boxplot(alpha = 0) +
-> >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-> ## Challenge
->
-> Boxplots are useful summaries, but hide the *shape* of the
-> distribution. For example, if the distribution is bimodal, we would
-> not see it in a boxplot. An alternative to the boxplot is the violin
-> plot, where the shape (of the density of points) is drawn.
->
-> -   Replace the box plot with a violin plot; see `geom_violin()`. Fill
->     in the violins according to the time with the argument `fill`.
->
-> > ## Solution
-> > ```{r, eval=TRUE, echo=TRUE, cache=FALSE}
-> > ggplot(data = rna,
-> >          mapping = aes(y = expression_log, x = sample)) +
-> >   geom_violin(aes(fill = as.factor(time))) +
-> >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
-> > ```
-> {: .solution}
-{: .challenge}
+## Challenge
 
-> ## Challenge
->
-> -   Modify the violin plot to fill in the violins by `sex`.
->
-> > ## Solution
-> > ```{r, eval=TRUE, echo=TRUE, cache=FALSE}
-> > ggplot(data = rna,
-> >          mapping = aes(y = expression_log, x = sample)) +
-> >   geom_violin(aes(fill = sex)) +
-> >   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
-> > ```
-> {: .solution}
-{: .challenge}
+Add color to the data points on your boxplot according to the duration
+of the infection (`time`).
+
+*Hint:* Check the class for `time`. Consider changing the class of
+`time` from integer to factor directly in the ggplot mapping. Why does
+this change how R makes the graph?
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r boxplot-color-time, cache=FALSE}
+# time as integer
+ggplot(data = rna,
+         mapping = aes(y = expression_log,
+                       x = sample)) +
+  geom_jitter(alpha = 0.2, aes(color = time)) +
+  geom_boxplot(alpha = 0) +
+  theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
+
+# time as factor
+ggplot(data = rna,
+         mapping = aes(y = expression_log,
+                       x = sample)) +
+  geom_jitter(alpha = 0.2, aes(color = as.factor(time))) +
+  geom_boxplot(alpha = 0) +
+  theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge
+
+Boxplots are useful summaries, but hide the *shape* of the
+distribution. For example, if the distribution is bimodal, we would
+not see it in a boxplot. An alternative to the boxplot is the violin
+plot, where the shape (of the density of points) is drawn.
+
+- Replace the box plot with a violin plot; see `geom_violin()`. Fill
+  in the violins according to the time with the argument `fill`.
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r, eval=TRUE, echo=TRUE, cache=FALSE}
+ggplot(data = rna,
+         mapping = aes(y = expression_log, x = sample)) +
+  geom_violin(aes(fill = as.factor(time))) +
+  theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge
+
+- Modify the violin plot to fill in the violins by `sex`.
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r, eval=TRUE, echo=TRUE, cache=FALSE}
+ggplot(data = rna,
+         mapping = aes(y = expression_log, x = sample)) +
+  geom_violin(aes(fill = sex)) +
+  theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Line plots
 
@@ -603,26 +661,32 @@ ggplot(data = mean_exp_by_time_sex,
   theme(panel.grid = element_blank())
 ```
 
-> ## Challenge
->
-> Use what you just learned to create a plot that depicts how the
-> average expression of each chromosome changes through the duration of
-> infection.
->
-> > ## Solution
-> >
-> > ```{r mean-exp-chromosome-time-series}
-> > mean_exp_by_chromosome <- rna %>%
-> >   group_by(chromosome_name, time) %>%
-> >   summarize(mean_exp = mean(expression_log))
-> >
-> > ggplot(data = mean_exp_by_chromosome, mapping = aes(x = time,
-> >                                 y = mean_exp)) +
-> >   geom_line() +
-> >   facet_wrap(~ chromosome_name, scales = "free_y")
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge
+
+Use what you just learned to create a plot that depicts how the
+average expression of each chromosome changes through the duration of
+infection.
+
+:::::::::::::::  solution
+
+## Solution
+
+```{r mean-exp-chromosome-time-series}
+mean_exp_by_chromosome <- rna %>%
+  group_by(chromosome_name, time) %>%
+  summarize(mean_exp = mean(expression_log))
+
+ggplot(data = mean_exp_by_chromosome, mapping = aes(x = time,
+                                y = mean_exp)) +
+  geom_line() +
+  facet_wrap(~ chromosome_name, scales = "free_y")
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of
 dimensions to allow them to cleanly fit on one page. On the other hand,
@@ -654,7 +718,7 @@ ggplot(data = mean_exp_by_time_sex,
 In addition to `theme_bw()`, which changes the plot background to white,
 `ggplot2` comes with several other themes which can be useful to quickly
 change the look of your visualization. The complete list of themes is
-available at <https://ggplot2.tidyverse.org/reference/ggtheme.html>.
+available at [https://ggplot2.tidyverse.org/reference/ggtheme.html](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 `theme_minimal()` and `theme_light()` are popular, and `theme_void()`
 can be useful as a starting point to create a new hand-crafted theme.
 
@@ -675,7 +739,7 @@ sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualiza
 and think of ways you could improve the plot.
 
 Now, we can change names of axes to something more informative than
-'time' and 'mean_exp', and add a title to the figure:
+'time' and 'mean\_exp', and add a title to the figure:
 
 ```{r mean_exp-time-with-right-labels, cache=FALSE}
 ggplot(data = mean_exp_by_time_sex,
@@ -748,76 +812,83 @@ ggplot(rna, aes(x = expression_log)) +
     blue_theme
 ```
 
-> ## Challenge
->
-> With all of this information in hand, please take another five minutes
-> to either improve one of the plots generated in this exercise or
-> create a beautiful graph of your own. Use the RStudio [`ggplot2` cheat
-> sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
-> for inspiration. Here are some ideas:
->
-> -   See if you can change the thickness of the lines.
-> -   Can you find a way to change the name of the legend? What about
->     its labels? (hint: look for a ggplot function starting with
->     `scale_`)
-> -   Try using a different color palette or manually specifying the
->     colors for the lines (see
->     [http://www.cookbook-r.com/Graphs/Colors\_(ggplot2)/](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)).
->
-> > ## Solution
-> >
-> > For example, based on this plot:
-> > ```{r}
-> > ggplot(data = mean_exp_by_time_sex,
-> >        mapping = aes(x = time, y = mean_exp, color = sex)) +
-> >   geom_line() +
-> >   facet_wrap(~ gene, scales = "free_y") +
-> >   theme_bw() +
-> >   theme(panel.grid = element_blank())
-> > ```
-> >
-> >
-> > We can customize it the following ways:
-> > ```{r}
-> > # change the thickness of the lines
-> > ggplot(data = mean_exp_by_time_sex,
-> >        mapping = aes(x = time, y = mean_exp, color = sex)) +
-> >   geom_line(size=1.5) +
-> >   facet_wrap(~ gene, scales = "free_y") +
-> >   theme_bw() +
-> >   theme(panel.grid = element_blank())
-> >
-> > # change the name of the legend and the labels
-> > ggplot(data = mean_exp_by_time_sex,
-> >        mapping = aes(x = time, y = mean_exp, color = sex)) +
-> >   geom_line() +
-> >   facet_wrap(~ gene, scales = "free_y") +
-> >   theme_bw() +
-> >   theme(panel.grid = element_blank()) +
-> >   scale_color_discrete(name = "Gender", labels = c("F", "M"))
-> >
-> > # using a different color palette
-> > ggplot(data = mean_exp_by_time_sex,
-> >        mapping = aes(x = time, y = mean_exp, color = sex)) +
-> >   geom_line() +
-> >   facet_wrap(~ gene, scales = "free_y") +
-> >   theme_bw() +
-> >   theme(panel.grid = element_blank()) +
-> >   scale_color_brewer(name = "Gender", labels = c("F", "M"), palette = "Dark2")
-> >
-> > # manually specifying the colors
-> > ggplot(data = mean_exp_by_time_sex,
-> >        mapping = aes(x = time, y = mean_exp, color = sex)) +
-> >   geom_line() +
-> >   facet_wrap(~ gene, scales = "free_y") +
-> >   theme_bw() +
-> >   theme(panel.grid = element_blank()) +
-> >   scale_color_manual(name = "Gender",  labels = c("F", "M"),
-> >                      values = c("royalblue", "deeppink"))
-> >
-> > ```
-> {: .solution}
-{: .challenge}
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge
+
+With all of this information in hand, please take another five minutes
+to either improve one of the plots generated in this exercise or
+create a beautiful graph of your own. Use the RStudio [`ggplot2` cheat
+sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+for inspiration. Here are some ideas:
+
+- See if you can change the thickness of the lines.
+- Can you find a way to change the name of the legend? What about
+  its labels? (hint: look for a ggplot function starting with
+  `scale_`)
+- Try using a different color palette or manually specifying the
+  colors for the lines (see
+  [http://www.cookbook-r.com/Graphs/Colors\_(ggplot2)/](https://www.cookbook-r.com/Graphs/Colors_\(ggplot2\)/)).
+
+:::::::::::::::  solution
+
+## Solution
+
+For example, based on this plot:
+
+```{r}
+ggplot(data = mean_exp_by_time_sex,
+       mapping = aes(x = time, y = mean_exp, color = sex)) +
+  geom_line() +
+  facet_wrap(~ gene, scales = "free_y") +
+  theme_bw() +
+  theme(panel.grid = element_blank())
+```
+
+We can customize it the following ways:
+
+```{r}
+# change the thickness of the lines
+ggplot(data = mean_exp_by_time_sex,
+       mapping = aes(x = time, y = mean_exp, color = sex)) +
+  geom_line(size=1.5) +
+  facet_wrap(~ gene, scales = "free_y") +
+  theme_bw() +
+  theme(panel.grid = element_blank())
+
+# change the name of the legend and the labels
+ggplot(data = mean_exp_by_time_sex,
+       mapping = aes(x = time, y = mean_exp, color = sex)) +
+  geom_line() +
+  facet_wrap(~ gene, scales = "free_y") +
+  theme_bw() +
+  theme(panel.grid = element_blank()) +
+  scale_color_discrete(name = "Gender", labels = c("F", "M"))
+
+# using a different color palette
+ggplot(data = mean_exp_by_time_sex,
+       mapping = aes(x = time, y = mean_exp, color = sex)) +
+  geom_line() +
+  facet_wrap(~ gene, scales = "free_y") +
+  theme_bw() +
+  theme(panel.grid = element_blank()) +
+  scale_color_brewer(name = "Gender", labels = c("F", "M"), palette = "Dark2")
+
+# manually specifying the colors
+ggplot(data = mean_exp_by_time_sex,
+       mapping = aes(x = time, y = mean_exp, color = sex)) +
+  geom_line() +
+  facet_wrap(~ gene, scales = "free_y") +
+  theme_bw() +
+  theme(panel.grid = element_blank()) +
+  scale_color_manual(name = "Gender",  labels = c("F", "M"),
+                     values = c("royalblue", "deeppink"))
+
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Composing plots
 
@@ -984,12 +1055,12 @@ in R that shouldn't be ignored.
 The default graphics system that comes with R, often called *base R
 graphics* is simple and fast. It is based on the *painter's or canvas
 model*, where different output are directly overlaid on top of each
-other (see figure \@ref(fig:paintermodel)). This is a fundamental
+other (see figure @ref(fig:paintermodel)). This is a fundamental
 difference with `ggplot2` (and with `lattice`, described below), that
 returns dedicated objects, that are rendered on screen or in a file, and
 that can even be updated.
 
-```{r paintermodel, fig.width = 12, fig.height = 4, fig.cap = 'Successive layers added on top of each other.'}
+```{r paintermodel, fig.width=12, fig.height=4, fig.cap="Successive layers added on top of each other."}
 par(mfrow = c(1, 3))
 plot(1:20, main = "First layer, produced with plot(1:20)")
 
@@ -1007,7 +1078,7 @@ their behaviour based on the class of their input. This is again very
 different from what we have in `ggplot2`, that only accepts dataframes
 as input, and that requires plots to be constructed bit by bit.
 
-```{r plotmethod, fig.width = 8, fig.height = 8, fig.cap = 'Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right).'}
+```{r plotmethod, fig.width=8, fig.height=8, fig.cap="Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right)."}
 par(mfrow = c(2, 2))
 boxplot(rnorm(100),
         main = "Boxplot of rnorm(100)")
@@ -1032,3 +1103,11 @@ dataframes as input, returns graphical objects and supports faceting.
 convoluted interface.
 
 A good reference for the `lattice` package is @latticebook.
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Visualization in R
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
