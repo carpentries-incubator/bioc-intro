@@ -27,10 +27,6 @@ download.file(url = "https://raw.githubusercontent.com/Bioconductor/bioconductor
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-```{r, include=FALSE}
-source("../bin/chunk-options.R")
-```
-
 ```{r vis_setup, echo=FALSE}
 rna <- read.csv("data/rnaseq.csv")
 ```
