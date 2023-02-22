@@ -39,7 +39,7 @@ intranasal route and transcriptomic changes in the cerebellum and
 spinal cord tissues were evaluated by RNA-seq at days 0
 (non-infected), 4 and 8.
 
-The dataset is stored as a comma separated value (CSV) file.  Each row
+The dataset is stored as a comma-separated values (CSV) file.  Each row
 holds information for a single RNA expression measurement, and the first eleven
 columns represent:
 
@@ -85,7 +85,7 @@ rna <- read.csv("data/rnaseq.csv")
 This statement doesn't produce any output because, as you might
 recall, assignments don't display anything. If we want to check that
 our data has been loaded, we can see the contents of the data frame by
-typing its name
+typing its name:
 
 
 ```r
@@ -194,7 +194,7 @@ columns are vectors, each column must contain a single type of data
 depicting a data frame comprising a numeric, a character, and a
 logical vector.
 
-![](./figs/data-frame.svg)
+![](./fig/data-frame.svg)
 
 We can see this when inspecting the <b>str</b>ucture of a data frame
 with the function `str()`:
@@ -236,28 +236,28 @@ content/structure of the data. Let's try them out!
 
 **Size**:
 
-- `dim(rna)` - returns a vector with the number of rows in the first
+- `dim(rna)` - returns a vector with the number of rows as the first
   element, and the number of columns as the second element (the
-  **dim**ensions of the object)
-- `nrow(rna)` - returns the number of rows
-- `ncol(rna)` - returns the number of columns
+  **dim**ensions of the object).
+- `nrow(rna)` - returns the number of rows.
+- `ncol(rna)` - returns the number of columns.
 
 **Content**:
 
-- `head(rna)` - shows the first 6 rows
-- `tail(rna)` - shows the last 6 rows
+- `head(rna)` - shows the first 6 rows.
+- `tail(rna)` - shows the last 6 rows.
 
 **Names**:
 
 - `names(rna)` - returns the column names (synonym of `colnames()` for
-  `data.frame` objects)
-- `rownames(rna)` - returns the row names
+  `data.frame` objects).
+- `rownames(rna)` - returns the row names.
 
 **Summary**:
 
 - `str(rna)` - structure of the object and information about the
-  class, length and content of each column
-- `summary(rna)` - summary statistics for each column
+  class, length and content of each column.
+- `summary(rna)` - summary statistics for each column.
 
 Note: most of these functions are "generic", they can be used on other types of
 objects besides `data.frame`.
@@ -287,9 +287,9 @@ questions?
 
 ## Indexing and subsetting data frames
 
-Our `rna` data frame has rows and columns (it has 2 dimensions), if we
+Our `rna` data frame has rows and columns (it has 2 dimensions); if we
 want to extract some specific data from it, we need to specify the
-"coordinates" we want from it. Row numbers come first, followed by
+"coordinates" we want. Row numbers come first, followed by
 column numbers. However, note that different ways of specifying these
 coordinates lead to results with different classes.
 
@@ -324,7 +324,7 @@ rna[, -1]          ## The whole data frame, except the first column
 rna[-c(7:66465), ] ## Equivalent to head(rna)
 ```
 
-Data frames can be subset by calling indices (as shown previously),
+Data frames can be subsetted by calling indices (as shown previously),
 but also by calling their column names directly:
 
 
@@ -456,8 +456,8 @@ In R's memory, these factors are represented by integers (1, 2, 3),
 but are more informative than integers because factors are self
 describing: `"female"`, `"male"` is more descriptive than `1`,
 `2`. Which one is "male"?  You wouldn't be able to tell just from the
-integer data. Factors, on the other hand, have this information built
-in. It is particularly helpful when there are many levels (like the
+integer data. Factors, on the other hand, have this information built-in. 
+It is particularly helpful when there are many levels (like the
 gene biotype in our example dataset).
 
 When your data is stored as a factor, you can use the `plot()`
@@ -625,7 +625,7 @@ Check your guesses using `str(country_climate)`:
 - Are they what you expected?  Why? Why not?
 
 - Try again by adding `stringsAsFactors = TRUE` after the last
-  variable when creating the data frame? What is happening now?
+  variable when creating the data frame. What is happening now?
   `stringsAsFactors` can also be set when reading text-based
   spreadsheets into R using `read.csv()`.
 
@@ -680,7 +680,7 @@ tutorial](https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data
 
 ## Matrices
 
-Before proceeding, now that we have learnt about dataframes, let's
+Before proceeding, now that we have learnt about data frames, let's
 recap package installation and learn about a new data type, namely the
 `matrix`. Like a `data.frame`, a matrix has two dimensions, rows and
 columns. But the major difference is that all cells in a `matrix` must
@@ -815,11 +815,11 @@ about pitfalls of dates with spreadsheets.
 We are going to use the `ymd()` function from the package
 **`lubridate`** (which belongs to the **`tidyverse`**; learn more
 [here](https://www.tidyverse.org/)). . **`lubridate`** gets installed
-as part as the **`tidyverse`** installation. When you load the
+as part of the **`tidyverse`** installation. When you load the
 **`tidyverse`** (`library(tidyverse)`), the core packages (the
 packages used in most data analyses) get loaded. **`lubridate`**
 however does not belong to the core tidyverse, so you have to load it
-explicitly with `library(lubridate)`
+explicitly with `library(lubridate)`.
 
 Start by loading the required package:
 
@@ -948,12 +948,12 @@ order. If you have for instance day, month and year, you would need
 
 
 ```r
-dmy(paste(x$day, x$month, x$month, sep = "-"))
+dmy(paste(x$day, x$month, x$year, sep = "-"))
 ```
 
 ```{.output}
- [1] "2002-02-24" "2003-03-08" "2003-03-01" "2010-10-05" "2001-01-08"
- [6] "2008-08-17" "2003-03-13" "2004-04-10" "2005-05-11" "2005-05-24"
+ [1] "1996-02-24" "1992-03-08" "1987-03-01" "1986-10-05" "2000-01-08"
+ [6] "1990-08-17" "2002-03-13" "1994-04-10" "1997-05-11" "1985-05-24"
 ```
 
 `lubdridate` has many functions to address all date variations.
@@ -961,7 +961,7 @@ dmy(paste(x$day, x$month, x$month, sep = "-"))
 ## Summary of R objects
 
 So far, we have seen several types of R object varying in the number
-of dimensions and whether they could store a single of multiple data
+of dimensions and whether they could store a single or multiple data
 types:
 
 - **`vector`**: one dimension (they have a length), single type of data.
@@ -1015,7 +1015,7 @@ List of 5
 ```
 
 List subsetting is done using `[]` to subset a new sub-list or `[[]]`
-to extract a single element of that list (using indices or names, of
+to extract a single element of that list (using indices or names, if
 the list is named).
 
 
