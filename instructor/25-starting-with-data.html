@@ -275,7 +275,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Starting with data</h1>
-        <p> Last updated on 2023-02-17 | 
+        <p> Last updated on 2023-02-22 | 
         
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/25-starting-with-data.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -328,9 +328,9 @@ post infection. Gender matched eight week old C57BL/6 mice were
 inoculated with saline or with Influenza A by intranasal route and
 transcriptomic changes in the cerebellum and spinal cord tissues were
 evaluated by RNA-seq at days 0 (non-infected), 4 and 8.</p>
-<p>The dataset is stored as a comma separated value (CSV) file. Each row
-holds information for a single RNA expression measurement, and the first
-eleven columns represent:</p>
+<p>The dataset is stored as a comma-separated values (CSV) file. Each
+row holds information for a single RNA expression measurement, and the
+first eleven columns represent:</p>
 <table class="table"><colgroup><col width="9%"><col width="90%"></colgroup><thead><tr class="header"><th>Column</th>
 <th>Description</th>
 </tr></thead><tbody><tr class="odd"><td>gene</td>
@@ -386,7 +386,7 @@ it to a preexisting folder named <code>"data"</code>.</p>
 <p>This statement doesn’t produce any output because, as you might
 recall, assignments don’t display anything. If we want to check that our
 data has been loaded, we can see the contents of the data frame by
-typing its name</p>
+typing its name:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -496,7 +496,7 @@ columns are vectors, each column must contain a single type of data
 (e.g., characters, integers, factors). For example, here is a figure
 depicting a data frame comprising a numeric, a character, and a logical
 vector.</p>
-<figure><img src=".././figs/data-frame.svg" class="figure mx-auto d-block"></figure><p>We can see this when inspecting the <b>str</b>ucture of a data frame
+<figure><img src=".././fig/data-frame.svg" class="figure mx-auto d-block"></figure><p>We can see this when inspecting the <b>str</b>ucture of a data frame
 with the function <code>str()</code>:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -536,30 +536,30 @@ of a data frame. Here is a non-exhaustive list of functions to get a
 sense of the content/structure of the data. Let’s try them out!</p>
 <p><strong>Size</strong>:</p>
 <ul><li>
-<code>dim(rna)</code> - returns a vector with the number of rows in
+<code>dim(rna)</code> - returns a vector with the number of rows as
 the first element, and the number of columns as the second element (the
-<strong>dim</strong>ensions of the object)</li>
+<strong>dim</strong>ensions of the object).</li>
 <li>
-<code>nrow(rna)</code> - returns the number of rows</li>
+<code>nrow(rna)</code> - returns the number of rows.</li>
 <li>
-<code>ncol(rna)</code> - returns the number of columns</li>
+<code>ncol(rna)</code> - returns the number of columns.</li>
 </ul><p><strong>Content</strong>:</p>
 <ul><li>
-<code>head(rna)</code> - shows the first 6 rows</li>
+<code>head(rna)</code> - shows the first 6 rows.</li>
 <li>
-<code>tail(rna)</code> - shows the last 6 rows</li>
+<code>tail(rna)</code> - shows the last 6 rows.</li>
 </ul><p><strong>Names</strong>:</p>
 <ul><li>
 <code>names(rna)</code> - returns the column names (synonym of
-<code>colnames()</code> for <code>data.frame</code> objects)</li>
+<code>colnames()</code> for <code>data.frame</code> objects).</li>
 <li>
-<code>rownames(rna)</code> - returns the row names</li>
+<code>rownames(rna)</code> - returns the row names.</li>
 </ul><p><strong>Summary</strong>:</p>
 <ul><li>
 <code>str(rna)</code> - structure of the object and information
-about the class, length and content of each column</li>
+about the class, length and content of each column.</li>
 <li>
-<code>summary(rna)</code> - summary statistics for each column</li>
+<code>summary(rna)</code> - summary statistics for each column.</li>
 </ul><p>Note: most of these functions are “generic”, they can be used on
 other types of objects besides <code>data.frame</code>.</p>
 <div id="challenge1" class="callout challenge">
@@ -584,7 +584,7 @@ following questions?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul><li>class: data frame</li>
 <li>how many rows: 66465, how many columns: 11</li>
@@ -595,10 +595,10 @@ following questions?</p>
 </section><section id="indexing-and-subsetting-data-frames"><h2 class="section-heading">Indexing and subsetting data frames<a class="anchor" aria-label="anchor" href="#indexing-and-subsetting-data-frames"></a>
 </h2>
 <hr class="half-width"><p>Our <code>rna</code> data frame has rows and columns (it has 2
-dimensions), if we want to extract some specific data from it, we need
-to specify the “coordinates” we want from it. Row numbers come first,
-followed by column numbers. However, note that different ways of
-specifying these coordinates lead to results with different classes.</p>
+dimensions); if we want to extract some specific data from it, we need
+to specify the “coordinates” we want. Row numbers come first, followed
+by column numbers. However, note that different ways of specifying these
+coordinates lead to results with different classes.</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -631,8 +631,8 @@ integers in increasing or decreasing order, test <code>1:10</code> and
 <code class="sourceCode R"><span><span class="va">rna</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span>          <span class="co">## The whole data frame, except the first column</span></span>
 <span><span class="va">rna</span><span class="op">[</span><span class="op">-</span><span class="fu">c</span><span class="op">(</span><span class="fl">7</span><span class="op">:</span><span class="fl">66465</span><span class="op">)</span>, <span class="op">]</span> <span class="co">## Equivalent to head(rna)</span></span></code></pre>
 </div>
-<p>Data frames can be subset by calling indices (as shown previously),
-but also by calling their column names directly:</p>
+<p>Data frames can be subsetted by calling indices (as shown
+previously), but also by calling their column names directly:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -681,7 +681,7 @@ the first through 6th rows of the rna dataset.</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -782,7 +782,7 @@ but are more informative than integers because factors are self
 describing: <code>"female"</code>, <code>"male"</code> is more
 descriptive than <code>1</code>, <code>2</code>. Which one is “male”?
 You wouldn’t be able to tell just from the integer data. Factors, on the
-other hand, have this information built in. It is particularly helpful
+other hand, have this information built-in. It is particularly helpful
 when there are many levels (like the gene biotype in our example
 dataset).</p>
 <p>When your data is stored as a factor, you can use the
@@ -886,7 +886,7 @@ Levels: M F</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -940,7 +940,7 @@ hesitate to experiment!</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <ul><li>missing quotations around the names of the animals</li>
 <li>missing one entry in the “feel” column (probably for one of the
@@ -963,7 +963,7 @@ example?</p>
 <p>Check your guesses using <code>str(country_climate)</code>:</p>
 <ul><li><p>Are they what you expected? Why? Why not?</p></li>
 <li><p>Try again by adding <code>stringsAsFactors = TRUE</code> after
-the last variable when creating the data frame? What is happening now?
+the last variable when creating the data frame. What is happening now?
 <code>stringsAsFactors</code> can also be set when reading text-based
 spreadsheets into R using <code>read.csv()</code>.</p></li>
 </ul><div class="codewrapper sourceCode" id="cb35">
@@ -988,7 +988,7 @@ spreadsheets into R using <code>read.csv()</code>.</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1028,7 +1028,7 @@ tutorial</a></p>
 </div>
 </section><section id="matrices"><h2 class="section-heading">Matrices<a class="anchor" aria-label="anchor" href="#matrices"></a>
 </h2>
-<hr class="half-width"><p>Before proceeding, now that we have learnt about dataframes, let’s
+<hr class="half-width"><p>Before proceeding, now that we have learnt about data frames, let’s
 recap package installation and learn about a new data type, namely the
 <code>matrix</code>. Like a <code>data.frame</code>, a matrix has two
 dimensions, rows and columns. But the major difference is that all cells
@@ -1076,7 +1076,7 @@ packages currently installed on your computer. Explore it.</p>
   Solution:
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1121,7 +1121,7 @@ data (mean 0, standard deviation 1)</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1184,14 +1184,14 @@ insights about pitfalls of dates with spreadsheets.</p>
 <p>We are going to use the <code>ymd()</code> function from the package
 <strong><code>lubridate</code></strong> (which belongs to the
 <strong><code>tidyverse</code></strong>; learn more <a href="https://www.tidyverse.org/" class="external-link">here</a>). .
-<strong><code>lubridate</code></strong> gets installed as part as the
+<strong><code>lubridate</code></strong> gets installed as part of the
 <strong><code>tidyverse</code></strong> installation. When you load the
 <strong><code>tidyverse</code></strong>
 (<code><a href="https://tidyverse.tidyverse.org" class="external-link">library(tidyverse)</a></code>), the core packages (the packages used
 in most data analyses) get loaded.
 <strong><code>lubridate</code></strong> however does not belong to the
 core tidyverse, so you have to load it explicitly with
-<code><a href="https://lubridate.tidyverse.org" class="external-link">library(lubridate)</a></code></p>
+<code><a href="https://lubridate.tidyverse.org" class="external-link">library(lubridate)</a></code>.</p>
 <p>Start by loading the required package:</p>
 <div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1330,13 +1330,13 @@ need <code>dmy()</code>.</p>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">dmy</span><span class="op">(</span><span class="fu">paste</span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">day</span>, <span class="va">x</span><span class="op">$</span><span class="va">month</span>, <span class="va">x</span><span class="op">$</span><span class="va">month</span>, sep <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="fu">dmy</span><span class="op">(</span><span class="fu">paste</span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">day</span>, <span class="va">x</span><span class="op">$</span><span class="va">month</span>, <span class="va">x</span><span class="op">$</span><span class="va">year</span>, sep <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code> [1] "2002-02-24" "2003-03-08" "2003-03-01" "2010-10-05" "2001-01-08"
- [6] "2008-08-17" "2003-03-13" "2004-04-10" "2005-05-11" "2005-05-24"</code></pre>
+<pre class="output" tabindex="0"><code> [1] "1996-02-24" "1992-03-08" "1987-03-01" "1986-10-05" "2000-01-08"
+ [6] "1990-08-17" "2002-03-13" "1994-04-10" "1997-05-11" "1985-05-24"</code></pre>
 </div>
 <p><code>lubdridate</code> has many functions to address all date
 variations.</p>
@@ -1344,7 +1344,7 @@ variations.</p>
 </section><section id="summary-of-r-objects"><h2 class="section-heading">Summary of R objects<a class="anchor" aria-label="anchor" href="#summary-of-r-objects"></a>
 </h2>
 <hr class="half-width"><p>So far, we have seen several types of R object varying in the number
-of dimensions and whether they could store a single of multiple data
+of dimensions and whether they could store a single or multiple data
 types:</p>
 <ul><li>
 <strong><code>vector</code></strong>: one dimension (they have a
@@ -1406,7 +1406,7 @@ characters, a matrix, a dataframe and another list:</p>
 </div>
 <p>List subsetting is done using <code>[]</code> to subset a new
 sub-list or <code>[[]]</code> to extract a single element of that list
-(using indices or names, of the list is named).</p>
+(using indices or names, if the list is named).</p>
 <div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1541,8 +1541,8 @@ happens if the values and number of rows/columns don’t add up.<a href="#fnref1
   "url": "https://carpentries-incubator.github.io/bioc-intro/instructor/25-starting-with-data.html",
   "identifier": "https://carpentries-incubator.github.io/bioc-intro/instructor/25-starting-with-data.html",
   "dateCreated": "2020-09-14",
-  "dateModified": "2023-02-17",
-  "datePublished": "2023-02-21"
+  "dateModified": "2023-02-22",
+  "datePublished": "2023-02-22"
 }
 
   </script><script>
