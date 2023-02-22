@@ -20,6 +20,8 @@ title: Setup
 
 ### You are running Windows
 
+<br>
+
 :::::::::::::::  solution
 
 ## If you already have R and RStudio installed
@@ -67,6 +69,8 @@ title: Setup
 :::::::::::::::::::::::::
 
 ### You are running macOS
+
+<br>
 
 :::::::::::::::  solution
 
@@ -118,6 +122,8 @@ title: Setup
 :::::::::::::::::::::::::
 
 ### You are running Linux
+
+<br>
 
 :::::::::::::::  solution
 
