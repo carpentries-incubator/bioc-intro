@@ -816,7 +816,7 @@ build relevant scripts.
 </div>
 
 A typical data analysis workflow is illustrated in the figure above,
-where data is repeatedly tranformed, visualised, and modelled. This
+where data is repeatedly transformed, visualised, and modelled. This
 iteration is repeated multiple times until the data is understood. In
 many real-life cases, however, most time is spent cleaning up and
 preparing the data, rather than actually analysing and understanding
