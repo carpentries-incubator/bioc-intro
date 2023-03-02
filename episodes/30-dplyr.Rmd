@@ -938,7 +938,7 @@ by clicking on the link and then moving it to the `data/` folder, or
 you can use the R code below to download it directly to the folder.
 
 ```{r, message=FALSE}
-download.file(url = "https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/annot1.csv",
+download.file(url = "https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/episodes/data/annot1.csv",
               destfile = "data/annot1.csv")
 
 annot1 <- read_csv(file = "data/annot1.csv")
@@ -964,7 +964,7 @@ variable containing gene names is labelled differently. Again, either
 yourself and move it to `data/` or use the R code below.
 
 ```{r, message=FALSE}
-download.file(url = "https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/_episodes_rmd/data/annot2.csv",
+download.file(url = "https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/episodes/data/annot2.csv",
               destfile = "data/annot2.csv")
 
 annot2 <- read_csv(file = "data/annot2.csv")
@@ -1038,5 +1038,3 @@ write_csv(rna_wide, file = "data_output/rna_wide.csv")
 - Tabular data in R using the tidyverse meta-package
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
