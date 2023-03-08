@@ -9,14 +9,17 @@ exercises: 45
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Introduce the notion of data containers
-- Give an overview of the `SummarizedExperiment`, extensively used in omics analyses
+- Introduce the Bioconductor project.
+- Introduce the notion of data containers.
+- Give an overview of the `SummarizedExperiment`, extensively used in
+  omics analyses.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- SummarizedExperiment
+- What is a `SummarizedExperiment`?
+- What is Bioconductor?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -24,21 +27,25 @@ exercises: 45
 
 
 
-Data in bioinformatics is often complex.
-To deal with this, developers define specialised
-data containers (termed classes) that match the properties of the
-data they need to handle.
+Data in bioinformatics is often complex.  To deal with this,
+developers define specialised data containers (termed classes) that
+match the properties of the data they need to handle.
 
-This aspect is central to the **Bioconductor**[^Bioconductor] project which
-uses the same **core data infrastructure** across packages. This certainly contributed
-to Bioconductor's success. Bioconductor package developers are advised to make
-use of existing infrastructure to provide coherence, interoperability, and stability to
-the project as a whole.
+This aspect is central to the **Bioconductor**[^Bioconductor] project
+which uses the same **core data infrastructure** across packages. This
+certainly contributed to Bioconductor's success. Bioconductor package
+developers are advised to make use of existing infrastructure to
+provide coherence, interoperability, and stability to the project as a
+whole.
 
-[^Bioconductor]: The [Bioconductor](https://www.bioconductor.org) was initiated by Robert Gentleman, one of the two creators of the R language. Bioconductor provides tools dedicated to omics data analysis. Bioconductor uses the R statistical programming language and is open source and open development.
+[^Bioconductor]: The [Bioconductor](https://www.bioconductor.org) was
+    initiated by Robert Gentleman, one of the two creators of the R
+    language. Bioconductor provides tools dedicated to omics data
+    analysis. Bioconductor uses the R statistical programming language
+    and is open source and open development.
 
-To illustrate such an omics data container, we'll present the `SummarizedExperiment`
-class.
+To illustrate such an omics data container, we'll present the
+`SummarizedExperiment` class.
 
 ## SummarizedExperiment
 
@@ -1050,8 +1057,9 @@ package is handled in a `SummarizedExperiment`.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Tabular data in R
+- Bioconductor is a project provide support and packages for the
+  comprehension of high high-throughput biology data.
+- A `SummarizedExperiment` is a type of object useful to store and
+  manage high-throughput omics data.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
