@@ -2015,15 +2015,14 @@ rna_mini
 
 The second table, `annot1`, contains 2 columns, gene and
 gene\_description. You can either
-[download annot1.csv](data/annot1.csv)
+[download annot1.csv](https://carpentries-incubator.github.io/bioc-intro/data/annot1.csv)
 by clicking on the link and then moving it to the `data/` folder, or
 you can use the R code below to download it directly to the folder.
 
 
 ```r
-download.file(url = "https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/episodes/data/annot1.csv",
+download.file(url = "https://carpentries-incubator.github.io/bioc-intro/data/annot1.csv",
               destfile = "data/annot1.csv")
-
 annot1 <- read_csv(file = "data/annot1.csv")
 annot1
 ```
@@ -2080,14 +2079,13 @@ In real life, gene annotations are sometimes labelled differently.
 
 The `annot2` table is exactly the same than `annot1` except that the
 variable containing gene names is labelled differently. Again, either
-[download annot2.csv](data/annot2.csv)
+[download annot2.csv](https://carpentries-incubator.github.io/bioc-intro/data/annot2.csv)
 yourself and move it to `data/` or use the R code below.
 
 
 ```r
-download.file(url = "https://raw.githubusercontent.com/carpentries-incubator/bioc-intro/main/episodes/data/annot2.csv",
+download.file(url = "https://carpentries-incubator.github.io/bioc-intro/data/annot2.csv",
               destfile = "data/annot2.csv")
-
 annot2 <- read_csv(file = "data/annot2.csv")
 annot2
 ```
@@ -2141,7 +2139,7 @@ in the joined one.
 ## Challenge:
 
 Download the `annot3` table by clicking
-[here](data/annot3.csv)
+[here](https://carpentries-incubator.github.io/bioc-intro/data/annot3.csv)
 and put the table in your data/ repository.  Using the `full_join()`
 function, join tables `rna_mini` and `annot3`. What has happened for
 genes *Klk6*, *mt-Tf*, *mt-Rnr1*, *mt-Tv*, *mt-Rnr2*, and *mt-Tl1* ?
