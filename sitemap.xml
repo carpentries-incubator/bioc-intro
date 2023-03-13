@@ -1,105 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/10-data-organisation.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-intro10-data-organisation.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/20-r-rstudio.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-intro20-r-rstudio.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/23-starting-with-r.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-intro23-starting-with-r.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/25-starting-with-data.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-intro25-starting-with-data.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/30-dplyr.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-intro30-dplyr.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/40-visualization.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-intro40-visualization.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/60-next-steps.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-intro60-next-steps.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/CODE_OF_CONDUCT.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introCODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/LICENSE.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introLICENSE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/aio.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introaio.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/discuss.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introdiscuss.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/images.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introimages.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/index.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introindex.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/10-data-organisation.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/10-data-organisation.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/20-r-rstudio.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/20-r-rstudio.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/23-starting-with-r.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/23-starting-with-r.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/25-starting-with-data.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/25-starting-with-data.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/30-dplyr.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/30-dplyr.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/40-visualization.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/40-visualization.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/60-next-steps.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/60-next-steps.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/CODE_OF_CONDUCT.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/LICENSE.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/aio.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/aio.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/discuss.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/discuss.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/images.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/images.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/index.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/index.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/instructor-notes.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/instructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/key-points.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/key-points.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/profiles.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/profiles.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor/reference.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor/reference.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/instructor-notes.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introinstructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/key-points.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introkey-points.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/profiles.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introprofiles.html</loc>
   </url>
   <url>
-    <loc>https://carpentries-incubator.github.io/bioc-intro/reference.html</loc>
+    <loc>https://carpentries-incubator.github.io/bioc-introreference.html</loc>
   </url>
 </urlset>
