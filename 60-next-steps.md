@@ -68,7 +68,7 @@ Objects of the class SummarizedExperiment contain :
   a data frame. The rows of this data frame match exactly the rows of the
   expression data.
 
-The coordinated nature of the SummarizedExperiment guarantees that
+The coordinated nature of the `SummarizedExperiment` guarantees that
 during data manipulation, the dimensions of the different slots will
 always match (i.e the columns in the expression data and then rows in
 the sample metadata, as well as the rows in the expression data and
@@ -736,10 +736,10 @@ rna |>
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 The long table and the `SummarizedExperiment` contain the same
-information, but simply structured differently. Both have they
-advantages: the former is a good fit for the `tidyverse` packages,
+information, but are simply structured differently. Each approach has its
+own advantages: the former is a good fit for the `tidyverse` packages,
 while the latter is the preferred structure for many bioinformatics and
-statistical processing steps, such as a typical RNA-Seq analyses using
+statistical processing steps. For example, a typical RNA-Seq analyses using
 the `DESeq2` package.
 
 #### Adding variables to metadata
@@ -789,10 +789,10 @@ affecting the other structures!
 ### tidySummarizedExperiment
 
 You may be wondering, can we use tidyverse commands to interact with
-`SummarizedExperiment` objects. The answer is yes, we can with the
+`SummarizedExperiment` objects? The answer is yes, we can with the
 `tidySummarizedExperiment` package.
 
-Remember what our SummarizedExperiment object looks like.
+Remember what our SummarizedExperiment object looks like:
 
 
 ```r
@@ -850,7 +850,7 @@ the output says this, it's a `SummarizedExperiment`\-`tibble`
 abstraction. We can also see in the second line of the output the
 number of transcripts and samples.
 
-If we want to revert to the standard `SummarizedExperiment` view we
+If we want to revert to the standard `SummarizedExperiment` view, we
 can do that.
 
 
@@ -871,7 +871,7 @@ colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
 colData names(10): sample organism ... mouse center
 ```
 
-But here we will use the tibble view.
+But here we use the tibble view.
 
 
 ```r
@@ -902,7 +902,7 @@ se
 ```
 
 We can now use tidyverse commands to interact with the
-SummarizedExperiment object.
+`SummarizedExperiment` object.
 
 We can use `filter` to filter for rows using a condition e.g. to view
 all rows for one sample.
