@@ -119,7 +119,8 @@ with the separation argument as `,`. The code is as follows:
 ```{r, eval=TRUE}
 rna <- read.table(file = "data/rnaseq.csv",
                   sep = ",",
-                  header = TRUE)
+                  header = TRUE,
+                  quote = "")
 ```
 
 The header argument has to be set to TRUE to be able to read the
