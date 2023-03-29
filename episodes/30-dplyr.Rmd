@@ -64,16 +64,23 @@ and this [one about
   They allow us to do many things with your data, such as subsetting, transforming,
   visualising, etc.
 
-To install and load the **`tidyverse`** package type:
-
-```{r, eval=FALSE, purl=FALSE}
-BiocManager::install("tidyverse")
-```
+If you did the set up, you should have already installed the tidyverse package. 
+Check to see if you have it by trying to load in from the library:
 
 ```{r, message=FALSE, purl=FALSE}
 ## load the tidyverse packages, incl. dplyr
 library("tidyverse")
 ```
+
+If you got an error message `there is no package called ‘tidyverse’` then you have not
+installed the package yet for this version of R. To install the **`tidyverse`** package type:
+
+```{r, eval=FALSE, purl=FALSE}
+BiocManager::install("tidyverse")
+```
+
+If you had to install the **`tidyverse`** package, do not forget to load it in this R session by using the `library()` command above!
+
 
 ## Loading data with tidyverse
 
