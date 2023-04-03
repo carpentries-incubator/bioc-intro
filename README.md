@@ -62,5 +62,13 @@ To cite this lesson, please consult with [CITATION](CITATION)
 [lesson-example]: https://carpentries.github.io/lesson-example
 [cdh]: https://cdh.carpentries.org
 
+## Testing locally
 
+To test locally, run the following in the lessons directory:
 
+```r
+sandpaper::serve()
+```
+
+For more details, see the [workbench installation
+instructions](https://carpentries.github.io/workbench/#installation].
