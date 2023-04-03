@@ -78,7 +78,7 @@ download.file(url = "https://github.com/carpentries-incubator/bioc-intro/blob/ma
 You are now ready to load the data:
 
 ```{r, eval=TRUE}
-rna <- read.csv("data/rnaseq.csv")
+rna <- read.csv("data/rnaseq.csv", quote = "")
 ```
 
 This statement doesn't produce any output because, as you might
