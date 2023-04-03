@@ -33,11 +33,11 @@ issue.
 - Consult the [Lesson Example][lesson-example] website to find out more about
   working with the lesson template
 
-## Maintainer(s)
+## Lesson team
 
-Current authors/maintainers of this lesson are
+This lesson has been developed and is current maintained by
 
-- Laurent Gatto
+- Laurent Gatto (maintainer)
 - Charlotte Soneson
 - Jenny Drnevich
 - Robert Castelo
