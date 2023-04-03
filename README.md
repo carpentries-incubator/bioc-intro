@@ -33,11 +33,11 @@ issue.
 - Consult the [Lesson Example][lesson-example] website to find out more about
   working with the lesson template
 
-## Maintainer(s)
+## Lesson team
 
-Current authors/maintainers of this lesson are
+This lesson has been developed and is current maintained by
 
-- Laurent Gatto
+- Laurent Gatto (maintainer)
 - Charlotte Soneson
 - Jenny Drnevich
 - Robert Castelo
@@ -62,5 +62,14 @@ To cite this lesson, please consult with [CITATION](CITATION)
 [lesson-example]: https://carpentries.github.io/lesson-example
 [cdh]: https://cdh.carpentries.org
 
+## Testing locally
 
+To test locally, run the following in the lessons directory:
+
+```r
+sandpaper::serve()
+```
+
+For more details, see the [workbench installation
+instructions](https://carpentries.github.io/workbench/#installation].
 
