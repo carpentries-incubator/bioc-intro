@@ -373,7 +373,7 @@ it to a preexisting folder named <code>"data"</code>.</p>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">download.file</span><span class="op">(</span>url <span class="op">=</span> <span class="st">"https://github.com/carpentries-incubator/bioc-intro/blob/main/episodes/data/rnaseq.csv"</span>,</span>
+<code class="sourceCode R"><span><span class="fu">download.file</span><span class="op">(</span>url <span class="op">=</span> <span class="st">"https://github.com/carpentries-incubator/bioc-intro/raw/main/episodes/data/rnaseq.csv"</span>,</span>
 <span>              destfile <span class="op">=</span> <span class="st">"data/rnaseq.csv"</span><span class="op">)</span></span></code></pre>
 </div>
 <p>You are now ready to load the data:</p>
@@ -383,17 +383,11 @@ it to a preexisting folder named <code>"data"</code>.</p>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rna</span> <span class="op">&lt;-</span> <span class="fu">read.csv</span><span class="op">(</span><span class="st">"data/rnaseq.csv"</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">WARNING<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="warning" tabindex="0"><code>Warning in scan(file = file, what = what, sep = sep, quote = quote, dec = dec,
-: EOF within quoted string</code></pre>
-</div>
 <p>This statement doesn’t produce any output because, as you might
 recall, assignments don’t display anything. If we want to check that our
 data has been loaded, we can see the contents of the data frame by
 typing its name:</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -402,7 +396,7 @@ typing its name:</p>
 <p>Wow… that was a lot of output. At least it means the data loaded
 properly. Let’s check the top (the first 6 lines) of this data frame
 using the function <code>head()</code>:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -411,15 +405,50 @@ using the function <code>head()</code>:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>                                                                                                  X..DOCTYPE.html.
-1 &lt;html lang=en data-color-mode=auto data-light-theme=light data-dark-theme=dark data-a11y-animated-images=system&gt;
-2                                                                                                           &lt;head&gt;
-3                                                                                             &lt;meta charset=utf-8&gt;
-4                                                     &lt;link rel=dns-prefetch href=https://github.githubassets.com&gt;
-5                                               &lt;link rel=dns-prefetch href=https://avatars.githubusercontent.com&gt;
-6                                               &lt;link rel=dns-prefetch href=https://github-cloud.s3.amazonaws.com&gt;</code></pre>
+<pre class="output" tabindex="0"><code>     gene     sample expression     organism age    sex  infection  strain time
+1     Asl GSM2545336       1170 Mus musculus   8 Female InfluenzaA C57BL/6    8
+2    Apod GSM2545336      36194 Mus musculus   8 Female InfluenzaA C57BL/6    8
+3 Cyp2d22 GSM2545336       4060 Mus musculus   8 Female InfluenzaA C57BL/6    8
+4    Klk6 GSM2545336        287 Mus musculus   8 Female InfluenzaA C57BL/6    8
+5   Fcrls GSM2545336         85 Mus musculus   8 Female InfluenzaA C57BL/6    8
+6  Slc2a4 GSM2545336        782 Mus musculus   8 Female InfluenzaA C57BL/6    8
+      tissue mouse ENTREZID
+1 Cerebellum    14   109900
+2 Cerebellum    14    11815
+3 Cerebellum    14    56448
+4 Cerebellum    14    19144
+5 Cerebellum    14    80891
+6 Cerebellum    14    20528
+                                                                       product
+1                               argininosuccinate lyase, transcript variant X1
+2                                       apolipoprotein D, transcript variant 3
+3 cytochrome P450, family 2, subfamily d, polypeptide 22, transcript variant 2
+4                         kallikrein related-peptidase 6, transcript variant 2
+5                Fc receptor-like S, scavenger receptor, transcript variant X1
+6          solute carrier family 2 (facilitated glucose transporter), member 4
+     ensembl_gene_id external_synonym chromosome_name   gene_biotype
+1 ENSMUSG00000025533    2510006M18Rik               5 protein_coding
+2 ENSMUSG00000022548             &lt;NA&gt;              16 protein_coding
+3 ENSMUSG00000061740             2D22              15 protein_coding
+4 ENSMUSG00000050063             Bssp               7 protein_coding
+5 ENSMUSG00000015852    2810439C17Rik               3 protein_coding
+6 ENSMUSG00000018566           Glut-4              11 protein_coding
+                            phenotype_description
+1           abnormal circulating amino acid level
+2                      abnormal lipid homeostasis
+3                        abnormal skin morphology
+4                         abnormal cytokine level
+5 decreased CD8-positive alpha-beta T cell number
+6              abnormal circulating glucose level
+  hsapiens_homolog_associated_gene_name
+1                                   ASL
+2                                  APOD
+3                                CYP2D6
+4                                  KLK6
+5                                 FCRL2
+6                                SLC2A4</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -442,7 +471,7 @@ functions for the main <code>read.table()</code> function with different
 arguments. As such, the data above could have also been loaded by using
 <code>read.table()</code> with the separation argument as
 <code>,</code>. The code is as follows:</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -469,7 +498,7 @@ depicting a data frame comprising a numeric, a character, and a logical
 vector.</p>
 <figure><img src=".././fig/data-frame.svg" class="figure mx-auto d-block"></figure><p>We can see this when inspecting the <b>str</b>ucture of a data frame
 with the function <code>str()</code>:</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -478,8 +507,26 @@ with the function <code>str()</code>:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>'data.frame':	526 obs. of  1 variable:
- $ X..DOCTYPE.html.: chr  "&lt;html lang=en data-color-mode=auto data-light-theme=light data-dark-theme=dark data-a11y-animated-images=system&gt;" "  &lt;head&gt;" "    &lt;meta charset=utf-8&gt;" "  &lt;link rel=dns-prefetch href=https://github.githubassets.com&gt;" ...</code></pre>
+<pre class="output" tabindex="0"><code>'data.frame':	32428 obs. of  19 variables:
+ $ gene                                 : chr  "Asl" "Apod" "Cyp2d22" "Klk6" ...
+ $ sample                               : chr  "GSM2545336" "GSM2545336" "GSM2545336" "GSM2545336" ...
+ $ expression                           : int  1170 36194 4060 287 85 782 1619 288 43217 1071 ...
+ $ organism                             : chr  "Mus musculus" "Mus musculus" "Mus musculus" "Mus musculus" ...
+ $ age                                  : int  8 8 8 8 8 8 8 8 8 8 ...
+ $ sex                                  : chr  "Female" "Female" "Female" "Female" ...
+ $ infection                            : chr  "InfluenzaA" "InfluenzaA" "InfluenzaA" "InfluenzaA" ...
+ $ strain                               : chr  "C57BL/6" "C57BL/6" "C57BL/6" "C57BL/6" ...
+ $ time                                 : int  8 8 8 8 8 8 8 8 8 8 ...
+ $ tissue                               : chr  "Cerebellum" "Cerebellum" "Cerebellum" "Cerebellum" ...
+ $ mouse                                : int  14 14 14 14 14 14 14 14 14 14 ...
+ $ ENTREZID                             : int  109900 11815 56448 19144 80891 20528 97827 118454 18823 14696 ...
+ $ product                              : chr  "argininosuccinate lyase, transcript variant X1" "apolipoprotein D, transcript variant 3" "cytochrome P450, family 2, subfamily d, polypeptide 22, transcript variant 2" "kallikrein related-peptidase 6, transcript variant 2" ...
+ $ ensembl_gene_id                      : chr  "ENSMUSG00000025533" "ENSMUSG00000022548" "ENSMUSG00000061740" "ENSMUSG00000050063" ...
+ $ external_synonym                     : chr  "2510006M18Rik" NA "2D22" "Bssp" ...
+ $ chromosome_name                      : chr  "5" "16" "15" "7" ...
+ $ gene_biotype                         : chr  "protein_coding" "protein_coding" "protein_coding" "protein_coding" ...
+ $ phenotype_description                : chr  "abnormal circulating amino acid level" "abnormal lipid homeostasis" "abnormal skin morphology" "abnormal cytokine level" ...
+ $ hsapiens_homolog_associated_gene_name: chr  "ASL" "APOD" "CYP2D6" "KLK6" ...</code></pre>
 </div>
 </section><section id="inspecting-data.frame-objects"><h2 class="section-heading">Inspecting <code>data.frame</code> Objects<a class="anchor" aria-label="anchor" href="#inspecting-data.frame-objects"></a>
 </h2>
@@ -552,7 +599,7 @@ dimensions); if we want to extract some specific data from it, we need
 to specify the “coordinates” we want. Row numbers come first, followed
 by column numbers. However, note that different ways of specifying these
 coordinates lead to results with different classes.</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -577,7 +624,7 @@ integers in increasing or decreasing order, test <code>1:10</code> and
 <code>10:1</code> for instance. See section <span class="citation">@ref</span>(sec:genvec) for details.</p>
 <p>You can also exclude certain indices of a data frame using the
 “<code>-</code>” sign:</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -586,7 +633,7 @@ integers in increasing or decreasing order, test <code>1:10</code> and
 </div>
 <p>Data frames can be subsetted by calling indices (as shown
 previously), but also by calling their column names directly:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -636,7 +683,7 @@ the first through 6th rows of the rna dataset.</p></li>
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -666,7 +713,7 @@ when treating them as strings.</p>
 known as <em>levels</em>. By default, R always sorts levels in
 alphabetical order. For instance, if you have a factor with 2
 levels:</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -678,7 +725,7 @@ comes before <code>m</code>, even though the first element in this
 vector is <code>"male"</code>). You can see this by using the function
 <code>levels()</code> and you can find the number of levels using
 <code>nlevels()</code>:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -689,7 +736,7 @@ vector is <code>"male"</code>). You can see this by using the function
 </h3>
 <pre class="output" tabindex="0"><code>[1] "female" "male"  </code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -705,7 +752,7 @@ might want to specify the order because it is meaningful (e.g., “low”,
 “medium”, “high”), it improves your visualization, or it is required by
 a particular type of analysis. Here, one way to reorder our levels in
 the <code>sex</code> vector would be:</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -717,7 +764,7 @@ the <code>sex</code> vector would be:</p>
 <pre class="output" tabindex="0"><code>[1] male   female female male   female
 Levels: female male</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -742,7 +789,7 @@ dataset).</p>
 <code>plot()</code> function to get a quick glance at the number of
 observations represented by each factor level. Let’s look at the number
 of males and females in our data.</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -754,7 +801,7 @@ Bar plot of the number of females and males.
 <h3 id="converting-to-character">Converting to character<a class="anchor" aria-label="anchor" href="#converting-to-character"></a></h3>
 <p>If you need to convert a factor to a character vector, you use
 <code>as.character(x)</code>.</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -790,7 +837,7 @@ Bar plot of the number of females and males.
 <h3 id="renaming-factors">Renaming factors<a class="anchor" aria-label="anchor" href="#renaming-factors"></a></h3>
 <p>If we want to rename these factor, it is sufficient to change its
 levels:</p>
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -801,7 +848,7 @@ levels:</p>
 </h3>
 <pre class="output" tabindex="0"><code>[1] "male"   "female"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb29">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -814,7 +861,7 @@ levels:</p>
 <pre class="output" tabindex="0"><code>[1] M F F M F
 Levels: M F</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb31">
+<div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -841,7 +888,7 @@ Levels: M F</code></pre>
 </button>
 <div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -852,7 +899,7 @@ Levels: M F</code></pre>
 </h3>
 <pre class="output" tabindex="0"><code>[1] "M" "F"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb34">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -875,13 +922,13 @@ Levels: M F</code></pre>
 <code>data.frame()</code> function. There are a few mistakes in this
 hand-crafted <code>data.frame</code>. Can you spot and fix them? Don’t
 hesitate to experiment!</p>
-<div class="codewrapper sourceCode" id="cb35">
+<div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>animal_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">animal =</span> <span class="fu">c</span>(dog, cat, sea cucumber, sea urchin),</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">feel =</span> <span class="fu">c</span>(<span class="st">"furry"</span>, <span class="st">"squishy"</span>, <span class="st">"spiny"</span>),</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">8</span> <span class="fl">1.1</span>, <span class="fl">0.8</span>))</span></code></pre>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>animal_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">animal =</span> <span class="fu">c</span>(dog, cat, sea cucumber, sea urchin),</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">feel =</span> <span class="fu">c</span>(<span class="st">"furry"</span>, <span class="st">"squishy"</span>, <span class="st">"spiny"</span>),</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">8</span> <span class="fl">1.1</span>, <span class="fl">0.8</span>))</span></code></pre>
 </div>
 </div>
 </div>
@@ -919,7 +966,7 @@ example?</p>
 the last variable when creating the data frame. What is happening now?
 <code>stringsAsFactors</code> can also be set when reading text-based
 spreadsheets into R using <code>read.csv()</code>.</p></li>
-</ul><div class="codewrapper sourceCode" id="cb36">
+</ul><div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -943,7 +990,7 @@ spreadsheets into R using <code>read.csv()</code>.</p></li>
 </button>
 <div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb37">
+<div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -993,7 +1040,7 @@ matrices are closer to a <code>vector</code> than a
 a vector of values to populate the matrix and the number of row and/or
 columns<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.
 The values are sorted along the columns, as illustrated below.</p>
-<div class="codewrapper sourceCode" id="cb39">
+<div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1031,7 +1078,7 @@ packages currently installed on your computer. Explore it.</p>
 </button>
 <div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb41">
+<div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1076,7 +1123,7 @@ data (mean 0, standard deviation 1)</p>
 </button>
 <div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb42">
+<div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1089,7 +1136,7 @@ data (mean 0, standard deviation 1)</p>
 </h3>
 <pre class="output" tabindex="0"><code>[1] 1000    3</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb44">
+<div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1146,7 +1193,7 @@ in most data analyses) get loaded.
 core tidyverse, so you have to load it explicitly with
 <code><a href="https://lubridate.tidyverse.org" class="external-link">library(lubridate)</a></code>.</p>
 <p>Start by loading the required package:</p>
-<div class="codewrapper sourceCode" id="cb46">
+<div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1158,7 +1205,7 @@ class of data recognized by R as being a date and can be manipulated as
 such. The argument that the function requires is flexible, but, as a
 best practice, is a character vector formatted as “YYYY-MM-DD”.</p>
 <p>Let’s create a date object and inspect the structure:</p>
-<div class="codewrapper sourceCode" id="cb47">
+<div class="codewrapper sourceCode" id="cb46">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1172,7 +1219,7 @@ best practice, is a character vector formatted as “YYYY-MM-DD”.</p>
 </div>
 <p>Now let’s paste the year, month, and day separately - we get the same
 result:</p>
-<div class="codewrapper sourceCode" id="cb49">
+<div class="codewrapper sourceCode" id="cb48">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1188,7 +1235,7 @@ result:</p>
 <p>Let’s now familiarise ourselves with a typical date manipulation
 pipeline. The small data below has stored dates in different
 <code>year</code>, <code>month</code> and <code>day</code> columns.</p>
-<div class="codewrapper sourceCode" id="cb51">
+<div class="codewrapper sourceCode" id="cb50">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1217,7 +1264,7 @@ pipeline. The small data below has stored dates in different
 create a character vector from the <code>year</code>,
 <code>month</code>, and <code>day</code> columns of <code>x</code> using
 <code>paste()</code>:</p>
-<div class="codewrapper sourceCode" id="cb53">
+<div class="codewrapper sourceCode" id="cb52">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1231,7 +1278,7 @@ create a character vector from the <code>year</code>,
 </div>
 <p>This character vector can be used as the argument for
 <code>ymd()</code>:</p>
-<div class="codewrapper sourceCode" id="cb55">
+<div class="codewrapper sourceCode" id="cb54">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1245,7 +1292,7 @@ create a character vector from the <code>year</code>,
 </div>
 <p>The resulting <code>Date</code> vector can be added to <code>x</code>
 as a new column called <code>date</code>:</p>
-<div class="codewrapper sourceCode" id="cb57">
+<div class="codewrapper sourceCode" id="cb56">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1264,7 +1311,7 @@ as a new column called <code>date</code>:</p>
 </div>
 <p>Let’s make sure everything worked correctly. One way to inspect the
 new column is to use <code>summary()</code>:</p>
-<div class="codewrapper sourceCode" id="cb59">
+<div class="codewrapper sourceCode" id="cb58">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1279,7 +1326,7 @@ new column is to use <code>summary()</code>:</p>
 <p>Note that <code>ymd()</code> expects to have the year, month and day,
 in that order. If you have for instance day, month and year, you would
 need <code>dmy()</code>.</p>
-<div class="codewrapper sourceCode" id="cb61">
+<div class="codewrapper sourceCode" id="cb60">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1317,7 +1364,7 @@ follows from the summary that we have just seen are lists:</p>
 of a different data type.</li>
 </ul><p>Below, let’s create a list containing a vector of numbers,
 characters, a matrix, a dataframe and another list:</p>
-<div class="codewrapper sourceCode" id="cb63">
+<div class="codewrapper sourceCode" id="cb62">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1333,7 +1380,7 @@ characters, a matrix, a dataframe and another list:</p>
 </h3>
 <pre class="output" tabindex="0"><code>[1] 5</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb65">
+<div class="codewrapper sourceCode" id="cb64">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1360,7 +1407,7 @@ characters, a matrix, a dataframe and another list:</p>
 <p>List subsetting is done using <code>[]</code> to subset a new
 sub-list or <code>[[]]</code> to extract a single element of that list
 (using indices or names, if the list is named).</p>
-<div class="codewrapper sourceCode" id="cb67">
+<div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1371,7 +1418,7 @@ sub-list or <code>[[]]</code> to extract a single element of that list
 </h3>
 <pre class="output" tabindex="0"><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb69">
+<div class="codewrapper sourceCode" id="cb68">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1387,7 +1434,7 @@ sub-list or <code>[[]]</code> to extract a single element of that list
  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"
 [20] "t" "u" "v" "w" "x" "y" "z"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb71">
+<div class="codewrapper sourceCode" id="cb70">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1409,7 +1456,7 @@ sub-list or <code>[[]]</code> to extract a single element of that list
 and the file to be exported to. For example, to export the
 <code>rna</code> data to the <code>my_rna.csv</code> file in the
 <code>data_output</code> directory, we would execute:</p>
-<div class="codewrapper sourceCode" id="cb73">
+<div class="codewrapper sourceCode" id="cb72">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
