@@ -88,35 +88,30 @@ function (notice the `_` instead of the `.`), from the tidyverse package
 
 ```r
 rna <- read_csv("data/rnaseq.csv")
-```
 
-```{.warning}
-Warning: One or more parsing issues, call `problems()` on your data frame for details,
-e.g.:
-  dat <- vroom(...)
-  problems(dat)
-```
-
-```r
 ## view the data
 rna
 ```
 
 ```{.output}
-# A tibble: 1,129 × 1
-   `<!DOCTYPE html>`                                                            
-   <chr>                                                                        
- 1 "<html lang=\"en\" data-color-mode=\"auto\" data-light-theme=\"light\" data-…
- 2 "<head>"                                                                     
- 3 "<meta charset=\"utf-8\">"                                                   
- 4 "<link rel=\"dns-prefetch\" href=\"https://github.githubassets.com\">"       
- 5 "<link rel=\"dns-prefetch\" href=\"https://avatars.githubusercontent.com\">" 
- 6 "<link rel=\"dns-prefetch\" href=\"https://github-cloud.s3.amazonaws.com\">" 
- 7 "<link rel=\"dns-prefetch\" href=\"https://user-images.githubusercontent.com…
- 8 "<link rel=\"preconnect\" href=\"https://github.githubassets.com\" crossorig…
- 9 "<link rel=\"preconnect\" href=\"https://avatars.githubusercontent.com\">"   
-10 "<link crossorigin=\"anonymous\" media=\"all\" rel=\"stylesheet\" href=\"htt…
-# … with 1,119 more rows
+# A tibble: 32,428 × 19
+   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ```
 
 Notice that the class of the data is now referred to as a "tibble".
@@ -152,10 +147,21 @@ arguments are the columns to keep.
 select(rna, gene, sample, tissue, expression)
 ```
 
-```{.error}
-Error in `select()`:
-! Can't subset columns that don't exist.
-✖ Column `gene` doesn't exist.
+```{.output}
+# A tibble: 32,428 × 4
+   gene    sample     tissue     expression
+   <chr>   <chr>      <chr>           <dbl>
+ 1 Asl     GSM2545336 Cerebellum       1170
+ 2 Apod    GSM2545336 Cerebellum      36194
+ 3 Cyp2d22 GSM2545336 Cerebellum       4060
+ 4 Klk6    GSM2545336 Cerebellum        287
+ 5 Fcrls   GSM2545336 Cerebellum         85
+ 6 Slc2a4  GSM2545336 Cerebellum        782
+ 7 Exd2    GSM2545336 Cerebellum       1619
+ 8 Gjc2    GSM2545336 Cerebellum        288
+ 9 Plp1    GSM2545336 Cerebellum      43217
+10 Gnb4    GSM2545336 Cerebellum       1071
+# … with 32,418 more rows
 ```
 
 To select all columns *except* certain ones, put a "-" in front of
@@ -166,10 +172,24 @@ the variable to exclude it.
 select(rna, -tissue, -organism)
 ```
 
-```{.error}
-Error in `select()`:
-! Can't subset columns that don't exist.
-✖ Column `tissue` doesn't exist.
+```{.output}
+# A tibble: 32,428 × 17
+   gene    sample expre…¹   age sex   infec…² strain  time mouse ENTRE…³ product
+   <chr>   <chr>    <dbl> <dbl> <chr> <chr>   <chr>  <dbl> <dbl>   <dbl> <chr>  
+ 1 Asl     GSM25…    1170     8 Fema… Influe… C57BL…     8    14  109900 argini…
+ 2 Apod    GSM25…   36194     8 Fema… Influe… C57BL…     8    14   11815 apolip…
+ 3 Cyp2d22 GSM25…    4060     8 Fema… Influe… C57BL…     8    14   56448 cytoch…
+ 4 Klk6    GSM25…     287     8 Fema… Influe… C57BL…     8    14   19144 kallik…
+ 5 Fcrls   GSM25…      85     8 Fema… Influe… C57BL…     8    14   80891 Fc rec…
+ 6 Slc2a4  GSM25…     782     8 Fema… Influe… C57BL…     8    14   20528 solute…
+ 7 Exd2    GSM25…    1619     8 Fema… Influe… C57BL…     8    14   97827 exonuc…
+ 8 Gjc2    GSM25…     288     8 Fema… Influe… C57BL…     8    14  118454 gap ju…
+ 9 Plp1    GSM25…   43217     8 Fema… Influe… C57BL…     8    14   18823 proteo…
+10 Gnb4    GSM25…    1071     8 Fema… Influe… C57BL…     8    14   14696 guanin…
+# … with 32,418 more rows, 6 more variables: ensembl_gene_id <chr>,
+#   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
+#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
+#   and abbreviated variable names ¹​expression, ²​infection, ³​ENTREZID
 ```
 
 This will select all the variables in `rna` except `tissue`
@@ -182,22 +202,50 @@ To choose rows based on a specific criteria, use `filter()`:
 filter(rna, sex == "Male")
 ```
 
-```{.error}
-Error in `filter()`:
-ℹ In argument: `sex == "Male"`.
-Caused by error:
-! object 'sex' not found
+```{.output}
+# A tibble: 14,740 × 19
+   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 Asl     GSM254…     626 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 2 Apod    GSM254…   13021 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 3 Cyp2d22 GSM254…    2171 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 4 Klk6    GSM254…     448 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 5 Fcrls   GSM254…     180 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 6 Slc2a4  GSM254…     313 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 7 Exd2    GSM254…    2366 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 8 Gjc2    GSM254…     310 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 9 Plp1    GSM254…   53126 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+10 Gnb4    GSM254…    1355 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+# … with 14,730 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ```
 
 ```r
 filter(rna, sex == "Male" & infection == "NonInfected")
 ```
 
-```{.error}
-Error in `filter()`:
-ℹ In argument: `sex == "Male" & infection == "NonInfected"`.
-Caused by error:
-! object 'sex' not found
+```{.output}
+# A tibble: 4,422 × 19
+   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 Asl     GSM254…     535 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 2 Apod    GSM254…   13668 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 3 Cyp2d22 GSM254…    2008 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 4 Klk6    GSM254…    1101 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 5 Fcrls   GSM254…     375 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 6 Slc2a4  GSM254…     249 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 7 Exd2    GSM254…    3126 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 8 Gjc2    GSM254…     791 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 9 Plp1    GSM254…   98658 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+10 Gnb4    GSM254…    2437 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+# … with 4,412 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ```
 
 Now let's imagine we are interested in the human homologs of the mouse
@@ -210,20 +258,24 @@ will create a new table containing just the 2 columns `gene` and
 
 ```r
 genes <- select(rna, gene, hsapiens_homolog_associated_gene_name)
-```
-
-```{.error}
-Error in `select()`:
-! Can't subset columns that don't exist.
-✖ Column `gene` doesn't exist.
-```
-
-```r
 genes
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'genes' not found
+```{.output}
+# A tibble: 32,428 × 2
+   gene    hsapiens_homolog_associated_gene_name
+   <chr>   <chr>                                
+ 1 Asl     ASL                                  
+ 2 Apod    APOD                                 
+ 3 Cyp2d22 CYP2D6                               
+ 4 Klk6    KLK6                                 
+ 5 Fcrls   FCRL2                                
+ 6 Slc2a4  SLC2A4                               
+ 7 Exd2    EXD2                                 
+ 8 Gjc2    GJC2                                 
+ 9 Plp1    PLP1                                 
+10 Gnb4    GNB4                                 
+# … with 32,418 more rows
 ```
 
 Some mouse genes have no human homologs. These can be retrieved using
@@ -235,8 +287,21 @@ something is an `NA`.
 filter(genes, is.na(hsapiens_homolog_associated_gene_name))
 ```
 
-```{.error}
-Error in filter(genes, is.na(hsapiens_homolog_associated_gene_name)): object 'genes' not found
+```{.output}
+# A tibble: 4,290 × 2
+   gene     hsapiens_homolog_associated_gene_name
+   <chr>    <chr>                                
+ 1 Prodh    <NA>                                 
+ 2 Tssk5    <NA>                                 
+ 3 Vmn2r1   <NA>                                 
+ 4 Gm10654  <NA>                                 
+ 5 Hexa     <NA>                                 
+ 6 Sult1a1  <NA>                                 
+ 7 Gm6277   <NA>                                 
+ 8 Tmem198b <NA>                                 
+ 9 Adam1a   <NA>                                 
+10 Ebp      <NA>                                 
+# … with 4,280 more rows
 ```
 
 If we want to keep only mouse genes that have a human homolog, we can
@@ -249,8 +314,21 @@ every row where hsapiens\_homolog\_associated\_gene\_name *is not* an
 filter(genes, !is.na(hsapiens_homolog_associated_gene_name))
 ```
 
-```{.error}
-Error in filter(genes, !is.na(hsapiens_homolog_associated_gene_name)): object 'genes' not found
+```{.output}
+# A tibble: 28,138 × 2
+   gene    hsapiens_homolog_associated_gene_name
+   <chr>   <chr>                                
+ 1 Asl     ASL                                  
+ 2 Apod    APOD                                 
+ 3 Cyp2d22 CYP2D6                               
+ 4 Klk6    KLK6                                 
+ 5 Fcrls   FCRL2                                
+ 6 Slc2a4  SLC2A4                               
+ 7 Exd2    EXD2                                 
+ 8 Gjc2    GJC2                                 
+ 9 Plp1    PLP1                                 
+10 Gnb4    GNB4                                 
+# … with 28,128 more rows
 ```
 
 ## Pipes
@@ -264,29 +342,25 @@ that as input to the next function, like this:
 
 ```r
 rna2 <- filter(rna, sex == "Male")
-```
-
-```{.error}
-Error in `filter()`:
-ℹ In argument: `sex == "Male"`.
-Caused by error:
-! object 'sex' not found
-```
-
-```r
 rna3 <- select(rna2, gene, sample, tissue, expression)
-```
-
-```{.error}
-Error in select(rna2, gene, sample, tissue, expression): object 'rna2' not found
-```
-
-```r
 rna3
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna3' not found
+```{.output}
+# A tibble: 14,740 × 4
+   gene    sample     tissue     expression
+   <chr>   <chr>      <chr>           <dbl>
+ 1 Asl     GSM2545340 Cerebellum        626
+ 2 Apod    GSM2545340 Cerebellum      13021
+ 3 Cyp2d22 GSM2545340 Cerebellum       2171
+ 4 Klk6    GSM2545340 Cerebellum        448
+ 5 Fcrls   GSM2545340 Cerebellum        180
+ 6 Slc2a4  GSM2545340 Cerebellum        313
+ 7 Exd2    GSM2545340 Cerebellum       2366
+ 8 Gjc2    GSM2545340 Cerebellum        310
+ 9 Plp1    GSM2545340 Cerebellum      53126
+10 Gnb4    GSM2545340 Cerebellum       1355
+# … with 14,730 more rows
 ```
 
 This is readable, but can clutter up your workspace with lots of
@@ -299,21 +373,24 @@ like this:
 
 ```r
 rna3 <- select(filter(rna, sex == "Male"), gene, sample, tissue, expression)
-```
-
-```{.error}
-Error in `filter()`:
-ℹ In argument: `sex == "Male"`.
-Caused by error:
-! object 'sex' not found
-```
-
-```r
 rna3
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna3' not found
+```{.output}
+# A tibble: 14,740 × 4
+   gene    sample     tissue     expression
+   <chr>   <chr>      <chr>           <dbl>
+ 1 Asl     GSM2545340 Cerebellum        626
+ 2 Apod    GSM2545340 Cerebellum      13021
+ 3 Cyp2d22 GSM2545340 Cerebellum       2171
+ 4 Klk6    GSM2545340 Cerebellum        448
+ 5 Fcrls   GSM2545340 Cerebellum        180
+ 6 Slc2a4  GSM2545340 Cerebellum        313
+ 7 Exd2    GSM2545340 Cerebellum       2366
+ 8 Gjc2    GSM2545340 Cerebellum        310
+ 9 Plp1    GSM2545340 Cerebellum      53126
+10 Gnb4    GSM2545340 Cerebellum       1355
+# … with 14,730 more rows
 ```
 
 This is handy, but can be difficult to read if too many functions are nested, as
@@ -346,11 +423,21 @@ rna %>%
   select(gene, sample, tissue, expression)
 ```
 
-```{.error}
-Error in `filter()`:
-ℹ In argument: `sex == "Male"`.
-Caused by error:
-! object 'sex' not found
+```{.output}
+# A tibble: 14,740 × 4
+   gene    sample     tissue     expression
+   <chr>   <chr>      <chr>           <dbl>
+ 1 Asl     GSM2545340 Cerebellum        626
+ 2 Apod    GSM2545340 Cerebellum      13021
+ 3 Cyp2d22 GSM2545340 Cerebellum       2171
+ 4 Klk6    GSM2545340 Cerebellum        448
+ 5 Fcrls   GSM2545340 Cerebellum        180
+ 6 Slc2a4  GSM2545340 Cerebellum        313
+ 7 Exd2    GSM2545340 Cerebellum       2366
+ 8 Gjc2    GSM2545340 Cerebellum        310
+ 9 Plp1    GSM2545340 Cerebellum      53126
+10 Gnb4    GSM2545340 Cerebellum       1355
+# … with 14,730 more rows
 ```
 
 Some may find it helpful to read the pipe like the word "then". For instance,
@@ -370,21 +457,25 @@ can assign it a new name:
 rna3 <- rna %>%
   filter(sex == "Male") %>%
   select(gene, sample, tissue, expression)
-```
 
-```{.error}
-Error in `filter()`:
-ℹ In argument: `sex == "Male"`.
-Caused by error:
-! object 'sex' not found
-```
-
-```r
 rna3
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna3' not found
+```{.output}
+# A tibble: 14,740 × 4
+   gene    sample     tissue     expression
+   <chr>   <chr>      <chr>           <dbl>
+ 1 Asl     GSM2545340 Cerebellum        626
+ 2 Apod    GSM2545340 Cerebellum      13021
+ 3 Cyp2d22 GSM2545340 Cerebellum       2171
+ 4 Klk6    GSM2545340 Cerebellum        448
+ 5 Fcrls   GSM2545340 Cerebellum        180
+ 6 Slc2a4  GSM2545340 Cerebellum        313
+ 7 Exd2    GSM2545340 Cerebellum       2366
+ 8 Gjc2    GSM2545340 Cerebellum        310
+ 9 Plp1    GSM2545340 Cerebellum      53126
+10 Gnb4    GSM2545340 Cerebellum       1355
+# … with 14,730 more rows
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -408,11 +499,19 @@ rna %>%
   select(gene, sample, time, expression, age)
 ```
 
-```{.error}
-Error in `filter()`:
-ℹ In argument: `expression > 50000`.
-Caused by error in `expression > 50000`:
-! comparison (>) is possible only for atomic and list types
+```{.output}
+# A tibble: 9 × 5
+  gene   sample      time expression   age
+  <chr>  <chr>      <dbl>      <dbl> <dbl>
+1 Plp1   GSM2545337     0     101241     8
+2 Atp1b1 GSM2545337     0      53260     8
+3 Plp1   GSM2545338     0      96534     8
+4 Atp1b1 GSM2545338     0      50614     8
+5 Plp1   GSM2545348     0     102790     8
+6 Atp1b1 GSM2545348     0      59544     8
+7 Plp1   GSM2545353     0      71237     8
+8 Glul   GSM2545353     0      52451     8
+9 Atp1b1 GSM2545353     0      61451     8
 ```
 
 :::::::::::::::::::::::::
@@ -434,11 +533,21 @@ rna %>%
   select(time, time_hours)
 ```
 
-```{.error}
-Error in `mutate()`:
-ℹ In argument: `time_hours = time * 24`.
-Caused by error in `time * 24`:
-! non-numeric argument to binary operator
+```{.output}
+# A tibble: 32,428 × 2
+    time time_hours
+   <dbl>      <dbl>
+ 1     8        192
+ 2     8        192
+ 3     8        192
+ 4     8        192
+ 5     8        192
+ 6     8        192
+ 7     8        192
+ 8     8        192
+ 9     8        192
+10     8        192
+# … with 32,418 more rows
 ```
 
 You can also create a second new column based on the first new column within the same call of `mutate()`:
@@ -451,11 +560,21 @@ rna %>%
   select(time, time_hours, time_mn)
 ```
 
-```{.error}
-Error in `mutate()`:
-ℹ In argument: `time_hours = time * 24`.
-Caused by error in `time * 24`:
-! non-numeric argument to binary operator
+```{.output}
+# A tibble: 32,428 × 3
+    time time_hours time_mn
+   <dbl>      <dbl>   <dbl>
+ 1     8        192   11520
+ 2     8        192   11520
+ 3     8        192   11520
+ 4     8        192   11520
+ 5     8        192   11520
+ 6     8        192   11520
+ 7     8        192   11520
+ 8     8        192   11520
+ 9     8        192   11520
+10     8        192   11520
+# … with 32,418 more rows
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -486,11 +605,21 @@ rna %>%
   filter(expression > 5)
 ```
 
-```{.error}
-Error in `mutate()`:
-ℹ In argument: `expression = log(expression)`.
-Caused by error in `log()`:
-! non-numeric argument to mathematical function
+```{.output}
+# A tibble: 649 × 5
+   gene   chromosome_name phenotype_description                   sample expre…¹
+   <chr>  <chr>           <chr>                                   <chr>    <dbl>
+ 1 Plp1   X               abnormal CNS glial cell morphology      GSM25…   10.7 
+ 2 Slc7a3 X               decreased body length                   GSM25…    5.46
+ 3 Plxnb3 X               abnormal coat appearance                GSM25…    6.58
+ 4 Rbm3   X               abnormal liver morphology               GSM25…    9.32
+ 5 Cfp    X               abnormal cardiovascular system physiol… GSM25…    6.18
+ 6 Ebp    X               abnormal embryonic erythrocyte morphol… GSM25…    6.68
+ 7 Cd99l2 X               abnormal cellular extravasation         GSM25…    8.04
+ 8 Piga   X               abnormal brain development              GSM25…    6.06
+ 9 Pim2   X               decreased T cell proliferation          GSM25…    7.11
+10 Itm2a  X               no abnormal phenotype detected          GSM25…    7.48
+# … with 639 more rows, and abbreviated variable name ¹​expression
 ```
 
 :::::::::::::::::::::::::
@@ -510,16 +639,32 @@ rna %>%
   group_by(gene)
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-✖ Column `gene` is not found.
+```{.output}
+# A tibble: 32,428 × 19
+# Groups:   gene [1,474]
+   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ```
 
 The `group_by()` function doesn't perform any data processing, it
 groups the data into subsets: in the example above, our initial
-`tibble` of 1129 observations is split into
-0 groups based on the `gene` variable.
+`tibble` of 32428 observations is split into
+1474 groups based on the `gene` variable.
 
 We could similarly decide to group the tibble by the samples:
 
@@ -529,14 +674,30 @@ rna %>%
   group_by(sample)
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-✖ Column `sample` is not found.
+```{.output}
+# A tibble: 32,428 × 19
+# Groups:   sample [22]
+   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ```
 
-Here our initial `tibble` of 1129 observations is split into
-0 groups based on the `sample` variable.
+Here our initial `tibble` of 32428 observations is split into
+22 groups based on the `sample` variable.
 
 Once the data has been grouped, subsequent operations will be
 applied on each group independently.
@@ -557,10 +718,21 @@ rna %>%
   summarise(mean_expression = mean(expression))
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-✖ Column `gene` is not found.
+```{.output}
+# A tibble: 1,474 × 2
+   gene     mean_expression
+   <chr>              <dbl>
+ 1 AI504432         1053.  
+ 2 AW046200          131.  
+ 3 AW551984          295.  
+ 4 Aamp             4751.  
+ 5 Abca12              4.55
+ 6 Abcc8            2498.  
+ 7 Abhd14a           525.  
+ 8 Abi2             4909.  
+ 9 Abi3bp           1002.  
+10 Abl2             2124.  
+# … with 1,464 more rows
 ```
 
 We could also want to calculate the mean expression levels of all genes in each sample:
@@ -572,10 +744,21 @@ rna %>%
   summarise(mean_expression = mean(expression))
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-✖ Column `sample` is not found.
+```{.output}
+# A tibble: 22 × 2
+   sample     mean_expression
+   <chr>                <dbl>
+ 1 GSM2545336           2062.
+ 2 GSM2545337           1766.
+ 3 GSM2545338           1668.
+ 4 GSM2545339           1696.
+ 5 GSM2545340           1682.
+ 6 GSM2545341           1638.
+ 7 GSM2545342           1594.
+ 8 GSM2545343           2107.
+ 9 GSM2545344           1712.
+10 GSM2545345           1700.
+# … with 12 more rows
 ```
 
 But we can can also group by multiple columns:
@@ -587,12 +770,27 @@ rna %>%
   summarise(mean_expression = mean(expression))
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-Column `gene` is not found.
-Column `infection` is not found.
-Column `time` is not found.
+```{.output}
+`summarise()` has grouped output by 'gene', 'infection'. You can override using
+the `.groups` argument.
+```
+
+```{.output}
+# A tibble: 4,422 × 4
+# Groups:   gene, infection [2,948]
+   gene     infection    time mean_expression
+   <chr>    <chr>       <dbl>           <dbl>
+ 1 AI504432 InfluenzaA      4           1104.
+ 2 AI504432 InfluenzaA      8           1014 
+ 3 AI504432 NonInfected     0           1034.
+ 4 AW046200 InfluenzaA      4            152.
+ 5 AW046200 InfluenzaA      8             81 
+ 6 AW046200 NonInfected     0            155.
+ 7 AW551984 InfluenzaA      4            302.
+ 8 AW551984 InfluenzaA      8            342.
+ 9 AW551984 NonInfected     0            238 
+10 Aamp     InfluenzaA      4           4870 
+# … with 4,412 more rows
 ```
 
 Once the data is grouped, you can also summarise multiple variables at the same
@@ -607,12 +805,27 @@ rna %>%
             median_expression = median(expression))
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-Column `gene` is not found.
-Column `infection` is not found.
-Column `time` is not found.
+```{.output}
+`summarise()` has grouped output by 'gene', 'infection'. You can override using
+the `.groups` argument.
+```
+
+```{.output}
+# A tibble: 4,422 × 5
+# Groups:   gene, infection [2,948]
+   gene     infection    time mean_expression median_expression
+   <chr>    <chr>       <dbl>           <dbl>             <dbl>
+ 1 AI504432 InfluenzaA      4           1104.             1094.
+ 2 AI504432 InfluenzaA      8           1014               985 
+ 3 AI504432 NonInfected     0           1034.             1016 
+ 4 AW046200 InfluenzaA      4            152.              144.
+ 5 AW046200 InfluenzaA      8             81                82 
+ 6 AW046200 NonInfected     0            155.              163 
+ 7 AW551984 InfluenzaA      4            302.              245 
+ 8 AW551984 InfluenzaA      8            342.              287 
+ 9 AW551984 NonInfected     0            238               265 
+10 Aamp     InfluenzaA      4           4870              4708 
+# … with 4,412 more rows
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -633,11 +846,13 @@ rna %>%
   summarise(mean = mean(expression))
 ```
 
-```{.error}
-Error in `filter()`:
-ℹ In argument: `gene == "Dok3"`.
-Caused by error:
-! object 'gene' not found
+```{.output}
+# A tibble: 3 × 2
+   time  mean
+  <dbl> <dbl>
+1     0  169 
+2     4  156.
+3     8   61 
 ```
 
 :::::::::::::::::::::::::
@@ -657,10 +872,12 @@ rna %>%
     count(infection)
 ```
 
-```{.error}
-Error in `count()`:
-! Must group by variables found in `.data`.
-✖ Column `infection` is not found.
+```{.output}
+# A tibble: 2 × 2
+  infection       n
+  <chr>       <int>
+1 InfluenzaA  22110
+2 NonInfected 10318
 ```
 
 The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarising it by counting the number of observations in that group. In other words, `rna %>% count(infection)` is equivalent to:
@@ -672,10 +889,12 @@ rna %>%
     summarise(n = n())
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-✖ Column `infection` is not found.
+```{.output}
+# A tibble: 2 × 2
+  infection       n
+  <chr>       <int>
+1 InfluenzaA  22110
+2 NonInfected 10318
 ```
 
 The previous example shows the use of `count()` to count the number of rows/observations
@@ -689,11 +908,13 @@ rna %>%
     count(infection, time)
 ```
 
-```{.error}
-Error in `count()`:
-! Must group by variables found in `.data`.
-Column `infection` is not found.
-Column `time` is not found.
+```{.output}
+# A tibble: 3 × 3
+  infection    time     n
+  <chr>       <dbl> <int>
+1 InfluenzaA      4 11792
+2 InfluenzaA      8 10318
+3 NonInfected     0 10318
 ```
 
 which is equivalent to this:
@@ -705,11 +926,19 @@ rna %>%
   summarise(n = n())
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-Column `infection` is not found.
-Column `time` is not found.
+```{.output}
+`summarise()` has grouped output by 'infection'. You can override using the
+`.groups` argument.
+```
+
+```{.output}
+# A tibble: 3 × 3
+# Groups:   infection [2]
+  infection    time     n
+  <chr>       <dbl> <int>
+1 InfluenzaA      4 11792
+2 InfluenzaA      8 10318
+3 NonInfected     0 10318
 ```
 
 It is sometimes useful to sort the result to facilitate the comparisons.
@@ -723,11 +952,13 @@ rna %>%
   arrange(time)
 ```
 
-```{.error}
-Error in `count()`:
-! Must group by variables found in `.data`.
-Column `infection` is not found.
-Column `time` is not found.
+```{.output}
+# A tibble: 3 × 3
+  infection    time     n
+  <chr>       <dbl> <int>
+1 NonInfected     0 10318
+2 InfluenzaA      4 11792
+3 InfluenzaA      8 10318
 ```
 
 or by counts:
@@ -739,11 +970,13 @@ rna %>%
   arrange(n)
 ```
 
-```{.error}
-Error in `count()`:
-! Must group by variables found in `.data`.
-Column `infection` is not found.
-Column `time` is not found.
+```{.output}
+# A tibble: 3 × 3
+  infection    time     n
+  <chr>       <dbl> <int>
+1 InfluenzaA      8 10318
+2 NonInfected     0 10318
+3 InfluenzaA      4 11792
 ```
 
 To sort in descending order, we need to add the `desc()` function:
@@ -755,11 +988,13 @@ rna %>%
   arrange(desc(n))
 ```
 
-```{.error}
-Error in `count()`:
-! Must group by variables found in `.data`.
-Column `infection` is not found.
-Column `time` is not found.
+```{.output}
+# A tibble: 3 × 3
+  infection    time     n
+  <chr>       <dbl> <int>
+1 InfluenzaA      4 11792
+2 InfluenzaA      8 10318
+3 NonInfected     0 10318
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -782,10 +1017,21 @@ rna %>%
   count(sample)
 ```
 
-```{.error}
-Error in `count()`:
-! Must group by variables found in `.data`.
-✖ Column `sample` is not found.
+```{.output}
+# A tibble: 22 × 2
+   sample         n
+   <chr>      <int>
+ 1 GSM2545336  1474
+ 2 GSM2545337  1474
+ 3 GSM2545338  1474
+ 4 GSM2545339  1474
+ 5 GSM2545340  1474
+ 6 GSM2545341  1474
+ 7 GSM2545342  1474
+ 8 GSM2545343  1474
+ 9 GSM2545344  1474
+10 GSM2545345  1474
+# … with 12 more rows
 ```
 
 ```r
@@ -796,10 +1042,21 @@ rna %>%
   arrange(desc(seq_depth))
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-✖ Column `sample` is not found.
+```{.output}
+# A tibble: 22 × 2
+   sample     seq_depth
+   <chr>          <dbl>
+ 1 GSM2545350   3255566
+ 2 GSM2545352   3216163
+ 3 GSM2545343   3105652
+ 4 GSM2545336   3039671
+ 5 GSM2545380   3036098
+ 6 GSM2545353   2953249
+ 7 GSM2545348   2913678
+ 8 GSM2545362   2913517
+ 9 GSM2545351   2782464
+10 GSM2545349   2758006
+# … with 12 more rows
 ```
 
 ```r
@@ -811,11 +1068,24 @@ rna %>%
   arrange(desc(n))
 ```
 
-```{.error}
-Error in `filter()`:
-ℹ In argument: `sample == "GSM2545336"`.
-Caused by error in `sample == "GSM2545336"`:
-! comparison (==) is possible only for atomic and list types
+```{.output}
+# A tibble: 13 × 2
+# Groups:   gene_biotype [13]
+   gene_biotype                           n
+   <chr>                              <int>
+ 1 protein_coding                      1321
+ 2 lncRNA                                69
+ 3 processed_pseudogene                  59
+ 4 miRNA                                  7
+ 5 snoRNA                                 5
+ 6 TEC                                    4
+ 7 polymorphic_pseudogene                 2
+ 8 unprocessed_pseudogene                 2
+ 9 IG_C_gene                              1
+10 scaRNA                                 1
+11 transcribed_processed_pseudogene       1
+12 transcribed_unitary_pseudogene         1
+13 transcribed_unprocessed_pseudogene     1
 ```
 
 ```r
@@ -827,11 +1097,22 @@ rna %>%
   arrange()
 ```
 
-```{.error}
-Error in `filter()`:
-ℹ In argument: `phenotype_description == "abnormal DNA methylation"`.
-Caused by error:
-! object 'phenotype_description' not found
+```{.output}
+`summarise()` has grouped output by 'gene'. You can override using the
+`.groups` argument.
+```
+
+```{.output}
+# A tibble: 6 × 3
+# Groups:   gene [2]
+  gene   time mean_expression
+  <chr> <dbl>           <dbl>
+1 Xist      0            6.95
+2 Xist      4            6.34
+3 Xist      8            7.13
+4 Zdbf2     0            6.27
+5 Zdbf2     4            6.27
+6 Zdbf2     8            6.19
 ```
 
 :::::::::::::::::::::::::
@@ -853,11 +1134,25 @@ rna %>%
   arrange(gene)
 ```
 
-```{.error}
-Error in `arrange()`:
-ℹ In argument: `..1 = gene`.
-Caused by error:
-! object 'gene' not found
+```{.output}
+# A tibble: 32,428 × 19
+   gene     sample expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
+   <chr>    <chr>    <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
+ 1 AI504432 GSM25…    1230 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
+ 2 AI504432 GSM25…    1085 Mus mu…     8 Fema… NonInf… C57BL…     0 Cereb…     9
+ 3 AI504432 GSM25…     969 Mus mu…     8 Fema… NonInf… C57BL…     0 Cereb…    10
+ 4 AI504432 GSM25…    1284 Mus mu…     8 Fema… Influe… C57BL…     4 Cereb…    15
+ 5 AI504432 GSM25…     966 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
+ 6 AI504432 GSM25…     918 Mus mu…     8 Male  Influe… C57BL…     8 Cereb…     6
+ 7 AI504432 GSM25…     985 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…     5
+ 8 AI504432 GSM25…     972 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
+ 9 AI504432 GSM25…    1000 Mus mu…     8 Fema… Influe… C57BL…     4 Cereb…    22
+10 AI504432 GSM25…     816 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    13
+# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+#   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
+#   gene_biotype <chr>, phenotype_description <chr>,
+#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
+#   ¹​expression, ²​organism, ³​infection
 ```
 
 This structure is called a `long-format`, as one column contains all the values,
@@ -873,10 +1168,27 @@ to explore the relationship between the gene expression levels within, and
 between, the samples.
 
 
-```{.error}
-Error in `select()`:
-! Can't subset columns that don't exist.
-✖ Column `gene` doesn't exist.
+```{.output}
+# A tibble: 1,474 × 23
+   gene  GSM25…¹ GSM25…² GSM25…³ GSM25…⁴ GSM25…⁵ GSM25…⁶ GSM25…⁷ GSM25…⁸ GSM25…⁹
+   <chr>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
+ 1 Asl      1170     361     400     586     626     988     836     535     586
+ 2 Apod    36194   10347    9173   10620   13021   29594   24959   13668   13230
+ 3 Cyp2…    4060    1616    1603    1901    2171    3349    3122    2008    2254
+ 4 Klk6      287     629     641     578     448     195     186    1101     537
+ 5 Fcrls      85     233     244     237     180      38      68     375     199
+ 6 Slc2…     782     231     248     265     313     786     528     249     266
+ 7 Exd2     1619    2288    2235    2513    2366    1359    1474    3126    2379
+ 8 Gjc2      288     595     568     551     310     146     186     791     454
+ 9 Plp1    43217  101241   96534   58354   53126   27173   28728   98658   61356
+10 Gnb4     1071    1791    1867    1430    1355     798     806    2437    1394
+# … with 1,464 more rows, 13 more variables: GSM2545345 <dbl>,
+#   GSM2545346 <dbl>, GSM2545347 <dbl>, GSM2545348 <dbl>, GSM2545349 <dbl>,
+#   GSM2545350 <dbl>, GSM2545351 <dbl>, GSM2545352 <dbl>, GSM2545353 <dbl>,
+#   GSM2545354 <dbl>, GSM2545362 <dbl>, GSM2545363 <dbl>, GSM2545380 <dbl>, and
+#   abbreviated variable names ¹​GSM2545336, ²​GSM2545337, ³​GSM2545338,
+#   ⁴​GSM2545339, ⁵​GSM2545340, ⁶​GSM2545341, ⁷​GSM2545342, ⁸​GSM2545343,
+#   ⁹​GSM2545344
 ```
 
 To convert the gene expression values from `rna` into a wide-format,
@@ -905,20 +1217,24 @@ to transform the data into a wide-format.
 ```r
 rna_exp <- rna %>%
   select(gene, sample, expression)
-```
-
-```{.error}
-Error in `select()`:
-! Can't subset columns that don't exist.
-✖ Column `gene` doesn't exist.
-```
-
-```r
 rna_exp
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna_exp' not found
+```{.output}
+# A tibble: 32,428 × 3
+   gene    sample     expression
+   <chr>   <chr>           <dbl>
+ 1 Asl     GSM2545336       1170
+ 2 Apod    GSM2545336      36194
+ 3 Cyp2d22 GSM2545336       4060
+ 4 Klk6    GSM2545336        287
+ 5 Fcrls   GSM2545336         85
+ 6 Slc2a4  GSM2545336        782
+ 7 Exd2    GSM2545336       1619
+ 8 Gjc2    GSM2545336        288
+ 9 Plp1    GSM2545336      43217
+10 Gnb4    GSM2545336       1071
+# … with 32,418 more rows
 ```
 
 `pivot_wider` takes three main arguments:
@@ -939,18 +1255,30 @@ Error in eval(expr, envir, enclos): object 'rna_exp' not found
 rna_wide <- rna_exp %>%
   pivot_wider(names_from = sample,
               values_from = expression)
-```
-
-```{.error}
-Error in pivot_wider(., names_from = sample, values_from = expression): object 'rna_exp' not found
-```
-
-```r
 rna_wide
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna_wide' not found
+```{.output}
+# A tibble: 1,474 × 23
+   gene  GSM25…¹ GSM25…² GSM25…³ GSM25…⁴ GSM25…⁵ GSM25…⁶ GSM25…⁷ GSM25…⁸ GSM25…⁹
+   <chr>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
+ 1 Asl      1170     361     400     586     626     988     836     535     586
+ 2 Apod    36194   10347    9173   10620   13021   29594   24959   13668   13230
+ 3 Cyp2…    4060    1616    1603    1901    2171    3349    3122    2008    2254
+ 4 Klk6      287     629     641     578     448     195     186    1101     537
+ 5 Fcrls      85     233     244     237     180      38      68     375     199
+ 6 Slc2…     782     231     248     265     313     786     528     249     266
+ 7 Exd2     1619    2288    2235    2513    2366    1359    1474    3126    2379
+ 8 Gjc2      288     595     568     551     310     146     186     791     454
+ 9 Plp1    43217  101241   96534   58354   53126   27173   28728   98658   61356
+10 Gnb4     1071    1791    1867    1430    1355     798     806    2437    1394
+# … with 1,464 more rows, 13 more variables: GSM2545345 <dbl>,
+#   GSM2545346 <dbl>, GSM2545347 <dbl>, GSM2545348 <dbl>, GSM2545349 <dbl>,
+#   GSM2545350 <dbl>, GSM2545351 <dbl>, GSM2545352 <dbl>, GSM2545353 <dbl>,
+#   GSM2545354 <dbl>, GSM2545362 <dbl>, GSM2545363 <dbl>, GSM2545380 <dbl>, and
+#   abbreviated variable names ¹​GSM2545336, ²​GSM2545337, ³​GSM2545338,
+#   ⁴​GSM2545339, ⁵​GSM2545340, ⁶​GSM2545341, ⁷​GSM2545342, ⁸​GSM2545343,
+#   ⁹​GSM2545344
 ```
 
 Note that by default, the `pivot_wider()` function will add `NA` for missing values.
@@ -960,19 +1288,23 @@ genes in certain samples. In the following fictive example, the gene Cyp2d22 has
 one expression value, in GSM2545338 sample.
 
 
-```{.error}
-Error in `select()`:
-! Can't subset columns that don't exist.
-✖ Column `gene` doesn't exist.
-```
 
 
 ```r
 rna_with_missing_values
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna_with_missing_values' not found
+```{.output}
+# A tibble: 7 × 3
+  gene    sample     expression
+  <chr>   <chr>           <dbl>
+1 Asl     GSM2545336       1170
+2 Apod    GSM2545336      36194
+3 Asl     GSM2545337        361
+4 Apod    GSM2545337      10347
+5 Asl     GSM2545338        400
+6 Apod    GSM2545338       9173
+7 Cyp2d22 GSM2545338       1603
 ```
 
 By default, the `pivot_wider()` function will add `NA` for missing
@@ -986,8 +1318,13 @@ rna_with_missing_values %>%
               values_from = expression)
 ```
 
-```{.error}
-Error in pivot_wider(., names_from = sample, values_from = expression): object 'rna_with_missing_values' not found
+```{.output}
+# A tibble: 3 × 4
+  gene    GSM2545336 GSM2545337 GSM2545338
+  <chr>        <dbl>      <dbl>      <dbl>
+1 Asl           1170        361        400
+2 Apod         36194      10347       9173
+3 Cyp2d22         NA         NA       1603
 ```
 
 ```r
@@ -997,8 +1334,13 @@ rna_with_missing_values %>%
               values_fill = 0)
 ```
 
-```{.error}
-Error in pivot_wider(., names_from = sample, values_from = expression, : object 'rna_with_missing_values' not found
+```{.output}
+# A tibble: 3 × 4
+  gene    GSM2545336 GSM2545337 GSM2545338
+  <chr>        <dbl>      <dbl>      <dbl>
+1 Asl           1170        361        400
+2 Apod         36194      10347       9173
+3 Cyp2d22          0          0       1603
 ```
 
 ### Pivoting data into a longer format
@@ -1036,18 +1378,24 @@ rna_long <- rna_wide %>%
     pivot_longer(names_to = "sample",
                  values_to = "expression",
                  -gene)
-```
-
-```{.error}
-Error in pivot_longer(., names_to = "sample", values_to = "expression", : object 'rna_wide' not found
-```
-
-```r
 rna_long
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna_long' not found
+```{.output}
+# A tibble: 32,428 × 3
+   gene  sample     expression
+   <chr> <chr>           <dbl>
+ 1 Asl   GSM2545336       1170
+ 2 Asl   GSM2545337        361
+ 3 Asl   GSM2545338        400
+ 4 Asl   GSM2545339        586
+ 5 Asl   GSM2545340        626
+ 6 Asl   GSM2545341        988
+ 7 Asl   GSM2545342        836
+ 8 Asl   GSM2545343        535
+ 9 Asl   GSM2545344        586
+10 Asl   GSM2545345        597
+# … with 32,418 more rows
 ```
 
 We could also have used a specification for what columns to
@@ -1065,8 +1413,21 @@ rna_wide %>%
                  cols = starts_with("GSM"))
 ```
 
-```{.error}
-Error in pivot_longer(., names_to = "sample", values_to = "expression", : object 'rna_wide' not found
+```{.output}
+# A tibble: 32,428 × 3
+   gene  sample     expression
+   <chr> <chr>           <dbl>
+ 1 Asl   GSM2545336       1170
+ 2 Asl   GSM2545337        361
+ 3 Asl   GSM2545338        400
+ 4 Asl   GSM2545339        586
+ 5 Asl   GSM2545340        626
+ 6 Asl   GSM2545341        988
+ 7 Asl   GSM2545342        836
+ 8 Asl   GSM2545343        535
+ 9 Asl   GSM2545344        586
+10 Asl   GSM2545345        597
+# … with 32,418 more rows
 ```
 
 ```r
@@ -1076,8 +1437,21 @@ rna_wide %>%
                  GSM2545336:GSM2545380)
 ```
 
-```{.error}
-Error in pivot_longer(., names_to = "sample", values_to = "expression", : object 'rna_wide' not found
+```{.output}
+# A tibble: 32,428 × 3
+   gene  sample     expression
+   <chr> <chr>           <dbl>
+ 1 Asl   GSM2545336       1170
+ 2 Asl   GSM2545337        361
+ 3 Asl   GSM2545338        400
+ 4 Asl   GSM2545339        586
+ 5 Asl   GSM2545340        626
+ 6 Asl   GSM2545341        988
+ 7 Asl   GSM2545342        836
+ 8 Asl   GSM2545343        535
+ 9 Asl   GSM2545344        586
+10 Asl   GSM2545345        597
+# … with 32,418 more rows
 ```
 
 Note that if we had missing values in the wide-format, the `NA` would be
@@ -1090,26 +1464,33 @@ Remember our previous fictive tibble containing missing values:
 rna_with_missing_values
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna_with_missing_values' not found
+```{.output}
+# A tibble: 7 × 3
+  gene    sample     expression
+  <chr>   <chr>           <dbl>
+1 Asl     GSM2545336       1170
+2 Apod    GSM2545336      36194
+3 Asl     GSM2545337        361
+4 Apod    GSM2545337      10347
+5 Asl     GSM2545338        400
+6 Apod    GSM2545338       9173
+7 Cyp2d22 GSM2545338       1603
 ```
 
 ```r
 wide_with_NA <- rna_with_missing_values %>%
   pivot_wider(names_from = sample,
               values_from = expression)
-```
-
-```{.error}
-Error in pivot_wider(., names_from = sample, values_from = expression): object 'rna_with_missing_values' not found
-```
-
-```r
 wide_with_NA
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'wide_with_NA' not found
+```{.output}
+# A tibble: 3 × 4
+  gene    GSM2545336 GSM2545337 GSM2545338
+  <chr>        <dbl>      <dbl>      <dbl>
+1 Asl           1170        361        400
+2 Apod         36194      10347       9173
+3 Cyp2d22         NA         NA       1603
 ```
 
 ```r
@@ -1119,8 +1500,19 @@ wide_with_NA %>%
                  -gene)
 ```
 
-```{.error}
-Error in pivot_longer(., names_to = "sample", values_to = "expression", : object 'wide_with_NA' not found
+```{.output}
+# A tibble: 9 × 3
+  gene    sample     expression
+  <chr>   <chr>           <dbl>
+1 Asl     GSM2545336       1170
+2 Asl     GSM2545337        361
+3 Asl     GSM2545338        400
+4 Apod    GSM2545336      36194
+5 Apod    GSM2545337      10347
+6 Apod    GSM2545338       9173
+7 Cyp2d22 GSM2545336         NA
+8 Cyp2d22 GSM2545337         NA
+9 Cyp2d22 GSM2545338       1603
 ```
 
 Pivoting to wider and longer formats can be a useful way to balance out a dataset
@@ -1143,20 +1535,26 @@ Then use the `pivot_longer()` function to restore a long-format table.
 rna1 <- rna %>%
 select(gene, mouse, expression) %>%
 pivot_wider(names_from = mouse, values_from = expression)
-```
-
-```{.error}
-Error in `select()`:
-! Can't subset columns that don't exist.
-✖ Column `gene` doesn't exist.
-```
-
-```r
 rna1
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna1' not found
+```{.output}
+# A tibble: 1,474 × 23
+   gene     `14`    `9`  `10`  `15`  `18`   `6`   `5`  `11`  `22`  `13`  `23`
+   <chr>   <dbl>  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+ 1 Asl      1170    361   400   586   626   988   836   535   586   597   938
+ 2 Apod    36194  10347  9173 10620 13021 29594 24959 13668 13230 15868 27769
+ 3 Cyp2d22  4060   1616  1603  1901  2171  3349  3122  2008  2254  2277  2985
+ 4 Klk6      287    629   641   578   448   195   186  1101   537   567   327
+ 5 Fcrls      85    233   244   237   180    38    68   375   199   177    89
+ 6 Slc2a4    782    231   248   265   313   786   528   249   266   357   654
+ 7 Exd2     1619   2288  2235  2513  2366  1359  1474  3126  2379  2173  1531
+ 8 Gjc2      288    595   568   551   310   146   186   791   454   370   240
+ 9 Plp1    43217 101241 96534 58354 53126 27173 28728 98658 61356 61647 38019
+10 Gnb4     1071   1791  1867  1430  1355   798   806  2437  1394  1554   960
+# … with 1,464 more rows, and 11 more variables: `24` <dbl>, `8` <dbl>,
+#   `7` <dbl>, `1` <dbl>, `16` <dbl>, `21` <dbl>, `4` <dbl>, `2` <dbl>,
+#   `20` <dbl>, `12` <dbl>, `19` <dbl>
 ```
 
 ```r
@@ -1164,8 +1562,21 @@ rna1 %>%
 pivot_longer(names_to = "mouse_id", values_to = "counts", -gene)
 ```
 
-```{.error}
-Error in pivot_longer(., names_to = "mouse_id", values_to = "counts", : object 'rna1' not found
+```{.output}
+# A tibble: 32,428 × 3
+   gene  mouse_id counts
+   <chr> <chr>     <dbl>
+ 1 Asl   14         1170
+ 2 Asl   9           361
+ 3 Asl   10          400
+ 4 Asl   15          586
+ 5 Asl   18          626
+ 6 Asl   6           988
+ 7 Asl   5           836
+ 8 Asl   11          535
+ 9 Asl   22          586
+10 Asl   13          597
+# … with 32,418 more rows
 ```
 
 :::::::::::::::::::::::::
@@ -1200,11 +1611,20 @@ male and female samples...
   summarise(mean = mean(expression))
 ```
 
-```{.error}
-Error in `filter()`:
-ℹ In argument: `chromosome_name == "Y" | chromosome_name == "X"`.
-Caused by error:
-! object 'chromosome_name' not found
+```{.output}
+`summarise()` has grouped output by 'sex'. You can override using the `.groups`
+argument.
+```
+
+```{.output}
+# A tibble: 4 × 3
+# Groups:   sex [2]
+  sex    chromosome_name  mean
+  <chr>  <chr>           <dbl>
+1 Female X               3504.
+2 Female Y                  3 
+3 Male   X               2497.
+4 Male   Y               2117.
 ```
 
 And pivot the table to wide format
@@ -1219,19 +1639,21 @@ rna_1 <- rna %>%
               values_from = mean)
 ```
 
-```{.error}
-Error in `filter()`:
-ℹ In argument: `chromosome_name == "Y" | chromosome_name == "X"`.
-Caused by error:
-! object 'chromosome_name' not found
+```{.output}
+`summarise()` has grouped output by 'sex'. You can override using the `.groups`
+argument.
 ```
 
 ```r
 rna_1
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna_1' not found
+```{.output}
+# A tibble: 2 × 3
+  chromosome_name Female  Male
+  <chr>            <dbl> <dbl>
+1 X                3504. 2497.
+2 Y                   3  2117.
 ```
 
 Now take that data frame and transform it with `pivot_longer()` so
@@ -1245,8 +1667,14 @@ rna_1 %>%
                -chromosome_name)
 ```
 
-```{.error}
-Error in pivot_longer(., names_to = "gender", values_to = "mean", -chromosome_name): object 'rna_1' not found
+```{.output}
+# A tibble: 4 × 3
+  chromosome_name gender  mean
+  <chr>           <chr>  <dbl>
+1 X               Female 3504.
+2 X               Male   2497.
+3 Y               Female    3 
+4 Y               Male   2117.
 ```
 
 :::::::::::::::::::::::::
@@ -1274,11 +1702,27 @@ rna %>%
   summarise(mean_exp = mean(expression))
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-Column `gene` is not found.
-Column `time` is not found.
+```{.output}
+`summarise()` has grouped output by 'gene'. You can override using the
+`.groups` argument.
+```
+
+```{.output}
+# A tibble: 4,422 × 3
+# Groups:   gene [1,474]
+   gene      time mean_exp
+   <chr>    <dbl>    <dbl>
+ 1 AI504432     0    1034.
+ 2 AI504432     4    1104.
+ 3 AI504432     8    1014 
+ 4 AW046200     0     155.
+ 5 AW046200     4     152.
+ 6 AW046200     8      81 
+ 7 AW551984     0     238 
+ 8 AW551984     4     302.
+ 9 AW551984     8     342.
+10 Aamp         0    4603.
+# … with 4,412 more rows
 ```
 
 before using the pivot\_wider() function
@@ -1292,19 +1736,31 @@ rna_time <- rna %>%
               values_from = mean_exp)
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-Column `gene` is not found.
-Column `time` is not found.
+```{.output}
+`summarise()` has grouped output by 'gene'. You can override using the
+`.groups` argument.
 ```
 
 ```r
 rna_time
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna_time' not found
+```{.output}
+# A tibble: 1,474 × 4
+# Groups:   gene [1,474]
+   gene         `0`     `4`     `8`
+   <chr>      <dbl>   <dbl>   <dbl>
+ 1 AI504432 1034.   1104.   1014   
+ 2 AW046200  155.    152.     81   
+ 3 AW551984  238     302.    342.  
+ 4 Aamp     4603.   4870    4763.  
+ 5 Abca12      5.29    4.25    4.14
+ 6 Abcc8    2576.   2609.   2292.  
+ 7 Abhd14a   591.    547.    432.  
+ 8 Abi2     4881.   4903.   4945.  
+ 9 Abi3bp   1175.   1061.    762.  
+10 Abl2     2170.   2078.   2131.  
+# … with 1,464 more rows
 ```
 
 Notice that this generates a tibble with some column names starting by a number.
@@ -1321,11 +1777,27 @@ rna %>%
   select(gene, 4)
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-Column `gene` is not found.
-Column `time` is not found.
+```{.output}
+`summarise()` has grouped output by 'gene'. You can override using the
+`.groups` argument.
+```
+
+```{.output}
+# A tibble: 1,474 × 2
+# Groups:   gene [1,474]
+   gene         `8`
+   <chr>      <dbl>
+ 1 AI504432 1014   
+ 2 AW046200   81   
+ 3 AW551984  342.  
+ 4 Aamp     4763.  
+ 5 Abca12      4.14
+ 6 Abcc8    2292.  
+ 7 Abhd14a   432.  
+ 8 Abi2     4945.  
+ 9 Abi3bp    762.  
+10 Abl2     2131.  
+# … with 1,464 more rows
 ```
 
 To select the timepoint 4, we would have to quote the column name, with backticks "\`"
@@ -1340,11 +1812,27 @@ rna %>%
   select(gene, `4`)
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-Column `gene` is not found.
-Column `time` is not found.
+```{.output}
+`summarise()` has grouped output by 'gene'. You can override using the
+`.groups` argument.
+```
+
+```{.output}
+# A tibble: 1,474 × 2
+# Groups:   gene [1,474]
+   gene         `4`
+   <chr>      <dbl>
+ 1 AI504432 1104.  
+ 2 AW046200  152.  
+ 3 AW551984  302.  
+ 4 Aamp     4870   
+ 5 Abca12      4.25
+ 6 Abcc8    2609.  
+ 7 Abhd14a   547.  
+ 8 Abi2     4903.  
+ 9 Abi3bp   1061.  
+10 Abl2     2078.  
+# … with 1,464 more rows
 ```
 
 Another possibility would be to rename the column,
@@ -1361,11 +1849,27 @@ rna %>%
   select(gene, time4)
 ```
 
-```{.error}
-Error in `group_by()`:
-! Must group by variables found in `.data`.
-Column `gene` is not found.
-Column `time` is not found.
+```{.output}
+`summarise()` has grouped output by 'gene'. You can override using the
+`.groups` argument.
+```
+
+```{.output}
+# A tibble: 1,474 × 2
+# Groups:   gene [1,474]
+   gene       time4
+   <chr>      <dbl>
+ 1 AI504432 1104.  
+ 2 AW046200  152.  
+ 3 AW551984  302.  
+ 4 Aamp     4870   
+ 5 Abca12      4.25
+ 6 Abcc8    2609.  
+ 7 Abhd14a   547.  
+ 8 Abi2     4903.  
+ 9 Abi3bp   1061.  
+10 Abl2     2078.  
+# … with 1,464 more rows
 ```
 
 :::::::::::::::::::::::::
@@ -1392,8 +1896,22 @@ Starting from the rna\_time tibble:
 rna_time
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna_time' not found
+```{.output}
+# A tibble: 1,474 × 4
+# Groups:   gene [1,474]
+   gene         `0`     `4`     `8`
+   <chr>      <dbl>   <dbl>   <dbl>
+ 1 AI504432 1034.   1104.   1014   
+ 2 AW046200  155.    152.     81   
+ 3 AW551984  238     302.    342.  
+ 4 Aamp     4603.   4870    4763.  
+ 5 Abca12      5.29    4.25    4.14
+ 6 Abcc8    2576.   2609.   2292.  
+ 7 Abhd14a   591.    547.    432.  
+ 8 Abi2     4881.   4903.   4945.  
+ 9 Abi3bp   1175.   1061.    762.  
+10 Abl2     2170.   2078.   2131.  
+# … with 1,464 more rows
 ```
 
 Calculate fold-changes:
@@ -1404,8 +1922,22 @@ rna_time %>%
   mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`)
 ```
 
-```{.error}
-Error in mutate(., time_8_vs_0 = `8`/`0`, time_8_vs_4 = `8`/`4`): object 'rna_time' not found
+```{.output}
+# A tibble: 1,474 × 6
+# Groups:   gene [1,474]
+   gene         `0`     `4`     `8` time_8_vs_0 time_8_vs_4
+   <chr>      <dbl>   <dbl>   <dbl>       <dbl>       <dbl>
+ 1 AI504432 1034.   1104.   1014          0.981       0.918
+ 2 AW046200  155.    152.     81          0.522       0.532
+ 3 AW551984  238     302.    342.         1.44        1.13 
+ 4 Aamp     4603.   4870    4763.         1.03        0.978
+ 5 Abca12      5.29    4.25    4.14       0.784       0.975
+ 6 Abcc8    2576.   2609.   2292.         0.889       0.878
+ 7 Abhd14a   591.    547.    432.         0.731       0.791
+ 8 Abi2     4881.   4903.   4945.         1.01        1.01 
+ 9 Abi3bp   1175.   1061.    762.         0.649       0.719
+10 Abl2     2170.   2078.   2131.         0.982       1.03 
+# … with 1,464 more rows
 ```
 
 And use the pivot\_longer() function:
@@ -1419,8 +1951,22 @@ rna_time %>%
                time_8_vs_0:time_8_vs_4)
 ```
 
-```{.error}
-Error in mutate(., time_8_vs_0 = `8`/`0`, time_8_vs_4 = `8`/`4`): object 'rna_time' not found
+```{.output}
+# A tibble: 2,948 × 6
+# Groups:   gene [1,474]
+   gene         `0`     `4`     `8` comparisons Fold_changes
+   <chr>      <dbl>   <dbl>   <dbl> <chr>              <dbl>
+ 1 AI504432 1034.   1104.   1014    time_8_vs_0        0.981
+ 2 AI504432 1034.   1104.   1014    time_8_vs_4        0.918
+ 3 AW046200  155.    152.     81    time_8_vs_0        0.522
+ 4 AW046200  155.    152.     81    time_8_vs_4        0.532
+ 5 AW551984  238     302.    342.   time_8_vs_0        1.44 
+ 6 AW551984  238     302.    342.   time_8_vs_4        1.13 
+ 7 Aamp     4603.   4870    4763.   time_8_vs_0        1.03 
+ 8 Aamp     4603.   4870    4763.   time_8_vs_4        0.978
+ 9 Abca12      5.29    4.25    4.14 time_8_vs_0        0.784
+10 Abca12      5.29    4.25    4.14 time_8_vs_4        0.975
+# … with 2,938 more rows
 ```
 
 :::::::::::::::::::::::::
@@ -1455,20 +2001,23 @@ columns and 10 lines.
 rna_mini <- rna %>%
    select(gene, sample, expression) %>%
    head(10)
-```
-
-```{.error}
-Error in `select()`:
-! Can't subset columns that don't exist.
-✖ Column `gene` doesn't exist.
-```
-
-```r
 rna_mini
 ```
 
-```{.error}
-Error in eval(expr, envir, enclos): object 'rna_mini' not found
+```{.output}
+# A tibble: 10 × 3
+   gene    sample     expression
+   <chr>   <chr>           <dbl>
+ 1 Asl     GSM2545336       1170
+ 2 Apod    GSM2545336      36194
+ 3 Cyp2d22 GSM2545336       4060
+ 4 Klk6    GSM2545336        287
+ 5 Fcrls   GSM2545336         85
+ 6 Slc2a4  GSM2545336        782
+ 7 Exd2    GSM2545336       1619
+ 8 Gjc2    GSM2545336        288
+ 9 Plp1    GSM2545336      43217
+10 Gnb4    GSM2545336       1071
 ```
 
 The second table, `annot1`, contains 2 columns, gene and
@@ -1513,8 +2062,24 @@ observations across different tables.
 full_join(rna_mini, annot1)
 ```
 
-```{.error}
-Error in full_join(rna_mini, annot1): object 'rna_mini' not found
+```{.output}
+Joining with `by = join_by(gene)`
+```
+
+```{.output}
+# A tibble: 10 × 4
+   gene    sample     expression gene_description                               
+   <chr>   <chr>           <dbl> <chr>                                          
+ 1 Asl     GSM2545336       1170 argininosuccinate lyase [Source:MGI Symbol;Acc…
+ 2 Apod    GSM2545336      36194 apolipoprotein D [Source:MGI Symbol;Acc:MGI:88…
+ 3 Cyp2d22 GSM2545336       4060 cytochrome P450, family 2, subfamily d, polype…
+ 4 Klk6    GSM2545336        287 kallikrein related-peptidase 6 [Source:MGI Sym…
+ 5 Fcrls   GSM2545336         85 Fc receptor-like S, scavenger receptor [Source…
+ 6 Slc2a4  GSM2545336        782 solute carrier family 2 (facilitated glucose t…
+ 7 Exd2    GSM2545336       1619 exonuclease 3'-5' domain containing 2 [Source:…
+ 8 Gjc2    GSM2545336        288 gap junction protein, gamma 2 [Source:MGI Symb…
+ 9 Plp1    GSM2545336      43217 proteolipid protein (myelin) 1 [Source:MGI Sym…
+10 Gnb4    GSM2545336       1071 guanine nucleotide binding protein (G protein)…
 ```
 
 In real life, gene annotations are sometimes labelled differently.
@@ -1557,8 +2122,20 @@ the `by` argument, as shown below with `rna_mini` and `annot2` tables.
 full_join(rna_mini, annot2, by = c("gene" = "external_gene_name"))
 ```
 
-```{.error}
-Error in full_join(rna_mini, annot2, by = c(gene = "external_gene_name")): object 'rna_mini' not found
+```{.output}
+# A tibble: 10 × 4
+   gene    sample     expression description                                    
+   <chr>   <chr>           <dbl> <chr>                                          
+ 1 Asl     GSM2545336       1170 argininosuccinate lyase [Source:MGI Symbol;Acc…
+ 2 Apod    GSM2545336      36194 apolipoprotein D [Source:MGI Symbol;Acc:MGI:88…
+ 3 Cyp2d22 GSM2545336       4060 cytochrome P450, family 2, subfamily d, polype…
+ 4 Klk6    GSM2545336        287 kallikrein related-peptidase 6 [Source:MGI Sym…
+ 5 Fcrls   GSM2545336         85 Fc receptor-like S, scavenger receptor [Source…
+ 6 Slc2a4  GSM2545336        782 solute carrier family 2 (facilitated glucose t…
+ 7 Exd2    GSM2545336       1619 exonuclease 3'-5' domain containing 2 [Source:…
+ 8 Gjc2    GSM2545336        288 gap junction protein, gamma 2 [Source:MGI Symb…
+ 9 Plp1    GSM2545336      43217 proteolipid protein (myelin) 1 [Source:MGI Sym…
+10 Gnb4    GSM2545336       1071 guanine nucleotide binding protein (G protein)…
 ```
 
 As can be seen above, the variable name of the first table is retained
@@ -1584,8 +2161,25 @@ annot3 <- read_csv("data/annot3.csv")
 full_join(rna_mini, annot3)
 ```
 
-```{.error}
-Error in full_join(rna_mini, annot3): object 'rna_mini' not found
+```{.output}
+# A tibble: 15 × 4
+   gene    sample     expression gene_description                               
+   <chr>   <chr>           <dbl> <chr>                                          
+ 1 Asl     GSM2545336       1170 argininosuccinate lyase [Source:MGI Symbol;Acc…
+ 2 Apod    GSM2545336      36194 apolipoprotein D [Source:MGI Symbol;Acc:MGI:88…
+ 3 Cyp2d22 GSM2545336       4060 cytochrome P450, family 2, subfamily d, polype…
+ 4 Klk6    GSM2545336        287 <NA>                                           
+ 5 Fcrls   GSM2545336         85 Fc receptor-like S, scavenger receptor [Source…
+ 6 Slc2a4  GSM2545336        782 solute carrier family 2 (facilitated glucose t…
+ 7 Exd2    GSM2545336       1619 exonuclease 3'-5' domain containing 2 [Source:…
+ 8 Gjc2    GSM2545336        288 gap junction protein, gamma 2 [Source:MGI Symb…
+ 9 Plp1    GSM2545336      43217 proteolipid protein (myelin) 1 [Source:MGI Sym…
+10 Gnb4    GSM2545336       1071 guanine nucleotide binding protein (G protein)…
+11 mt-Tf   <NA>               NA mitochondrially encoded tRNA phenylalanine [So…
+12 mt-Rnr1 <NA>               NA mitochondrially encoded 12S rRNA [Source:MGI S…
+13 mt-Tv   <NA>               NA mitochondrially encoded tRNA valine [Source:MG…
+14 mt-Rnr2 <NA>               NA mitochondrially encoded 16S rRNA [Source:MGI S…
+15 mt-Tl1  <NA>               NA mitochondrially encoded tRNA leucine 1 [Source…
 ```
 
 Genes *Klk6* is only present in `rna_mini`, while genes *mt-Tf*, *mt-Rnr1*, *mt-Tv*,

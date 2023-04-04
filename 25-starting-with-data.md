@@ -71,7 +71,7 @@ folder named `"data"`.
 
 
 ```r
-download.file(url = "https://github.com/carpentries-incubator/bioc-intro/blob/main/episodes/data/rnaseq.csv",
+download.file(url = "https://github.com/carpentries-incubator/bioc-intro/raw/main/episodes/data/rnaseq.csv",
               destfile = "data/rnaseq.csv")
 ```
 
@@ -80,11 +80,6 @@ You are now ready to load the data:
 
 ```r
 rna <- read.csv("data/rnaseq.csv")
-```
-
-```{.warning}
-Warning in scan(file = file, what = what, sep = sep, quote = quote, dec = dec,
-: EOF within quoted string
 ```
 
 This statement doesn't produce any output because, as you might
@@ -107,13 +102,48 @@ head(rna)
 ```
 
 ```{.output}
-                                                                                                  X..DOCTYPE.html.
-1 <html lang=en data-color-mode=auto data-light-theme=light data-dark-theme=dark data-a11y-animated-images=system>
-2                                                                                                           <head>
-3                                                                                             <meta charset=utf-8>
-4                                                     <link rel=dns-prefetch href=https://github.githubassets.com>
-5                                               <link rel=dns-prefetch href=https://avatars.githubusercontent.com>
-6                                               <link rel=dns-prefetch href=https://github-cloud.s3.amazonaws.com>
+     gene     sample expression     organism age    sex  infection  strain time
+1     Asl GSM2545336       1170 Mus musculus   8 Female InfluenzaA C57BL/6    8
+2    Apod GSM2545336      36194 Mus musculus   8 Female InfluenzaA C57BL/6    8
+3 Cyp2d22 GSM2545336       4060 Mus musculus   8 Female InfluenzaA C57BL/6    8
+4    Klk6 GSM2545336        287 Mus musculus   8 Female InfluenzaA C57BL/6    8
+5   Fcrls GSM2545336         85 Mus musculus   8 Female InfluenzaA C57BL/6    8
+6  Slc2a4 GSM2545336        782 Mus musculus   8 Female InfluenzaA C57BL/6    8
+      tissue mouse ENTREZID
+1 Cerebellum    14   109900
+2 Cerebellum    14    11815
+3 Cerebellum    14    56448
+4 Cerebellum    14    19144
+5 Cerebellum    14    80891
+6 Cerebellum    14    20528
+                                                                       product
+1                               argininosuccinate lyase, transcript variant X1
+2                                       apolipoprotein D, transcript variant 3
+3 cytochrome P450, family 2, subfamily d, polypeptide 22, transcript variant 2
+4                         kallikrein related-peptidase 6, transcript variant 2
+5                Fc receptor-like S, scavenger receptor, transcript variant X1
+6          solute carrier family 2 (facilitated glucose transporter), member 4
+     ensembl_gene_id external_synonym chromosome_name   gene_biotype
+1 ENSMUSG00000025533    2510006M18Rik               5 protein_coding
+2 ENSMUSG00000022548             <NA>              16 protein_coding
+3 ENSMUSG00000061740             2D22              15 protein_coding
+4 ENSMUSG00000050063             Bssp               7 protein_coding
+5 ENSMUSG00000015852    2810439C17Rik               3 protein_coding
+6 ENSMUSG00000018566           Glut-4              11 protein_coding
+                            phenotype_description
+1           abnormal circulating amino acid level
+2                      abnormal lipid homeostasis
+3                        abnormal skin morphology
+4                         abnormal cytokine level
+5 decreased CD8-positive alpha-beta T cell number
+6              abnormal circulating glucose level
+  hsapiens_homolog_associated_gene_name
+1                                   ASL
+2                                  APOD
+3                                CYP2D6
+4                                  KLK6
+5                                 FCRL2
+6                                SLC2A4
 ```
 
 ```r
@@ -175,8 +205,26 @@ str(rna)
 ```
 
 ```{.output}
-'data.frame':	526 obs. of  1 variable:
- $ X..DOCTYPE.html.: chr  "<html lang=en data-color-mode=auto data-light-theme=light data-dark-theme=dark data-a11y-animated-images=system>" "  <head>" "    <meta charset=utf-8>" "  <link rel=dns-prefetch href=https://github.githubassets.com>" ...
+'data.frame':	32428 obs. of  19 variables:
+ $ gene                                 : chr  "Asl" "Apod" "Cyp2d22" "Klk6" ...
+ $ sample                               : chr  "GSM2545336" "GSM2545336" "GSM2545336" "GSM2545336" ...
+ $ expression                           : int  1170 36194 4060 287 85 782 1619 288 43217 1071 ...
+ $ organism                             : chr  "Mus musculus" "Mus musculus" "Mus musculus" "Mus musculus" ...
+ $ age                                  : int  8 8 8 8 8 8 8 8 8 8 ...
+ $ sex                                  : chr  "Female" "Female" "Female" "Female" ...
+ $ infection                            : chr  "InfluenzaA" "InfluenzaA" "InfluenzaA" "InfluenzaA" ...
+ $ strain                               : chr  "C57BL/6" "C57BL/6" "C57BL/6" "C57BL/6" ...
+ $ time                                 : int  8 8 8 8 8 8 8 8 8 8 ...
+ $ tissue                               : chr  "Cerebellum" "Cerebellum" "Cerebellum" "Cerebellum" ...
+ $ mouse                                : int  14 14 14 14 14 14 14 14 14 14 ...
+ $ ENTREZID                             : int  109900 11815 56448 19144 80891 20528 97827 118454 18823 14696 ...
+ $ product                              : chr  "argininosuccinate lyase, transcript variant X1" "apolipoprotein D, transcript variant 3" "cytochrome P450, family 2, subfamily d, polypeptide 22, transcript variant 2" "kallikrein related-peptidase 6, transcript variant 2" ...
+ $ ensembl_gene_id                      : chr  "ENSMUSG00000025533" "ENSMUSG00000022548" "ENSMUSG00000061740" "ENSMUSG00000050063" ...
+ $ external_synonym                     : chr  "2510006M18Rik" NA "2D22" "Bssp" ...
+ $ chromosome_name                      : chr  "5" "16" "15" "7" ...
+ $ gene_biotype                         : chr  "protein_coding" "protein_coding" "protein_coding" "protein_coding" ...
+ $ phenotype_description                : chr  "abnormal circulating amino acid level" "abnormal lipid homeostasis" "abnormal skin morphology" "abnormal cytokine level" ...
+ $ hsapiens_homolog_associated_gene_name: chr  "ASL" "APOD" "CYP2D6" "KLK6" ...
 ```
 
 ## Inspecting `data.frame` Objects

@@ -87,58 +87,6 @@ metadata from csv files. These are typically how RNA-Seq data are
 provided (after raw data have been processed).
 
 
-```{.warning}
-Warning: One or more parsing issues, call `problems()` on your data frame for details,
-e.g.:
-  dat <- vroom(...)
-  problems(dat)
-```
-
-```{.error}
-Error in `select()`:
-! Can't subset columns that don't exist.
-✖ Column `gene` doesn't exist.
-```
-
-```{.error}
-Error in select(., -gene): object 'counts' not found
-```
-
-```{.error}
-Error in eval(expr, envir, enclos): object 'counts' not found
-```
-
-```{.error}
-Error in `select()`:
-! Can't subset columns that don't exist.
-✖ Column `sample` doesn't exist.
-```
-
-```{.error}
-Error in unique(sample_metadata): object 'sample_metadata' not found
-```
-
-```{.error}
-Error in `select()`:
-! Can't subset columns that don't exist.
-✖ Column `gene` doesn't exist.
-```
-
-```{.error}
-Error in unique(gene_metadata): object 'gene_metadata' not found
-```
-
-```{.error}
-Error in is.data.frame(x): object 'count_matrix' not found
-```
-
-```{.error}
-Error in is.data.frame(x): object 'gene_metadata' not found
-```
-
-```{.error}
-Error in is.data.frame(x): object 'sample_metadata' not found
-```
 
 - **An expression matrix**: we load the count matrix, specifying that
   the first columns contains row/gene names, and convert the
@@ -766,11 +714,21 @@ rna |>
     filter(time != 4) |> select(expression)
 ```
 
-```{.error}
-Error in `filter()`:
-ℹ In argument: `gene %in% c("Asl", "Apod", "Cyd2d22")`.
-Caused by error in `h()`:
-! error in evaluating the argument 'x' in selecting a method for function '%in%': object 'gene' not found
+```{.output}
+# A tibble: 28 × 1
+   expression
+        <dbl>
+ 1       1170
+ 2      36194
+ 3        361
+ 4      10347
+ 5        400
+ 6       9173
+ 7        988
+ 8      29594
+ 9        836
+10      24959
+# … with 18 more rows
 ```
 
 :::::::::::::::::::::::::
