@@ -602,7 +602,7 @@ attached base packages:
 loaded via a namespace (and not attached):
 [1] BiocManager_1.30.19 compiler_4.2.3      tools_4.2.3        
 [4] highr_0.10          knitr_1.42          xfun_0.37          
-[7] renv_0.17.2         evaluate_0.20      
+[7] renv_0.17.3         evaluate_0.20      
 ```
 
 ### Where to ask for help?
