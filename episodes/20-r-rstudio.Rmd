@@ -190,7 +190,7 @@ tutorial below.
   `New project`.
 3. Enter a name for this new folder (or "directory"), and choose a
   convenient location for it. This will be your **working directory**
-  for this session (or whole course) (e.g., `bioc-intro`).
+  for this session (or whole course) (e.g., `my-bioc-intro`).
 4. Click on `Create project`.
 5. (Optional) Set Preferences to 'Never' save workspace in RStudio.
 
@@ -253,7 +253,7 @@ CSV files, and `fig_output/` folder for the figures that we will save.
 
 Under the `Files` tab on the right of the screen, click on `New Folder` and
 create a folder named `data` within your newly created working directory
-(e.g., `~/bioc-intro/data`). (Alternatively, type `dir.create("data")` at
+(e.g., `~/my-bioc-intro/data`). (Alternatively, type `dir.create("data")` at
 your R console.) Repeat these operations to create a `data_output/` and a
 `fig_output` folders.
 
@@ -329,22 +329,22 @@ this line because it will fail on someone else's computer.
 
 **Example**
 
-The schema below represents the working directory `bioc-intro` with the
+The schema below represents the working directory `my-bioc-intro` with the
 `data` and `fig_output` sub-directories, and 2 files in the latter:
 
 ```
-bioc-intro/data/
+my-bioc-intro/data/
           /fig_output/fig1.pdf
           /fig_output/fig2.png
 ```
 
 If we were in the working directory, we could refer to the `fig1.pdf`
-file using the relative path `bioc-intro/fig_output/fig1.pdf` or the
-absolute path `/home/user/bioc-intro/fig_output/fig1.pdf`.
+file using the relative path `my-bioc-intro/fig_output/fig1.pdf` or the
+absolute path `/home/user/my-bioc-intro/fig_output/fig1.pdf`.
 
 If we were in the `data` directory, we would use the relative path
 `../fig_output/fig1.pdf` or the same absolute path
-`/home/user/bioc-intro/fig_output/fig1.pdf`.
+`/home/user/my-bioc-intro/fig_output/fig1.pdf`.
 
 ## Interacting with R
 
