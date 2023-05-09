@@ -684,7 +684,7 @@ mean_exp_by_time
  8 Bst1      4     3.77
  9 Bst1      8     5.22
 10 Chil3     0     4.00
-# … with 20 more rows
+# ℹ 20 more rows
 ```
 
 We can build the line plot with duration of the infection on the x-axis
@@ -789,7 +789,7 @@ mean_exp_by_time_sex
  8 Aipl1     0 Male       3.73
  9 Aipl1     4 Female     4.07
 10 Aipl1     4 Male       3.72
-# … with 50 more rows
+# ℹ 50 more rows
 ```
 
 We can now make the faceted plot by splitting further by sex using
@@ -1052,6 +1052,9 @@ ggplot(data = mean_exp_by_time_sex,
 ```{.warning}
 Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
 ```
 
 <img src="fig/40-visualization-rendered-unnamed-chunk-16-1.png" style="display: block; margin: auto;" />

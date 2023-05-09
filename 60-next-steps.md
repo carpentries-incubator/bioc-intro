@@ -728,7 +728,7 @@ rna |>
  8      29594
  9        836
 10      24959
-# … with 18 more rows
+# ℹ 18 more rows
 ```
 
 :::::::::::::::::::::::::
@@ -825,23 +825,23 @@ se
 ```{.output}
 # A SummarizedExperiment-tibble abstraction: 32,428 × 22
 # [90mFeatures=1474 | Samples=22 | Assays=counts[0m
-   .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
-   <chr>   <chr>    <int> <chr>  <chr>   <int> <chr> <chr>   <chr>  <int> <chr> 
- 1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 4 Klk6    GSM254…    287 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 5 Fcrls   GSM254…     85 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 6 Slc2a4  GSM254…    782 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 7 Exd2    GSM254…   1619 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-# … with 40 more rows, 11 more variables: mouse <int>, center <chr>,
-#   gene <chr>, ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
+   .feature .sample    counts sample organism   age sex   infection strain  time
+   <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
+ 1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 2 Apod     GSM2545336  36194 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 3 Cyp2d22  GSM2545336   4060 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 4 Klk6     GSM2545336    287 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 5 Fcrls    GSM2545336     85 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 6 Slc2a4   GSM2545336    782 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 7 Exd2     GSM2545336   1619 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 8 Gjc2     GSM2545336    288 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 9 Plp1     GSM2545336  43217 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+10 Gnb4     GSM2545336   1071 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+# ℹ 40 more rows
+# ℹ 12 more variables: tissue <chr>, mouse <int>, center <chr>, gene <chr>,
+#   ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
 #   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
-#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
-#   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
+#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>
 ```
 
 It's still a `SummarizedExperiment` object, so maintains the efficient
@@ -882,23 +882,23 @@ se
 ```{.output}
 # A SummarizedExperiment-tibble abstraction: 32,428 × 22
 # [90mFeatures=1474 | Samples=22 | Assays=counts[0m
-   .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
-   <chr>   <chr>    <int> <chr>  <chr>   <int> <chr> <chr>   <chr>  <int> <chr> 
- 1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 4 Klk6    GSM254…    287 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 5 Fcrls   GSM254…     85 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 6 Slc2a4  GSM254…    782 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 7 Exd2    GSM254…   1619 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-# … with 40 more rows, 11 more variables: mouse <int>, center <chr>,
-#   gene <chr>, ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
+   .feature .sample    counts sample organism   age sex   infection strain  time
+   <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
+ 1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 2 Apod     GSM2545336  36194 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 3 Cyp2d22  GSM2545336   4060 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 4 Klk6     GSM2545336    287 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 5 Fcrls    GSM2545336     85 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 6 Slc2a4   GSM2545336    782 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 7 Exd2     GSM2545336   1619 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 8 Gjc2     GSM2545336    288 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 9 Plp1     GSM2545336  43217 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+10 Gnb4     GSM2545336   1071 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+# ℹ 40 more rows
+# ℹ 12 more variables: tissue <chr>, mouse <int>, center <chr>, gene <chr>,
+#   ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
 #   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
-#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
-#   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
+#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>
 ```
 
 We can now use tidyverse commands to interact with the
@@ -913,25 +913,25 @@ se %>% filter(.sample == "GSM2545336")
 ```
 
 ```{.output}
-# A SummarizedExperiment-tibble abstraction: 1,474 × 1
+# A SummarizedExperiment-tibble abstraction: 1,474 × 22
 # [90mFeatures=1474 | Samples=1 | Assays=counts[0m
-   .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
-   <chr>   <chr>    <int> <chr>  <chr>   <int> <chr> <chr>   <chr>  <int> <chr> 
- 1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 4 Klk6    GSM254…    287 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 5 Fcrls   GSM254…     85 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 6 Slc2a4  GSM254…    782 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 7 Exd2    GSM254…   1619 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-# … with 40 more rows, 11 more variables: mouse <int>, center <chr>,
-#   gene <chr>, ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
+   .feature .sample    counts sample organism   age sex   infection strain  time
+   <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
+ 1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 2 Apod     GSM2545336  36194 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 3 Cyp2d22  GSM2545336   4060 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 4 Klk6     GSM2545336    287 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 5 Fcrls    GSM2545336     85 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 6 Slc2a4   GSM2545336    782 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 7 Exd2     GSM2545336   1619 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 8 Gjc2     GSM2545336    288 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 9 Plp1     GSM2545336  43217 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+10 Gnb4     GSM2545336   1071 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+# ℹ 40 more rows
+# ℹ 12 more variables: tissue <chr>, mouse <int>, center <chr>, gene <chr>,
+#   ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
 #   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
-#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
-#   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
+#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>
 ```
 
 We can use `select` to specify columns we want to view.
@@ -959,7 +959,7 @@ tidySummarizedExperiment says: Key columns are missing. A data frame is returned
  8 GSM2545336
  9 GSM2545336
 10 GSM2545336
-# … with 32,418 more rows
+# ℹ 32,418 more rows
 ```
 
 We can use `mutate` to add metadata info.
@@ -972,23 +972,23 @@ se %>% mutate(center = "Heidelberg University")
 ```{.output}
 # A SummarizedExperiment-tibble abstraction: 32,428 × 22
 # [90mFeatures=1474 | Samples=22 | Assays=counts[0m
-   .feat…¹ .sample counts sample organ…²   age sex   infec…³ strain  time tissue
-   <chr>   <chr>    <int> <chr>  <chr>   <int> <chr> <chr>   <chr>  <int> <chr> 
- 1 Asl     GSM254…   1170 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 2 Apod    GSM254…  36194 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 3 Cyp2d22 GSM254…   4060 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 4 Klk6    GSM254…    287 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 5 Fcrls   GSM254…     85 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 6 Slc2a4  GSM254…    782 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 7 Exd2    GSM254…   1619 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 8 Gjc2    GSM254…    288 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
- 9 Plp1    GSM254…  43217 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-10 Gnb4    GSM254…   1071 GSM25… Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…
-# … with 40 more rows, 11 more variables: mouse <int>, center <chr>,
-#   gene <chr>, ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
+   .feature .sample    counts sample organism   age sex   infection strain  time
+   <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
+ 1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 2 Apod     GSM2545336  36194 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 3 Cyp2d22  GSM2545336   4060 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 4 Klk6     GSM2545336    287 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 5 Fcrls    GSM2545336     85 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 6 Slc2a4   GSM2545336    782 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 7 Exd2     GSM2545336   1619 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 8 Gjc2     GSM2545336    288 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+ 9 Plp1     GSM2545336  43217 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+10 Gnb4     GSM2545336   1071 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
+# ℹ 40 more rows
+# ℹ 12 more variables: tissue <chr>, mouse <int>, center <chr>, gene <chr>,
+#   ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
 #   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
-#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
-#   and abbreviated variable names ¹​.feature, ²​organism, ³​infection
+#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>
 ```
 
 We can also combine commands with the tidyverse pipe `%>%`. For
@@ -1020,7 +1020,7 @@ tidySummarizedExperiment says: A data frame is returned for independent data ana
  8 GSM2545343      3105652
  9 GSM2545344      2524137
 10 GSM2545345      2506038
-# … with 12 more rows
+# ℹ 12 more rows
 ```
 
 We can treat the tidy SummarizedExperiment object as a normal tibble

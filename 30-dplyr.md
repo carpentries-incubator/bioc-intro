@@ -95,23 +95,23 @@ rna
 
 ```{.output}
 # A tibble: 32,428 × 19
-   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
- 1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+   gene    sample  expression organism   age sex   infection strain  time tissue
+   <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
+ 1 Asl     GSM254…       1170 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 2 Apod    GSM254…      36194 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 3 Cyp2d22 GSM254…       4060 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 4 Klk6    GSM254…        287 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 5 Fcrls   GSM254…         85 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 6 Slc2a4  GSM254…        782 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 7 Exd2    GSM254…       1619 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 8 Gjc2    GSM254…        288 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 9 Plp1    GSM254…      43217 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+10 Gnb4    GSM254…       1071 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+# ℹ 32,418 more rows
+# ℹ 9 more variables: mouse <dbl>, ENTREZID <dbl>, product <chr>,
 #   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
 #   gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
-#   ¹​expression, ²​organism, ³​infection
+#   hsapiens_homolog_associated_gene_name <chr>
 ```
 
 Notice that the class of the data is now referred to as a "tibble".
@@ -161,7 +161,7 @@ select(rna, gene, sample, tissue, expression)
  8 Gjc2    GSM2545336 Cerebellum        288
  9 Plp1    GSM2545336 Cerebellum      43217
 10 Gnb4    GSM2545336 Cerebellum       1071
-# … with 32,418 more rows
+# ℹ 32,418 more rows
 ```
 
 To select all columns *except* certain ones, put a "-" in front of
@@ -174,22 +174,22 @@ select(rna, -tissue, -organism)
 
 ```{.output}
 # A tibble: 32,428 × 17
-   gene    sample expre…¹   age sex   infec…² strain  time mouse ENTRE…³ product
-   <chr>   <chr>    <dbl> <dbl> <chr> <chr>   <chr>  <dbl> <dbl>   <dbl> <chr>  
- 1 Asl     GSM25…    1170     8 Fema… Influe… C57BL…     8    14  109900 argini…
- 2 Apod    GSM25…   36194     8 Fema… Influe… C57BL…     8    14   11815 apolip…
- 3 Cyp2d22 GSM25…    4060     8 Fema… Influe… C57BL…     8    14   56448 cytoch…
- 4 Klk6    GSM25…     287     8 Fema… Influe… C57BL…     8    14   19144 kallik…
- 5 Fcrls   GSM25…      85     8 Fema… Influe… C57BL…     8    14   80891 Fc rec…
- 6 Slc2a4  GSM25…     782     8 Fema… Influe… C57BL…     8    14   20528 solute…
- 7 Exd2    GSM25…    1619     8 Fema… Influe… C57BL…     8    14   97827 exonuc…
- 8 Gjc2    GSM25…     288     8 Fema… Influe… C57BL…     8    14  118454 gap ju…
- 9 Plp1    GSM25…   43217     8 Fema… Influe… C57BL…     8    14   18823 proteo…
-10 Gnb4    GSM25…    1071     8 Fema… Influe… C57BL…     8    14   14696 guanin…
-# … with 32,418 more rows, 6 more variables: ensembl_gene_id <chr>,
+   gene    sample   expression   age sex   infection strain  time mouse ENTREZID
+   <chr>   <chr>         <dbl> <dbl> <chr> <chr>     <chr>  <dbl> <dbl>    <dbl>
+ 1 Asl     GSM2545…       1170     8 Fema… Influenz… C57BL…     8    14   109900
+ 2 Apod    GSM2545…      36194     8 Fema… Influenz… C57BL…     8    14    11815
+ 3 Cyp2d22 GSM2545…       4060     8 Fema… Influenz… C57BL…     8    14    56448
+ 4 Klk6    GSM2545…        287     8 Fema… Influenz… C57BL…     8    14    19144
+ 5 Fcrls   GSM2545…         85     8 Fema… Influenz… C57BL…     8    14    80891
+ 6 Slc2a4  GSM2545…        782     8 Fema… Influenz… C57BL…     8    14    20528
+ 7 Exd2    GSM2545…       1619     8 Fema… Influenz… C57BL…     8    14    97827
+ 8 Gjc2    GSM2545…        288     8 Fema… Influenz… C57BL…     8    14   118454
+ 9 Plp1    GSM2545…      43217     8 Fema… Influenz… C57BL…     8    14    18823
+10 Gnb4    GSM2545…       1071     8 Fema… Influenz… C57BL…     8    14    14696
+# ℹ 32,418 more rows
+# ℹ 7 more variables: product <chr>, ensembl_gene_id <chr>,
 #   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
-#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>,
-#   and abbreviated variable names ¹​expression, ²​infection, ³​ENTREZID
+#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>
 ```
 
 This will select all the variables in `rna` except `tissue`
@@ -204,23 +204,23 @@ filter(rna, sex == "Male")
 
 ```{.output}
 # A tibble: 14,740 × 19
-   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
- 1 Asl     GSM254…     626 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
- 2 Apod    GSM254…   13021 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
- 3 Cyp2d22 GSM254…    2171 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
- 4 Klk6    GSM254…     448 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
- 5 Fcrls   GSM254…     180 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
- 6 Slc2a4  GSM254…     313 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
- 7 Exd2    GSM254…    2366 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
- 8 Gjc2    GSM254…     310 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
- 9 Plp1    GSM254…   53126 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-10 Gnb4    GSM254…    1355 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
-# … with 14,730 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+   gene    sample  expression organism   age sex   infection strain  time tissue
+   <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
+ 1 Asl     GSM254…        626 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+ 2 Apod    GSM254…      13021 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+ 3 Cyp2d22 GSM254…       2171 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+ 4 Klk6    GSM254…        448 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+ 5 Fcrls   GSM254…        180 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+ 6 Slc2a4  GSM254…        313 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+ 7 Exd2    GSM254…       2366 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+ 8 Gjc2    GSM254…        310 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+ 9 Plp1    GSM254…      53126 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+10 Gnb4    GSM254…       1355 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+# ℹ 14,730 more rows
+# ℹ 9 more variables: mouse <dbl>, ENTREZID <dbl>, product <chr>,
 #   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
 #   gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
-#   ¹​expression, ²​organism, ³​infection
+#   hsapiens_homolog_associated_gene_name <chr>
 ```
 
 ```r
@@ -229,23 +229,23 @@ filter(rna, sex == "Male" & infection == "NonInfected")
 
 ```{.output}
 # A tibble: 4,422 × 19
-   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
- 1 Asl     GSM254…     535 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
- 2 Apod    GSM254…   13668 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
- 3 Cyp2d22 GSM254…    2008 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
- 4 Klk6    GSM254…    1101 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
- 5 Fcrls   GSM254…     375 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
- 6 Slc2a4  GSM254…     249 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
- 7 Exd2    GSM254…    3126 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
- 8 Gjc2    GSM254…     791 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
- 9 Plp1    GSM254…   98658 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-10 Gnb4    GSM254…    2437 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
-# … with 4,412 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+   gene    sample  expression organism   age sex   infection strain  time tissue
+   <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
+ 1 Asl     GSM254…        535 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+ 2 Apod    GSM254…      13668 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+ 3 Cyp2d22 GSM254…       2008 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+ 4 Klk6    GSM254…       1101 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+ 5 Fcrls   GSM254…        375 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+ 6 Slc2a4  GSM254…        249 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+ 7 Exd2    GSM254…       3126 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+ 8 Gjc2    GSM254…        791 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+ 9 Plp1    GSM254…      98658 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+10 Gnb4    GSM254…       2437 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+# ℹ 4,412 more rows
+# ℹ 9 more variables: mouse <dbl>, ENTREZID <dbl>, product <chr>,
 #   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
 #   gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
-#   ¹​expression, ²​organism, ³​infection
+#   hsapiens_homolog_associated_gene_name <chr>
 ```
 
 Now let's imagine we are interested in the human homologs of the mouse
@@ -275,7 +275,7 @@ genes
  8 Gjc2    GJC2                                 
  9 Plp1    PLP1                                 
 10 Gnb4    GNB4                                 
-# … with 32,418 more rows
+# ℹ 32,418 more rows
 ```
 
 Some mouse genes have no human homologs. These can be retrieved using
@@ -301,7 +301,7 @@ filter(genes, is.na(hsapiens_homolog_associated_gene_name))
  8 Tmem198b <NA>                                 
  9 Adam1a   <NA>                                 
 10 Ebp      <NA>                                 
-# … with 4,280 more rows
+# ℹ 4,280 more rows
 ```
 
 If we want to keep only mouse genes that have a human homolog, we can
@@ -328,7 +328,7 @@ filter(genes, !is.na(hsapiens_homolog_associated_gene_name))
  8 Gjc2    GJC2                                 
  9 Plp1    PLP1                                 
 10 Gnb4    GNB4                                 
-# … with 28,128 more rows
+# ℹ 28,128 more rows
 ```
 
 ## Pipes
@@ -360,7 +360,7 @@ rna3
  8 Gjc2    GSM2545340 Cerebellum        310
  9 Plp1    GSM2545340 Cerebellum      53126
 10 Gnb4    GSM2545340 Cerebellum       1355
-# … with 14,730 more rows
+# ℹ 14,730 more rows
 ```
 
 This is readable, but can clutter up your workspace with lots of
@@ -390,7 +390,7 @@ rna3
  8 Gjc2    GSM2545340 Cerebellum        310
  9 Plp1    GSM2545340 Cerebellum      53126
 10 Gnb4    GSM2545340 Cerebellum       1355
-# … with 14,730 more rows
+# ℹ 14,730 more rows
 ```
 
 This is handy, but can be difficult to read if too many functions are nested, as
@@ -437,7 +437,7 @@ rna %>%
  8 Gjc2    GSM2545340 Cerebellum        310
  9 Plp1    GSM2545340 Cerebellum      53126
 10 Gnb4    GSM2545340 Cerebellum       1355
-# … with 14,730 more rows
+# ℹ 14,730 more rows
 ```
 
 Some may find it helpful to read the pipe like the word "then". For instance,
@@ -475,7 +475,7 @@ rna3
  8 Gjc2    GSM2545340 Cerebellum        310
  9 Plp1    GSM2545340 Cerebellum      53126
 10 Gnb4    GSM2545340 Cerebellum       1355
-# … with 14,730 more rows
+# ℹ 14,730 more rows
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -547,7 +547,7 @@ rna %>%
  8     8        192
  9     8        192
 10     8        192
-# … with 32,418 more rows
+# ℹ 32,418 more rows
 ```
 
 You can also create a second new column based on the first new column within the same call of `mutate()`:
@@ -574,7 +574,7 @@ rna %>%
  8     8        192   11520
  9     8        192   11520
 10     8        192   11520
-# … with 32,418 more rows
+# ℹ 32,418 more rows
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -607,19 +607,19 @@ rna %>%
 
 ```{.output}
 # A tibble: 649 × 5
-   gene   chromosome_name phenotype_description                   sample expre…¹
-   <chr>  <chr>           <chr>                                   <chr>    <dbl>
- 1 Plp1   X               abnormal CNS glial cell morphology      GSM25…   10.7 
- 2 Slc7a3 X               decreased body length                   GSM25…    5.46
- 3 Plxnb3 X               abnormal coat appearance                GSM25…    6.58
- 4 Rbm3   X               abnormal liver morphology               GSM25…    9.32
- 5 Cfp    X               abnormal cardiovascular system physiol… GSM25…    6.18
- 6 Ebp    X               abnormal embryonic erythrocyte morphol… GSM25…    6.68
- 7 Cd99l2 X               abnormal cellular extravasation         GSM25…    8.04
- 8 Piga   X               abnormal brain development              GSM25…    6.06
- 9 Pim2   X               decreased T cell proliferation          GSM25…    7.11
-10 Itm2a  X               no abnormal phenotype detected          GSM25…    7.48
-# … with 639 more rows, and abbreviated variable name ¹​expression
+   gene   chromosome_name phenotype_description                sample expression
+   <chr>  <chr>           <chr>                                <chr>       <dbl>
+ 1 Plp1   X               abnormal CNS glial cell morphology   GSM25…      10.7 
+ 2 Slc7a3 X               decreased body length                GSM25…       5.46
+ 3 Plxnb3 X               abnormal coat appearance             GSM25…       6.58
+ 4 Rbm3   X               abnormal liver morphology            GSM25…       9.32
+ 5 Cfp    X               abnormal cardiovascular system phys… GSM25…       6.18
+ 6 Ebp    X               abnormal embryonic erythrocyte morp… GSM25…       6.68
+ 7 Cd99l2 X               abnormal cellular extravasation      GSM25…       8.04
+ 8 Piga   X               abnormal brain development           GSM25…       6.06
+ 9 Pim2   X               decreased T cell proliferation       GSM25…       7.11
+10 Itm2a  X               no abnormal phenotype detected       GSM25…       7.48
+# ℹ 639 more rows
 ```
 
 :::::::::::::::::::::::::
@@ -642,23 +642,23 @@ rna %>%
 ```{.output}
 # A tibble: 32,428 × 19
 # Groups:   gene [1,474]
-   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
- 1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+   gene    sample  expression organism   age sex   infection strain  time tissue
+   <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
+ 1 Asl     GSM254…       1170 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 2 Apod    GSM254…      36194 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 3 Cyp2d22 GSM254…       4060 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 4 Klk6    GSM254…        287 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 5 Fcrls   GSM254…         85 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 6 Slc2a4  GSM254…        782 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 7 Exd2    GSM254…       1619 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 8 Gjc2    GSM254…        288 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 9 Plp1    GSM254…      43217 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+10 Gnb4    GSM254…       1071 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+# ℹ 32,418 more rows
+# ℹ 9 more variables: mouse <dbl>, ENTREZID <dbl>, product <chr>,
 #   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
 #   gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
-#   ¹​expression, ²​organism, ³​infection
+#   hsapiens_homolog_associated_gene_name <chr>
 ```
 
 The `group_by()` function doesn't perform any data processing, it
@@ -677,23 +677,23 @@ rna %>%
 ```{.output}
 # A tibble: 32,428 × 19
 # Groups:   sample [22]
-   gene    sample  expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-   <chr>   <chr>     <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
- 1 Asl     GSM254…    1170 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 2 Apod    GSM254…   36194 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 3 Cyp2d22 GSM254…    4060 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 4 Klk6    GSM254…     287 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 5 Fcrls   GSM254…      85 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 6 Slc2a4  GSM254…     782 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 7 Exd2    GSM254…    1619 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 8 Gjc2    GSM254…     288 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 9 Plp1    GSM254…   43217 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-10 Gnb4    GSM254…    1071 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
-# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+   gene    sample  expression organism   age sex   infection strain  time tissue
+   <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
+ 1 Asl     GSM254…       1170 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 2 Apod    GSM254…      36194 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 3 Cyp2d22 GSM254…       4060 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 4 Klk6    GSM254…        287 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 5 Fcrls   GSM254…         85 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 6 Slc2a4  GSM254…        782 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 7 Exd2    GSM254…       1619 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 8 Gjc2    GSM254…        288 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 9 Plp1    GSM254…      43217 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+10 Gnb4    GSM254…       1071 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+# ℹ 32,418 more rows
+# ℹ 9 more variables: mouse <dbl>, ENTREZID <dbl>, product <chr>,
 #   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
 #   gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
-#   ¹​expression, ²​organism, ³​infection
+#   hsapiens_homolog_associated_gene_name <chr>
 ```
 
 Here our initial `tibble` of 32428 observations is split into
@@ -732,7 +732,7 @@ rna %>%
  8 Abi2             4909.  
  9 Abi3bp           1002.  
 10 Abl2             2124.  
-# … with 1,464 more rows
+# ℹ 1,464 more rows
 ```
 
 We could also want to calculate the mean expression levels of all genes in each sample:
@@ -758,7 +758,7 @@ rna %>%
  8 GSM2545343           2107.
  9 GSM2545344           1712.
 10 GSM2545345           1700.
-# … with 12 more rows
+# ℹ 12 more rows
 ```
 
 But we can can also group by multiple columns:
@@ -790,7 +790,7 @@ the `.groups` argument.
  8 AW551984 InfluenzaA      8            342.
  9 AW551984 NonInfected     0            238 
 10 Aamp     InfluenzaA      4           4870 
-# … with 4,412 more rows
+# ℹ 4,412 more rows
 ```
 
 Once the data is grouped, you can also summarise multiple variables at the same
@@ -825,7 +825,7 @@ the `.groups` argument.
  8 AW551984 InfluenzaA      8            342.              287 
  9 AW551984 NonInfected     0            238               265 
 10 Aamp     InfluenzaA      4           4870              4708 
-# … with 4,412 more rows
+# ℹ 4,412 more rows
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -1031,7 +1031,7 @@ rna %>%
  8 GSM2545343  1474
  9 GSM2545344  1474
 10 GSM2545345  1474
-# … with 12 more rows
+# ℹ 12 more rows
 ```
 
 ```r
@@ -1056,7 +1056,7 @@ rna %>%
  8 GSM2545362   2913517
  9 GSM2545351   2782464
 10 GSM2545349   2758006
-# … with 12 more rows
+# ℹ 12 more rows
 ```
 
 ```r
@@ -1136,23 +1136,23 @@ rna %>%
 
 ```{.output}
 # A tibble: 32,428 × 19
-   gene     sample expre…¹ organ…²   age sex   infec…³ strain  time tissue mouse
-   <chr>    <chr>    <dbl> <chr>   <dbl> <chr> <chr>   <chr>  <dbl> <chr>  <dbl>
- 1 AI504432 GSM25…    1230 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…    14
- 2 AI504432 GSM25…    1085 Mus mu…     8 Fema… NonInf… C57BL…     0 Cereb…     9
- 3 AI504432 GSM25…     969 Mus mu…     8 Fema… NonInf… C57BL…     0 Cereb…    10
- 4 AI504432 GSM25…    1284 Mus mu…     8 Fema… Influe… C57BL…     4 Cereb…    15
- 5 AI504432 GSM25…     966 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    18
- 6 AI504432 GSM25…     918 Mus mu…     8 Male  Influe… C57BL…     8 Cereb…     6
- 7 AI504432 GSM25…     985 Mus mu…     8 Fema… Influe… C57BL…     8 Cereb…     5
- 8 AI504432 GSM25…     972 Mus mu…     8 Male  NonInf… C57BL…     0 Cereb…    11
- 9 AI504432 GSM25…    1000 Mus mu…     8 Fema… Influe… C57BL…     4 Cereb…    22
-10 AI504432 GSM25…     816 Mus mu…     8 Male  Influe… C57BL…     4 Cereb…    13
-# … with 32,418 more rows, 8 more variables: ENTREZID <dbl>, product <chr>,
+   gene     sample expression organism   age sex   infection strain  time tissue
+   <chr>    <chr>       <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
+ 1 AI504432 GSM25…       1230 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 2 AI504432 GSM25…       1085 Mus mus…     8 Fema… NonInfec… C57BL…     0 Cereb…
+ 3 AI504432 GSM25…        969 Mus mus…     8 Fema… NonInfec… C57BL…     0 Cereb…
+ 4 AI504432 GSM25…       1284 Mus mus…     8 Fema… Influenz… C57BL…     4 Cereb…
+ 5 AI504432 GSM25…        966 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+ 6 AI504432 GSM25…        918 Mus mus…     8 Male  Influenz… C57BL…     8 Cereb…
+ 7 AI504432 GSM25…        985 Mus mus…     8 Fema… Influenz… C57BL…     8 Cereb…
+ 8 AI504432 GSM25…        972 Mus mus…     8 Male  NonInfec… C57BL…     0 Cereb…
+ 9 AI504432 GSM25…       1000 Mus mus…     8 Fema… Influenz… C57BL…     4 Cereb…
+10 AI504432 GSM25…        816 Mus mus…     8 Male  Influenz… C57BL…     4 Cereb…
+# ℹ 32,418 more rows
+# ℹ 9 more variables: mouse <dbl>, ENTREZID <dbl>, product <chr>,
 #   ensembl_gene_id <chr>, external_synonym <chr>, chromosome_name <chr>,
 #   gene_biotype <chr>, phenotype_description <chr>,
-#   hsapiens_homolog_associated_gene_name <chr>, and abbreviated variable names
-#   ¹​expression, ²​organism, ³​infection
+#   hsapiens_homolog_associated_gene_name <chr>
 ```
 
 This structure is called a `long-format`, as one column contains all the values,
@@ -1170,25 +1170,24 @@ between, the samples.
 
 ```{.output}
 # A tibble: 1,474 × 23
-   gene  GSM25…¹ GSM25…² GSM25…³ GSM25…⁴ GSM25…⁵ GSM25…⁶ GSM25…⁷ GSM25…⁸ GSM25…⁹
-   <chr>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
- 1 Asl      1170     361     400     586     626     988     836     535     586
- 2 Apod    36194   10347    9173   10620   13021   29594   24959   13668   13230
- 3 Cyp2…    4060    1616    1603    1901    2171    3349    3122    2008    2254
- 4 Klk6      287     629     641     578     448     195     186    1101     537
- 5 Fcrls      85     233     244     237     180      38      68     375     199
- 6 Slc2…     782     231     248     265     313     786     528     249     266
- 7 Exd2     1619    2288    2235    2513    2366    1359    1474    3126    2379
- 8 Gjc2      288     595     568     551     310     146     186     791     454
- 9 Plp1    43217  101241   96534   58354   53126   27173   28728   98658   61356
-10 Gnb4     1071    1791    1867    1430    1355     798     806    2437    1394
-# … with 1,464 more rows, 13 more variables: GSM2545345 <dbl>,
-#   GSM2545346 <dbl>, GSM2545347 <dbl>, GSM2545348 <dbl>, GSM2545349 <dbl>,
-#   GSM2545350 <dbl>, GSM2545351 <dbl>, GSM2545352 <dbl>, GSM2545353 <dbl>,
-#   GSM2545354 <dbl>, GSM2545362 <dbl>, GSM2545363 <dbl>, GSM2545380 <dbl>, and
-#   abbreviated variable names ¹​GSM2545336, ²​GSM2545337, ³​GSM2545338,
-#   ⁴​GSM2545339, ⁵​GSM2545340, ⁶​GSM2545341, ⁷​GSM2545342, ⁸​GSM2545343,
-#   ⁹​GSM2545344
+   gene    GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
+   <chr>        <dbl>      <dbl>      <dbl>      <dbl>      <dbl>      <dbl>
+ 1 Asl           1170        361        400        586        626        988
+ 2 Apod         36194      10347       9173      10620      13021      29594
+ 3 Cyp2d22       4060       1616       1603       1901       2171       3349
+ 4 Klk6           287        629        641        578        448        195
+ 5 Fcrls           85        233        244        237        180         38
+ 6 Slc2a4         782        231        248        265        313        786
+ 7 Exd2          1619       2288       2235       2513       2366       1359
+ 8 Gjc2           288        595        568        551        310        146
+ 9 Plp1         43217     101241      96534      58354      53126      27173
+10 Gnb4          1071       1791       1867       1430       1355        798
+# ℹ 1,464 more rows
+# ℹ 16 more variables: GSM2545342 <dbl>, GSM2545343 <dbl>, GSM2545344 <dbl>,
+#   GSM2545345 <dbl>, GSM2545346 <dbl>, GSM2545347 <dbl>, GSM2545348 <dbl>,
+#   GSM2545349 <dbl>, GSM2545350 <dbl>, GSM2545351 <dbl>, GSM2545352 <dbl>,
+#   GSM2545353 <dbl>, GSM2545354 <dbl>, GSM2545362 <dbl>, GSM2545363 <dbl>,
+#   GSM2545380 <dbl>
 ```
 
 To convert the gene expression values from `rna` into a wide-format,
@@ -1234,7 +1233,7 @@ rna_exp
  8 Gjc2    GSM2545336        288
  9 Plp1    GSM2545336      43217
 10 Gnb4    GSM2545336       1071
-# … with 32,418 more rows
+# ℹ 32,418 more rows
 ```
 
 `pivot_wider` takes three main arguments:
@@ -1260,25 +1259,24 @@ rna_wide
 
 ```{.output}
 # A tibble: 1,474 × 23
-   gene  GSM25…¹ GSM25…² GSM25…³ GSM25…⁴ GSM25…⁵ GSM25…⁶ GSM25…⁷ GSM25…⁸ GSM25…⁹
-   <chr>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
- 1 Asl      1170     361     400     586     626     988     836     535     586
- 2 Apod    36194   10347    9173   10620   13021   29594   24959   13668   13230
- 3 Cyp2…    4060    1616    1603    1901    2171    3349    3122    2008    2254
- 4 Klk6      287     629     641     578     448     195     186    1101     537
- 5 Fcrls      85     233     244     237     180      38      68     375     199
- 6 Slc2…     782     231     248     265     313     786     528     249     266
- 7 Exd2     1619    2288    2235    2513    2366    1359    1474    3126    2379
- 8 Gjc2      288     595     568     551     310     146     186     791     454
- 9 Plp1    43217  101241   96534   58354   53126   27173   28728   98658   61356
-10 Gnb4     1071    1791    1867    1430    1355     798     806    2437    1394
-# … with 1,464 more rows, 13 more variables: GSM2545345 <dbl>,
-#   GSM2545346 <dbl>, GSM2545347 <dbl>, GSM2545348 <dbl>, GSM2545349 <dbl>,
-#   GSM2545350 <dbl>, GSM2545351 <dbl>, GSM2545352 <dbl>, GSM2545353 <dbl>,
-#   GSM2545354 <dbl>, GSM2545362 <dbl>, GSM2545363 <dbl>, GSM2545380 <dbl>, and
-#   abbreviated variable names ¹​GSM2545336, ²​GSM2545337, ³​GSM2545338,
-#   ⁴​GSM2545339, ⁵​GSM2545340, ⁶​GSM2545341, ⁷​GSM2545342, ⁸​GSM2545343,
-#   ⁹​GSM2545344
+   gene    GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
+   <chr>        <dbl>      <dbl>      <dbl>      <dbl>      <dbl>      <dbl>
+ 1 Asl           1170        361        400        586        626        988
+ 2 Apod         36194      10347       9173      10620      13021      29594
+ 3 Cyp2d22       4060       1616       1603       1901       2171       3349
+ 4 Klk6           287        629        641        578        448        195
+ 5 Fcrls           85        233        244        237        180         38
+ 6 Slc2a4         782        231        248        265        313        786
+ 7 Exd2          1619       2288       2235       2513       2366       1359
+ 8 Gjc2           288        595        568        551        310        146
+ 9 Plp1         43217     101241      96534      58354      53126      27173
+10 Gnb4          1071       1791       1867       1430       1355        798
+# ℹ 1,464 more rows
+# ℹ 16 more variables: GSM2545342 <dbl>, GSM2545343 <dbl>, GSM2545344 <dbl>,
+#   GSM2545345 <dbl>, GSM2545346 <dbl>, GSM2545347 <dbl>, GSM2545348 <dbl>,
+#   GSM2545349 <dbl>, GSM2545350 <dbl>, GSM2545351 <dbl>, GSM2545352 <dbl>,
+#   GSM2545353 <dbl>, GSM2545354 <dbl>, GSM2545362 <dbl>, GSM2545363 <dbl>,
+#   GSM2545380 <dbl>
 ```
 
 Note that by default, the `pivot_wider()` function will add `NA` for missing values.
@@ -1395,7 +1393,7 @@ rna_long
  8 Asl   GSM2545343        535
  9 Asl   GSM2545344        586
 10 Asl   GSM2545345        597
-# … with 32,418 more rows
+# ℹ 32,418 more rows
 ```
 
 We could also have used a specification for what columns to
@@ -1427,7 +1425,7 @@ rna_wide %>%
  8 Asl   GSM2545343        535
  9 Asl   GSM2545344        586
 10 Asl   GSM2545345        597
-# … with 32,418 more rows
+# ℹ 32,418 more rows
 ```
 
 ```r
@@ -1451,7 +1449,7 @@ rna_wide %>%
  8 Asl   GSM2545343        535
  9 Asl   GSM2545344        586
 10 Asl   GSM2545345        597
-# … with 32,418 more rows
+# ℹ 32,418 more rows
 ```
 
 Note that if we had missing values in the wide-format, the `NA` would be
@@ -1552,9 +1550,9 @@ rna1
  8 Gjc2      288    595   568   551   310   146   186   791   454   370   240
  9 Plp1    43217 101241 96534 58354 53126 27173 28728 98658 61356 61647 38019
 10 Gnb4     1071   1791  1867  1430  1355   798   806  2437  1394  1554   960
-# … with 1,464 more rows, and 11 more variables: `24` <dbl>, `8` <dbl>,
-#   `7` <dbl>, `1` <dbl>, `16` <dbl>, `21` <dbl>, `4` <dbl>, `2` <dbl>,
-#   `20` <dbl>, `12` <dbl>, `19` <dbl>
+# ℹ 1,464 more rows
+# ℹ 11 more variables: `24` <dbl>, `8` <dbl>, `7` <dbl>, `1` <dbl>, `16` <dbl>,
+#   `21` <dbl>, `4` <dbl>, `2` <dbl>, `20` <dbl>, `12` <dbl>, `19` <dbl>
 ```
 
 ```r
@@ -1576,7 +1574,7 @@ pivot_longer(names_to = "mouse_id", values_to = "counts", -gene)
  8 Asl   11          535
  9 Asl   22          586
 10 Asl   13          597
-# … with 32,418 more rows
+# ℹ 32,418 more rows
 ```
 
 :::::::::::::::::::::::::
@@ -1722,7 +1720,7 @@ rna %>%
  8 AW551984     4     302.
  9 AW551984     8     342.
 10 Aamp         0    4603.
-# … with 4,412 more rows
+# ℹ 4,412 more rows
 ```
 
 before using the pivot\_wider() function
@@ -1760,7 +1758,7 @@ rna_time
  8 Abi2     4881.   4903.   4945.  
  9 Abi3bp   1175.   1061.    762.  
 10 Abl2     2170.   2078.   2131.  
-# … with 1,464 more rows
+# ℹ 1,464 more rows
 ```
 
 Notice that this generates a tibble with some column names starting by a number.
@@ -1797,7 +1795,7 @@ rna %>%
  8 Abi2     4945.  
  9 Abi3bp    762.  
 10 Abl2     2131.  
-# … with 1,464 more rows
+# ℹ 1,464 more rows
 ```
 
 To select the timepoint 4, we would have to quote the column name, with backticks "\`"
@@ -1832,7 +1830,7 @@ rna %>%
  8 Abi2     4903.  
  9 Abi3bp   1061.  
 10 Abl2     2078.  
-# … with 1,464 more rows
+# ℹ 1,464 more rows
 ```
 
 Another possibility would be to rename the column,
@@ -1869,7 +1867,7 @@ rna %>%
  8 Abi2     4903.  
  9 Abi3bp   1061.  
 10 Abl2     2078.  
-# … with 1,464 more rows
+# ℹ 1,464 more rows
 ```
 
 :::::::::::::::::::::::::
@@ -1911,7 +1909,7 @@ rna_time
  8 Abi2     4881.   4903.   4945.  
  9 Abi3bp   1175.   1061.    762.  
 10 Abl2     2170.   2078.   2131.  
-# … with 1,464 more rows
+# ℹ 1,464 more rows
 ```
 
 Calculate fold-changes:
@@ -1937,7 +1935,7 @@ rna_time %>%
  8 Abi2     4881.   4903.   4945.         1.01        1.01 
  9 Abi3bp   1175.   1061.    762.         0.649       0.719
 10 Abl2     2170.   2078.   2131.         0.982       1.03 
-# … with 1,464 more rows
+# ℹ 1,464 more rows
 ```
 
 And use the pivot\_longer() function:
@@ -1966,7 +1964,7 @@ rna_time %>%
  8 Aamp     4603.   4870    4763.   time_8_vs_4        0.978
  9 Abca12      5.29    4.25    4.14 time_8_vs_0        0.784
 10 Abca12      5.29    4.25    4.14 time_8_vs_4        0.975
-# … with 2,938 more rows
+# ℹ 2,938 more rows
 ```
 
 :::::::::::::::::::::::::
