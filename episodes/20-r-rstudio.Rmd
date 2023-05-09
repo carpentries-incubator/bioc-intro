@@ -445,13 +445,13 @@ window.
 If you need help with a specific function, let's say `barplot()`, you
 can type:
 
-```{r, eval=FALSE, purl=FALSE}
+```{r, eval=FALSE, purl=TRUE}
 ?barplot
 ```
 
 If you just need to remind yourself of the names of the arguments, you can use:
 
-```{r, eval=FALSE, purl=FALSE}
+```{r, eval=FALSE, purl=TRUE}
 args(lm)
 ```
 
@@ -462,7 +462,7 @@ If you are looking for a function to do a particular task, you can use the
 However, this only looks through the installed packages for help pages with a
 match to your search request
 
-```{r, eval=FALSE, purl=FALSE}
+```{r, eval=FALSE, purl=TRUE}
 ??kruskal
 ```
 
@@ -525,7 +525,7 @@ To share an object with someone else, if it's relatively small, you
 can use the function `dput()`. It will output R code that can be used
 to recreate the exact same object as the one in memory:
 
-```{r, results="show", purl=FALSE}
+```{r, results="show", purl=TRUE}
 ## iris is an example data frame that comes with R and head() is a
 ## function that returns the first part of the data frame
 dput(head(iris))
@@ -556,7 +556,7 @@ as it provides critical information about your platform, the versions of R and
 the packages that you are using, and other information that can be very helpful
 to understand your problem.
 
-```{r, results="show", purl=FALSE}
+```{r, results="show", purl=TRUE}
 sessionInfo()
 ```
 
@@ -623,7 +623,7 @@ make use of a package's functionality, assuming it is installed, we
 first need to load it to be able to use it. This is done with the
 `library()` function. Below, we load `ggplot2`.
 
-```{r loadp, eval=FALSE, purl=FALSE}
+```{r loadp, eval=FALSE, purl=TRUE}
 library("ggplot2")
 ```
 
@@ -634,7 +634,7 @@ Network* (CRAN), and any package that is available on CRAN can be
 installed with the `install.packages()` function. Below, for example,
 we install the `dplyr` package that we will learn about later.
 
-```{r craninstall, eval=FALSE, purl=FALSE}
+```{r craninstall, eval=FALSE, purl=TRUE}
 install.packages("dplyr")
 ```
 
@@ -644,7 +644,7 @@ dependencies, i.e. all the packages that it relies on to function.
 Another major R package repository is maintained by Bioconductor. [Bioconductor packages](https://bioconductor.org/packages/release/BiocViews.html#___Software) are managed and installed using a dedicated package,
 namely `BiocManager`, that can be installed from CRAN with
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, purl=TRUE}
 install.packages("BiocManager")
 ```
 
@@ -652,7 +652,7 @@ Individual packages such as `SummarizedExperiment` (we will use it
 later), `DESeq2` (for RNA-Seq analysis), and any others from either Bioconductor or CRAN can then be
 installed with `BiocManager::install`.
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, purl=TRUE}
 BiocManager::install("SummarizedExperiment")
 BiocManager::install("DESeq2")
 ```
@@ -664,5 +664,3 @@ By default, `BiocManager::install()` will also check all your installed packages
 - Start using R and RStudio
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
