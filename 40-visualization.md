@@ -111,7 +111,7 @@ ggplot(data = rna, mapping = aes(x = expression))
 - add '**geoms**' - geometries, or graphical representations of the
   data in the plot (points, lines, bars). `ggplot2` offers many
   different geoms; we will use some common ones today, including:
-  
+
   ```
   * `geom_point()` for scatter plots, dot plots, etc.
   * `geom_histogram()` for histograms
@@ -1357,5 +1357,3 @@ A good reference for the `lattice` package is @latticebook.
 - Visualization in R
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

@@ -1415,5 +1415,3 @@ learn about data frames.
 - How to interact with R
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

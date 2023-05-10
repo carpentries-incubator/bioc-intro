@@ -716,5 +716,3 @@ By default, `BiocManager::install()` will also check all your installed packages
 - Start using R and RStudio
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

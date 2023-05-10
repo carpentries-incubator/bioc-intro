@@ -59,7 +59,7 @@ and this [one about
   They allow us to do many things with your data, such as subsetting, transforming,
   visualising, etc.
 
-If you did the set up, you should have already installed the tidyverse package. 
+If you did the set up, you should have already installed the tidyverse package.
 Check to see if you have it by trying to load in from the library:
 
 
