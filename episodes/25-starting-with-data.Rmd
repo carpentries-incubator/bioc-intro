@@ -290,7 +290,7 @@ correct names of the columns.
 
 ## Solution
 
-```{r}
+```{r, purl=TRUE}
 ## 1.
 rna_200 <- rna[200, ]
 ## 2.
@@ -431,7 +431,7 @@ plot(sex)
 
 ## Solution
 
-```{r, eval=TRUE}
+```{r, eval=TRUE, purl=TRUE}
 levels(sex)
 levels(sex) <- c("Male", "Female")
 ```
@@ -498,7 +498,7 @@ country_climate <- data.frame(
 
 ## Solution
 
-```{r, eval=TRUE}
+```{r, eval=TRUE, purl=TRUE}
 country_climate <- data.frame(
        country = c("Canada", "Panama", "South Africa", "Australia"),
        climate = c("cold", "hot", "temperate", "hot/temperate"),
@@ -555,7 +555,7 @@ your computer. Explore it.
 
 ## Solution:
 
-```{r pkg_sln, eval=FALSE}
+```{r pkg_sln, eval=FALSE, purl=TRUE}
 ## create the matrix
 ip <- installed.packages()
 head(ip)
@@ -588,7 +588,7 @@ Construct a matrix of dimension 1000 by 3 of normally distributed data
 
 ## Solution
 
-```{r rnormmat_sln}
+```{r rnormmat_sln, purl=TRUE}
 set.seed(123)
 m <- matrix(rnorm(3000), ncol = 3)
 dim(m)

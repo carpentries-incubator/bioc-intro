@@ -380,7 +380,7 @@ tricky <- c(1, 2, 3, "4")
 
 ## Solution
 
-```{r}
+```{r, purl=TRUE}
 class(num_char)
 num_char
 class(num_logical)
@@ -676,17 +676,17 @@ heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65,
 
 ## Solution
 
-```{r}
+```{r, purl=TRUE}
 heights_no_na <- heights[!is.na(heights)]
 ## or
 heights_no_na <- na.omit(heights)
 ```
 
-```{r}
+```{r, purl=TRUE}
 median(heights, na.rm = TRUE)
 ```
 
-```{r}
+```{r, purl=TRUE}
 heights_above_67 <- heights_no_na[heights_no_na > 67]
 length(heights_above_67)
 ```
@@ -708,7 +708,7 @@ generate a vector of numerics, one can use the `numeric()`
 constructor, providing the length of the output vector as
 parameter. The values will be initialised with 0.
 
-```{r}
+```{r, purl=TRUE}
 numeric(3)
 numeric(10)
 ```
@@ -716,7 +716,7 @@ numeric(10)
 Note that if we ask for a vector of numerics of length 0, we obtain
 exactly that:
 
-```{r}
+```{r, purl=TRUE}
 numeric(0)
 ```
 
@@ -733,7 +733,7 @@ What are the defaults for character and logical vectors?
 
 ## Solution
 
-```{r}
+```{r, purl=TRUE}
 character(2) ## the empty character
 logical(2)   ## FALSE
 ```
@@ -748,7 +748,7 @@ The `rep` function allow to repeat a value a certain number of
 times. If we want to initiate a vector of numerics of length 5 with
 the value -1, for example, we could do the following:
 
-```{r}
+```{r, purl=TRUE}
 rep(-1, 5)
 ```
 
@@ -756,7 +756,7 @@ Similarly, to generate a vector populated with missing values, which
 is often a good way to start, without setting assumptions on the data
 to be collected:
 
-```{r}
+```{r, purl=TRUE}
 rep(NA, 5)
 ```
 
@@ -764,7 +764,7 @@ rep(NA, 5)
 of length 1) and any type. For example, if we want to repeat the
 values 1, 2 and 3 five times, we would do the following:
 
-```{r}
+```{r, purl=TRUE}
 rep(c(1, 2, 3), 5)
 ```
 
@@ -780,7 +780,7 @@ possibilities - see `?rep` or `?sort` for help.
 
 ## Solution
 
-```{r}
+```{r, purl=TRUE}
 rep(c(1, 2, 3), each = 5)
 sort(rep(c(1, 2, 3), 5))
 ```
@@ -795,7 +795,7 @@ Another very useful function is `seq`, to generate a sequence of
 numbers. For example, to generate a sequence of integers from 1 to 20
 by steps of 2, one would use:
 
-```{r}
+```{r, purl=TRUE}
 seq(from = 1, to = 20, by = 2)
 ```
 
@@ -803,7 +803,7 @@ The default value of `by` is 1 and, given that the generation of a
 sequence of one value to another with steps of 1 is frequently used,
 there's a shortcut:
 
-```{r}
+```{r, purl=TRUE}
 seq(1, 5, 1)
 seq(1, 5) ## default by
 1:5
@@ -812,7 +812,7 @@ seq(1, 5) ## default by
 To generate a sequence of numbers from 1 to 20 of final length of 3,
 one would use:
 
-```{r}
+```{r, purl=TRUE}
 seq(from = 1, to = 20, length.out = 3)
 ```
 
@@ -824,7 +824,7 @@ another vector. For example, to draw a random order to 10 students
 oral exam, I first assign each student a number from 1 to ten (for
 instance based on the alphabetic order of their name) and then:
 
-```{r}
+```{r, purl=TRUE}
 sample(1:10)
 ```
 
@@ -833,7 +833,7 @@ elements of the vector. If I want a random sample of a certain size, I
 would set this value as the second argument. Below, I sample 5 random
 letters from the alphabet contained in the pre-defined `letters` vector:
 
-```{r}
+```{r, purl=TRUE}
 sample(letters, 5)
 ```
 
@@ -841,7 +841,7 @@ If I wanted an output larger than the input vector, or being able to
 draw some elements multiple times, I would need to set the `replace`
 argument to `TRUE`:
 
-```{r}
+```{r, purl=TRUE}
 sample(1:5, 10, replace = TRUE)
 ```
 
@@ -870,14 +870,14 @@ Repeat by setting a different seed.
 
 Different permutations
 
-```{r}
+```{r, purl=TRUE}
 sample(1:10)
 sample(1:10)
 ```
 
 Same permutations with seed 123
 
-```{r}
+```{r, purl=TRUE}
 set.seed(123)
 sample(1:10)
 set.seed(123)
@@ -886,7 +886,7 @@ sample(1:10)
 
 A different seed
 
-```{r}
+```{r, purl=TRUE}
 set.seed(1)
 sample(1:10)
 set.seed(1)
@@ -914,7 +914,7 @@ The three arguments, `n`, `mean` and `sd`, define the size of the
 sample, and the parameters of the normal distribution, i.e the mean
 and its standard deviation. The defaults of the latter are 0 and 1.
 
-```{r}
+```{r, purl=TRUE}
 rnorm(5)
 rnorm(5, 2, 2)
 rnorm(5, 100, 5)
