@@ -193,7 +193,7 @@
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
-        Data visualization
+        6. Data visualization
         </span>
       </button>
     </div><!--/div.accordion-header-->
@@ -436,12 +436,12 @@ above plot can also be generated with code like this:</p>
 <span><span class="co"># Draw the plot</span></span>
 <span><span class="va">rna_plot</span> <span class="op">+</span> <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<div id="challenge1" class="callout challenge">
+<div id="challenge" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge" class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge"></a>
 </h3>
 <div class="callout-content">
 <p>You have probably noticed an automatic message that appears when
@@ -464,7 +464,7 @@ bins.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -513,12 +513,12 @@ distribution is indeed closer to a normal distribution.</p>
 </div>
 <figure><img src="fig/40-visualization-rendered-second-ggplot-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>From now on we will work on the log-transformed expression
 values.</p>
-<div id="challenge2" class="callout challenge">
+<div id="challenge-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-1" class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge-1"></a>
 </h3>
 <div class="callout-content">
 <p>Another way to visualize this transformation is to consider the scale
@@ -540,7 +540,7 @@ you now have warning messages appearing?</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -698,12 +698,12 @@ to <code>geom_jitter</code> and colors will still be determined by
 <span>  <span class="fu">geom_jitter</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_abline</span><span class="op">(</span>intercept <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-color-by-gene_biotype3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge3" class="callout challenge">
+<figure><img src="fig/40-visualization-rendered-color-by-gene_biotype3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge-2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-2" class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge-2"></a>
 </h3>
 <div class="callout-content">
 <p>Scatter plots can be useful exploratory tools for small datasets. For
@@ -730,7 +730,7 @@ compare it with the hexagonal bin plot that you created.</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -752,12 +752,12 @@ compare it with the hexagonal bin plot that you created.</p></li>
 </div>
 </div>
 </div>
-<div id="challenge4" class="callout challenge">
+<div id="challenge-3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-3" class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge-3"></a>
 </h3>
 <div class="callout-content">
 <p>Use what you just learned to create a scatter plot of
@@ -774,7 +774,7 @@ this a good way to show this type of data?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -810,12 +810,12 @@ of measurements and of their distribution:</p>
 <span>  <span class="fu">geom_jitter</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.2</span>, color <span class="op">=</span> <span class="st">"tomato"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-boxplot-with-points-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge5" class="callout challenge">
+<figure><img src="fig/40-visualization-rendered-boxplot-with-points-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge-4" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-4" class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge-4"></a>
 </h3>
 <div class="callout-content">
 <p>Note how the boxplot layer is in front of the jitter layer? What do
@@ -830,7 +830,7 @@ you need to change in the code to put the boxplot below the points?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>We should switch the order of these two geoms:</p>
 <div class="codewrapper sourceCode" id="cb35">
@@ -861,12 +861,12 @@ diagonally oriented labels:</p>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">theme</span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>,  hjust <span class="op">=</span> <span class="fl">0.5</span>, vjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-boxplot-xaxis-rotated-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge6" class="callout challenge">
+<figure><img src="fig/40-visualization-rendered-boxplot-xaxis-rotated-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge-5" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-5" class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge6"></a>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge-5"></a>
 </h3>
 <div class="callout-content">
 <p>Add color to the data points on your boxplot according to the
@@ -884,7 +884,7 @@ in the ggplot mapping. Why does this change how R makes the graph?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -914,12 +914,12 @@ in the ggplot mapping. Why does this change how R makes the graph?</p>
 </div>
 </div>
 </div>
-<div id="challenge7" class="callout challenge">
+<div id="challenge-6" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-6" class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge7"></a>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge-6"></a>
 </h3>
 <div class="callout-content">
 <p>Boxplots are useful summaries, but hide the <em>shape</em> of the
@@ -939,7 +939,7 @@ with the argument <code>fill</code>.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -954,12 +954,12 @@ with the argument <code>fill</code>.</li>
 </div>
 </div>
 </div>
-<div id="challenge8" class="callout challenge">
+<div id="challenge-7" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-7" class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge8"></a>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge-7"></a>
 </h3>
 <div class="callout-content">
 <ul><li>Modify the violin plot to fill in the violins by
@@ -974,7 +974,7 @@ with the argument <code>fill</code>.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1170,12 +1170,12 @@ We can set the background to white using the function
 <span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">theme</span><span class="op">(</span>panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-facet-by-gene-and-sex-white-bg-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge9" class="callout challenge">
+<figure><img src="fig/40-visualization-rendered-facet-by-gene-and-sex-white-bg-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge-8" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-8" class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge9"></a>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge-8"></a>
 </h3>
 <div class="callout-content">
 <p>Use what you just learned to create a plot that depicts how the
@@ -1191,7 +1191,7 @@ infection.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb56">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1346,12 +1346,12 @@ previously created.</p>
 <span>  <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="va">blue_theme</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-xfont-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge10" class="callout challenge">
+<figure><img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-xfont-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge-9" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-9" class="callout-inner">
-<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge10"></a>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#challenge-9"></a>
 </h3>
 <div class="callout-content">
 <p>With all of this information in hand, please take another five
@@ -1374,7 +1374,7 @@ colors for the lines (see <a href="https://www.cookbook-r.com/Graphs/Colors_(ggp
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
+<div id="collapseSolution10" class="accordion-collapse collapse" aria-labelledby="headingSolution10" data-bs-parent="#accordionSolution10">
 <div class="accordion-body">
 <p>For example, based on this plot:</p>
 <div class="codewrapper sourceCode" id="cb65">
@@ -1731,9 +1731,9 @@ Visualization Cheat Sheet</a>.<a href="#fnref1" class="footnote-back">↩︎</a>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.2" class="external-link">sandpaper (0.12.2)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.17" class="external-link">varnish (0.2.17)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1755,7 +1755,7 @@ Visualization Cheat Sheet</a>.<a href="#fnref1" class="footnote-back">↩︎</a>
   "identifier": "https://carpentries-incubator.github.io/bioc-intro/40-visualization.html",
   "dateCreated": "2020-09-14",
   "dateModified": "2023-05-10",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-30"
 }
 
   </script><script>
