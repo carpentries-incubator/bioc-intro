@@ -40,7 +40,7 @@ title: Setup
 
 - Follow the steps in the instructions [for everyone](#for-everyone) at the
   bottom of this page.
-  
+
 
 :::::::::::::::::::::::::
 
@@ -64,7 +64,7 @@ title: Setup
 
 - Follow the steps in the instructions [for everyone](#for-everyone) at the
   bottom of this page.
-  
+
 
 :::::::::::::::::::::::::
 
@@ -88,7 +88,7 @@ title: Setup
 
 - Follow the steps in the instructions [for everyone](#for-everyone) at the
   bottom of this page.
-  
+
 
 :::::::::::::::::::::::::
 
@@ -117,7 +117,7 @@ title: Setup
 
 - Follow the steps in the instructions [for everyone](#for-everyone) at the
   bottom of this page.
-  
+
 
 :::::::::::::::::::::::::
 
@@ -143,7 +143,7 @@ title: Setup
 - Once it's installed, open RStudio to make sure it works and you don't get any
   error messages.
 - Follow the steps in the [instructions for everyone](#for-everyone)
-  
+
 
 :::::::::::::::::::::::::
 
@@ -157,12 +157,8 @@ commands. For now, simply follow the instructions below:
 - Start RStudio by double-clicking the icon and then type:
 
 ```r
-install.packages("BiocManager")
+install.packages(c("BiocManager", "remotes"))
 BiocManager::install(c("tidyverse", "SummarizedExperiment",
                        "UCLouvain-CBIO/rWSBIM1207", "hexbin",
                        "patchwork", "gridExtra", "lubridate"))
 ```
-
-
-
-
