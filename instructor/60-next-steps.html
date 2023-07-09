@@ -259,7 +259,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Next steps</h1>
-        <p> Last updated on 2023-05-09 | 
+        <p> Last updated on 2023-07-09 | 
         
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/60-next-steps.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -518,17 +518,23 @@ tables:</p>
 <code class="sourceCode R"><span><span class="co">## BiocManager::install("SummarizedExperiment")</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="st">"SummarizedExperiment"</span><span class="op">)</span></span></code></pre>
 </div>
+<div class="codewrapper">
+<h3 class="code-label">WARNING<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="warning" tabindex="0"><code>Warning: replacing previous import 'S4Arrays::makeNindexFromArrayViewport' by
+'DelayedArray::makeNindexFromArrayViewport' when loading 'SummarizedExperiment'</code></pre>
+</div>
 <p>First, we make sure that the samples are in the same order in the
 count matrix and the sample annotation, and the same for the genes in
 the count matrix and the gene annotation.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">stopifnot</span><span class="op">(</span><span class="fu">rownames</span><span class="op">(</span><span class="va">count_matrix</span><span class="op">)</span> <span class="op">==</span> <span class="va">gene_metadata</span><span class="op">$</span><span class="va">gene</span><span class="op">)</span></span>
 <span><span class="fu">stopifnot</span><span class="op">(</span><span class="fu">colnames</span><span class="op">(</span><span class="va">count_matrix</span><span class="op">)</span> <span class="op">==</span> <span class="va">sample_metadata</span><span class="op">$</span><span class="va">sample</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -565,7 +571,7 @@ guaranteed to work on any operating system, is to use the
 binary representation on disk (using the <code>rds</code> file extension
 here), which can be loaded back into R using the <code>readRDS</code>
 function.</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -581,7 +587,7 @@ be shared with somebody that is not using R, then exporting to a
 text-based spreadsheet is a good alternative.</p>
 <p>Using this data structure, we can access the expression matrix with
 the <code>assay</code> function:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -619,7 +625,7 @@ Klk6           894        501        598        259
 Fcrls          248        179        184         68
 Slc2a4         248        350        317        796</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -632,7 +638,7 @@ Slc2a4         248        350        317        796</code></pre>
 </div>
 <p>We can access the sample metadata using the <code>colData</code>
 function:</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -669,7 +675,7 @@ GSM2545362     C57BL/6         4  Cerebellum        20
 GSM2545363     C57BL/6         4  Cerebellum        12
 GSM2545380     C57BL/6         8  Cerebellum        19</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -682,7 +688,7 @@ GSM2545380     C57BL/6         8  Cerebellum        19</code></pre>
 </div>
 <p>We can also access the feature metadata using the
 <code>rowData</code> function:</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -717,7 +723,7 @@ Klk6                                     KLK6
 Fcrls                                   FCRL2
 Slc2a4                                 SLC2A4</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -735,7 +741,7 @@ Slc2a4                                 SLC2A4</code></pre>
 numerics or with characters of logicals.</p>
 <p>Below, we create a new instance of class SummarizedExperiment that
 contains only the 5 first features for the 3 first samples.</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -755,7 +761,7 @@ rowData names(9): gene ENTREZID ... phenotype_description
 colnames(3): GSM2545336 GSM2545337 GSM2545338
 colData names(9): sample organism ... tissue mouse</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -776,7 +782,7 @@ GSM2545336     C57BL/6         8  Cerebellum        14
 GSM2545337     C57BL/6         0  Cerebellum         9
 GSM2545338     C57BL/6         0  Cerebellum        10</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb34">
+<div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -812,7 +818,7 @@ Fcrls                                   FCRL2</code></pre>
 something from the sample metadata or the <code>rowData()</code> to
 subset on something from the feature metadata. For example, here we keep
 only miRNAs and the non infected samples:</p>
-<div class="codewrapper sourceCode" id="cb36">
+<div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -833,7 +839,7 @@ rowData names(9): gene ENTREZID ... phenotype_description
 colnames(7): GSM2545337 GSM2545338 ... GSM2545353 GSM2545354
 colData names(9): sample organism ... tissue mouse</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb38">
+<div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -859,7 +865,7 @@ Mir149            2
 Mir128-1          1
 Mir7682           5</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb40">
+<div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -888,7 +894,7 @@ GSM2545349     C57BL/6         0  Cerebellum         7
 GSM2545353     C57BL/6         0  Cerebellum         4
 GSM2545354     C57BL/6         0  Cerebellum         2</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb42">
+<div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -954,9 +960,9 @@ time 0 and at time 8.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb44">
+<div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -978,7 +984,7 @@ Asl            473       1192
 Apod         11088      38148
 Cyp2d22       1821       4019</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb46">
+<div class="codewrapper sourceCode" id="cb47">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1025,9 +1031,9 @@ table.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb48">
+<div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1068,7 +1074,7 @@ package.</p>
 <h4 id="adding-variables-to-metadata">Adding variables to metadata<a class="anchor" aria-label="anchor" href="#adding-variables-to-metadata"></a></h4>
 <p>We can also add information to the metadata. Suppose that you want to
 add the center where the samples were collected…</p>
-<div class="codewrapper sourceCode" id="cb50">
+<div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1116,7 +1122,7 @@ without affecting the other structures!</p>
 <code>SummarizedExperiment</code> objects? The answer is yes, we can
 with the <code>tidySummarizedExperiment</code> package.</p>
 <p>Remember what our SummarizedExperiment object looks like:</p>
-<div class="codewrapper sourceCode" id="cb52">
+<div class="codewrapper sourceCode" id="cb53">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1137,7 +1143,7 @@ colData names(10): sample organism ... mouse center</code></pre>
 </div>
 <p>Load <code>tidySummarizedExperiment</code> and then take a look at
 the se object again.</p>
-<div class="codewrapper sourceCode" id="cb54">
+<div class="codewrapper sourceCode" id="cb55">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1177,7 +1183,7 @@ can also see in the second line of the output the number of transcripts
 and samples.</p>
 <p>If we want to revert to the standard
 <code>SummarizedExperiment</code> view, we can do that.</p>
-<div class="codewrapper sourceCode" id="cb56">
+<div class="codewrapper sourceCode" id="cb57">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1198,7 +1204,7 @@ colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
 colData names(10): sample organism ... mouse center</code></pre>
 </div>
 <p>But here we use the tibble view.</p>
-<div class="codewrapper sourceCode" id="cb58">
+<div class="codewrapper sourceCode" id="cb59">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1232,7 +1238,7 @@ colData names(10): sample organism ... mouse center</code></pre>
 <code>SummarizedExperiment</code> object.</p>
 <p>We can use <code>filter</code> to filter for rows using a condition
 e.g. to view all rows for one sample.</p>
-<div class="codewrapper sourceCode" id="cb60">
+<div class="codewrapper sourceCode" id="cb61">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1263,7 +1269,7 @@ e.g. to view all rows for one sample.</p>
 </div>
 <p>We can use <code>select</code> to specify columns we want to
 view.</p>
-<div class="codewrapper sourceCode" id="cb62">
+<div class="codewrapper sourceCode" id="cb63">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1293,7 +1299,7 @@ view.</p>
 # ℹ 32,418 more rows</code></pre>
 </div>
 <p>We can use <code>mutate</code> to add metadata info.</p>
-<div class="codewrapper sourceCode" id="cb65">
+<div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1325,7 +1331,7 @@ view.</p>
 <p>We can also combine commands with the tidyverse pipe
 <code>%&gt;%</code>. For example, we could combine <code>group_by</code>
 and <code>summarise</code> to get the total counts for each sample.</p>
-<div class="codewrapper sourceCode" id="cb67">
+<div class="codewrapper sourceCode" id="cb68">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1359,7 +1365,7 @@ and <code>summarise</code> to get the total counts for each sample.</p>
 <p>We can treat the tidy SummarizedExperiment object as a normal tibble
 for plotting.</p>
 <p>Here we plot the distribution of counts per sample.</p>
-<div class="codewrapper sourceCode" id="cb70">
+<div class="codewrapper sourceCode" id="cb71">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1436,7 +1442,7 @@ source and open development.<a href="#fnref1" class="footnote-back">↩︎</a></
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.4" class="external-link">sandpaper (0.12.4)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.12.5)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.17" class="external-link">varnish (0.2.17)</a>.</p>
 			</div>
@@ -1459,8 +1465,8 @@ source and open development.<a href="#fnref1" class="footnote-back">↩︎</a></
   "url": "https://carpentries-incubator.github.io/bioc-intro/instructor/60-next-steps.html",
   "identifier": "https://carpentries-incubator.github.io/bioc-intro/instructor/60-next-steps.html",
   "dateCreated": "2020-09-14",
-  "dateModified": "2023-05-09",
-  "datePublished": "2023-07-04"
+  "dateModified": "2023-07-09",
+  "datePublished": "2023-07-09"
 }
 
   </script><script>
