@@ -1286,9 +1286,13 @@ genes in certain samples. In the following fictive example, the gene Cyp2d22 has
 one expression value, in GSM2545338 sample.
 
 
-
-
 ```r
+rna_with_missing_values <- rna %>%
+  select(gene, sample, expression) %>%
+  filter(gene %in% c("Asl", "Apod", "Cyp2d22")) %>%
+  filter(sample %in% c("GSM2545336", "GSM2545337", "GSM2545338")) %>%
+  arrange(sample) %>%
+  filter(!(gene == "Cyp2d22" & sample != "GSM2545338"))
 rna_with_missing_values
 ```
 
