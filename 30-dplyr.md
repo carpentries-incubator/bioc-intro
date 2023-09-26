@@ -10,8 +10,11 @@ exercises: 75
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Describe the purpose of the **`dplyr`** and **`tidyr`** packages.
-- Describe several of their functions that are extremely useful to manipulate data.
-- Describe the concept of a wide and a long table format, and see how to reshape a data frame from one format to the other one.
+- Describe several of their functions that are extremely useful to 
+  manipulate data.
+- Describe the concept of a wide and a long table format, and see 
+  how to reshape a data frame from one format to the other one.
+- Demonstrate how to join tables. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
