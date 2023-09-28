@@ -1066,14 +1066,12 @@ rna %>%
 ## 3.
 rna %>%
   filter(sample == "GSM2545336") %>%
-  group_by(gene_biotype) %>%
   count(gene_biotype) %>%
   arrange(desc(n))
 ```
 
 ```{.output}
 # A tibble: 13 × 2
-# Groups:   gene_biotype [13]
    gene_biotype                           n
    <chr>                              <int>
  1 protein_coding                      1321
