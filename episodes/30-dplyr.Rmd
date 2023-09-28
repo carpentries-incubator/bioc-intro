@@ -511,7 +511,6 @@ rna %>%
 ## 3.
 rna %>%
   filter(sample == "GSM2545336") %>%
-  group_by(gene_biotype) %>%
   count(gene_biotype) %>%
   arrange(desc(n))
 ## 4.
