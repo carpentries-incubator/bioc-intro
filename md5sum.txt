@@ -13,6 +13,6 @@
 "instructors/instructor-notes.md" "a59fd3b94c07c3fe3218c054a0f03277" "site/built/instructor-notes.md" "2023-09-06"
 "learners/discuss.md" "2758e2e5abd231d82d25c6453d8abbc6" "site/built/discuss.md" "2023-09-06"
 "learners/reference.md" "b9aea3dd8169bf1105bf4f462e8e38f5" "site/built/reference.md" "2023-09-06"
-"learners/setup.md" "d45cc96505a2e985b82a877de4db8e24" "site/built/setup.md" "2023-09-06"
+"learners/setup.md" "caa5f4dc2e8d11ed37dbe94de2f4c2d3" "site/built/setup.md" "2023-10-02"
 "profiles/learner-profiles.md" "60b93493cf1da06dfd63255d73854461" "site/built/learner-profiles.md" "2023-09-06"
 "renv/profiles/lesson-requirements/renv.lock" "8b84d2d42e1e0592f5e169f3a3b92a5d" "site/built/renv.lock" "2023-09-06"
