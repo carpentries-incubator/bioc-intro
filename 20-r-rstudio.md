@@ -603,10 +603,9 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] BiocManager_1.30.22 compiler_4.3.1      tools_4.3.1        
- [4] rstudioapi_0.15.0   yaml_2.3.7          highr_0.10         
- [7] knitr_1.43          xfun_0.40           renv_1.0.2         
-[10] evaluate_0.21      
+[1] BiocManager_1.30.22 compiler_4.3.1      tools_4.3.1        
+[4] yaml_2.3.7          highr_0.10          knitr_1.45         
+[7] xfun_0.41           renv_1.0.3          evaluate_0.23      
 ```
 
 ### Where to ask for help?
