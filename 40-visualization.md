@@ -243,7 +243,7 @@ ggplot(data = rna,mapping = aes(x = expression))+
 ```
 
 ```{.warning}
-Warning: Transformation introduced infinite values in continuous x-axis
+Warning in scale_x_log10(): log-10 transformation introduced infinite values.
 ```
 
 ```{.output}
@@ -251,7 +251,8 @@ Warning: Transformation introduced infinite values in continuous x-axis
 ```
 
 ```{.warning}
-Warning: Removed 507 rows containing non-finite values (`stat_bin()`).
+Warning: Removed 507 rows containing non-finite outside the scale range
+(`stat_bin()`).
 ```
 
 <img src="fig/40-visualization-rendered-unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
