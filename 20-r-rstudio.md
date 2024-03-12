@@ -582,7 +582,7 @@ sessionInfo()
 ```
 
 ```{.output}
-R version 4.3.2 (2023-10-31)
+R version 4.3.3 (2024-02-29)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Ubuntu 22.04.4 LTS
 
@@ -603,7 +603,7 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
-[1] BiocManager_1.30.22 compiler_4.3.2      tools_4.3.2        
+[1] BiocManager_1.30.22 compiler_4.3.3      tools_4.3.3        
 [4] yaml_2.3.8          highr_0.10          knitr_1.45         
 [7] xfun_0.42           renv_1.0.5          evaluate_0.23      
 ```
