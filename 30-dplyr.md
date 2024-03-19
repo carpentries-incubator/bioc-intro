@@ -26,6 +26,9 @@ exercises: 75
 
 
 
+> This episode is based on the Data Carpentries's *Data Analysis and
+> Visualisation in R for Ecologists* lesson.
+
 ## Data manipulation using **`dplyr`** and **`tidyr`**
 
 Bracket subsetting is handy, but it can be cumbersome and difficult to

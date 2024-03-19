@@ -23,6 +23,9 @@ exercises: 30
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+> This episode is based on the Data Carpentries's *Data Analysis and
+> Visualisation in R for Ecologists* lesson.
+
 ## Spreadsheet programs
 
 **Question**
@@ -104,7 +107,7 @@ ensure efficient downstream analysis.
 - Which ones do you think spreadsheets are good for?
 - Have you accidentally done something in a spreadsheet program that made you
   frustrated or sad?
-  
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -326,7 +329,7 @@ wrong with this data and how you would fix it.
 - How many universal donors (O-) have been tested?
 - What is the average weight of AB men?
 - How many samples have been tested in the different hospitals?
-  
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -562,15 +565,15 @@ confusion and enables others to readily interpret your fields.
 
 **Examples**
 
-| Good Name        | Good Alternative  | Avoid             | 
+| Good Name        | Good Alternative  | Avoid             |
 | ---------------- | ----------------- | ----------------- |
-| Max\_temp\_C       | MaxTemp           | Maximum Temp (°C) | 
-| Precipitation\_mm | Precipitation     | precmm            | 
-| Mean\_year\_growth | MeanYearGrowth    | Mean growth/year  | 
-| sex              | sex               | M/F               | 
-| weight           | weight            | w.                | 
-| cell\_type        | CellType          | Cell Type         | 
-| Observation\_01   | first\_observation | 1st Obs           | 
+| Max\_temp\_C       | MaxTemp           | Maximum Temp (°C) |
+| Precipitation\_mm | Precipitation     | precmm            |
+| Mean\_year\_growth | MeanYearGrowth    | Mean growth/year  |
+| sex              | sex               | M/F               |
+| weight           | weight            | w.                |
+| cell\_type        | CellType          | Cell Type         |
+| Observation\_01   | first\_observation | 1st Obs           |
 
 ### Using special characters in data {#special}
 
@@ -832,5 +835,3 @@ without having to look at it and/or fix it.
 - Good data organization is the foundation of any research project.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

@@ -26,6 +26,9 @@ exercises: 30
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+> This episode is based on the Data Carpentries's *Data Analysis and
+> Visualisation in R for Ecologists* lesson.
+
 ## Presentation of the gene expression data
 
 We are going to use part of the data published by [Blackmore *et al.*

@@ -25,6 +25,9 @@ exercises: 60
 
 
 
+> This episode is based on the Data Carpentries's *Data Analysis and
+> Visualisation in R for Ecologists* lesson.
+
 ## Data Visualization
 
 We start by loading the required packages. **`ggplot2`** is included in
