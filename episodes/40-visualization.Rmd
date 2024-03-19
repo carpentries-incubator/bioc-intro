@@ -31,6 +31,9 @@ download.file(url = "https://github.com/carpentries-incubator/bioc-intro/raw/mai
 rna <- read.csv("data/rnaseq.csv")
 ```
 
+> This episode is based on the Data Carpentries's *Data Analysis and
+> Visualisation in R for Ecologists* lesson.
+
 ## Data Visualization
 
 We start by loading the required packages. **`ggplot2`** is included in
