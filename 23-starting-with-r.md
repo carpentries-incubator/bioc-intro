@@ -39,7 +39,7 @@ You can get output from R simply by typing math in the console:
 3 + 5
 ```
 
-```{.output}
+```output
 [1] 8
 ```
 
@@ -47,7 +47,7 @@ You can get output from R simply by typing math in the console:
 12 / 7
 ```
 
-```{.output}
+```output
 [1] 1.714286
 ```
 
@@ -122,7 +122,7 @@ weight_kg <- 55    # doesn't print anything
 (weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
 ```
 
-```{.output}
+```output
 [1] 55
 ```
 
@@ -130,7 +130,7 @@ weight_kg <- 55    # doesn't print anything
 weight_kg          # and so does typing the name of the object
 ```
 
-```{.output}
+```output
 [1] 55
 ```
 
@@ -142,7 +142,7 @@ instance, we may want to convert this weight into pounds (weight in pounds is 2.
 2.2 * weight_kg
 ```
 
-```{.output}
+```output
 [1] 121
 ```
 
@@ -154,7 +154,7 @@ weight_kg <- 57.5
 2.2 * weight_kg
 ```
 
-```{.output}
+```output
 [1] 126.5
 ```
 
@@ -254,7 +254,7 @@ Let's try a function that can take multiple arguments: `round()`.
 round(3.14159)
 ```
 
-```{.output}
+```output
 [1] 3
 ```
 
@@ -269,7 +269,7 @@ help for this function using `?round`.
 args(round)
 ```
 
-```{.output}
+```output
 function (x, digits = 0) 
 NULL
 ```
@@ -287,7 +287,7 @@ type `digits=2` or however many we want.
 round(3.14159, digits = 2)
 ```
 
-```{.output}
+```output
 [1] 3.14
 ```
 
@@ -299,7 +299,7 @@ don't have to name them:
 round(3.14159, 2)
 ```
 
-```{.output}
+```output
 [1] 3.14
 ```
 
@@ -310,7 +310,7 @@ And if you do name the arguments, you can switch their order:
 round(digits = 2, x = 3.14159)
 ```
 
-```{.output}
+```output
 [1] 3.14
 ```
 
@@ -336,7 +336,7 @@ weight_g <- c(50, 60, 65, 82)
 weight_g
 ```
 
-```{.output}
+```output
 [1] 50 60 65 82
 ```
 
@@ -348,7 +348,7 @@ molecules <- c("dna", "rna", "protein")
 molecules
 ```
 
-```{.output}
+```output
 [1] "dna"     "rna"     "protein"
 ```
 
@@ -365,7 +365,7 @@ vector. `length()` tells you how many elements are in a particular vector:
 length(weight_g)
 ```
 
-```{.output}
+```output
 [1] 4
 ```
 
@@ -373,7 +373,7 @@ length(weight_g)
 length(molecules)
 ```
 
-```{.output}
+```output
 [1] 3
 ```
 
@@ -386,7 +386,7 @@ type of element) of an object:
 class(weight_g)
 ```
 
-```{.output}
+```output
 [1] "numeric"
 ```
 
@@ -394,7 +394,7 @@ class(weight_g)
 class(molecules)
 ```
 
-```{.output}
+```output
 [1] "character"
 ```
 
@@ -407,7 +407,7 @@ large and complex objects:
 str(weight_g)
 ```
 
-```{.output}
+```output
  num [1:4] 50 60 65 82
 ```
 
@@ -415,7 +415,7 @@ str(weight_g)
 str(molecules)
 ```
 
-```{.output}
+```output
  chr [1:3] "dna" "rna" "protein"
 ```
 
@@ -428,7 +428,7 @@ weight_g <- c(30, weight_g) # add to the beginning of the vector
 weight_g
 ```
 
-```{.output}
+```output
 [1] 30 50 60 65 82 90
 ```
 
@@ -505,7 +505,7 @@ tricky <- c(1, 2, 3, "4")
 class(num_char)
 ```
 
-```{.output}
+```output
 [1] "character"
 ```
 
@@ -513,7 +513,7 @@ class(num_char)
 num_char
 ```
 
-```{.output}
+```output
 [1] "1" "2" "3" "a"
 ```
 
@@ -521,7 +521,7 @@ num_char
 class(num_logical)
 ```
 
-```{.output}
+```output
 [1] "numeric"
 ```
 
@@ -529,7 +529,7 @@ class(num_logical)
 num_logical
 ```
 
-```{.output}
+```output
 [1] 1 2 3 1 0
 ```
 
@@ -537,7 +537,7 @@ num_logical
 class(char_logical)
 ```
 
-```{.output}
+```output
 [1] "character"
 ```
 
@@ -545,7 +545,7 @@ class(char_logical)
 char_logical
 ```
 
-```{.output}
+```output
 [1] "a"    "b"    "c"    "TRUE"
 ```
 
@@ -553,7 +553,7 @@ char_logical
 class(tricky)
 ```
 
-```{.output}
+```output
 [1] "character"
 ```
 
@@ -561,7 +561,7 @@ class(tricky)
 tricky
 ```
 
-```{.output}
+```output
 [1] "1" "2" "3" "4"
 ```
 
@@ -617,7 +617,7 @@ into `"1"` in `combined_logical`.
 combined_logical
 ```
 
-```{.output}
+```output
 [1] "1"    "2"    "3"    "1"    "a"    "b"    "c"    "TRUE"
 ```
 
@@ -660,7 +660,7 @@ molecules <- c("dna", "rna", "peptide", "protein")
 molecules[2]
 ```
 
-```{.output}
+```output
 [1] "rna"
 ```
 
@@ -668,7 +668,7 @@ molecules[2]
 molecules[c(3, 2)]
 ```
 
-```{.output}
+```output
 [1] "peptide" "rna"    
 ```
 
@@ -681,7 +681,7 @@ more_molecules <- molecules[c(1, 2, 3, 2, 1, 4)]
 more_molecules
 ```
 
-```{.output}
+```output
 [1] "dna"     "rna"     "peptide" "rna"     "dna"     "protein"
 ```
 
@@ -698,7 +698,7 @@ except some specified elements using negative indices:
 molecules ## all molecules
 ```
 
-```{.output}
+```output
 [1] "dna"     "rna"     "peptide" "protein"
 ```
 
@@ -706,7 +706,7 @@ molecules ## all molecules
 molecules[-1] ## all but the first one
 ```
 
-```{.output}
+```output
 [1] "rna"     "peptide" "protein"
 ```
 
@@ -714,7 +714,7 @@ molecules[-1] ## all but the first one
 molecules[-c(1, 3)] ## all but 1st/3rd ones
 ```
 
-```{.output}
+```output
 [1] "rna"     "protein"
 ```
 
@@ -722,7 +722,7 @@ molecules[-c(1, 3)] ## all but 1st/3rd ones
 molecules[c(-1, -3)] ## all but 1st/3rd ones
 ```
 
-```{.output}
+```output
 [1] "rna"     "protein"
 ```
 
@@ -737,7 +737,7 @@ weight_g <- c(21, 34, 39, 54, 55)
 weight_g[c(TRUE, FALSE, TRUE, TRUE, FALSE)]
 ```
 
-```{.output}
+```output
 [1] 21 39 54
 ```
 
@@ -752,7 +752,7 @@ wanted to select only the values above 50:
 weight_g > 50
 ```
 
-```{.output}
+```output
 [1] FALSE FALSE FALSE  TRUE  TRUE
 ```
 
@@ -761,7 +761,7 @@ weight_g > 50
 weight_g[weight_g > 50]
 ```
 
-```{.output}
+```output
 [1] 54 55
 ```
 
@@ -773,7 +773,7 @@ AND) or `|` (at least one of the conditions is true, OR):
 weight_g[weight_g < 30 | weight_g > 50]
 ```
 
-```{.output}
+```output
 [1] 21 54 55
 ```
 
@@ -781,7 +781,7 @@ weight_g[weight_g < 30 | weight_g > 50]
 weight_g[weight_g >= 30 & weight_g == 21]
 ```
 
-```{.output}
+```output
 numeric(0)
 ```
 
@@ -802,7 +802,7 @@ molecules <- c("dna", "rna", "protein", "peptide")
 molecules[molecules == "rna" | molecules == "dna"] # returns both rna and dna
 ```
 
-```{.output}
+```output
 [1] "dna" "rna"
 ```
 
@@ -810,7 +810,7 @@ molecules[molecules == "rna" | molecules == "dna"] # returns both rna and dna
 molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")
 ```
 
-```{.output}
+```output
 [1]  TRUE  TRUE FALSE  TRUE
 ```
 
@@ -818,7 +818,7 @@ molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")
 molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
 ```
 
-```{.output}
+```output
 [1] "dna"     "rna"     "peptide"
 ```
 
@@ -837,7 +837,7 @@ Can you figure out why `"four" > "five"` returns `TRUE`?
 "four" > "five"
 ```
 
-```{.output}
+```output
 [1] TRUE
 ```
 
@@ -863,7 +863,7 @@ x <- c(1, 5, 3, 5, 10)
 names(x) ## no names
 ```
 
-```{.output}
+```output
 NULL
 ```
 
@@ -872,7 +872,7 @@ names(x) <- c("A", "B", "C", "D", "E")
 names(x) ## now we have names
 ```
 
-```{.output}
+```output
 [1] "A" "B" "C" "D" "E"
 ```
 
@@ -884,7 +884,7 @@ name, in addition to their index.
 x[c(1, 3)]
 ```
 
-```{.output}
+```output
 A C 
 1 3 
 ```
@@ -893,7 +893,7 @@ A C
 x[c("A", "C")]
 ```
 
-```{.output}
+```output
 A C 
 1 3 
 ```
@@ -916,7 +916,7 @@ heights <- c(2, 4, 4, NA, 6)
 mean(heights)
 ```
 
-```{.output}
+```output
 [1] NA
 ```
 
@@ -924,7 +924,7 @@ mean(heights)
 max(heights)
 ```
 
-```{.output}
+```output
 [1] NA
 ```
 
@@ -932,7 +932,7 @@ max(heights)
 mean(heights, na.rm = TRUE)
 ```
 
-```{.output}
+```output
 [1] 4
 ```
 
@@ -940,7 +940,7 @@ mean(heights, na.rm = TRUE)
 max(heights, na.rm = TRUE)
 ```
 
-```{.output}
+```output
 [1] 6
 ```
 
@@ -954,7 +954,7 @@ below for examples.
 heights[!is.na(heights)]
 ```
 
-```{.output}
+```output
 [1] 2 4 4 6
 ```
 
@@ -965,7 +965,7 @@ heights[!is.na(heights)]
 na.omit(heights)
 ```
 
-```{.output}
+```output
 [1] 2 4 4 6
 attr(,"na.action")
 [1] 4
@@ -980,7 +980,7 @@ attr(,"class")
 heights[complete.cases(heights)]
 ```
 
-```{.output}
+```output
 [1] 2 4 4 6
 ```
 
@@ -1014,7 +1014,7 @@ heights_no_na <- na.omit(heights)
 median(heights, na.rm = TRUE)
 ```
 
-```{.output}
+```output
 [1] 64
 ```
 
@@ -1024,7 +1024,7 @@ heights_above_67 <- heights_no_na[heights_no_na > 67]
 length(heights_above_67)
 ```
 
-```{.output}
+```output
 [1] 6
 ```
 
@@ -1048,7 +1048,7 @@ parameter. The values will be initialised with 0.
 numeric(3)
 ```
 
-```{.output}
+```output
 [1] 0 0 0
 ```
 
@@ -1056,7 +1056,7 @@ numeric(3)
 numeric(10)
 ```
 
-```{.output}
+```output
  [1] 0 0 0 0 0 0 0 0 0 0
 ```
 
@@ -1068,7 +1068,7 @@ exactly that:
 numeric(0)
 ```
 
-```{.output}
+```output
 numeric(0)
 ```
 
@@ -1090,7 +1090,7 @@ What are the defaults for character and logical vectors?
 character(2) ## the empty character
 ```
 
-```{.output}
+```output
 [1] "" ""
 ```
 
@@ -1098,7 +1098,7 @@ character(2) ## the empty character
 logical(2)   ## FALSE
 ```
 
-```{.output}
+```output
 [1] FALSE FALSE
 ```
 
@@ -1117,7 +1117,7 @@ the value -1, for example, we could do the following:
 rep(-1, 5)
 ```
 
-```{.output}
+```output
 [1] -1 -1 -1 -1 -1
 ```
 
@@ -1130,7 +1130,7 @@ to be collected:
 rep(NA, 5)
 ```
 
-```{.output}
+```output
 [1] NA NA NA NA NA
 ```
 
@@ -1143,7 +1143,7 @@ values 1, 2 and 3 five times, we would do the following:
 rep(c(1, 2, 3), 5)
 ```
 
-```{.output}
+```output
  [1] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3
 ```
 
@@ -1164,7 +1164,7 @@ possibilities - see `?rep` or `?sort` for help.
 rep(c(1, 2, 3), each = 5)
 ```
 
-```{.output}
+```output
  [1] 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3
 ```
 
@@ -1172,7 +1172,7 @@ rep(c(1, 2, 3), each = 5)
 sort(rep(c(1, 2, 3), 5))
 ```
 
-```{.output}
+```output
  [1] 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3
 ```
 
@@ -1191,7 +1191,7 @@ by steps of 2, one would use:
 seq(from = 1, to = 20, by = 2)
 ```
 
-```{.output}
+```output
  [1]  1  3  5  7  9 11 13 15 17 19
 ```
 
@@ -1204,7 +1204,7 @@ there's a shortcut:
 seq(1, 5, 1)
 ```
 
-```{.output}
+```output
 [1] 1 2 3 4 5
 ```
 
@@ -1212,7 +1212,7 @@ seq(1, 5, 1)
 seq(1, 5) ## default by
 ```
 
-```{.output}
+```output
 [1] 1 2 3 4 5
 ```
 
@@ -1220,7 +1220,7 @@ seq(1, 5) ## default by
 1:5
 ```
 
-```{.output}
+```output
 [1] 1 2 3 4 5
 ```
 
@@ -1232,7 +1232,7 @@ one would use:
 seq(from = 1, to = 20, length.out = 3)
 ```
 
-```{.output}
+```output
 [1]  1.0 10.5 20.0
 ```
 
@@ -1249,7 +1249,7 @@ instance based on the alphabetic order of their name) and then:
 sample(1:10)
 ```
 
-```{.output}
+```output
  [1]  9  4  7  1  2  5  3 10  6  8
 ```
 
@@ -1263,7 +1263,7 @@ letters from the alphabet contained in the pre-defined `letters` vector:
 sample(letters, 5)
 ```
 
-```{.output}
+```output
 [1] "s" "a" "u" "x" "j"
 ```
 
@@ -1276,7 +1276,7 @@ argument to `TRUE`:
 sample(1:5, 10, replace = TRUE)
 ```
 
-```{.output}
+```output
  [1] 2 1 5 5 1 1 5 5 2 2
 ```
 
@@ -1310,7 +1310,7 @@ Different permutations
 sample(1:10)
 ```
 
-```{.output}
+```output
  [1]  9  1  4  3  6  2  5  8 10  7
 ```
 
@@ -1318,7 +1318,7 @@ sample(1:10)
 sample(1:10)
 ```
 
-```{.output}
+```output
  [1]  4  9  7  6  1 10  8  3  2  5
 ```
 
@@ -1330,7 +1330,7 @@ set.seed(123)
 sample(1:10)
 ```
 
-```{.output}
+```output
  [1]  3 10  2  8  6  9  1  7  5  4
 ```
 
@@ -1339,7 +1339,7 @@ set.seed(123)
 sample(1:10)
 ```
 
-```{.output}
+```output
  [1]  3 10  2  8  6  9  1  7  5  4
 ```
 
@@ -1351,7 +1351,7 @@ set.seed(1)
 sample(1:10)
 ```
 
-```{.output}
+```output
  [1]  9  4  7  1  2  5  3 10  6  8
 ```
 
@@ -1360,7 +1360,7 @@ set.seed(1)
 sample(1:10)
 ```
 
-```{.output}
+```output
  [1]  9  4  7  1  2  5  3 10  6  8
 ```
 
@@ -1389,7 +1389,7 @@ and its standard deviation. The defaults of the latter are 0 and 1.
 rnorm(5)
 ```
 
-```{.output}
+```output
 [1]  0.69641761  0.05351568 -1.31028350 -2.12306606 -0.20807859
 ```
 
@@ -1397,7 +1397,7 @@ rnorm(5)
 rnorm(5, 2, 2)
 ```
 
-```{.output}
+```output
 [1]  1.3744268 -0.1164714  2.8344472  1.3690969  3.6510983
 ```
 
@@ -1405,7 +1405,7 @@ rnorm(5, 2, 2)
 rnorm(5, 100, 5)
 ```
 
-```{.output}
+```output
 [1] 106.45636  96.87448  95.62427 100.71678 107.12595
 ```
 

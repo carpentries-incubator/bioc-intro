@@ -131,7 +131,7 @@ ggplot(data = rna, mapping = aes(x = expression)) +
   geom_histogram()
 ```
 
-```{.output}
+```output
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
@@ -160,7 +160,7 @@ You have probably noticed an automatic message that appears when
 drawing the histogram:
 
 
-```{.output}
+```output
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
@@ -211,7 +211,7 @@ distribution is indeed closer to a normal distribution.
 ggplot(rna, aes(x = expression_log)) + geom_histogram()
 ```
 
-```{.output}
+```output
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
@@ -245,15 +245,15 @@ ggplot(data = rna,mapping = aes(x = expression))+
   scale_x_log10()
 ```
 
-```{.warning}
+```warning
 Warning in scale_x_log10(): log-10 transformation introduced infinite values.
 ```
 
-```{.output}
+```output
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-```{.warning}
+```warning
 Warning: Removed 507 rows containing non-finite outside the scale range
 (`stat_bin()`).
 ```
@@ -311,7 +311,7 @@ rna_fc <- rna %>% select(gene, time,
   mutate(time_8_vs_0 = `8` - `0`, time_4_vs_0 = `4` - `0`)
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'gene', 'time'. You can override using the
 `.groups` argument.
 ```
@@ -664,7 +664,7 @@ mean_exp_by_time <- sub_rna %>%
     summarize(mean_exp = mean(expression_log))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
@@ -673,7 +673,7 @@ mean_exp_by_time <- sub_rna %>%
 mean_exp_by_time
 ```
 
-```{.output}
+```output
 # A tibble: 30 × 3
 # Groups:   gene [10]
    gene   time mean_exp
@@ -769,7 +769,7 @@ mean_exp_by_time_sex <- sub_rna %>%
     summarize(mean_exp = mean(expression_log))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'gene', 'time'. You can override using the
 `.groups` argument.
 ```
@@ -778,7 +778,7 @@ mean_exp_by_time_sex <- sub_rna %>%
 mean_exp_by_time_sex
 ```
 
-```{.output}
+```output
 # A tibble: 60 × 4
 # Groups:   gene, time [30]
    gene   time sex    mean_exp
@@ -844,7 +844,7 @@ mean_exp_by_chromosome <- rna %>%
   summarize(mean_exp = mean(expression_log))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'chromosome_name'. You can override using
 the `.groups` argument.
 ```
@@ -1053,7 +1053,7 @@ ggplot(data = mean_exp_by_time_sex,
   theme(panel.grid = element_blank())
 ```
 
-```{.warning}
+```warning
 Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.
 This warning is displayed once every 8 hours.

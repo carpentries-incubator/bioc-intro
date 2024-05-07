@@ -543,7 +543,7 @@ to recreate the exact same object as the one in memory:
 dput(head(iris))
 ```
 
-```{.output}
+```output
 structure(list(Sepal.Length = c(5.1, 4.9, 4.7, 4.6, 5, 5.4), 
     Sepal.Width = c(3.5, 3, 3.2, 3.1, 3.6, 3.9), Petal.Length = c(1.4, 
     1.4, 1.3, 1.5, 1.4, 1.7), Petal.Width = c(0.2, 0.2, 0.2, 
@@ -584,7 +584,7 @@ to understand your problem.
 sessionInfo()
 ```
 
-```{.output}
+```output
 R version 4.3.3 (2024-02-29)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Ubuntu 22.04.4 LTS
@@ -606,9 +606,9 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
-[1] BiocManager_1.30.22 compiler_4.3.3      tools_4.3.3        
-[4] yaml_2.3.8          highr_0.10          knitr_1.45         
-[7] xfun_0.43           renv_1.0.5          evaluate_0.23      
+[1] BiocManager_1.30.23 compiler_4.3.3      tools_4.3.3        
+[4] yaml_2.3.8          highr_0.10          knitr_1.46         
+[7] xfun_0.43           renv_1.0.7          evaluate_0.23      
 ```
 
 ### Where to ask for help?

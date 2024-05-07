@@ -99,7 +99,7 @@ rna <- read_csv("data/rnaseq.csv")
 rna
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 19
    gene    sample  expression organism   age sex   infection strain  time tissue
    <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
@@ -153,7 +153,7 @@ arguments are the columns to keep.
 select(rna, gene, sample, tissue, expression)
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 4
    gene    sample     tissue     expression
    <chr>   <chr>      <chr>           <dbl>
@@ -178,7 +178,7 @@ the variable to exclude it.
 select(rna, -tissue, -organism)
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 17
    gene    sample   expression   age sex   infection strain  time mouse ENTREZID
    <chr>   <chr>         <dbl> <dbl> <chr> <chr>     <chr>  <dbl> <dbl>    <dbl>
@@ -208,7 +208,7 @@ To choose rows based on a specific criteria, use `filter()`:
 filter(rna, sex == "Male")
 ```
 
-```{.output}
+```output
 # A tibble: 14,740 × 19
    gene    sample  expression organism   age sex   infection strain  time tissue
    <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
@@ -233,7 +233,7 @@ filter(rna, sex == "Male")
 filter(rna, sex == "Male" & infection == "NonInfected")
 ```
 
-```{.output}
+```output
 # A tibble: 4,422 × 19
    gene    sample  expression organism   age sex   infection strain  time tissue
    <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
@@ -267,7 +267,7 @@ genes <- select(rna, gene, hsapiens_homolog_associated_gene_name)
 genes
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 2
    gene    hsapiens_homolog_associated_gene_name
    <chr>   <chr>                                
@@ -293,7 +293,7 @@ something is an `NA`.
 filter(genes, is.na(hsapiens_homolog_associated_gene_name))
 ```
 
-```{.output}
+```output
 # A tibble: 4,290 × 2
    gene     hsapiens_homolog_associated_gene_name
    <chr>    <chr>                                
@@ -320,7 +320,7 @@ every row where hsapiens\_homolog\_associated\_gene\_name *is not* an
 filter(genes, !is.na(hsapiens_homolog_associated_gene_name))
 ```
 
-```{.output}
+```output
 # A tibble: 28,138 × 2
    gene    hsapiens_homolog_associated_gene_name
    <chr>   <chr>                                
@@ -352,7 +352,7 @@ rna3 <- select(rna2, gene, sample, tissue, expression)
 rna3
 ```
 
-```{.output}
+```output
 # A tibble: 14,740 × 4
    gene    sample     tissue     expression
    <chr>   <chr>      <chr>           <dbl>
@@ -382,7 +382,7 @@ rna3 <- select(filter(rna, sex == "Male"), gene, sample, tissue, expression)
 rna3
 ```
 
-```{.output}
+```output
 # A tibble: 14,740 × 4
    gene    sample     tissue     expression
    <chr>   <chr>      <chr>           <dbl>
@@ -429,7 +429,7 @@ rna %>%
   select(gene, sample, tissue, expression)
 ```
 
-```{.output}
+```output
 # A tibble: 14,740 × 4
    gene    sample     tissue     expression
    <chr>   <chr>      <chr>           <dbl>
@@ -467,7 +467,7 @@ rna3 <- rna %>%
 rna3
 ```
 
-```{.output}
+```output
 # A tibble: 14,740 × 4
    gene    sample     tissue     expression
    <chr>   <chr>      <chr>           <dbl>
@@ -505,7 +505,7 @@ rna %>%
   select(gene, sample, time, expression, age)
 ```
 
-```{.output}
+```output
 # A tibble: 9 × 5
   gene   sample      time expression   age
   <chr>  <chr>      <dbl>      <dbl> <dbl>
@@ -539,7 +539,7 @@ rna %>%
   select(time, time_hours)
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 2
     time time_hours
    <dbl>      <dbl>
@@ -566,7 +566,7 @@ rna %>%
   select(time, time_hours, time_mn)
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 3
     time time_hours time_mn
    <dbl>      <dbl>   <dbl>
@@ -611,7 +611,7 @@ rna %>%
   filter(expression > 5)
 ```
 
-```{.output}
+```output
 # A tibble: 649 × 5
    gene   chromosome_name phenotype_description                sample expression
    <chr>  <chr>           <chr>                                <chr>       <dbl>
@@ -645,7 +645,7 @@ rna %>%
   group_by(gene)
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 19
 # Groups:   gene [1,474]
    gene    sample  expression organism   age sex   infection strain  time tissue
@@ -680,7 +680,7 @@ rna %>%
   group_by(sample)
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 19
 # Groups:   sample [22]
    gene    sample  expression organism   age sex   infection strain  time tissue
@@ -724,7 +724,7 @@ rna %>%
   summarise(mean_expression = mean(expression))
 ```
 
-```{.output}
+```output
 # A tibble: 1,474 × 2
    gene     mean_expression
    <chr>              <dbl>
@@ -750,7 +750,7 @@ rna %>%
   summarise(mean_expression = mean(expression))
 ```
 
-```{.output}
+```output
 # A tibble: 22 × 2
    sample     mean_expression
    <chr>                <dbl>
@@ -776,12 +776,12 @@ rna %>%
   summarise(mean_expression = mean(expression))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'gene', 'infection'. You can override using
 the `.groups` argument.
 ```
 
-```{.output}
+```output
 # A tibble: 4,422 × 4
 # Groups:   gene, infection [2,948]
    gene     infection    time mean_expression
@@ -811,12 +811,12 @@ rna %>%
             median_expression = median(expression))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'gene', 'infection'. You can override using
 the `.groups` argument.
 ```
 
-```{.output}
+```output
 # A tibble: 4,422 × 5
 # Groups:   gene, infection [2,948]
    gene     infection    time mean_expression median_expression
@@ -852,7 +852,7 @@ rna %>%
   summarise(mean = mean(expression))
 ```
 
-```{.output}
+```output
 # A tibble: 3 × 2
    time  mean
   <dbl> <dbl>
@@ -878,7 +878,7 @@ rna %>%
     count(infection)
 ```
 
-```{.output}
+```output
 # A tibble: 2 × 2
   infection       n
   <chr>       <int>
@@ -895,7 +895,7 @@ rna %>%
     summarise(n = n())
 ```
 
-```{.output}
+```output
 # A tibble: 2 × 2
   infection       n
   <chr>       <int>
@@ -914,7 +914,7 @@ rna %>%
     count(infection, time)
 ```
 
-```{.output}
+```output
 # A tibble: 3 × 3
   infection    time     n
   <chr>       <dbl> <int>
@@ -932,12 +932,12 @@ rna %>%
   summarise(n = n())
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'infection'. You can override using the
 `.groups` argument.
 ```
 
-```{.output}
+```output
 # A tibble: 3 × 3
 # Groups:   infection [2]
   infection    time     n
@@ -958,7 +958,7 @@ rna %>%
   arrange(time)
 ```
 
-```{.output}
+```output
 # A tibble: 3 × 3
   infection    time     n
   <chr>       <dbl> <int>
@@ -976,7 +976,7 @@ rna %>%
   arrange(n)
 ```
 
-```{.output}
+```output
 # A tibble: 3 × 3
   infection    time     n
   <chr>       <dbl> <int>
@@ -994,7 +994,7 @@ rna %>%
   arrange(desc(n))
 ```
 
-```{.output}
+```output
 # A tibble: 3 × 3
   infection    time     n
   <chr>       <dbl> <int>
@@ -1023,7 +1023,7 @@ rna %>%
   count(sample)
 ```
 
-```{.output}
+```output
 # A tibble: 22 × 2
    sample         n
    <chr>      <int>
@@ -1048,7 +1048,7 @@ rna %>%
   arrange(desc(seq_depth))
 ```
 
-```{.output}
+```output
 # A tibble: 22 × 2
    sample     seq_depth
    <chr>          <dbl>
@@ -1073,7 +1073,7 @@ rna %>%
   arrange(desc(n))
 ```
 
-```{.output}
+```output
 # A tibble: 13 × 2
    gene_biotype                           n
    <chr>                              <int>
@@ -1101,12 +1101,12 @@ rna %>%
   arrange()
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
 
-```{.output}
+```output
 # A tibble: 6 × 3
 # Groups:   gene [2]
   gene   time mean_expression
@@ -1138,7 +1138,7 @@ rna %>%
   arrange(gene)
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 19
    gene     sample expression organism   age sex   infection strain  time tissue
    <chr>    <chr>       <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
@@ -1172,7 +1172,7 @@ to explore the relationship between the gene expression levels within, and
 between, the samples.
 
 
-```{.output}
+```output
 # A tibble: 1,474 × 23
    gene    GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
    <chr>        <dbl>      <dbl>      <dbl>      <dbl>      <dbl>      <dbl>
@@ -1223,7 +1223,7 @@ rna_exp <- rna %>%
 rna_exp
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 3
    gene    sample     expression
    <chr>   <chr>           <dbl>
@@ -1261,7 +1261,7 @@ rna_wide <- rna_exp %>%
 rna_wide
 ```
 
-```{.output}
+```output
 # A tibble: 1,474 × 23
    gene    GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
    <chr>        <dbl>      <dbl>      <dbl>      <dbl>      <dbl>      <dbl>
@@ -1300,7 +1300,7 @@ rna_with_missing_values <- rna %>%
 rna_with_missing_values
 ```
 
-```{.output}
+```output
 # A tibble: 7 × 3
   gene    sample     expression
   <chr>   <chr>           <dbl>
@@ -1324,7 +1324,7 @@ rna_with_missing_values %>%
               values_from = expression)
 ```
 
-```{.output}
+```output
 # A tibble: 3 × 4
   gene    GSM2545336 GSM2545337 GSM2545338
   <chr>        <dbl>      <dbl>      <dbl>
@@ -1340,7 +1340,7 @@ rna_with_missing_values %>%
               values_fill = 0)
 ```
 
-```{.output}
+```output
 # A tibble: 3 × 4
   gene    GSM2545336 GSM2545337 GSM2545338
   <chr>        <dbl>      <dbl>      <dbl>
@@ -1387,7 +1387,7 @@ rna_long <- rna_wide %>%
 rna_long
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 3
    gene  sample     expression
    <chr> <chr>           <dbl>
@@ -1419,7 +1419,7 @@ rna_wide %>%
                  cols = starts_with("GSM"))
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 3
    gene  sample     expression
    <chr> <chr>           <dbl>
@@ -1443,7 +1443,7 @@ rna_wide %>%
                  GSM2545336:GSM2545380)
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 3
    gene  sample     expression
    <chr> <chr>           <dbl>
@@ -1470,7 +1470,7 @@ Remember our previous fictive tibble containing missing values:
 rna_with_missing_values
 ```
 
-```{.output}
+```output
 # A tibble: 7 × 3
   gene    sample     expression
   <chr>   <chr>           <dbl>
@@ -1490,7 +1490,7 @@ wide_with_NA <- rna_with_missing_values %>%
 wide_with_NA
 ```
 
-```{.output}
+```output
 # A tibble: 3 × 4
   gene    GSM2545336 GSM2545337 GSM2545338
   <chr>        <dbl>      <dbl>      <dbl>
@@ -1506,7 +1506,7 @@ wide_with_NA %>%
                  -gene)
 ```
 
-```{.output}
+```output
 # A tibble: 9 × 3
   gene    sample     expression
   <chr>   <chr>           <dbl>
@@ -1544,7 +1544,7 @@ pivot_wider(names_from = mouse, values_from = expression)
 rna1
 ```
 
-```{.output}
+```output
 # A tibble: 1,474 × 23
    gene     `14`    `9`  `10`  `15`  `18`   `6`   `5`  `11`  `22`  `13`  `23`
    <chr>   <dbl>  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
@@ -1568,7 +1568,7 @@ rna1 %>%
 pivot_longer(names_to = "mouse_id", values_to = "counts", -gene)
 ```
 
-```{.output}
+```output
 # A tibble: 32,428 × 3
    gene  mouse_id counts
    <chr> <chr>     <dbl>
@@ -1617,12 +1617,12 @@ male and female samples...
   summarise(mean = mean(expression))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'sex'. You can override using the `.groups`
 argument.
 ```
 
-```{.output}
+```output
 # A tibble: 4 × 3
 # Groups:   sex [2]
   sex    chromosome_name  mean
@@ -1645,7 +1645,7 @@ rna_1 <- rna %>%
               values_from = mean)
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'sex'. You can override using the `.groups`
 argument.
 ```
@@ -1654,7 +1654,7 @@ argument.
 rna_1
 ```
 
-```{.output}
+```output
 # A tibble: 2 × 3
   chromosome_name Female  Male
   <chr>            <dbl> <dbl>
@@ -1673,7 +1673,7 @@ rna_1 %>%
                -chromosome_name)
 ```
 
-```{.output}
+```output
 # A tibble: 4 × 3
   chromosome_name gender  mean
   <chr>           <chr>  <dbl>
@@ -1708,12 +1708,12 @@ rna %>%
   summarise(mean_exp = mean(expression))
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
 
-```{.output}
+```output
 # A tibble: 4,422 × 3
 # Groups:   gene [1,474]
    gene      time mean_exp
@@ -1742,7 +1742,7 @@ rna_time <- rna %>%
               values_from = mean_exp)
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
@@ -1751,7 +1751,7 @@ rna_time <- rna %>%
 rna_time
 ```
 
-```{.output}
+```output
 # A tibble: 1,474 × 4
 # Groups:   gene [1,474]
    gene         `0`     `4`     `8`
@@ -1783,12 +1783,12 @@ rna %>%
   select(gene, 4)
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
 
-```{.output}
+```output
 # A tibble: 1,474 × 2
 # Groups:   gene [1,474]
    gene         `8`
@@ -1818,12 +1818,12 @@ rna %>%
   select(gene, `4`)
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
 
-```{.output}
+```output
 # A tibble: 1,474 × 2
 # Groups:   gene [1,474]
    gene         `4`
@@ -1855,12 +1855,12 @@ rna %>%
   select(gene, time4)
 ```
 
-```{.output}
+```output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
 
-```{.output}
+```output
 # A tibble: 1,474 × 2
 # Groups:   gene [1,474]
    gene       time4
@@ -1902,7 +1902,7 @@ Starting from the rna\_time tibble:
 rna_time
 ```
 
-```{.output}
+```output
 # A tibble: 1,474 × 4
 # Groups:   gene [1,474]
    gene         `0`     `4`     `8`
@@ -1928,7 +1928,7 @@ rna_time %>%
   mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`)
 ```
 
-```{.output}
+```output
 # A tibble: 1,474 × 6
 # Groups:   gene [1,474]
    gene         `0`     `4`     `8` time_8_vs_0 time_8_vs_4
@@ -1957,7 +1957,7 @@ rna_time %>%
                time_8_vs_0:time_8_vs_4)
 ```
 
-```{.output}
+```output
 # A tibble: 2,948 × 6
 # Groups:   gene [1,474]
    gene         `0`     `4`     `8` comparisons Fold_changes
@@ -2010,7 +2010,7 @@ rna_mini <- rna %>%
 rna_mini
 ```
 
-```{.output}
+```output
 # A tibble: 10 × 3
    gene    sample     expression
    <chr>   <chr>           <dbl>
@@ -2040,7 +2040,7 @@ annot1 <- read_csv(file = "data/annot1.csv")
 annot1
 ```
 
-```{.output}
+```output
 # A tibble: 10 × 2
    gene    gene_description                                                     
    <chr>   <chr>                                                                
@@ -2068,11 +2068,11 @@ observations across different tables.
 full_join(rna_mini, annot1)
 ```
 
-```{.output}
+```output
 Joining with `by = join_by(gene)`
 ```
 
-```{.output}
+```output
 # A tibble: 10 × 4
    gene    sample     expression gene_description                               
    <chr>   <chr>           <dbl> <chr>                                          
@@ -2103,7 +2103,7 @@ annot2 <- read_csv(file = "data/annot2.csv")
 annot2
 ```
 
-```{.output}
+```output
 # A tibble: 10 × 2
    external_gene_name description                                               
    <chr>              <chr>                                                     
@@ -2128,7 +2128,7 @@ the `by` argument, as shown below with `rna_mini` and `annot2` tables.
 full_join(rna_mini, annot2, by = c("gene" = "external_gene_name"))
 ```
 
-```{.output}
+```output
 # A tibble: 10 × 4
    gene    sample     expression description                                    
    <chr>   <chr>           <dbl> <chr>                                          
@@ -2167,7 +2167,7 @@ annot3 <- read_csv("data/annot3.csv")
 full_join(rna_mini, annot3)
 ```
 
-```{.output}
+```output
 # A tibble: 15 × 4
    gene    sample     expression gene_description                               
    <chr>   <chr>           <dbl> <chr>                                          

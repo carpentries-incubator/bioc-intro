@@ -104,7 +104,7 @@ using the function `head()`:
 head(rna)
 ```
 
-```{.output}
+```output
      gene     sample expression     organism age    sex  infection  strain time
 1     Asl GSM2545336       1170 Mus musculus   8 Female InfluenzaA C57BL/6    8
 2    Apod GSM2545336      36194 Mus musculus   8 Female InfluenzaA C57BL/6    8
@@ -207,7 +207,7 @@ with the function `str()`:
 str(rna)
 ```
 
-```{.output}
+```output
 'data.frame':	32428 obs. of  19 variables:
  $ gene                                 : chr  "Asl" "Apod" "Cyp2d22" "Klk6" ...
  $ sample                               : chr  "GSM2545336" "GSM2545336" "GSM2545336" "GSM2545336" ...
@@ -417,7 +417,7 @@ in this vector is `"male"`). You can see this by using the function
 levels(sex)
 ```
 
-```{.output}
+```output
 [1] "female" "male"  
 ```
 
@@ -425,7 +425,7 @@ levels(sex)
 nlevels(sex)
 ```
 
-```{.output}
+```output
 [1] 2
 ```
 
@@ -440,7 +440,7 @@ in the `sex` vector would be:
 sex ## current order
 ```
 
-```{.output}
+```output
 [1] male   female female male   female
 Levels: female male
 ```
@@ -450,7 +450,7 @@ sex <- factor(sex, levels = c("male", "female"))
 sex ## after re-ordering
 ```
 
-```{.output}
+```output
 [1] male   female female male   female
 Levels: male female
 ```
@@ -488,7 +488,7 @@ If you need to convert a factor to a character vector, you use
 as.character(sex)
 ```
 
-```{.output}
+```output
 [1] "male"   "female" "female" "male"   "female"
 ```
 
@@ -540,7 +540,7 @@ levels:
 levels(sex)
 ```
 
-```{.output}
+```output
 [1] "male"   "female"
 ```
 
@@ -549,7 +549,7 @@ levels(sex) <- c("M", "F")
 sex
 ```
 
-```{.output}
+```output
 [1] M F F M F
 Levels: M F
 ```
@@ -575,7 +575,7 @@ plot(sex)
 levels(sex)
 ```
 
-```{.output}
+```output
 [1] "M" "F"
 ```
 
@@ -659,7 +659,7 @@ country_climate <- data.frame(
 str(country_climate)
 ```
 
-```{.output}
+```output
 'data.frame':	4 obs. of  5 variables:
  $ country            : chr  "Canada" "Panama" "South Africa" "Australia"
  $ climate            : chr  "cold" "hot" "temperate" "hot/temperate"
@@ -701,7 +701,7 @@ m <- matrix(1:9, ncol = 3, nrow = 3)
 m
 ```
 
-```{.output}
+```output
      [,1] [,2] [,3]
 [1,]    1    4    7
 [2,]    2    5    8
@@ -763,7 +763,7 @@ m <- matrix(rnorm(3000), ncol = 3)
 dim(m)
 ```
 
-```{.output}
+```output
 [1] 1000    3
 ```
 
@@ -771,7 +771,7 @@ dim(m)
 head(m)
 ```
 
-```{.output}
+```output
             [,1]        [,2]       [,3]
 [1,] -0.56047565 -0.99579872 -0.5116037
 [2,] -0.23017749 -1.03995504  0.2369379
@@ -845,7 +845,7 @@ my_date <- ymd("2015-01-01")
 str(my_date)
 ```
 
-```{.output}
+```output
  Date[1:1], format: "2015-01-01"
 ```
 
@@ -858,7 +858,7 @@ my_date <- ymd(paste("2015", "1", "1", sep = "-"))
 str(my_date)
 ```
 
-```{.output}
+```output
  Date[1:1], format: "2015-01-01"
 ```
 
@@ -875,7 +875,7 @@ x <- data.frame(year = c(1996, 1992, 1987, 1986, 2000, 1990, 2002, 1994, 1997, 1
 x
 ```
 
-```{.output}
+```output
    year month day value
 1  1996     2  24     4
 2  1992     3   8     5
@@ -898,7 +898,7 @@ using `paste()`:
 paste(x$year, x$month, x$day, sep = "-")
 ```
 
-```{.output}
+```output
  [1] "1996-2-24" "1992-3-8"  "1987-3-1"  "1986-10-5" "2000-1-8"  "1990-8-17"
  [7] "2002-3-13" "1994-4-10" "1997-5-11" "1985-5-24"
 ```
@@ -910,7 +910,7 @@ This character vector can be used as the argument for `ymd()`:
 ymd(paste(x$year, x$month, x$day, sep = "-"))
 ```
 
-```{.output}
+```output
  [1] "1996-02-24" "1992-03-08" "1987-03-01" "1986-10-05" "2000-01-08"
  [6] "1990-08-17" "2002-03-13" "1994-04-10" "1997-05-11" "1985-05-24"
 ```
@@ -923,7 +923,7 @@ x$date <- ymd(paste(x$year, x$month, x$day, sep = "-"))
 str(x) # notice the new column, with 'date' as the class
 ```
 
-```{.output}
+```output
 'data.frame':	10 obs. of  5 variables:
  $ year : num  1996 1992 1987 1986 2000 ...
  $ month: num  2 3 3 10 1 8 3 4 5 5
@@ -940,7 +940,7 @@ new column is to use `summary()`:
 summary(x$date)
 ```
 
-```{.output}
+```output
         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
 "1985-05-24" "1988-01-11" "1993-03-24" "1993-03-18" "1997-01-20" "2002-03-13" 
 ```
@@ -954,7 +954,7 @@ order. If you have for instance day, month and year, you would need
 dmy(paste(x$day, x$month, x$year, sep = "-"))
 ```
 
-```{.output}
+```output
  [1] "1996-02-24" "1992-03-08" "1987-03-01" "1986-10-05" "2000-01-08"
  [6] "1990-08-17" "2002-03-13" "1994-04-10" "1997-05-11" "1985-05-24"
 ```
@@ -992,7 +992,7 @@ l <- list(1:10, ## numeric
 length(l)
 ```
 
-```{.output}
+```output
 [1] 5
 ```
 
@@ -1000,7 +1000,7 @@ length(l)
 str(l)
 ```
 
-```{.output}
+```output
 List of 5
  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
  $ : chr [1:26] "a" "b" "c" "d" ...
@@ -1026,7 +1026,7 @@ the list is named).
 l[[1]] ## first element
 ```
 
-```{.output}
+```output
  [1]  1  2  3  4  5  6  7  8  9 10
 ```
 
@@ -1034,7 +1034,7 @@ l[[1]] ## first element
 l[1:2] ## a list of length 2
 ```
 
-```{.output}
+```output
 [[1]]
  [1]  1  2  3  4  5  6  7  8  9 10
 
@@ -1047,7 +1047,7 @@ l[1:2] ## a list of length 2
 l[1]   ## a list of length 1
 ```
 
-```{.output}
+```output
 [[1]]
  [1]  1  2  3  4  5  6  7  8  9 10
 ```
