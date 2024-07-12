@@ -158,7 +158,6 @@ commands. For now, simply follow the instructions below:
 
 ```r
 install.packages(c("BiocManager", "remotes"))
-BiocManager::install(c("tidyverse", "SummarizedExperiment",
-                       "UCLouvain-CBIO/rWSBIM1207", "hexbin",
+BiocManager::install(c("tidyverse", "SummarizedExperiment", "hexbin",
                        "patchwork", "gridExtra", "lubridate"))
 ```

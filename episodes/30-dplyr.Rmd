@@ -11,8 +11,11 @@ exercises: 75
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Describe the purpose of the **`dplyr`** and **`tidyr`** packages.
-- Describe several of their functions that are extremely useful to manipulate data.
-- Describe the concept of a wide and a long table format, and see how to reshape a data frame from one format to the other one.
+- Describe several of their functions that are extremely useful to 
+  manipulate data.
+- Describe the concept of a wide and a long table format, and see 
+  how to reshape a data frame from one format to the other one.
+- Demonstrate how to join tables. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -24,7 +27,7 @@ exercises: 75
 
 ```{r loaddata_dplyr, echo=FALSE, purl=FALSE, message=FALSE}
 if (!file.exists("data/rnaseq.csv"))
-download.file(url = "https://github.com/Bioconductor/bioconductor-teaching/raw/master/data/GSE96870/rnaseq.csv",
+download.file(url = "https://github.com/carpentries-incubator/bioc-intro/raw/main/episodes/data/rnaseq.csv",
               destfile = "data/rnaseq.csv")
 ```
 
@@ -511,7 +514,6 @@ rna %>%
 ## 3.
 rna %>%
   filter(sample == "GSM2545336") %>%
-  group_by(gene_biotype) %>%
   count(gene_biotype) %>%
   arrange(desc(n))
 ## 4.
@@ -612,16 +614,13 @@ Let's imagine that for some reason, we had some missing expression values for so
 genes in certain samples. In the following fictive example, the gene Cyp2d22 has only
 one expression value, in GSM2545338 sample.
 
-```{r, purl=TRUE, echo=FALSE}
+```{r, purl=TRUE}
 rna_with_missing_values <- rna %>%
   select(gene, sample, expression) %>%
   filter(gene %in% c("Asl", "Apod", "Cyp2d22")) %>%
   filter(sample %in% c("GSM2545336", "GSM2545337", "GSM2545338")) %>%
   arrange(sample) %>%
   filter(!(gene == "Cyp2d22" & sample != "GSM2545338"))
-```
-
-```{r, purl=TRUE}
 rna_with_missing_values
 ```
 

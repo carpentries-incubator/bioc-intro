@@ -56,7 +56,7 @@ columns represent:
 | age        | The age of the mouse (all mice were 8 weeks here)                                            |
 | sex        | The sex of the mouse                                                                         |
 | infection  | The infection state of the mouse, i.e. infected with Influenza A or not infected.            |
-| strain     | The Influenza A strain; C57BL/6 in all cases.                                                |
+| strain     | The Influenza A strain.                                                                      |
 | time       | The duration of the infection (in days).                                                     |
 | tissue     | The tissue that was used for the gene expression experiment, i.e. cerebellum or spinal cord. |
 | mouse      | The mouse unique identifier.                                                                 |
@@ -205,8 +205,6 @@ questions?
 
 - class: data frame
 - how many rows: 32428, how many columns: 19
-
-
 
 :::::::::::::::::::::::::
 
