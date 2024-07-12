@@ -204,8 +204,7 @@ questions?
 ## Solution
 
 - class: data frame
-- how many rows: 66465, how many columns: 11
-
+- how many rows: 32428, how many columns: 19
 
 
 :::::::::::::::::::::::::
