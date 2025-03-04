@@ -95,24 +95,26 @@ provided (after raw data have been processed).
 rna <- read_csv("data/rnaseq.csv")
 
 ## count matrix
-counts <- rna %>%
-  select(gene, sample, expression) %>%
+counts <- rna |>
+  select(gene, sample, expression) |>
   pivot_wider(names_from = sample,
               values_from = expression)
 
 ## convert to matrix and set row names
-count_matrix <- counts %>% select(-gene) %>% as.matrix()
+count_matrix <- counts |>
+  select(-gene) |>
+  as.matrix()
 rownames(count_matrix) <- counts$gene
 
 ## sample annotation
-sample_metadata <- rna %>%
+sample_metadata <- rna |>
   select(sample, organism, age, sex, infection, strain, time, tissue, mouse)
 
 ## remove redundancy
 sample_metadata <- unique(sample_metadata)
 
 ## gene annotation
-gene_metadata <- rna %>%
+gene_metadata <- rna |>
   select(gene, ENTREZID, product, ensembl_gene_id, external_synonym,
          chromosome_name, gene_biotype, phenotype_description,
          hsapiens_homolog_associated_gene_name)
@@ -133,7 +135,7 @@ write.csv(sample_metadata, file = "data/sample_metadata.csv", row.names = FALSE)
 
 ```{r}
 count_matrix <- read.csv("data/count_matrix.csv",
-                         row.names = 1) %>%
+                         row.names = 1) |>
     as.matrix()
 
 count_matrix[1:5, ]
@@ -323,7 +325,8 @@ Verify that you get the same values using the long `rna` table.
 ```{r, purl=FALSE}
 rna |>
     filter(gene %in% c("Asl", "Apod", "Cyd2d22")) |>
-    filter(time != 4) |> select(expression)
+    filter(time != 4) |>
+    select(expression)
 ```
 
 :::::::::::::::::::::::::
@@ -400,28 +403,28 @@ We can use `filter` to filter for rows using a condition e.g. to view
 all rows for one sample.
 
 ```{r}
-se %>% filter(.sample == "GSM2545336")
+se |> filter(.sample == "GSM2545336")
 ```
 
 We can use `select` to specify columns we want to view.
 
 ```{r}
-se %>% select(.sample)
+se |> select(.sample)
 ```
 
 We can use `mutate` to add metadata info.
 
 ```{r}
-se %>% mutate(center = "Heidelberg University")
+se |> mutate(center = "Heidelberg University")
 ```
 
-We can also combine commands with the tidyverse pipe `%>%`. For
+We can also combine commands with the tidyverse pipe `|>`. For
 example, we could combine `group_by` and `summarise` to get the total
 counts for each sample.
 
 ```{r}
-se %>%
-    group_by(.sample) %>%
+se |>
+    group_by(.sample) |>
     summarise(total_counts=sum(counts))
 ```
 
@@ -431,7 +434,7 @@ for plotting.
 Here we plot the distribution of counts per sample.
 
 ```{r tidySE-plot}
-se %>%
+se |>
     ggplot(aes(counts + 1, group=.sample, color=infection)) +
     geom_density() +
     scale_x_log10() +

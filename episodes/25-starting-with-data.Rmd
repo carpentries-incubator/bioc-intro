@@ -204,7 +204,7 @@ questions?
 ## Solution
 
 - class: data frame
-- how many rows: 32428, how many columns: 19
+- how many rows: `r nrow(rna)`, how many columns: `r ncol(rna)`
 
 :::::::::::::::::::::::::
 
