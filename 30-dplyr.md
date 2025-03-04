@@ -10,11 +10,11 @@ exercises: 75
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Describe the purpose of the **`dplyr`** and **`tidyr`** packages.
-- Describe several of their functions that are extremely useful to 
+- Describe several of their functions that are extremely useful to
   manipulate data.
-- Describe the concept of a wide and a long table format, and see 
+- Describe the concept of a wide and a long table format, and see
   how to reshape a data frame from one format to the other one.
-- Demonstrate how to join tables. 
+- Demonstrate how to join tables.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -69,7 +69,7 @@ If you did the set up, you should have already installed the tidyverse package.
 Check to see if you have it by trying to load in from the library:
 
 
-```r
+``` r
 ## load the tidyverse packages, incl. dplyr
 library("tidyverse")
 ```
@@ -78,7 +78,7 @@ If you got an error message `there is no package called ‘tidyverse’` then yo
 installed the package yet for this version of R. To install the **`tidyverse`** package type:
 
 
-```r
+``` r
 BiocManager::install("tidyverse")
 ```
 
@@ -92,14 +92,14 @@ function (notice the `_` instead of the `.`), from the tidyverse package
 **`readr`**.
 
 
-```r
+``` r
 rna <- read_csv("data/rnaseq.csv")
 
 ## view the data
 rna
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 19
    gene    sample  expression organism   age sex   infection strain  time tissue
    <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
@@ -149,11 +149,11 @@ to this function is the data frame (`rna`), and the subsequent
 arguments are the columns to keep.
 
 
-```r
+``` r
 select(rna, gene, sample, tissue, expression)
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 4
    gene    sample     tissue     expression
    <chr>   <chr>      <chr>           <dbl>
@@ -174,11 +174,11 @@ To select all columns *except* certain ones, put a "-" in front of
 the variable to exclude it.
 
 
-```r
+``` r
 select(rna, -tissue, -organism)
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 17
    gene    sample   expression   age sex   infection strain  time mouse ENTREZID
    <chr>   <chr>         <dbl> <dbl> <chr> <chr>     <chr>  <dbl> <dbl>    <dbl>
@@ -204,11 +204,11 @@ and `organism`.
 To choose rows based on a specific criteria, use `filter()`:
 
 
-```r
+``` r
 filter(rna, sex == "Male")
 ```
 
-```output
+``` output
 # A tibble: 14,740 × 19
    gene    sample  expression organism   age sex   infection strain  time tissue
    <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
@@ -229,11 +229,11 @@ filter(rna, sex == "Male")
 #   hsapiens_homolog_associated_gene_name <chr>
 ```
 
-```r
+``` r
 filter(rna, sex == "Male" & infection == "NonInfected")
 ```
 
-```output
+``` output
 # A tibble: 4,422 × 19
    gene    sample  expression organism   age sex   infection strain  time tissue
    <chr>   <chr>        <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
@@ -262,12 +262,12 @@ will create a new table containing just the 2 columns `gene` and
 `hsapiens_homolog_associated_gene_name`.
 
 
-```r
+``` r
 genes <- select(rna, gene, hsapiens_homolog_associated_gene_name)
 genes
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 2
    gene    hsapiens_homolog_associated_gene_name
    <chr>   <chr>                                
@@ -289,11 +289,11 @@ Some mouse genes have no human homologs. These can be retrieved using
 something is an `NA`.
 
 
-```r
+``` r
 filter(genes, is.na(hsapiens_homolog_associated_gene_name))
 ```
 
-```output
+``` output
 # A tibble: 4,290 × 2
    gene     hsapiens_homolog_associated_gene_name
    <chr>    <chr>                                
@@ -316,11 +316,11 @@ every row where hsapiens\_homolog\_associated\_gene\_name *is not* an
 `NA`.
 
 
-```r
+``` r
 filter(genes, !is.na(hsapiens_homolog_associated_gene_name))
 ```
 
-```output
+``` output
 # A tibble: 28,138 × 2
    gene    hsapiens_homolog_associated_gene_name
    <chr>   <chr>                                
@@ -346,13 +346,13 @@ With intermediate steps, you create a temporary data frame and use
 that as input to the next function, like this:
 
 
-```r
+``` r
 rna2 <- filter(rna, sex == "Male")
 rna3 <- select(rna2, gene, sample, tissue, expression)
 rna3
 ```
 
-```output
+``` output
 # A tibble: 14,740 × 4
    gene    sample     tissue     expression
    <chr>   <chr>      <chr>           <dbl>
@@ -377,12 +377,12 @@ You can also nest functions (i.e. one function inside of another),
 like this:
 
 
-```r
+``` r
 rna3 <- select(filter(rna, sex == "Male"), gene, sample, tissue, expression)
 rna3
 ```
 
-```output
+``` output
 # A tibble: 14,740 × 4
    gene    sample     tissue     expression
    <chr>   <chr>      <chr>           <dbl>
@@ -417,19 +417,19 @@ through `filter()` to keep rows where `sex` is Male, then through
 `select()` to keep only the `gene`, `sample`, `tissue`, and
 `expression`columns.
 
-The pipe `%>%` takes the object on its left and passes it directly as
+The pipe `|>` takes the object on its left and passes it directly as
 the first argument to the function on its right, we don't need to
 explicitly include the data frame as an argument to the `filter()` and
 `select()` functions any more.
 
 
-```r
-rna %>%
-  filter(sex == "Male") %>%
+``` r
+rna |>
+  filter(sex == "Male") |>
   select(gene, sample, tissue, expression)
 ```
 
-```output
+``` output
 # A tibble: 14,740 × 4
    gene    sample     tissue     expression
    <chr>   <chr>      <chr>           <dbl>
@@ -459,15 +459,15 @@ If we want to create a new object with this smaller version of the data, we
 can assign it a new name:
 
 
-```r
-rna3 <- rna %>%
-  filter(sex == "Male") %>%
+``` r
+rna3 <- rna |>
+  filter(sex == "Male") |>
   select(gene, sample, tissue, expression)
 
 rna3
 ```
 
-```output
+``` output
 # A tibble: 14,740 × 4
    gene    sample     tissue     expression
    <chr>   <chr>      <chr>           <dbl>
@@ -497,15 +497,15 @@ where the gene has an expression higher than 50000, and retain only the columns
 ## Solution
 
 
-```r
-rna %>%
+``` r
+rna |>
   filter(expression > 50000,
          sex == "Female",
-         time == 0 ) %>%
+         time == 0 ) |>
   select(gene, sample, time, expression, age)
 ```
 
-```output
+``` output
 # A tibble: 9 × 5
   gene   sample      time expression   age
   <chr>  <chr>      <dbl>      <dbl> <dbl>
@@ -533,13 +533,13 @@ columns. For this we'll use `mutate()`.
 To create a new column of time in hours:
 
 
-```r
-rna %>%
-  mutate(time_hours = time * 24) %>%
+``` r
+rna |>
+  mutate(time_hours = time * 24) |>
   select(time, time_hours)
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 2
     time time_hours
    <dbl>      <dbl>
@@ -559,14 +559,14 @@ rna %>%
 You can also create a second new column based on the first new column within the same call of `mutate()`:
 
 
-```r
-rna %>%
+``` r
+rna |>
   mutate(time_hours = time * 24,
-         time_mn = time_hours * 60) %>%
+         time_mn = time_hours * 60) |>
   select(time, time_hours, time_mn)
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 3
     time time_hours time_mn
    <dbl>      <dbl>   <dbl>
@@ -602,16 +602,16 @@ this data frame!
 ## Solution
 
 
-```r
-rna %>%
-  mutate(expression = log(expression)) %>%
-  select(gene, chromosome_name, phenotype_description, sample, expression) %>%
-  filter(chromosome_name == "X" | chromosome_name == "Y") %>%
-  filter(!is.na(phenotype_description)) %>%
+``` r
+rna |>
+  mutate(expression = log(expression)) |>
+  select(gene, chromosome_name, phenotype_description, sample, expression) |>
+  filter(chromosome_name == "X" | chromosome_name == "Y") |>
+  filter(!is.na(phenotype_description)) |>
   filter(expression > 5)
 ```
 
-```output
+``` output
 # A tibble: 649 × 5
    gene   chromosome_name phenotype_description                sample expression
    <chr>  <chr>           <chr>                                <chr>       <dbl>
@@ -640,12 +640,12 @@ analysis to each group, and then combine the results. **`dplyr`**
 makes this very easy through the use of the `group_by()` function.
 
 
-```r
-rna %>%
+``` r
+rna |>
   group_by(gene)
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 19
 # Groups:   gene [1,474]
    gene    sample  expression organism   age sex   infection strain  time tissue
@@ -675,12 +675,12 @@ groups the data into subsets: in the example above, our initial
 We could similarly decide to group the tibble by the samples:
 
 
-```r
-rna %>%
+``` r
+rna |>
   group_by(sample)
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 19
 # Groups:   sample [22]
    gene    sample  expression organism   age sex   infection strain  time tissue
@@ -718,13 +718,13 @@ collapses each group into a single-row summary of that group.
 statistics. So to compute the mean `expression` by gene:
 
 
-```r
-rna %>%
-  group_by(gene) %>%
+``` r
+rna |>
+  group_by(gene) |>
   summarise(mean_expression = mean(expression))
 ```
 
-```output
+``` output
 # A tibble: 1,474 × 2
    gene     mean_expression
    <chr>              <dbl>
@@ -744,13 +744,13 @@ rna %>%
 We could also want to calculate the mean expression levels of all genes in each sample:
 
 
-```r
-rna %>%
-  group_by(sample) %>%
+``` r
+rna |>
+  group_by(sample) |>
   summarise(mean_expression = mean(expression))
 ```
 
-```output
+``` output
 # A tibble: 22 × 2
    sample     mean_expression
    <chr>                <dbl>
@@ -770,18 +770,18 @@ rna %>%
 But we can can also group by multiple columns:
 
 
-```r
-rna %>%
-  group_by(gene, infection, time) %>%
+``` r
+rna |>
+  group_by(gene, infection, time) |>
   summarise(mean_expression = mean(expression))
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'gene', 'infection'. You can override using
 the `.groups` argument.
 ```
 
-```output
+``` output
 # A tibble: 4,422 × 4
 # Groups:   gene, infection [2,948]
    gene     infection    time mean_expression
@@ -804,19 +804,19 @@ time (and not necessarily on the same variable). For instance, we could add a
 column indicating the median `expression` by gene and by condition:
 
 
-```r
-rna %>%
-  group_by(gene, infection, time) %>%
+``` r
+rna |>
+  group_by(gene, infection, time) |>
   summarise(mean_expression = mean(expression),
             median_expression = median(expression))
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'gene', 'infection'. You can override using
 the `.groups` argument.
 ```
 
-```output
+``` output
 # A tibble: 4,422 × 5
 # Groups:   gene, infection [2,948]
    gene     infection    time mean_expression median_expression
@@ -845,14 +845,14 @@ Calculate the mean expression level of gene "Dok3" by timepoints.
 ## Solution
 
 
-```r
-rna %>%
-  filter(gene == "Dok3") %>%
-  group_by(time) %>%
+``` r
+rna |>
+  filter(gene == "Dok3") |>
+  group_by(time) |>
   summarise(mean = mean(expression))
 ```
 
-```output
+``` output
 # A tibble: 3 × 2
    time  mean
   <dbl> <dbl>
@@ -873,12 +873,12 @@ for each factor or combination of factors. For this task, **`dplyr`** provides
 each infected and non-infected samples, we would do:
 
 
-```r
-rna %>%
+``` r
+rna |>
     count(infection)
 ```
 
-```output
+``` output
 # A tibble: 2 × 2
   infection       n
   <chr>       <int>
@@ -886,16 +886,16 @@ rna %>%
 2 NonInfected 10318
 ```
 
-The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarising it by counting the number of observations in that group. In other words, `rna %>% count(infection)` is equivalent to:
+The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarising it by counting the number of observations in that group. In other words, `rna |> count(infection)` is equivalent to:
 
 
-```r
-rna %>%
-    group_by(infection) %>%
+``` r
+rna |>
+    group_by(infection) |>
     summarise(n = n())
 ```
 
-```output
+``` output
 # A tibble: 2 × 2
   infection       n
   <chr>       <int>
@@ -909,12 +909,12 @@ If we wanted to count a *combination of factors*, such as `infection` and `time`
 we would specify the first and the second factor as the arguments of `count()`:
 
 
-```r
-rna %>%
+``` r
+rna |>
     count(infection, time)
 ```
 
-```output
+``` output
 # A tibble: 3 × 3
   infection    time     n
   <chr>       <dbl> <int>
@@ -926,18 +926,18 @@ rna %>%
 which is equivalent to this:
 
 
-```r
-rna %>%
-  group_by(infection, time) %>%
+``` r
+rna |>
+  group_by(infection, time) |>
   summarise(n = n())
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'infection'. You can override using the
 `.groups` argument.
 ```
 
-```output
+``` output
 # A tibble: 3 × 3
 # Groups:   infection [2]
   infection    time     n
@@ -952,13 +952,13 @@ We can use `arrange()` to sort the table.
 For instance, we might want to arrange the table above by time:
 
 
-```r
-rna %>%
-  count(infection, time) %>%
+``` r
+rna |>
+  count(infection, time) |>
   arrange(time)
 ```
 
-```output
+``` output
 # A tibble: 3 × 3
   infection    time     n
   <chr>       <dbl> <int>
@@ -970,13 +970,13 @@ rna %>%
 or by counts:
 
 
-```r
-rna %>%
-  count(infection, time) %>%
+``` r
+rna |>
+  count(infection, time) |>
   arrange(n)
 ```
 
-```output
+``` output
 # A tibble: 3 × 3
   infection    time     n
   <chr>       <dbl> <int>
@@ -988,13 +988,13 @@ rna %>%
 To sort in descending order, we need to add the `desc()` function:
 
 
-```r
-rna %>%
-  count(infection, time) %>%
+``` r
+rna |>
+  count(infection, time) |>
   arrange(desc(n))
 ```
 
-```output
+``` output
 # A tibble: 3 × 3
   infection    time     n
   <chr>       <dbl> <int>
@@ -1017,13 +1017,13 @@ rna %>%
 ## Solution
 
 
-```r
+``` r
 ## 1.
-rna %>%
+rna |>
   count(sample)
 ```
 
-```output
+``` output
 # A tibble: 22 × 2
    sample         n
    <chr>      <int>
@@ -1040,15 +1040,15 @@ rna %>%
 # ℹ 12 more rows
 ```
 
-```r
+``` r
 ## 2.
-rna %>%
-  group_by(sample) %>%
-  summarise(seq_depth = sum(expression)) %>%
+rna |>
+  group_by(sample) |>
+  summarise(seq_depth = sum(expression)) |>
   arrange(desc(seq_depth))
 ```
 
-```output
+``` output
 # A tibble: 22 × 2
    sample     seq_depth
    <chr>          <dbl>
@@ -1065,15 +1065,15 @@ rna %>%
 # ℹ 12 more rows
 ```
 
-```r
+``` r
 ## 3.
-rna %>%
-  filter(sample == "GSM2545336") %>%
-  count(gene_biotype) %>%
+rna |>
+  filter(sample == "GSM2545336") |>
+  count(gene_biotype) |>
   arrange(desc(n))
 ```
 
-```output
+``` output
 # A tibble: 13 × 2
    gene_biotype                           n
    <chr>                              <int>
@@ -1092,21 +1092,21 @@ rna %>%
 13 transcribed_unprocessed_pseudogene     1
 ```
 
-```r
+``` r
 ## 4.
-rna %>%
-  filter(phenotype_description == "abnormal DNA methylation") %>%
-  group_by(gene, time) %>%
-  summarise(mean_expression = mean(log(expression))) %>%
+rna |>
+  filter(phenotype_description == "abnormal DNA methylation") |>
+  group_by(gene, time) |>
+  summarise(mean_expression = mean(log(expression))) |>
   arrange()
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
 
-```output
+``` output
 # A tibble: 6 × 3
 # Groups:   gene [2]
   gene   time mean_expression
@@ -1133,12 +1133,12 @@ the sample (organism, age, sex, ...) or the gene (gene\_biotype, ENTREZ\_ID, pro
 The variables that don't change with genes or with samples will have the same value in all the rows.
 
 
-```r
-rna %>%
+``` r
+rna |>
   arrange(gene)
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 19
    gene     sample expression organism   age sex   infection strain  time tissue
    <chr>    <chr>       <dbl> <chr>    <dbl> <chr> <chr>     <chr>  <dbl> <chr> 
@@ -1172,7 +1172,7 @@ to explore the relationship between the gene expression levels within, and
 between, the samples.
 
 
-```output
+``` output
 # A tibble: 1,474 × 23
    gene    GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
    <chr>        <dbl>      <dbl>      <dbl>      <dbl>      <dbl>      <dbl>
@@ -1217,13 +1217,13 @@ Let's select the first 3 columns of `rna` and use `pivot_wider()`
 to transform the data into a wide-format.
 
 
-```r
-rna_exp <- rna %>%
+``` r
+rna_exp <- rna |>
   select(gene, sample, expression)
 rna_exp
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 3
    gene    sample     expression
    <chr>   <chr>           <dbl>
@@ -1254,14 +1254,14 @@ rna_exp
 </div>
 
 
-```r
-rna_wide <- rna_exp %>%
+``` r
+rna_wide <- rna_exp |>
   pivot_wider(names_from = sample,
               values_from = expression)
 rna_wide
 ```
 
-```output
+``` output
 # A tibble: 1,474 × 23
    gene    GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
    <chr>        <dbl>      <dbl>      <dbl>      <dbl>      <dbl>      <dbl>
@@ -1290,17 +1290,17 @@ genes in certain samples. In the following fictive example, the gene Cyp2d22 has
 one expression value, in GSM2545338 sample.
 
 
-```r
-rna_with_missing_values <- rna %>%
-  select(gene, sample, expression) %>%
-  filter(gene %in% c("Asl", "Apod", "Cyp2d22")) %>%
-  filter(sample %in% c("GSM2545336", "GSM2545337", "GSM2545338")) %>%
-  arrange(sample) %>%
+``` r
+rna_with_missing_values <- rna |>
+  select(gene, sample, expression) |>
+  filter(gene %in% c("Asl", "Apod", "Cyp2d22")) |>
+  filter(sample %in% c("GSM2545336", "GSM2545337", "GSM2545338")) |>
+  arrange(sample) |>
   filter(!(gene == "Cyp2d22" & sample != "GSM2545338"))
 rna_with_missing_values
 ```
 
-```output
+``` output
 # A tibble: 7 × 3
   gene    sample     expression
   <chr>   <chr>           <dbl>
@@ -1318,13 +1318,13 @@ values. This can be parameterised with the `values_fill` argument of
 the `pivot_wider()` function.
 
 
-```r
-rna_with_missing_values %>%
+``` r
+rna_with_missing_values |>
   pivot_wider(names_from = sample,
               values_from = expression)
 ```
 
-```output
+``` output
 # A tibble: 3 × 4
   gene    GSM2545336 GSM2545337 GSM2545338
   <chr>        <dbl>      <dbl>      <dbl>
@@ -1333,14 +1333,14 @@ rna_with_missing_values %>%
 3 Cyp2d22         NA         NA       1603
 ```
 
-```r
-rna_with_missing_values %>%
+``` r
+rna_with_missing_values |>
   pivot_wider(names_from = sample,
               values_from = expression,
               values_fill = 0)
 ```
 
-```output
+``` output
 # A tibble: 3 × 4
   gene    GSM2545336 GSM2545337 GSM2545338
   <chr>        <dbl>      <dbl>      <dbl>
@@ -1379,15 +1379,15 @@ with a minus sign.
 Notice how the new variable names are to be quoted here.
 
 
-```r
-rna_long <- rna_wide %>%
+``` r
+rna_long <- rna_wide |>
     pivot_longer(names_to = "sample",
                  values_to = "expression",
                  -gene)
 rna_long
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 3
    gene  sample     expression
    <chr> <chr>           <dbl>
@@ -1412,14 +1412,14 @@ names without having to list them all!
 Another possibility would be to use the `:` operator!
 
 
-```r
-rna_wide %>%
+``` r
+rna_wide |>
     pivot_longer(names_to = "sample",
                  values_to = "expression",
                  cols = starts_with("GSM"))
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 3
    gene  sample     expression
    <chr> <chr>           <dbl>
@@ -1436,14 +1436,14 @@ rna_wide %>%
 # ℹ 32,418 more rows
 ```
 
-```r
-rna_wide %>%
+``` r
+rna_wide |>
     pivot_longer(names_to = "sample",
                  values_to = "expression",
                  GSM2545336:GSM2545380)
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 3
    gene  sample     expression
    <chr> <chr>           <dbl>
@@ -1466,11 +1466,11 @@ included in the new long format.
 Remember our previous fictive tibble containing missing values:
 
 
-```r
+``` r
 rna_with_missing_values
 ```
 
-```output
+``` output
 # A tibble: 7 × 3
   gene    sample     expression
   <chr>   <chr>           <dbl>
@@ -1483,14 +1483,14 @@ rna_with_missing_values
 7 Cyp2d22 GSM2545338       1603
 ```
 
-```r
-wide_with_NA <- rna_with_missing_values %>%
+``` r
+wide_with_NA <- rna_with_missing_values |>
   pivot_wider(names_from = sample,
               values_from = expression)
 wide_with_NA
 ```
 
-```output
+``` output
 # A tibble: 3 × 4
   gene    GSM2545336 GSM2545337 GSM2545338
   <chr>        <dbl>      <dbl>      <dbl>
@@ -1499,14 +1499,14 @@ wide_with_NA
 3 Cyp2d22         NA         NA       1603
 ```
 
-```r
-wide_with_NA %>%
+``` r
+wide_with_NA |>
     pivot_longer(names_to = "sample",
                  values_to = "expression",
                  -gene)
 ```
 
-```output
+``` output
 # A tibble: 9 × 3
   gene    sample     expression
   <chr>   <chr>           <dbl>
@@ -1537,14 +1537,14 @@ Then use the `pivot_longer()` function to restore a long-format table.
 ## Solution
 
 
-```r
-rna1 <- rna %>%
-select(gene, mouse, expression) %>%
+``` r
+rna1 <- rna |>
+select(gene, mouse, expression) |>
 pivot_wider(names_from = mouse, values_from = expression)
 rna1
 ```
 
-```output
+``` output
 # A tibble: 1,474 × 23
    gene     `14`    `9`  `10`  `15`  `18`   `6`   `5`  `11`  `22`  `13`  `23`
    <chr>   <dbl>  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
@@ -1563,12 +1563,12 @@ rna1
 #   `21` <dbl>, `4` <dbl>, `2` <dbl>, `20` <dbl>, `12` <dbl>, `19` <dbl>
 ```
 
-```r
-rna1 %>%
+``` r
+rna1 |>
 pivot_longer(names_to = "mouse_id", values_to = "counts", -gene)
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 3
    gene  mouse_id counts
    <chr> <chr>     <dbl>
@@ -1610,19 +1610,19 @@ Let's first calculate the mean expression level of X and Y linked genes from
 male and female samples...
 
 
-```r
- rna %>%
-  filter(chromosome_name == "Y" | chromosome_name == "X") %>%
-  group_by(sex, chromosome_name) %>%
+``` r
+ rna |>
+  filter(chromosome_name == "Y" | chromosome_name == "X") |>
+  group_by(sex, chromosome_name) |>
   summarise(mean = mean(expression))
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'sex'. You can override using the `.groups`
 argument.
 ```
 
-```output
+``` output
 # A tibble: 4 × 3
 # Groups:   sex [2]
   sex    chromosome_name  mean
@@ -1636,25 +1636,25 @@ argument.
 And pivot the table to wide format
 
 
-```r
-rna_1 <- rna %>%
-  filter(chromosome_name == "Y" | chromosome_name == "X") %>%
-  group_by(sex, chromosome_name) %>%
-  summarise(mean = mean(expression)) %>%
+``` r
+rna_1 <- rna |>
+  filter(chromosome_name == "Y" | chromosome_name == "X") |>
+  group_by(sex, chromosome_name) |>
+  summarise(mean = mean(expression)) |>
   pivot_wider(names_from = sex,
               values_from = mean)
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'sex'. You can override using the `.groups`
 argument.
 ```
 
-```r
+``` r
 rna_1
 ```
 
-```output
+``` output
 # A tibble: 2 × 3
   chromosome_name Female  Male
   <chr>            <dbl> <dbl>
@@ -1666,14 +1666,14 @@ Now take that data frame and transform it with `pivot_longer()` so
 each row is a unique `chromosome_name` by `gender` combination.
 
 
-```r
-rna_1 %>%
+``` r
+rna_1 |>
   pivot_longer(names_to = "gender",
                values_to = "mean",
                -chromosome_name)
 ```
 
-```output
+``` output
 # A tibble: 4 × 3
   chromosome_name gender  mean
   <chr>           <chr>  <dbl>
@@ -1702,18 +1702,18 @@ the different timepoints.
 Let's first calculate the mean expression by gene and by time
 
 
-```r
-rna %>%
-  group_by(gene, time) %>%
+``` r
+rna |>
+  group_by(gene, time) |>
   summarise(mean_exp = mean(expression))
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
 
-```output
+``` output
 # A tibble: 4,422 × 3
 # Groups:   gene [1,474]
    gene      time mean_exp
@@ -1734,24 +1734,24 @@ rna %>%
 before using the pivot\_wider() function
 
 
-```r
-rna_time <- rna %>%
-  group_by(gene, time) %>%
-  summarise(mean_exp = mean(expression)) %>%
+``` r
+rna_time <- rna |>
+  group_by(gene, time) |>
+  summarise(mean_exp = mean(expression)) |>
   pivot_wider(names_from = time,
               values_from = mean_exp)
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
 
-```r
+``` r
 rna_time
 ```
 
-```output
+``` output
 # A tibble: 1,474 × 4
 # Groups:   gene [1,474]
    gene         `0`     `4`     `8`
@@ -1774,21 +1774,21 @@ If we wanted to select the column corresponding to the timepoints,
 we could not use the column names directly... What happens when we select the column 4?
 
 
-```r
-rna %>%
-  group_by(gene, time) %>%
-  summarise(mean_exp = mean(expression)) %>%
+``` r
+rna |>
+  group_by(gene, time) |>
+  summarise(mean_exp = mean(expression)) |>
   pivot_wider(names_from = time,
-              values_from = mean_exp) %>%
+              values_from = mean_exp) |>
   select(gene, 4)
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
 
-```output
+``` output
 # A tibble: 1,474 × 2
 # Groups:   gene [1,474]
    gene         `8`
@@ -1809,21 +1809,21 @@ rna %>%
 To select the timepoint 4, we would have to quote the column name, with backticks "\`"
 
 
-```r
-rna %>%
-  group_by(gene, time) %>%
-  summarise(mean_exp = mean(expression)) %>%
+``` r
+rna |>
+  group_by(gene, time) |>
+  summarise(mean_exp = mean(expression)) |>
   pivot_wider(names_from = time,
-              values_from = mean_exp) %>%
+              values_from = mean_exp) |>
   select(gene, `4`)
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
 
-```output
+``` output
 # A tibble: 1,474 × 2
 # Groups:   gene [1,474]
    gene         `4`
@@ -1845,22 +1845,22 @@ Another possibility would be to rename the column,
 choosing a name that doesn't start by a number :
 
 
-```r
-rna %>%
-  group_by(gene, time) %>%
-  summarise(mean_exp = mean(expression)) %>%
+``` r
+rna |>
+  group_by(gene, time) |>
+  summarise(mean_exp = mean(expression)) |>
   pivot_wider(names_from = time,
-              values_from = mean_exp) %>%
-  rename("time0" = `0`, "time4" = `4`, "time8" = `8`) %>%
+              values_from = mean_exp) |>
+  rename("time0" = `0`, "time4" = `4`, "time8" = `8`) |>
   select(gene, time4)
 ```
 
-```output
+``` output
 `summarise()` has grouped output by 'gene'. You can override using the
 `.groups` argument.
 ```
 
-```output
+``` output
 # A tibble: 1,474 × 2
 # Groups:   gene [1,474]
    gene       time4
@@ -1898,11 +1898,11 @@ Convert this table into a long-format table gathering the fold-changes calculate
 Starting from the rna\_time tibble:
 
 
-```r
+``` r
 rna_time
 ```
 
-```output
+``` output
 # A tibble: 1,474 × 4
 # Groups:   gene [1,474]
    gene         `0`     `4`     `8`
@@ -1923,12 +1923,12 @@ rna_time
 Calculate fold-changes:
 
 
-```r
-rna_time %>%
+``` r
+rna_time |>
   mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`)
 ```
 
-```output
+``` output
 # A tibble: 1,474 × 6
 # Groups:   gene [1,474]
    gene         `0`     `4`     `8` time_8_vs_0 time_8_vs_4
@@ -1949,15 +1949,15 @@ rna_time %>%
 And use the pivot\_longer() function:
 
 
-```r
-rna_time %>%
-  mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`) %>%
+``` r
+rna_time |>
+  mutate(time_8_vs_0 = `8` / `0`, time_8_vs_4 = `8` / `4`) |>
   pivot_longer(names_to = "comparisons",
                values_to = "Fold_changes",
                time_8_vs_0:time_8_vs_4)
 ```
 
-```output
+``` output
 # A tibble: 2,948 × 6
 # Groups:   gene [1,474]
    gene         `0`     `4`     `8` comparisons Fold_changes
@@ -2003,14 +2003,14 @@ we will create by subsetting the original `rna` table, keeping only 3
 columns and 10 lines.
 
 
-```r
-rna_mini <- rna %>%
-   select(gene, sample, expression) %>%
+``` r
+rna_mini <- rna |>
+   select(gene, sample, expression) |>
    head(10)
 rna_mini
 ```
 
-```output
+``` output
 # A tibble: 10 × 3
    gene    sample     expression
    <chr>   <chr>           <dbl>
@@ -2033,14 +2033,14 @@ by clicking on the link and then moving it to the `data/` folder, or
 you can use the R code below to download it directly to the folder.
 
 
-```r
+``` r
 download.file(url = "https://carpentries-incubator.github.io/bioc-intro/data/annot1.csv",
               destfile = "data/annot1.csv")
 annot1 <- read_csv(file = "data/annot1.csv")
 annot1
 ```
 
-```output
+``` output
 # A tibble: 10 × 2
    gene    gene_description                                                     
    <chr>   <chr>                                                                
@@ -2064,15 +2064,15 @@ variable. Such variables are called keys. Keys are used to match
 observations across different tables.
 
 
-```r
+``` r
 full_join(rna_mini, annot1)
 ```
 
-```output
+``` output
 Joining with `by = join_by(gene)`
 ```
 
-```output
+``` output
 # A tibble: 10 × 4
    gene    sample     expression gene_description                               
    <chr>   <chr>           <dbl> <chr>                                          
@@ -2096,14 +2096,14 @@ variable containing gene names is labelled differently. Again, either
 yourself and move it to `data/` or use the R code below.
 
 
-```r
+``` r
 download.file(url = "https://carpentries-incubator.github.io/bioc-intro/data/annot2.csv",
               destfile = "data/annot2.csv")
 annot2 <- read_csv(file = "data/annot2.csv")
 annot2
 ```
 
-```output
+``` output
 # A tibble: 10 × 2
    external_gene_name description                                               
    <chr>              <chr>                                                     
@@ -2124,11 +2124,11 @@ variables to use for the matching.  These variables can be set using
 the `by` argument, as shown below with `rna_mini` and `annot2` tables.
 
 
-```r
+``` r
 full_join(rna_mini, annot2, by = c("gene" = "external_gene_name"))
 ```
 
-```output
+``` output
 # A tibble: 10 × 4
    gene    sample     expression description                                    
    <chr>   <chr>           <dbl> <chr>                                          
@@ -2162,12 +2162,12 @@ genes *Klk6*, *mt-Tf*, *mt-Rnr1*, *mt-Tv*, *mt-Rnr2*, and *mt-Tl1* ?
 ## Solution
 
 
-```r
+``` r
 annot3 <- read_csv("data/annot3.csv")
 full_join(rna_mini, annot3)
 ```
 
-```output
+``` output
 # A tibble: 15 × 4
    gene    sample     expression gene_description                               
    <chr>   <chr>           <dbl> <chr>                                          
@@ -2217,7 +2217,7 @@ re-generate them.
 Let's use `write_csv()` to save the rna\_wide table that we have created previously.
 
 
-```r
+``` r
 write_csv(rna_wide, file = "data_output/rna_wide.csv")
 ```
 

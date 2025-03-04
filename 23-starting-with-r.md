@@ -35,19 +35,19 @@ exercises: 60
 You can get output from R simply by typing math in the console:
 
 
-```r
+``` r
 3 + 5
 ```
 
-```output
+``` output
 [1] 8
 ```
 
-```r
+``` r
 12 / 7
 ```
 
-```output
+``` output
 [1] 1.714286
 ```
 
@@ -56,7 +56,7 @@ However, to do useful and interesting things, we need to assign *values* to
 assignment operator `<-`, and the value we want to give it:
 
 
-```r
+``` r
 weight_kg <- 55
 ```
 
@@ -117,20 +117,20 @@ can force R to print the value by using parentheses or by typing the
 object name:
 
 
-```r
+``` r
 weight_kg <- 55    # doesn't print anything
 (weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
 ```
 
-```output
+``` output
 [1] 55
 ```
 
-```r
+``` r
 weight_kg          # and so does typing the name of the object
 ```
 
-```output
+``` output
 [1] 55
 ```
 
@@ -138,23 +138,23 @@ Now that R has `weight_kg` in memory, we can do arithmetic with it. For
 instance, we may want to convert this weight into pounds (weight in pounds is 2.2 times the weight in kg):
 
 
-```r
+``` r
 2.2 * weight_kg
 ```
 
-```output
+``` output
 [1] 121
 ```
 
 We can also change an object's value by assigning it a new one:
 
 
-```r
+``` r
 weight_kg <- 57.5
 2.2 * weight_kg
 ```
 
-```output
+``` output
 [1] 126.5
 ```
 
@@ -163,14 +163,14 @@ other objects  For example, let's store the animal's weight in pounds in a new
 object, `weight_lb`:
 
 
-```r
+``` r
 weight_lb <- 2.2 * weight_kg
 ```
 
 and then change `weight_kg` to 100.
 
 
-```r
+``` r
 weight_kg <- 100
 ```
 
@@ -204,7 +204,7 @@ press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.
 What are the values after each statement in the following?
 
 
-```r
+``` r
 mass <- 47.5            # mass?
 age  <- 122             # age?
 mass <- mass * 2.0      # mass?
@@ -226,7 +226,7 @@ output) is the square root of that number. Executing a function ('running it')
 is called *calling* the function. An example of a function call is:
 
 
-```r
+``` r
 b <- sqrt(a)
 ```
 
@@ -250,11 +250,11 @@ of your choice which will be used instead of the default.
 Let's try a function that can take multiple arguments: `round()`.
 
 
-```r
+``` r
 round(3.14159)
 ```
 
-```output
+``` output
 [1] 3
 ```
 
@@ -265,17 +265,17 @@ information about the `round` function.  We can use `args(round)` or look at the
 help for this function using `?round`.
 
 
-```r
+``` r
 args(round)
 ```
 
-```output
-function (x, digits = 0) 
+``` output
+function (x, digits = 0, ...) 
 NULL
 ```
 
 
-```r
+``` r
 ?round
 ```
 
@@ -283,11 +283,11 @@ We see that if we want a different number of digits, we can
 type `digits=2` or however many we want.
 
 
-```r
+``` r
 round(3.14159, digits = 2)
 ```
 
-```output
+``` output
 [1] 3.14
 ```
 
@@ -295,22 +295,22 @@ If you provide the arguments in the exact same order as they are defined you
 don't have to name them:
 
 
-```r
+``` r
 round(3.14159, 2)
 ```
 
-```output
+``` output
 [1] 3.14
 ```
 
 And if you do name the arguments, you can switch their order:
 
 
-```r
+``` r
 round(digits = 2, x = 3.14159)
 ```
 
-```output
+``` output
 [1] 3.14
 ```
 
@@ -331,24 +331,24 @@ the `c()` function. For example we can create a vector of animal weights and ass
 it to a new object `weight_g`:
 
 
-```r
+``` r
 weight_g <- c(50, 60, 65, 82)
 weight_g
 ```
 
-```output
+``` output
 [1] 50 60 65 82
 ```
 
 A vector can also contain characters:
 
 
-```r
+``` r
 molecules <- c("dna", "rna", "protein")
 molecules
 ```
 
-```output
+``` output
 [1] "dna"     "rna"     "protein"
 ```
 
@@ -361,19 +361,19 @@ There are many functions that allow you to inspect the content of a
 vector. `length()` tells you how many elements are in a particular vector:
 
 
-```r
+``` r
 length(weight_g)
 ```
 
-```output
+``` output
 [1] 4
 ```
 
-```r
+``` r
 length(molecules)
 ```
 
-```output
+``` output
 [1] 3
 ```
 
@@ -382,19 +382,19 @@ same type of data.  The function `class()` indicates the class (the
 type of element) of an object:
 
 
-```r
+``` r
 class(weight_g)
 ```
 
-```output
+``` output
 [1] "numeric"
 ```
 
-```r
+``` r
 class(molecules)
 ```
 
-```output
+``` output
 [1] "character"
 ```
 
@@ -403,32 +403,32 @@ object and its elements. It is a useful function when working with
 large and complex objects:
 
 
-```r
+``` r
 str(weight_g)
 ```
 
-```output
+``` output
  num [1:4] 50 60 65 82
 ```
 
-```r
+``` r
 str(molecules)
 ```
 
-```output
+``` output
  chr [1:3] "dna" "rna" "protein"
 ```
 
 You can use the `c()` function to add other elements to your vector:
 
 
-```r
+``` r
 weight_g <- c(weight_g, 90) # add to the end of the vector
 weight_g <- c(30, weight_g) # add to the beginning of the vector
 weight_g
 ```
 
-```output
+``` output
 [1] 30 50 60 65 82 90
 ```
 
@@ -489,7 +489,7 @@ What will happen in each of these examples? (hint: use `class()` to
 check the data type of your objects and type in their names to see what happens):
 
 
-```r
+``` r
 num_char <- c(1, 2, 3, "a")
 num_logical <- c(1, 2, 3, TRUE, FALSE)
 char_logical <- c("a", "b", "c", TRUE)
@@ -501,67 +501,67 @@ tricky <- c(1, 2, 3, "4")
 ## Solution
 
 
-```r
+``` r
 class(num_char)
 ```
 
-```output
+``` output
 [1] "character"
 ```
 
-```r
+``` r
 num_char
 ```
 
-```output
+``` output
 [1] "1" "2" "3" "a"
 ```
 
-```r
+``` r
 class(num_logical)
 ```
 
-```output
+``` output
 [1] "numeric"
 ```
 
-```r
+``` r
 num_logical
 ```
 
-```output
+``` output
 [1] 1 2 3 1 0
 ```
 
-```r
+``` r
 class(char_logical)
 ```
 
-```output
+``` output
 [1] "character"
 ```
 
-```r
+``` r
 char_logical
 ```
 
-```output
+``` output
 [1] "a"    "b"    "c"    "TRUE"
 ```
 
-```r
+``` r
 class(tricky)
 ```
 
-```output
+``` output
 [1] "character"
 ```
 
-```r
+``` r
 tricky
 ```
 
-```output
+``` output
 [1] "1" "2" "3" "4"
 ```
 
@@ -597,7 +597,7 @@ How many values in `combined_logical` are `"TRUE"` (as a character)
 in the following example:
 
 
-```r
+``` r
 num_logical <- c(1, 2, 3, TRUE)
 char_logical <- c("a", "b", "c", TRUE)
 combined_logical <- c(num_logical, char_logical)
@@ -613,11 +613,11 @@ in `num_logical` gets converted into a `1` before it gets converted
 into `"1"` in `combined_logical`.
 
 
-```r
+``` r
 combined_logical
 ```
 
-```output
+``` output
 [1] "1"    "2"    "3"    "1"    "a"    "b"    "c"    "TRUE"
 ```
 
@@ -655,20 +655,20 @@ If we want to extract one or several values from a vector, we must
 provide one or several indices in square brackets. For instance:
 
 
-```r
+``` r
 molecules <- c("dna", "rna", "peptide", "protein")
 molecules[2]
 ```
 
-```output
+``` output
 [1] "rna"
 ```
 
-```r
+``` r
 molecules[c(3, 2)]
 ```
 
-```output
+``` output
 [1] "peptide" "rna"    
 ```
 
@@ -676,12 +676,12 @@ We can also repeat the indices to create an object with more elements
 than the original one:
 
 
-```r
+``` r
 more_molecules <- molecules[c(1, 2, 3, 2, 1, 4)]
 more_molecules
 ```
 
-```output
+``` output
 [1] "dna"     "rna"     "peptide" "rna"     "dna"     "protein"
 ```
 
@@ -694,35 +694,35 @@ Finally, it is also possible to get all the elements of a vector
 except some specified elements using negative indices:
 
 
-```r
+``` r
 molecules ## all molecules
 ```
 
-```output
+``` output
 [1] "dna"     "rna"     "peptide" "protein"
 ```
 
-```r
+``` r
 molecules[-1] ## all but the first one
 ```
 
-```output
+``` output
 [1] "rna"     "peptide" "protein"
 ```
 
-```r
+``` r
 molecules[-c(1, 3)] ## all but 1st/3rd ones
 ```
 
-```output
+``` output
 [1] "rna"     "protein"
 ```
 
-```r
+``` r
 molecules[c(-1, -3)] ## all but 1st/3rd ones
 ```
 
-```output
+``` output
 [1] "rna"     "protein"
 ```
 
@@ -732,12 +732,12 @@ Another common way of subsetting is by using a logical vector. `TRUE` will
 select the element with the same index, while `FALSE` will not:
 
 
-```r
+``` r
 weight_g <- c(21, 34, 39, 54, 55)
 weight_g[c(TRUE, FALSE, TRUE, TRUE, FALSE)]
 ```
 
-```output
+``` output
 [1] 21 39 54
 ```
 
@@ -746,22 +746,22 @@ output of other functions or logical tests. For instance, if you
 wanted to select only the values above 50:
 
 
-```r
+``` r
 ## will return logicals with TRUE for the indices that meet
 ## the condition
 weight_g > 50
 ```
 
-```output
+``` output
 [1] FALSE FALSE FALSE  TRUE  TRUE
 ```
 
-```r
+``` r
 ## so we can use this to select only the values above 50
 weight_g[weight_g > 50]
 ```
 
-```output
+``` output
 [1] 54 55
 ```
 
@@ -769,19 +769,19 @@ You can combine multiple tests using `&` (both conditions are true,
 AND) or `|` (at least one of the conditions is true, OR):
 
 
-```r
+``` r
 weight_g[weight_g < 30 | weight_g > 50]
 ```
 
-```output
+``` output
 [1] 21 54 55
 ```
 
-```r
+``` r
 weight_g[weight_g >= 30 & weight_g == 21]
 ```
 
-```output
+``` output
 numeric(0)
 ```
 
@@ -797,28 +797,28 @@ this can quickly become tedious. The function `%in%` allows you to
 test if any of the elements of a search vector are found:
 
 
-```r
+``` r
 molecules <- c("dna", "rna", "protein", "peptide")
 molecules[molecules == "rna" | molecules == "dna"] # returns both rna and dna
 ```
 
-```output
+``` output
 [1] "dna" "rna"
 ```
 
-```r
+``` r
 molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")
 ```
 
-```output
+``` output
 [1]  TRUE  TRUE FALSE  TRUE
 ```
 
-```r
+``` r
 molecules[molecules %in% c("rna", "dna", "metabolite", "peptide", "glycerol")]
 ```
 
-```output
+``` output
 [1] "dna"     "rna"     "peptide"
 ```
 
@@ -833,11 +833,11 @@ Can you figure out why `"four" > "five"` returns `TRUE`?
 ## Solution
 
 
-```r
+``` r
 "four" > "five"
 ```
 
-```output
+``` output
 [1] TRUE
 ```
 
@@ -858,21 +858,21 @@ shows an initial vector without any names, how names are set, and
 retrieved.
 
 
-```r
+``` r
 x <- c(1, 5, 3, 5, 10)
 names(x) ## no names
 ```
 
-```output
+``` output
 NULL
 ```
 
-```r
+``` r
 names(x) <- c("A", "B", "C", "D", "E")
 names(x) ## now we have names
 ```
 
-```output
+``` output
 [1] "A" "B" "C" "D" "E"
 ```
 
@@ -880,20 +880,20 @@ When a vector has names, it is possible to access elements by their
 name, in addition to their index.
 
 
-```r
+``` r
 x[c(1, 3)]
 ```
 
-```output
+``` output
 A C 
 1 3 
 ```
 
-```r
+``` r
 x[c("A", "C")]
 ```
 
-```output
+``` output
 A C 
 1 3 
 ```
@@ -911,36 +911,36 @@ missing data.  You can add the argument `na.rm = TRUE` to calculate
 the result while ignoring the missing values.
 
 
-```r
+``` r
 heights <- c(2, 4, 4, NA, 6)
 mean(heights)
 ```
 
-```output
+``` output
 [1] NA
 ```
 
-```r
+``` r
 max(heights)
 ```
 
-```output
+``` output
 [1] NA
 ```
 
-```r
+``` r
 mean(heights, na.rm = TRUE)
 ```
 
-```output
+``` output
 [1] 4
 ```
 
-```r
+``` r
 max(heights, na.rm = TRUE)
 ```
 
-```output
+``` output
 [1] 6
 ```
 
@@ -949,23 +949,23 @@ with the functions `is.na()`, `na.omit()`, and `complete.cases()`. See
 below for examples.
 
 
-```r
+``` r
 ## Extract those elements which are not missing values.
 heights[!is.na(heights)]
 ```
 
-```output
+``` output
 [1] 2 4 4 6
 ```
 
-```r
+``` r
 ## Returns the object with incomplete cases removed.
 ## The returned object is an atomic vector of type `"numeric"`
 ## (or `"double"`).
 na.omit(heights)
 ```
 
-```output
+``` output
 [1] 2 4 4 6
 attr(,"na.action")
 [1] 4
@@ -973,14 +973,14 @@ attr(,"class")
 [1] "omit"
 ```
 
-```r
+``` r
 ## Extract those elements which are complete cases.
 ## The returned object is an atomic vector of type `"numeric"`
 ## (or `"double"`).
 heights[complete.cases(heights)]
 ```
 
-```output
+``` output
 [1] 2 4 4 6
 ```
 
@@ -991,7 +991,7 @@ heights[complete.cases(heights)]
 1. Using this vector of heights in inches, create a new vector with the NAs removed.
 
 
-```r
+``` r
 heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 ```
 
@@ -1003,28 +1003,28 @@ heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65,
 ## Solution
 
 
-```r
+``` r
 heights_no_na <- heights[!is.na(heights)]
 ## or
 heights_no_na <- na.omit(heights)
 ```
 
 
-```r
+``` r
 median(heights, na.rm = TRUE)
 ```
 
-```output
+``` output
 [1] 64
 ```
 
 
-```r
+``` r
 heights_above_67 <- heights_no_na[heights_no_na > 67]
 length(heights_above_67)
 ```
 
-```output
+``` output
 [1] 6
 ```
 
@@ -1044,19 +1044,19 @@ constructor, providing the length of the output vector as
 parameter. The values will be initialised with 0.
 
 
-```r
+``` r
 numeric(3)
 ```
 
-```output
+``` output
 [1] 0 0 0
 ```
 
-```r
+``` r
 numeric(10)
 ```
 
-```output
+``` output
  [1] 0 0 0 0 0 0 0 0 0 0
 ```
 
@@ -1064,11 +1064,11 @@ Note that if we ask for a vector of numerics of length 0, we obtain
 exactly that:
 
 
-```r
+``` r
 numeric(0)
 ```
 
-```output
+``` output
 numeric(0)
 ```
 
@@ -1086,19 +1086,19 @@ What are the defaults for character and logical vectors?
 ## Solution
 
 
-```r
+``` r
 character(2) ## the empty character
 ```
 
-```output
+``` output
 [1] "" ""
 ```
 
-```r
+``` r
 logical(2)   ## FALSE
 ```
 
-```output
+``` output
 [1] FALSE FALSE
 ```
 
@@ -1113,11 +1113,11 @@ times. If we want to initiate a vector of numerics of length 5 with
 the value -1, for example, we could do the following:
 
 
-```r
+``` r
 rep(-1, 5)
 ```
 
-```output
+``` output
 [1] -1 -1 -1 -1 -1
 ```
 
@@ -1126,11 +1126,11 @@ is often a good way to start, without setting assumptions on the data
 to be collected:
 
 
-```r
+``` r
 rep(NA, 5)
 ```
 
-```output
+``` output
 [1] NA NA NA NA NA
 ```
 
@@ -1139,11 +1139,11 @@ of length 1) and any type. For example, if we want to repeat the
 values 1, 2 and 3 five times, we would do the following:
 
 
-```r
+``` r
 rep(c(1, 2, 3), 5)
 ```
 
-```output
+``` output
  [1] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3
 ```
 
@@ -1160,19 +1160,19 @@ possibilities - see `?rep` or `?sort` for help.
 ## Solution
 
 
-```r
+``` r
 rep(c(1, 2, 3), each = 5)
 ```
 
-```output
+``` output
  [1] 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3
 ```
 
-```r
+``` r
 sort(rep(c(1, 2, 3), 5))
 ```
 
-```output
+``` output
  [1] 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3
 ```
 
@@ -1187,11 +1187,11 @@ numbers. For example, to generate a sequence of integers from 1 to 20
 by steps of 2, one would use:
 
 
-```r
+``` r
 seq(from = 1, to = 20, by = 2)
 ```
 
-```output
+``` output
  [1]  1  3  5  7  9 11 13 15 17 19
 ```
 
@@ -1200,27 +1200,27 @@ sequence of one value to another with steps of 1 is frequently used,
 there's a shortcut:
 
 
-```r
+``` r
 seq(1, 5, 1)
 ```
 
-```output
+``` output
 [1] 1 2 3 4 5
 ```
 
-```r
+``` r
 seq(1, 5) ## default by
 ```
 
-```output
+``` output
 [1] 1 2 3 4 5
 ```
 
-```r
+``` r
 1:5
 ```
 
-```output
+``` output
 [1] 1 2 3 4 5
 ```
 
@@ -1228,11 +1228,11 @@ To generate a sequence of numbers from 1 to 20 of final length of 3,
 one would use:
 
 
-```r
+``` r
 seq(from = 1, to = 20, length.out = 3)
 ```
 
-```output
+``` output
 [1]  1.0 10.5 20.0
 ```
 
@@ -1245,11 +1245,11 @@ oral exam, I first assign each student a number from 1 to ten (for
 instance based on the alphabetic order of their name) and then:
 
 
-```r
+``` r
 sample(1:10)
 ```
 
-```output
+``` output
  [1]  9  4  7  1  2  5  3 10  6  8
 ```
 
@@ -1259,11 +1259,11 @@ would set this value as the second argument. Below, I sample 5 random
 letters from the alphabet contained in the pre-defined `letters` vector:
 
 
-```r
+``` r
 sample(letters, 5)
 ```
 
-```output
+``` output
 [1] "s" "a" "u" "x" "j"
 ```
 
@@ -1272,11 +1272,11 @@ draw some elements multiple times, I would need to set the `replace`
 argument to `TRUE`:
 
 
-```r
+``` r
 sample(1:5, 10, replace = TRUE)
 ```
 
-```output
+``` output
  [1] 2 1 5 5 1 1 5 5 2 2
 ```
 
@@ -1306,61 +1306,61 @@ Repeat by setting a different seed.
 Different permutations
 
 
-```r
+``` r
 sample(1:10)
 ```
 
-```output
+``` output
  [1]  9  1  4  3  6  2  5  8 10  7
 ```
 
-```r
+``` r
 sample(1:10)
 ```
 
-```output
+``` output
  [1]  4  9  7  6  1 10  8  3  2  5
 ```
 
 Same permutations with seed 123
 
 
-```r
+``` r
 set.seed(123)
 sample(1:10)
 ```
 
-```output
+``` output
  [1]  3 10  2  8  6  9  1  7  5  4
 ```
 
-```r
+``` r
 set.seed(123)
 sample(1:10)
 ```
 
-```output
+``` output
  [1]  3 10  2  8  6  9  1  7  5  4
 ```
 
 A different seed
 
 
-```r
+``` r
 set.seed(1)
 sample(1:10)
 ```
 
-```output
+``` output
  [1]  9  4  7  1  2  5  3 10  6  8
 ```
 
-```r
+``` r
 set.seed(1)
 sample(1:10)
 ```
 
-```output
+``` output
  [1]  9  4  7  1  2  5  3 10  6  8
 ```
 
@@ -1385,27 +1385,27 @@ sample, and the parameters of the normal distribution, i.e the mean
 and its standard deviation. The defaults of the latter are 0 and 1.
 
 
-```r
+``` r
 rnorm(5)
 ```
 
-```output
+``` output
 [1]  0.69641761  0.05351568 -1.31028350 -2.12306606 -0.20807859
 ```
 
-```r
+``` r
 rnorm(5, 2, 2)
 ```
 
-```output
+``` output
 [1]  1.3744268 -0.1164714  2.8344472  1.3690969  3.6510983
 ```
 
-```r
+``` r
 rnorm(5, 100, 5)
 ```
 
-```output
+``` output
 [1] 106.45636  96.87448  95.62427 100.71678 107.12595
 ```
 

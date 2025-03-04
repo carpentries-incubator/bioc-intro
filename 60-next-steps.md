@@ -94,15 +94,15 @@ provided (after raw data have been processed).
   [here](https://carpentries-incubator.github.io/bioc-intro/data/count_matrix.csv).
 
 
-```r
+``` r
 count_matrix <- read.csv("data/count_matrix.csv",
-                         row.names = 1) %>%
+                         row.names = 1) |>
     as.matrix()
 
 count_matrix[1:5, ]
 ```
 
-```output
+``` output
         GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
 Asl           1170        361        400        586        626        988
 Apod         36194      10347       9173      10620      13021      29594
@@ -129,11 +129,11 @@ Klk6           894        501        598        259
 Fcrls          248        179        184         68
 ```
 
-```r
+``` r
 dim(count_matrix)
 ```
 
-```output
+``` output
 [1] 1474   22
 ```
 
@@ -141,12 +141,12 @@ dim(count_matrix)
   [here](https://carpentries-incubator.github.io/bioc-intro/data/sample_metadata.csv).
 
 
-```r
+``` r
 sample_metadata <- read.csv("data/sample_metadata.csv")
 sample_metadata
 ```
 
-```output
+``` output
        sample     organism age    sex   infection  strain time     tissue mouse
 1  GSM2545336 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    14
 2  GSM2545337 Mus musculus   8 Female NonInfected C57BL/6    0 Cerebellum     9
@@ -172,11 +172,11 @@ sample_metadata
 22 GSM2545380 Mus musculus   8 Female  InfluenzaA C57BL/6    8 Cerebellum    19
 ```
 
-```r
+``` r
 dim(sample_metadata)
 ```
 
-```output
+``` output
 [1] 22  9
 ```
 
@@ -184,12 +184,12 @@ dim(sample_metadata)
   [here](https://carpentries-incubator.github.io/bioc-intro/data/gene_metadata.csv).
 
 
-```r
+``` r
 gene_metadata <- read.csv("data/gene_metadata.csv")
 gene_metadata[1:10, 1:4]
 ```
 
-```output
+``` output
       gene ENTREZID
 1      Asl   109900
 2     Apod    11815
@@ -225,11 +225,11 @@ gene_metadata[1:10, 1:4]
 10 ENSMUSG00000027669
 ```
 
-```r
+``` r
 dim(gene_metadata)
 ```
 
-```output
+``` output
 [1] 1474    9
 ```
 
@@ -247,7 +247,7 @@ To do this we can put the different parts together using the
 `SummarizedExperiment` constructor:
 
 
-```r
+``` r
 ## BiocManager::install("SummarizedExperiment")
 library("SummarizedExperiment")
 ```
@@ -257,20 +257,20 @@ count matrix and the sample annotation, and the same for the genes in
 the count matrix and the gene annotation.
 
 
-```r
+``` r
 stopifnot(rownames(count_matrix) == gene_metadata$gene)
 stopifnot(colnames(count_matrix) == sample_metadata$sample)
 ```
 
 
-```r
+``` r
 se <- SummarizedExperiment(assays = list(counts = count_matrix),
                            colData = sample_metadata,
                            rowData = gene_metadata)
 se
 ```
 
-```output
+``` output
 class: SummarizedExperiment 
 dim: 1474 22 
 metadata(0):
@@ -298,7 +298,7 @@ representation on disk (using the `rds` file extension here), which
 can be loaded back into R using the `readRDS` function.
 
 
-```r
+``` r
 saveRDS(se, file = "data_output/se.rds")
 rm(se)
 se <- readRDS("data_output/se.rds")
@@ -315,11 +315,11 @@ Using this data structure, we can access the expression matrix with
 the `assay` function:
 
 
-```r
+``` r
 head(assay(se))
 ```
 
-```output
+``` output
         GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
 Asl           1170        361        400        586        626        988
 Apod         36194      10347       9173      10620      13021      29594
@@ -350,22 +350,22 @@ Fcrls          248        179        184         68
 Slc2a4         248        350        317        796
 ```
 
-```r
+``` r
 dim(assay(se))
 ```
 
-```output
+``` output
 [1] 1474   22
 ```
 
 We can access the sample metadata using the `colData` function:
 
 
-```r
+``` r
 colData(se)
 ```
 
-```output
+``` output
 DataFrame with 22 rows and 9 columns
                 sample     organism       age         sex   infection
            <character>  <character> <integer> <character> <character>
@@ -395,22 +395,22 @@ GSM2545363     C57BL/6         4  Cerebellum        12
 GSM2545380     C57BL/6         8  Cerebellum        19
 ```
 
-```r
+``` r
 dim(colData(se))
 ```
 
-```output
+``` output
 [1] 22  9
 ```
 
 We can also access the feature metadata using the `rowData` function:
 
 
-```r
+``` r
 head(rowData(se))
 ```
 
-```output
+``` output
 DataFrame with 6 rows and 9 columns
                gene  ENTREZID                product    ensembl_gene_id
         <character> <integer>            <character>        <character>
@@ -438,11 +438,11 @@ Fcrls                                   FCRL2
 Slc2a4                                 SLC2A4
 ```
 
-```r
+``` r
 dim(rowData(se))
 ```
 
-```output
+``` output
 [1] 1474    9
 ```
 
@@ -455,12 +455,12 @@ Below, we create a new instance of class SummarizedExperiment that
 contains only the 5 first features for the 3 first samples.
 
 
-```r
+``` r
 se1 <- se[1:5, 1:3]
 se1
 ```
 
-```output
+``` output
 class: SummarizedExperiment 
 dim: 5 3 
 metadata(0):
@@ -473,11 +473,11 @@ colData names(9): sample organism ... tissue mouse
 ```
 
 
-```r
+``` r
 colData(se1)
 ```
 
-```output
+``` output
 DataFrame with 3 rows and 9 columns
                 sample     organism       age         sex   infection
            <character>  <character> <integer> <character> <character>
@@ -491,11 +491,11 @@ GSM2545337     C57BL/6         0  Cerebellum         9
 GSM2545338     C57BL/6         0  Cerebellum        10
 ```
 
-```r
+``` r
 rowData(se1)
 ```
 
-```output
+``` output
 DataFrame with 5 rows and 9 columns
                gene  ENTREZID                product    ensembl_gene_id
         <character> <integer>            <character>        <character>
@@ -526,13 +526,13 @@ feature metadata.  For example, here we keep only miRNAs and the non
 infected samples:
 
 
-```r
+``` r
 se1 <- se[rowData(se)$gene_biotype == "miRNA",
           colData(se)$infection == "NonInfected"]
 se1
 ```
 
-```output
+``` output
 class: SummarizedExperiment 
 dim: 7 7 
 metadata(0):
@@ -544,11 +544,11 @@ colnames(7): GSM2545337 GSM2545338 ... GSM2545353 GSM2545354
 colData names(9): sample organism ... tissue mouse
 ```
 
-```r
+``` r
 assay(se1)
 ```
 
-```output
+``` output
          GSM2545337 GSM2545338 GSM2545343 GSM2545348 GSM2545349 GSM2545353
 Mir1901          45         44         74         55         68         33
 Mir378a          11          7          9          4         12          4
@@ -567,11 +567,11 @@ Mir128-1          1
 Mir7682           5
 ```
 
-```r
+``` r
 colData(se1)
 ```
 
-```output
+``` output
 DataFrame with 7 rows and 9 columns
                 sample     organism       age         sex   infection
            <character>  <character> <integer> <character> <character>
@@ -593,11 +593,11 @@ GSM2545353     C57BL/6         0  Cerebellum         4
 GSM2545354     C57BL/6         0  Cerebellum         2
 ```
 
-```r
+``` r
 rowData(se1)
 ```
 
-```output
+``` output
 DataFrame with 7 rows and 9 columns
                 gene  ENTREZID        product    ensembl_gene_id
          <character> <integer>    <character>        <character>
@@ -654,11 +654,11 @@ at time 0 and at time 8.
 ## Solution
 
 
-```r
+``` r
 assay(se)[1:3, colData(se)$time != 4]
 ```
 
-```output
+``` output
         GSM2545336 GSM2545337 GSM2545338 GSM2545341 GSM2545342 GSM2545343
 Asl           1170        361        400        988        836        535
 Apod         36194      10347       9173      29594      24959      13668
@@ -673,12 +673,12 @@ Apod         11088      38148
 Cyp2d22       1821       4019
 ```
 
-```r
+``` r
 # Equivalent to
 assay(se)[1:3, colData(se)$time == 0 | colData(se)$time == 8]
 ```
 
-```output
+``` output
         GSM2545336 GSM2545337 GSM2545338 GSM2545341 GSM2545342 GSM2545343
 Asl           1170        361        400        988        836        535
 Apod         36194      10347       9173      29594      24959      13668
@@ -708,13 +708,14 @@ Verify that you get the same values using the long `rna` table.
 ## Solution
 
 
-```r
+``` r
 rna |>
     filter(gene %in% c("Asl", "Apod", "Cyd2d22")) |>
-    filter(time != 4) |> select(expression)
+    filter(time != 4) |>
+    select(expression)
 ```
 
-```output
+``` output
 # A tibble: 28 × 1
    expression
         <dbl>
@@ -748,12 +749,12 @@ We can also add information to the metadata.
 Suppose that you want to add the center where the samples were collected...
 
 
-```r
+``` r
 colData(se)$center <- rep("University of Illinois", nrow(colData(se)))
 colData(se)
 ```
 
-```output
+``` output
 DataFrame with 22 rows and 10 columns
                 sample     organism       age         sex   infection
            <character>  <character> <integer> <character> <character>
@@ -795,11 +796,11 @@ You may be wondering, can we use tidyverse commands to interact with
 Remember what our SummarizedExperiment object looks like:
 
 
-```r
+``` r
 se
 ```
 
-```output
+``` output
 class: SummarizedExperiment 
 dim: 1474 22 
 metadata(0):
@@ -815,16 +816,16 @@ Load `tidySummarizedExperiment` and then take a look at the se object
 again.
 
 
-```r
+``` r
 #BiocManager::install("tidySummarizedExperiment")
 library("tidySummarizedExperiment")
 
 se
 ```
 
-```output
+``` output
 # A SummarizedExperiment-tibble abstraction: 32,428 × 22
-# [90mFeatures=1474 | Samples=22 | Assays=counts[0m
+# Features=1474 | Samples=22 | Assays=counts
    .feature .sample    counts sample organism   age sex   infection strain  time
    <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
  1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
@@ -854,12 +855,12 @@ If we want to revert to the standard `SummarizedExperiment` view, we
 can do that.
 
 
-```r
+``` r
 options("restore_SummarizedExperiment_show" = TRUE)
 se
 ```
 
-```output
+``` output
 class: SummarizedExperiment 
 dim: 1474 22 
 metadata(0):
@@ -874,14 +875,14 @@ colData names(10): sample organism ... mouse center
 But here we use the tibble view.
 
 
-```r
+``` r
 options("restore_SummarizedExperiment_show" = FALSE)
 se
 ```
 
-```output
+``` output
 # A SummarizedExperiment-tibble abstraction: 32,428 × 22
-# [90mFeatures=1474 | Samples=22 | Assays=counts[0m
+# Features=1474 | Samples=22 | Assays=counts
    .feature .sample    counts sample organism   age sex   infection strain  time
    <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
  1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
@@ -908,13 +909,13 @@ We can use `filter` to filter for rows using a condition e.g. to view
 all rows for one sample.
 
 
-```r
-se %>% filter(.sample == "GSM2545336")
+``` r
+se |> filter(.sample == "GSM2545336")
 ```
 
-```output
+``` output
 # A SummarizedExperiment-tibble abstraction: 1,474 × 22
-# [90mFeatures=1474 | Samples=1 | Assays=counts[0m
+# Features=1474 | Samples=1 | Assays=counts
    .feature .sample    counts sample organism   age sex   infection strain  time
    <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
  1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
@@ -937,15 +938,15 @@ se %>% filter(.sample == "GSM2545336")
 We can use `select` to specify columns we want to view.
 
 
-```r
-se %>% select(.sample)
+``` r
+se |> select(.sample)
 ```
 
-```output
+``` output
 tidySummarizedExperiment says: Key columns are missing. A data frame is returned for independent data analysis.
 ```
 
-```output
+``` output
 # A tibble: 32,428 × 1
    .sample   
    <chr>     
@@ -965,13 +966,13 @@ tidySummarizedExperiment says: Key columns are missing. A data frame is returned
 We can use `mutate` to add metadata info.
 
 
-```r
-se %>% mutate(center = "Heidelberg University")
+``` r
+se |> mutate(center = "Heidelberg University")
 ```
 
-```output
+``` output
 # A SummarizedExperiment-tibble abstraction: 32,428 × 22
-# [90mFeatures=1474 | Samples=22 | Assays=counts[0m
+# Features=1474 | Samples=22 | Assays=counts
    .feature .sample    counts sample organism   age sex   infection strain  time
    <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
  1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
@@ -991,22 +992,22 @@ se %>% mutate(center = "Heidelberg University")
 #   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>
 ```
 
-We can also combine commands with the tidyverse pipe `%>%`. For
+We can also combine commands with the tidyverse pipe `|>`. For
 example, we could combine `group_by` and `summarise` to get the total
 counts for each sample.
 
 
-```r
-se %>%
-    group_by(.sample) %>%
+``` r
+se |>
+    group_by(.sample) |>
     summarise(total_counts=sum(counts))
 ```
 
-```output
+``` output
 tidySummarizedExperiment says: A data frame is returned for independent data analysis.
 ```
 
-```output
+``` output
 # A tibble: 22 × 2
    .sample    total_counts
    <chr>             <int>
@@ -1029,8 +1030,8 @@ for plotting.
 Here we plot the distribution of counts per sample.
 
 
-```r
-se %>%
+``` r
+se |>
     ggplot(aes(counts + 1, group=.sample, color=infection)) +
     geom_density() +
     scale_x_log10() +

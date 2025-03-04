@@ -454,14 +454,14 @@ If you need help with a specific function, let's say `barplot()`, you
 can type:
 
 
-```r
+``` r
 ?barplot
 ```
 
 If you just need to remind yourself of the names of the arguments, you can use:
 
 
-```r
+``` r
 args(lm)
 ```
 
@@ -473,7 +473,7 @@ However, this only looks through the installed packages for help pages with a
 match to your search request
 
 
-```r
+``` r
 ??kruskal
 ```
 
@@ -537,13 +537,13 @@ can use the function `dput()`. It will output R code that can be used
 to recreate the exact same object as the one in memory:
 
 
-```r
+``` r
 ## iris is an example data frame that comes with R and head() is a
 ## function that returns the first part of the data frame
 dput(head(iris))
 ```
 
-```output
+``` output
 structure(list(Sepal.Length = c(5.1, 4.9, 4.7, 4.6, 5, 5.4), 
     Sepal.Width = c(3.5, 3, 3.2, 3.1, 3.6, 3.9), Petal.Length = c(1.4, 
     1.4, 1.3, 1.5, 1.4, 1.7), Petal.Width = c(0.2, 0.2, 0.2, 
@@ -559,7 +559,7 @@ issue). Alternatively, in particular if your question is not related
 to a data frame, you can save any R object to a file[^export]:
 
 
-```r
+``` r
 saveRDS(iris, file="/tmp/iris.rds")
 ```
 
@@ -570,7 +570,7 @@ assumed that the downloaded file is in a `Downloads` folder in the
 user's home directory):
 
 
-```r
+``` r
 some_data <- readRDS(file="~/Downloads/iris.rds")
 ```
 
@@ -580,14 +580,14 @@ the packages that you are using, and other information that can be very helpful
 to understand your problem.
 
 
-```r
+``` r
 sessionInfo()
 ```
 
-```output
-R version 4.3.3 (2024-02-29)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 22.04.4 LTS
+``` output
+R version 4.4.2 (2024-10-31)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 22.04.5 LTS
 
 Matrix products: default
 BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
@@ -606,9 +606,9 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
-[1] BiocManager_1.30.23 compiler_4.3.3      tools_4.3.3        
-[4] yaml_2.3.8          highr_0.10          knitr_1.46         
-[7] xfun_0.43           renv_1.0.7          evaluate_0.23      
+[1] BiocManager_1.30.25 compiler_4.4.2      tools_4.4.2        
+[4] yaml_2.3.10         knitr_1.49          xfun_0.51          
+[7] renv_1.1.2          evaluate_1.0.3     
 ```
 
 ### Where to ask for help?
@@ -675,7 +675,7 @@ first need to load it to be able to use it. This is done with the
 `library()` function. Below, we load `ggplot2`.
 
 
-```r
+``` r
 library("ggplot2")
 ```
 
@@ -687,7 +687,7 @@ installed with the `install.packages()` function. Below, for example,
 we install the `dplyr` package that we will learn about later.
 
 
-```r
+``` r
 install.packages("dplyr")
 ```
 
@@ -698,7 +698,7 @@ Another major R package repository is maintained by Bioconductor. [Bioconductor 
 namely `BiocManager`, that can be installed from CRAN with
 
 
-```r
+``` r
 install.packages("BiocManager")
 ```
 
@@ -707,7 +707,7 @@ later), `DESeq2` (for RNA-Seq analysis), and any others from either Bioconductor
 installed with `BiocManager::install`.
 
 
-```r
+``` r
 BiocManager::install("SummarizedExperiment")
 BiocManager::install("DESeq2")
 ```

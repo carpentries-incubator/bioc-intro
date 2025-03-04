@@ -73,7 +73,7 @@ remote file, names it `"rnaseq.csv"` and adds it to a preexisting
 folder named `"data"`.
 
 
-```r
+``` r
 download.file(url = "https://github.com/carpentries-incubator/bioc-intro/raw/main/episodes/data/rnaseq.csv",
               destfile = "data/rnaseq.csv")
 ```
@@ -81,7 +81,7 @@ download.file(url = "https://github.com/carpentries-incubator/bioc-intro/raw/mai
 You are now ready to load the data:
 
 
-```r
+``` r
 rna <- read.csv("data/rnaseq.csv")
 ```
 
@@ -91,7 +91,7 @@ our data has been loaded, we can see the contents of the data frame by
 typing its name:
 
 
-```r
+``` r
 rna
 ```
 
@@ -100,11 +100,11 @@ properly. Let's check the top (the first 6 lines) of this data frame
 using the function `head()`:
 
 
-```r
+``` r
 head(rna)
 ```
 
-```output
+``` output
      gene     sample expression     organism age    sex  infection  strain time
 1     Asl GSM2545336       1170 Mus musculus   8 Female InfluenzaA C57BL/6    8
 2    Apod GSM2545336      36194 Mus musculus   8 Female InfluenzaA C57BL/6    8
@@ -149,7 +149,7 @@ head(rna)
 6                                SLC2A4
 ```
 
-```r
+``` r
 ## Try also
 ## View(rna)
 ```
@@ -171,7 +171,7 @@ the data above could have also been loaded by using `read.table()`
 with the separation argument as `,`. The code is as follows:
 
 
-```r
+``` r
 rna <- read.table(file = "data/rnaseq.csv",
                   sep = ",",
                   header = TRUE)
@@ -203,11 +203,11 @@ We can see this when inspecting the <b>str</b>ucture of a data frame
 with the function `str()`:
 
 
-```r
+``` r
 str(rna)
 ```
 
-```output
+``` output
 'data.frame':	32428 obs. of  19 variables:
  $ gene                                 : chr  "Asl" "Apod" "Cyp2d22" "Klk6" ...
  $ sample                               : chr  "GSM2545336" "GSM2545336" "GSM2545336" "GSM2545336" ...
@@ -280,9 +280,7 @@ questions?
 ## Solution
 
 - class: data frame
-- how many rows: 66465, how many columns: 11
-
-
+- how many rows: 32428, how many columns: 19
 
 :::::::::::::::::::::::::
 
@@ -297,7 +295,7 @@ column numbers. However, note that different ways of specifying these
 coordinates lead to results with different classes.
 
 
-```r
+``` r
 # first element in the first column of the data frame (as a vector)
 rna[1, 1]
 # first element in the 6th column (as a vector)
@@ -322,7 +320,7 @@ instance. See section @ref(sec:genvec) for details.
 You can also exclude certain indices of a data frame using the "`-`" sign:
 
 
-```r
+``` r
 rna[, -1]          ## The whole data frame, except the first column
 rna[-c(7:66465), ] ## Equivalent to head(rna)
 ```
@@ -331,7 +329,7 @@ Data frames can be subsetted by calling indices (as shown previously),
 but also by calling their column names directly:
 
 
-```r
+``` r
 rna["gene"]       # Result is a data.frame
 rna[, "gene"]     # Result is a vector
 rna[["gene"]]     # Result is a vector
@@ -373,7 +371,7 @@ correct names of the columns.
 ## Solution
 
 
-```r
+``` r
 ## 1.
 rna_200 <- rna[200, ]
 ## 2.
@@ -403,7 +401,7 @@ known as *levels*. By default, R always sorts levels in alphabetical
 order. For instance, if you have a factor with 2 levels:
 
 
-```r
+``` r
 sex <- factor(c("male", "female", "female", "male", "female"))
 ```
 
@@ -413,19 +411,19 @@ in this vector is `"male"`). You can see this by using the function
 `levels()` and you can find the number of levels using `nlevels()`:
 
 
-```r
+``` r
 levels(sex)
 ```
 
-```output
+``` output
 [1] "female" "male"  
 ```
 
-```r
+``` r
 nlevels(sex)
 ```
 
-```output
+``` output
 [1] 2
 ```
 
@@ -436,21 +434,21 @@ by a particular type of analysis. Here, one way to reorder our levels
 in the `sex` vector would be:
 
 
-```r
+``` r
 sex ## current order
 ```
 
-```output
+``` output
 [1] male   female female male   female
 Levels: female male
 ```
 
-```r
+``` r
 sex <- factor(sex, levels = c("male", "female"))
 sex ## after re-ordering
 ```
 
-```output
+``` output
 [1] male   female female male   female
 Levels: male female
 ```
@@ -469,7 +467,7 @@ represented by each factor level. Let's look at the number of males
 and females in our data.
 
 
-```r
+``` r
 plot(sex)
 ```
 
@@ -484,11 +482,11 @@ If you need to convert a factor to a character vector, you use
 `as.character(x)`.
 
 
-```r
+``` r
 as.character(sex)
 ```
 
-```output
+``` output
 [1] "male"   "female" "female" "male"   "female"
 ```
 
@@ -536,25 +534,25 @@ If we want to rename these factor, it is sufficient to change its
 levels:
 
 
-```r
+``` r
 levels(sex)
 ```
 
-```output
+``` output
 [1] "male"   "female"
 ```
 
-```r
+``` r
 levels(sex) <- c("M", "F")
 sex
 ```
 
-```output
+``` output
 [1] M F F M F
 Levels: M F
 ```
 
-```r
+``` r
 plot(sex)
 ```
 
@@ -571,15 +569,15 @@ plot(sex)
 ## Solution
 
 
-```r
+``` r
 levels(sex)
 ```
 
-```output
+``` output
 [1] "M" "F"
 ```
 
-```r
+``` r
 levels(sex) <- c("Male", "Female")
 ```
 
@@ -597,7 +595,7 @@ There are a few mistakes in this hand-crafted `data.frame`. Can you
 spot and fix them?  Don't hesitate to experiment!
 
 
-```r
+``` r
 animal_data <- data.frame(
        animal = c(dog, cat, sea cucumber, sea urchin),
        feel = c("furry", "squishy", "spiny"),
@@ -633,7 +631,7 @@ Check your guesses using `str(country_climate)`:
   spreadsheets into R using `read.csv()`.
 
 
-```r
+``` r
 country_climate <- data.frame(
        country = c("Canada", "Panama", "South Africa", "Australia"),
        climate = c("cold", "hot", "temperate", "hot/temperate"),
@@ -648,7 +646,7 @@ country_climate <- data.frame(
 ## Solution
 
 
-```r
+``` r
 country_climate <- data.frame(
        country = c("Canada", "Panama", "South Africa", "Australia"),
        climate = c("cold", "hot", "temperate", "hot/temperate"),
@@ -659,7 +657,7 @@ country_climate <- data.frame(
 str(country_climate)
 ```
 
-```output
+``` output
 'data.frame':	4 obs. of  5 variables:
  $ country            : chr  "Canada" "Panama" "South Africa" "Australia"
  $ climate            : chr  "cold" "hot" "temperate" "hot/temperate"
@@ -696,12 +694,12 @@ columns[^ncol]. The values are sorted along the columns, as illustrated
 below.
 
 
-```r
+``` r
 m <- matrix(1:9, ncol = 3, nrow = 3)
 m
 ```
 
-```output
+``` output
      [,1] [,2] [,3]
 [1,]    1    4    7
 [2,]    2    5    8
@@ -723,7 +721,7 @@ your computer. Explore it.
 ## Solution:
 
 
-```r
+``` r
 ## create the matrix
 ip <- installed.packages()
 head(ip)
@@ -757,21 +755,21 @@ Construct a matrix of dimension 1000 by 3 of normally distributed data
 ## Solution
 
 
-```r
+``` r
 set.seed(123)
 m <- matrix(rnorm(3000), ncol = 3)
 dim(m)
 ```
 
-```output
+``` output
 [1] 1000    3
 ```
 
-```r
+``` r
 head(m)
 ```
 
-```output
+``` output
             [,1]        [,2]       [,3]
 [1,] -0.56047565 -0.99579872 -0.5116037
 [2,] -0.23017749 -1.03995504  0.2369379
@@ -827,7 +825,7 @@ explicitly with `library(lubridate)`.
 Start by loading the required package:
 
 
-```r
+``` r
 library("lubridate")
 ```
 
@@ -840,25 +838,25 @@ vector formatted as "YYYY-MM-DD".
 Let's create a date object and inspect the structure:
 
 
-```r
+``` r
 my_date <- ymd("2015-01-01")
 str(my_date)
 ```
 
-```output
+``` output
  Date[1:1], format: "2015-01-01"
 ```
 
 Now let's paste the year, month, and day separately - we get the same result:
 
 
-```r
+``` r
 # sep indicates the character to use to separate each component
 my_date <- ymd(paste("2015", "1", "1", sep = "-"))
 str(my_date)
 ```
 
-```output
+``` output
  Date[1:1], format: "2015-01-01"
 ```
 
@@ -867,7 +865,7 @@ pipeline. The small data below has stored dates in different `year`,
 `month` and `day` columns.
 
 
-```r
+``` r
 x <- data.frame(year = c(1996, 1992, 1987, 1986, 2000, 1990, 2002, 1994, 1997, 1985),
                 month = c(2,  3,  3, 10,  1,  8,  3,  4,  5,  5),
                 day = c(24,  8,  1,  5,  8, 17, 13, 10, 11, 24),
@@ -875,7 +873,7 @@ x <- data.frame(year = c(1996, 1992, 1987, 1986, 2000, 1990, 2002, 1994, 1997, 1
 x
 ```
 
-```output
+``` output
    year month day value
 1  1996     2  24     4
 2  1992     3   8     5
@@ -894,11 +892,11 @@ character vector from the `year`, `month`, and `day` columns of `x`
 using `paste()`:
 
 
-```r
+``` r
 paste(x$year, x$month, x$day, sep = "-")
 ```
 
-```output
+``` output
  [1] "1996-2-24" "1992-3-8"  "1987-3-1"  "1986-10-5" "2000-1-8"  "1990-8-17"
  [7] "2002-3-13" "1994-4-10" "1997-5-11" "1985-5-24"
 ```
@@ -906,11 +904,11 @@ paste(x$year, x$month, x$day, sep = "-")
 This character vector can be used as the argument for `ymd()`:
 
 
-```r
+``` r
 ymd(paste(x$year, x$month, x$day, sep = "-"))
 ```
 
-```output
+``` output
  [1] "1996-02-24" "1992-03-08" "1987-03-01" "1986-10-05" "2000-01-08"
  [6] "1990-08-17" "2002-03-13" "1994-04-10" "1997-05-11" "1985-05-24"
 ```
@@ -918,12 +916,12 @@ ymd(paste(x$year, x$month, x$day, sep = "-"))
 The resulting `Date` vector can be added to `x` as a new column called `date`:
 
 
-```r
+``` r
 x$date <- ymd(paste(x$year, x$month, x$day, sep = "-"))
 str(x) # notice the new column, with 'date' as the class
 ```
 
-```output
+``` output
 'data.frame':	10 obs. of  5 variables:
  $ year : num  1996 1992 1987 1986 2000 ...
  $ month: num  2 3 3 10 1 8 3 4 5 5
@@ -936,11 +934,11 @@ Let's make sure everything worked correctly. One way to inspect the
 new column is to use `summary()`:
 
 
-```r
+``` r
 summary(x$date)
 ```
 
-```output
+``` output
         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
 "1985-05-24" "1988-01-11" "1993-03-24" "1993-03-18" "1997-01-20" "2002-03-13" 
 ```
@@ -950,11 +948,11 @@ order. If you have for instance day, month and year, you would need
 `dmy()`.
 
 
-```r
+``` r
 dmy(paste(x$day, x$month, x$year, sep = "-"))
 ```
 
-```output
+``` output
  [1] "1996-02-24" "1992-03-08" "1987-03-01" "1986-10-05" "2000-01-08"
  [6] "1990-08-17" "2002-03-13" "1994-04-10" "1997-05-11" "1985-05-24"
 ```
@@ -983,7 +981,7 @@ Below, let's create a list containing a vector of numbers, characters,
 a matrix, a dataframe and another list:
 
 
-```r
+``` r
 l <- list(1:10, ## numeric
           letters, ## character
           installed.packages(), ## a matrix
@@ -992,21 +990,21 @@ l <- list(1:10, ## numeric
 length(l)
 ```
 
-```output
+``` output
 [1] 5
 ```
 
-```r
+``` r
 str(l)
 ```
 
-```output
+``` output
 List of 5
  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
  $ : chr [1:26] "a" "b" "c" "d" ...
- $ : chr [1:169, 1:16] "abind" "askpass" "backports" "base64enc" ...
+ $ : chr [1:164, 1:16] "abind" "askpass" "backports" "base64enc" ...
   ..- attr(*, "dimnames")=List of 2
-  .. ..$ : chr [1:169] "abind" "askpass" "backports" "base64enc" ...
+  .. ..$ : chr [1:164] "abind" "askpass" "backports" "base64enc" ...
   .. ..$ : chr [1:16] "Package" "LibPath" "Version" "Priority" ...
  $ :'data.frame':	50 obs. of  2 variables:
   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -1022,19 +1020,19 @@ to extract a single element of that list (using indices or names, if
 the list is named).
 
 
-```r
+``` r
 l[[1]] ## first element
 ```
 
-```output
+``` output
  [1]  1  2  3  4  5  6  7  8  9 10
 ```
 
-```r
+``` r
 l[1:2] ## a list of length 2
 ```
 
-```output
+``` output
 [[1]]
  [1]  1  2  3  4  5  6  7  8  9 10
 
@@ -1043,11 +1041,11 @@ l[1:2] ## a list of length 2
 [20] "t" "u" "v" "w" "x" "y" "z"
 ```
 
-```r
+``` r
 l[1]   ## a list of length 1
 ```
 
-```output
+``` output
 [[1]]
  [1]  1  2  3  4  5  6  7  8  9 10
 ```
@@ -1063,7 +1061,7 @@ exported and the file to be exported to. For example, to export the
 directory, we would execute:
 
 
-```r
+``` r
 write.csv(rna, file = "data_output/my_rna.csv")
 ```
 
