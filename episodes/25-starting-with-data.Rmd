@@ -204,7 +204,7 @@ questions?
 ## Solution
 
 - class: data frame
-- how many rows: 32428, how many columns: 19
+- how many rows: `r nrow(rna)`, how many columns: `r ncol(rna)`
 
 :::::::::::::::::::::::::
 
@@ -767,7 +767,7 @@ exported and the file to be exported to. For example, to export the
 `rna` data to the `my_rna.csv` file in the `data_output`
 directory, we would execute:
 
-```{r, eval=FALSE, purl=TRUE}
+```{r writecsv, eval=FALSE, purl=TRUE}
 write.csv(rna, file = "data_output/my_rna.csv")
 ```
 

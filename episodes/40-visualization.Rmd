@@ -185,7 +185,7 @@ add here a small constant value (`+1`) to avoid having `-Inf` values
 returned for expression values equal to 0.
 
 ```{r log-transfo, cache=FALSE, purl=TRUE}
-rna <- rna %>%
+rna <- rna |>
   mutate(expression_log = log2(expression + 1))
 ```
 
@@ -263,12 +263,12 @@ biotype that we will use later on to represent the genes. We will save
 the fold changes in a new data frame called `rna_fc.`
 
 ```{r rna_fc, cache=FALSE, purl=TRUE}
-rna_fc <- rna %>% select(gene, time,
-                         gene_biotype, expression_log) %>%
-  group_by(gene, time, gene_biotype) %>%
-  summarize(mean_exp = mean(expression_log)) %>%
+rna_fc <- rna |> select(gene, time,
+                         gene_biotype, expression_log) |>
+  group_by(gene, time, gene_biotype) |>
+  summarize(mean_exp = mean(expression_log)) |>
   pivot_wider(names_from = time,
-              values_from = mean_exp) %>%
+              values_from = mean_exp) |>
   mutate(time_8_vs_0 = `8` - `0`, time_4_vs_0 = `4` - `0`)
 
 ```
@@ -559,15 +559,15 @@ called `sub_rna` containing the 10 selected genes, then we need to group
 the data and calculate the mean gene expression within each group:
 
 ```{r, purl=TRUE}
-rna_fc <- rna_fc %>% arrange(desc(time_8_vs_0))
+rna_fc <- rna_fc |> arrange(desc(time_8_vs_0))
 
 genes_selected <- rna_fc$gene[1:10]
 
-sub_rna <- rna %>%
+sub_rna <- rna |>
     filter(gene %in% genes_selected)
 
-mean_exp_by_time <- sub_rna %>%
-  group_by(gene,time) %>%
+mean_exp_by_time <- sub_rna |>
+  group_by(gene,time) |>
     summarize(mean_exp = mean(expression_log))
 
 mean_exp_by_time
@@ -630,8 +630,8 @@ To do that we need to calculate the mean expression in the data frame
 grouped by `gene`, `time`, and `sex`:
 
 ```{r data-facet-by-gene-and-sex, purl=TRUE}
-mean_exp_by_time_sex <- sub_rna %>%
-  group_by(gene, time, sex) %>%
+mean_exp_by_time_sex <- sub_rna |>
+  group_by(gene, time, sex) |>
     summarize(mean_exp = mean(expression_log))
 
 mean_exp_by_time_sex
@@ -673,8 +673,8 @@ infection.
 ## Solution
 
 ```{r mean-exp-chromosome-time-series, purl=TRUE}
-mean_exp_by_chromosome <- rna %>%
-  group_by(chromosome_name, time) %>%
+mean_exp_by_chromosome <- rna |>
+  group_by(chromosome_name, time) |>
   summarize(mean_exp = mean(expression_log))
 
 ggplot(data = mean_exp_by_chromosome, mapping = aes(x = time,
@@ -908,8 +908,9 @@ log10 scale for better readability.
 rna$chromosome_name <- factor(rna$chromosome_name,
                                levels = c(1:19,"X","Y"))
 
-count_gene_chromosome <- rna %>% select(chromosome_name, gene) %>%
-  distinct() %>% ggplot() +
+count_gene_chromosome <- rna |>
+  select(chromosome_name, gene) |>
+  distinct() |> ggplot() +
   geom_bar(aes(x = chromosome_name), fill = "seagreen",
            position = "dodge", stat = "count") +
   labs(y = "log10(n genes)", x = "chromosome") +
