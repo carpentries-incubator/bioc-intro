@@ -1,5 +1,5 @@
 ---
-title: Instructor Notes
+title: 講師メモ
 ---
 
 FIXME
