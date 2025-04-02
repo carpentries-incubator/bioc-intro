@@ -136,11 +136,11 @@ easily set up plot templates and conveniently explore different types of
 plots, so the above plot can also be generated with code like this:
 
 ```{r, eval=FALSE, purl=TRUE}
-# Assign plot to a variable
+# Asignar gráfico a una variable
 rna_plot <- ggplot(data = rna,
                    mapping = aes(x = expression))
 
-# Draw the plot
+# Dibujar el gráfico
 rna_plot + geom_histogram()
 ```
 
