@@ -7,7 +7,7 @@ title: Setup
 
 - Install R, RStudio and packages (see below).
 
-### R and RStudio
+### R e RStudio
 
 - R and RStudio are separate downloads and installations. R is the
   underlying statistical computing environment, but using R alone is
