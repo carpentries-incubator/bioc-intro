@@ -442,7 +442,7 @@ levels(sex) <- c("Male", "Female")
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge:
+## チャレンジだ：
 
 We have seen how data frames are created when using `read.csv()`, but
 they can also be created by hand with the `data.frame()` function.
@@ -458,7 +458,7 @@ animal_data <- data.frame(
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 - missing quotations around the names of the animals
 - missing one entry in the "feel" column (probably for one of the furry animals)
@@ -470,7 +470,7 @@ animal_data <- data.frame(
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge:
+## チャレンジだ：
 
 Can you predict the class for each of the columns in the following
 example?
@@ -496,7 +496,7 @@ country_climate <- data.frame(
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 ```{r, eval=TRUE, purl=TRUE}
 country_climate <- data.frame(
@@ -545,7 +545,7 @@ m
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge:
+## チャレンジだ：
 
 Using the function `installed.packages()`, create a `character` matrix
 containing the information about all packages currently installed on
@@ -579,14 +579,14 @@ data drawn from a normal distribution of mean 0 and standard deviation
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge:
+## チャレンジだ：
 
 Construct a matrix of dimension 1000 by 3 of normally distributed data
 (mean 0, standard deviation 1)
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 ```{r rnormmat_sln, purl=TRUE}
 set.seed(123)
