@@ -31,8 +31,8 @@ download.file(url = "https://github.com/carpentries-incubator/bioc-intro/raw/mai
 rna <- read.csv("data/rnaseq.csv")
 ```
 
-> This episode is based on the Data Carpentries's _Data Analysis and
-> Visualisation in R for Ecologists_ lesson.
+> このエピソードは、Data Carpentriesの_Data Analysis and
+> Visualisation in R for Ecologists_レッスンに基づいています。
 
 ## Data Visualization
 
@@ -146,7 +146,7 @@ rna_plot + geom_histogram()
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge
+## チャレンジ
 
 You have probably noticed an automatic message that appears when
 drawing the histogram:
@@ -161,7 +161,7 @@ change the number or width of the bins.
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 ```{r, purl=TRUE}
 # change bins
@@ -198,7 +198,7 @@ From now on we will work on the log-transformed expression values.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge
+## チャレンジ
 
 Another way to visualize this transformation is to consider the scale
 of the observations. For example, it may be worth changing the scale
@@ -213,7 +213,7 @@ commands). Try making this modification:
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 ```{r, eval=TRUE, purl=TRUE, echo=TRUE}
 ggplot(data = rna,mapping = aes(x = expression))+
@@ -343,7 +343,7 @@ library("hexbin")
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge
+## チャレンジ
 
 Scatter plots can be useful exploratory tools for small datasets. For
 data sets with large numbers of observations, such as the `rna_fc`
@@ -364,7 +364,7 @@ fall within its boundaries.
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 ```{r, eval=FALSE, purl=TRUE}
 install.packages("hexbin")
@@ -385,7 +385,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge
+## チャレンジ
 
 Use what you just learned to create a scatter plot of `expression_log`
 over `sample` from the `rna` dataset with the time showing in
@@ -393,7 +393,7 @@ different colors. Is this a good way to show this type of data?
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 ```{r, eval=TRUE, purl=TRUE}
 ggplot(data = rna, mapping = aes(y = expression_log, x = sample)) +
@@ -427,14 +427,14 @@ ggplot(data = rna,
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge
+## チャレンジ
 
 Note how the boxplot layer is in front of the jitter layer? What do
 you need to change in the code to put the boxplot below the points?
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 We should switch the order of these two geoms:
 
@@ -465,7 +465,7 @@ ggplot(data = rna,
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge
+## チャレンジ
 
 Add color to the data points on your boxplot according to the duration
 of the infection (`time`).
@@ -476,7 +476,7 @@ this change how R makes the graph?
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 ```{r boxplot-color-time, cache=FALSE, purl=TRUE}
 # time as integer
@@ -502,7 +502,7 @@ ggplot(data = rna,
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge
+## チャレンジ
 
 Boxplots are useful summaries, but hide the _shape_ of the
 distribution. For example, if the distribution is bimodal, we would
@@ -514,7 +514,7 @@ plot, where the shape (of the density of points) is drawn.
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 ```{r, eval=TRUE, echo=TRUE, cache=FALSE, purl=TRUE}
 ggplot(data = rna,
@@ -529,13 +529,13 @@ ggplot(data = rna,
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge
+## チャレンジ
 
 - Modify the violin plot to fill in the violins by `sex`.
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 ```{r, eval=TRUE, echo=TRUE, cache=FALSE, purl=TRUE}
 ggplot(data = rna,
@@ -660,7 +660,7 @@ ggplot(data = mean_exp_by_time_sex,
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge
+## チャレンジ
 
 Use what you just learned to create a plot that depicts how the
 average expression of each chromosome changes through the duration of
@@ -668,7 +668,7 @@ infection.
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 ```{r mean-exp-chromosome-time-series, purl=TRUE}
 mean_exp_by_chromosome <- rna |>
@@ -808,7 +808,7 @@ ggplot(rna, aes(x = expression_log)) +
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Challenge
+## チャレンジ
 
 With all of this information in hand, please take another five minutes
 to either improve one of the plots generated in this exercise or
@@ -825,7 +825,7 @@ for inspiration. Here are some ideas:
 
 :::::::::::::::  solution
 
-## Solution
+## ソリューション
 
 For example, based on this plot:
 
