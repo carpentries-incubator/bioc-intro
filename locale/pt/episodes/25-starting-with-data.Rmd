@@ -477,7 +477,7 @@ example?
 
 Check your guesses using `str(country_climate)`:
 
-- Are they what you expected?  Why? Why not?
+- Are they what you expected?  Por quê? Why not?
 
 - Try again by adding `stringsAsFactors = TRUE` after the last
   variable when creating the data frame. What is happening now?
