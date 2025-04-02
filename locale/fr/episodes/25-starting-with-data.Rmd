@@ -27,8 +27,8 @@ exercises: 30
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-> This episode is based on the Data Carpentries's _Data Analysis and
-> Visualisation in R for Ecologists_ lesson.
+> Cet épisode est basé sur la leçon _Analyse des données et
+> Visualisation dans R pour les écologistes_ de Data Carpentries.
 
 ## Presentation of the gene expression data
 
