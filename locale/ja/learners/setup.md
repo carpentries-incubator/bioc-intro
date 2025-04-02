@@ -1,21 +1,19 @@
 ---
-title: Setup
+title: セットアップ
 ---
 
-- Please make sure you have a spreadsheet editor at hand, such as
-  LibreOffice, Microsoft Excel or Google Sheets.
+- LibreOffice、Microsoft Excel、Google Sheetsなど、表計算エディターが手元にあることを確認してください。
 
-- Install R, RStudio and packages (see below).
+- R、RStudio、パッケージをインストールしてください（下記参照）。
 
-### R and RStudio
+### RとRStudio
 
-- R and RStudio are separate downloads and installations. R is the
+- RとRStudioは別々にダウンロード、インストールする。 R is the
   underlying statistical computing environment, but using R alone is
   no fun. RStudio is a graphical integrated development environment
-  (IDE) that makes using R much easier and more interactive. You need
-  to install R before you install RStudio. After installing both
-  programs, you will need to install some specific R packages within
-  RStudio. Follow the instructions below for your operating system,
+  (IDE) that makes using R much easier and more interactive. RStudioをインストールする前に、Rをインストールしてください。 両方の
+  プログラムをインストールした後、
+  RStudio 内にいくつかの特定の R パッケージをインストールする必要があります。 Follow the instructions below for your operating system,
   and then follow the instructions to install packages.
 
 ### You are running Windows
@@ -24,7 +22,7 @@ title: Setup
 
 :::::::::::::::  solution
 
-## If you already have R and RStudio installed
+## すでにRとRStudioがインストールされている場合
 
 - Open RStudio, and click on "Help" > "Check for updates". If a new version is
   available, quit RStudio, and download the latest version for RStudio.
@@ -56,7 +54,7 @@ title: Setup
 
 - Under _All Installers_ select **RStudio xxxx.yy.zz-uuu.exe - Windows 10/11** (where x, y, z, and u represent version numbers)
 
-- Double click the file to install it
+- ファイルをダブルクリックしてインストールする
 
 - Once it's installed, open RStudio to make sure it works and you don't get any
   error messages
@@ -72,7 +70,7 @@ title: Setup
 
 :::::::::::::::  solution
 
-## If you already have R and RStudio installed
+## すでにRとRStudioがインストールされている場合
 
 - Open RStudio, and click on "Help" > "Check for updates". If a new version is
   available, quit RStudio, and download the latest version for RStudio.
