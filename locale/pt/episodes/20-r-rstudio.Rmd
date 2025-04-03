@@ -1,0 +1,642 @@
+---
+source: Rmd
+title: R e RStudio
+teaching: 30
+exercises: 0
+---
+
+```{r, include=FALSE}
+```
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Descreva a finalidade dos painéis do RStudio: Script, Console, Environment e Plots.
+- Organise files and directories for a set of analyses as an R project, and understand the purpose of the working directory.
+- Use the built-in RStudio help interface to search for more information on R functions.
+- Demonstrate how to provide sufficient information for troubleshooting with the R user community.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- What are R and RStudio?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+> This episode is based on the Data Carpentries's _Data Analysis and
+> Visualisation in R for Ecologists_ lesson.
+
+## What is R? O que é RStudio?
+
+O termo [R](https://www.r-project.org/) é utilizado para designar a
+_linguagem de programação_, o _ambiente de computação estatística_
+e o _software_ que interpreta os scripts com essa linguagem.
+
+[RStudio](https://rstudio.com) é atualmente uma forma muito popular não só de
+escrever os seus scripts R mas também de interagir com o software R
+[^plainr]. Para funcionar corretamente, o RStudio necessita do R e ambos têm de estar instalados no seu computador.
+
+[^plainr]: As opposed to using R directly from the command line
+    console. Existem outros softwares que fazem a interface e integram
+    com o R, mas o RStudio é particularmente adequado para principiantes, ao mesmo tempo que oferece funcionalidades muito avançadas.
+
+O RStudio IDE Cheat
+Sheet
+fornece muito mais informações do que serão abordadas aqui, mas pode ser
+útil para aprender atalhos de teclado e descobrir novos recursos.
+
+## Why learn R?
+
+### R does not involve lots of pointing and clicking, and that's a good thing
+
+The learning curve might be steeper than with other software, but with
+R, the results of your analysis do not rely on remembering a
+succession of pointing and clicking, but instead on a series of
+written commands, and that's a good thing! Assim, se quiser refazer
+a sua análise porque obteve mais dados, não tem de se
+lembrar em que botão clicou em qual ordem para obter os
+resultados; basta executar novamente o script.
+
+Trabalhar com scripts torna os passos utilizados na sua análise claros,
+e o código que escreve pode ser inspecionado por outra pessoa que pode te dar
+feedback e detectar erros.
+
+Trabalhar com scrpts te obriga a ter uma compreensão mais profunda do que
+está fazendo e facilita a sua aprendizagem e compreensão dos métodos utilizados.
+
+### R code is great for reproducibility
+
+Reproducibility means that someone else (including your future self) can
+obtain the same results from the same dataset when using the same
+analysis code.
+
+O R se integra com outras ferramentas para gerar manuscritos ou relatórios a partir do seu código. Se recolher mais dados ou corrigir um erro no seu conjunto de dados, as figuras
+e os testes estatísticos no seu manuscrito ou relatório serão atualizados
+automaticamente.
+
+Um número crescente de revistas e agências de financiamento espera que as análises
+sejam reprodutíveis, então o conhecimento de R te dará uma vantagem em relação a estes requisitos.
+
+### R is interdisciplinary and extensible
+
+With 10000+ packages[^whatarepkgs] that can be installed to extend its
+capabilities, R provides a framework that allows you to combine
+statistical approaches from many scientific disciplines to best suit
+the analytical framework you need to analyse your data. Por exemplo, o
+R tem pacotes para análise de imagens, GIS, séries temporais,
+genética de populações e muito mais.
+
+[^whatarepkgs]: i.e. add-ons that confer R with new functionality,
+    such as bioinformatics data analysis.
+
+```{r, fig.cap="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", echo=FALSE, message=FALSE}
+knitr::include_graphics("fig/cran.png")
+```
+
+### R works on data of all shapes and sizes
+
+The skills you learn with R scale easily with the size of your
+dataset. Mesmo que o seu conjunto de dados tenha centenas ou milhões de linhas,
+não fará muita diferença para o R.
+
+O R foi concebido para a análise de dados. Ele inclui estruturas de dados especiais
+e tipos de dados que o tornam conveniente para o tratamento de dados em falta e de fatores estatísticos.
+
+O R pode ligar-se a planilhas, bases de dados e muitos outros formatos de dados,
+no seu computador ou na Web.
+
+### R produces high-quality graphics
+
+The plotting functionalities in R are extensive, and allow you to adjust
+any aspect of your graph to convey most effectively the message from
+your data.
+
+### R has a large and welcoming community
+
+Thousands of people use R daily. Muitos deles estão dispostos a ajudá-lo
+através de listas de email e sites como Stack
+Overflow, ou na [comunidade RStudio](https://community.rstudio.com/). Essas amplas comunidades de usuários
+se estendem a áreas especializadas como a bioinformática. Um desses subconjuntos da comunidade R é o [Bioconductor](https://bioconductor.org/), um projeto científico para análise e compreensão "de dados biológicos atuais e emergentes Esta oficina foi desenvolvida por membros da comunidade Biocondutor; para mais informações sobre Bioconductor, por favor veja a oficina complementar ["O Projeto Biocondutor"](https://carpentries-incubator.github.io/bioc-project/).
+
+### Not only is R free, but it is also open-source and cross-platform
+
+Anyone can inspect the source code to see how R works. Por causa desta
+transparência, há menos chances de erros e se você (ou
+alguém fora) encontrar alguns, você pode relatar e corrigi-los.
+
+## Knowing your way around RStudio
+
+Let's start by learning about [RStudio](https://www.rstudio.com/),
+which is an Integrated Development Environment (IDE) for working with
+R.
+
+The RStudio IDE open-source product is free under the Affero General
+Public License (AGPL) v3.
+The RStudio IDE is also available with a commercial license and
+priority email support from Posit, Inc.
+
+We will use the RStudio IDE to write code, navigate the files on our
+computer, inspect the variables we are going to create, and visualise
+the plots we will generate. O RStudio também pode ser utilizado para outras coisas
+(por exemplo, controlo de versões, desenvolvimento de pacotes, escrita de aplicações Shiny) que
+não serão abordadas durante o workshop.
+
+```{r, results="markup", fig.cap="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("fig/rstudio-screenshot.png")
+```
+
+The RStudio window is divided into 4 "Panes":
+
+- the **Source** for your scripts and documents (top-left, in the
+  default layout)
+- your **Environment/History** (top-right),
+- your **Files/Plots/Packages/Help/Viewer** (bottom-right), and
+- the R **Console** (bottom-left).
+
+A colocação destes painéis e seu conteúdo podem ser personalizados (ver
+menu, `Tools -> Global Options-> Layout`).
+
+Uma das vantagens de utilizar o RStudio é que toda a informação que
+precisa para escrever código estára disponível numa única janela. Além disso, com
+muitos atalhos, como **autocompletion**, e **highlight** para os principais tipos
+de arquivo que você usa durante o desenvolvimento em R, O RStudio tornará a digitação
+mais fácil e menos propensa a erros.
+
+## Getting set up
+
+It is good practice to keep a set of related data, analyses, and text
+self-contained in a single folder, called the **working
+directory**. Todos os scripts dentro desta pasta podem então utilizar
+**relative paths** para ficheiros que indicam onde, dentro do projeto, um ficheiro
+está localizado (em oposição aos caminhos absolutos, que apontam para onde um ficheiro
+está num computador específico). Trabalhar desta forma torna muito
+mais fácil mover o seu projeto no seu computador e compartilhá-lo com
+outros sem se preocupar se os scripts subjacentes
+ainda funcionarão ou não.
+
+O RStudio fornece um conjunto útil de ferramentas para fazer isso através da sua interface "Projetos", que não só cria um diretório de trabalho para si, mas também se lembra
+da sua localização (permitindo navegar rapidamente para ele) e, opcionalmente, preserva
+definições personalizadas e ficheiros abertos para facilitar a retomada do trabalho após uma pausa. Siga os passos abaixo para criar um "R Project" para este tutorial.
+
+1. Inicie o RStudio.
+2. No menu `Arquivo` (File), clique em `Novo projeto`(New Project). Choose `New directory`, then
+  `New project`.
+3. Coloque um nome para esta nova pasta (ou "diretório") e escolha uma
+  localização conveniente para a mesma. Este será o seu **diretório de trabalho**
+  para esta sessão (ou todo o curso) (por exemplo, `bioc-intro`).
+4. Clique em `create project`.
+5. (Opcional) Defina Preferências para "Nunca" guardar o workspace no RStudio.
+
+As preferências predefinidas do RStudio geralmente funcionam bem, mas guardar um espaço de trabalho em
+.RData pode ser complicado, especialmente se estiver trabalhando com conjuntos de dados maiores.
+Para desativar essa opção, vá a Ferramentas --> 'Opções globais' e selecione a opção 'Nunca'
+para 'Guardar espaço de trabalho em .RData' ao sair.
+
+```{r, results="markup", fig.cap="Set 'Save workspace to .RData on exit' to 'Never'", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/rstudio-preferences.png")
+```
+
+To avoid character encoding issues between Windows and other operating
+systems, we are
+going to set UTF-8 by default:
+
+```{r, results="markup", fig.cap="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above).", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/utf8.png")
+```
+
+### Organizing your working directory
+
+Using a consistent folder structure across your projects will help keep things
+organised, and will also make it easy to find/file things in the future. Isto
+pode ser especialmente útil quando se tem vários projetos. Em geral, criamos diretorios (pastas) para **scripts**, **dados** e **documentos**.
+
+- **`data/`** Use this folder to store your raw data and intermediate
+  datasets you may create for the need of a particular analysis. For
+  the sake of transparency and
+  [provenance](https://en.wikipedia.org/wiki/Provenance), you should
+  _always_ keep a copy of your raw data accessible and do as much of
+  your data cleanup and preprocessing programmatically (i.e., with
+  scripts, rather than manually) as possible. Separar os dados em bruto
+  dos dados processados é também uma boa ideia. Por exemplo, você poderia
+  ter os arquivos `data/raw/tree_survey.plot1.txt` e `...plot2.txt` mantidos
+  separados de um arquivo `data/processed/tree.survey.csv` gerado por
+  o script `scripts/01.preprocess.tree_survey.R`.
+- **`documents/`** This would be a place to keep outlines, drafts,
+  and other text.
+- **`scripts/`** (or `src`) This would be the location to keep your R
+  scripts for different analyses or plotting, and potentially a
+  separate folder for your functions (more on that later).
+
+Você pode querer diretórios ou subdiretórios adicionais dependendo de
+suas necessidades de projeto, mas eles devem formar a espinha dorsal do seu diretório
+funcional.
+
+```{r, results="markup", fig.cap="Example of a working directory structure.", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("fig/working-directory-structure.png")
+```
+
+For this course, we will need a `data/` folder to store our raw data,
+and we will use `data_output/` for when we learn how to export data as
+CSV files, and `fig_output/` folder for the figures that we will save.
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Challenge: create your project directory structure
+
+Under the `Files` tab on the right of the screen, click on `New Folder` and
+create a folder named `data` within your newly created working directory
+(e.g., `~/bioc-intro/data`). (Alternativamente, digite `dir.create("data")` em
+seu console R.) Repita estas operações para criar uma pasta `data_output/` e uma pasta
+`fig_output`.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+We are going to keep the script in the root of our working directory
+because we are only going to use one file and it will make things
+easier.
+
+Your working directory should now look like this:
+
+```{r, results="markup", fig.cap="How it should look like at the beginning of this lesson", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("fig/r-starting-how-it-should-look-like.png")
+```
+
+**Project management** is also applicable to bioinformatics projects,
+of course[^bioindatascience]. William Noble (@Noble:2009) proposes the
+following directory structure:
+
+[^bioindatascience]: In this course, we consider bioinformatics as
+    data science applied to biological or bio-medical data.
+
+> Directory names are in large typeface, and filenames are in smaller
+> typeface. Apenas um subconjunto dos arquivos é mostrado aqui. Note that the
+> dates are formatted `<year>-<month>-<day>` so that they can be
+> sorted in chronological order. The source code `src/ms-analysis.c`
+> is compiled to create `bin/ms-analysis` and is documented in
+> `doc/ms-analysis.html`. The `README` files in the data directories
+> specify who downloaded the data files from what URL on what
+> date. The driver script `results/2009-01-15/runall` automatically
+> generates the three subdirectories split1, split2, and split3,
+> corresponding to three cross-validation splits. The
+> `bin/parse-sqt.py` script is called by both of the `runall` driver
+> scripts.
+
+```{r bioinfoproj, fig.cap="Directory structure for a sample bioinformatics project.", out.width="100%", echo=FALSE}
+knitr::include_graphics("fig/noble-bioinfo-project.png")
+```
+
+The most important aspect of a well defined and well documented
+project directory is to enable someone unfamiliar with the
+project[^futureself] to
+
+1. understand what the project is about, what data are available, what
+  analyses were run, and what results were produced and, most
+  importantly to
+
+2. repetir a análise mais uma vez - com novos dados ou alterando alguns
+  parâmetros de análise.
+
+[^futureself]: That someone could be, and very likely will be your
+    future self, a couple of months or years after the analyses were
+    run.
+
+### The working directory
+
+The working directory is an important concept to understand. É o lugar
+de onde R estará procurando e salvando os arquivos. Quando
+escrever código para o seu projeto, este deve referir-se a arquivosem relação
+à raiz do seu diretório de trabalho e só precisar de arquivos presentes nesta estrutura.
+
+A utilização de projetos RStudio facilita este processo e garante que o seu diretório de trabalho
+está definido corretamente. Se você precisar verificar, você pode usar
+`getwd()`. Se, por alguma razão, o seu diretório de trabalho não é o que
+deveria ser, pode alterá-lo na interface do RStudio navegando nas pastas onde o seu diretório de trabalho deveria estar, e clicando
+no ícone da engrenagem azul `Mais`, e selecionanando `Definir como Diretório de Trabalho`.
+Alternativamente, você pode utilizar `setwd("/caminho/para/diretório de trabalho")` para
+redefinir o seu diretório de trabalho. No entanto, os seus scripts não devem incluir
+esta linha porque irá falhar no computador de outra pessoa.
+
+**Example**
+
+The schema below represents the working directory `bioc-intro` with the
+`data` and `fig_output` sub-directories, and 2 files in the latter:
+
+```
+bioc-intro/data/
+          /fig_output/fig1.pdf
+          /fig_output/fig2.png
+```
+
+If we were in the working directory, we could refer to the `fig1.pdf`
+file using the relative path `bioc-intro/fig_output/fig1.pdf` or the
+absolute path `/home/user/bioc-intro/fig_output/fig1.pdf`.
+
+Se estivéssemos no diretório `data`, utilizaríamos o caminho relativo
+`../fig_output/fig1.pdf` ou o mesmo caminho absoluto
+`/home/user/bioc-intro/fig_output/fig1.pdf`.
+
+## Interacting with R
+
+The basis of programming is that we write down instructions for the
+computer to follow, and then we tell the computer to follow those
+instructions. Escrevemos, ou _codificamos_, instruções em R porque é uma
+linguagem comum que tanto o computador como nós podemos compreender. Chamamos
+as instruções de _comandos_ e dizemos ao computador para seguir as instruções, _executando_ (também chamado de _running_) esses comandos.
+
+Existem duas formas principais de interagir com o R: utilizando a
+**console** ou utilizando **scripts** (arquivos de texto simples que contêm
+o seu código). O painel de console (em RStudio, o painel inferior esquerdo) é
+o local onde comandos escritos no idioma R podem ser digitados e
+são executados imediatamente pelo computador. É também onde os resultados
+serão mostrados para os comandos que foram executados. Você pode escrever comandos
+diretamente no console e pressionar `Enter` para executar esses comandos, mas estes serão esquecidos quando fechar a sessão.
+
+Uma vez que pretendemos que o nosso código e fluxo de trabalho sejam reprodutíveis, é melhor
+escrever os comandos que pretendemos no editor de scripts e salvar o script. This way, there is a complete record of what we did, and
+anyone (including our future selves!) can easily replicate the
+results on their computer. Note, no entanto, que apenas digitar os comandos
+no script não os _executa_ automaticamente - eles ainda precisam
+ser enviados para o console para execução.
+
+O RStudio permite-lhe executar comandos diretamente a partir do editor de scripts
+utilizando o atalho `Ctrl` + `Enter` (em Macs, `Cmd` + `Return` também
+funciona). O comando na linha atual do script (indicado
+pelo cursor) ou todos os comandos no texto atualmente selecionado
+serão enviados para o console e executados quando você pressionar `Ctrl` +
+`Enter`. Pode encontrar outros atalhos de teclado nesta Folha de dicas do RStudio
+sobre o IDE RStudio.
+
+. Você pode digitar esses comandos e executar
+eles diretamente no console.  O RStudio fornece os atalhos `Ctrl` + `1` e
+`Ctrl` + `2` que lhe permitem saltar entre o script e os painéis do console.
+
+Se R estiver pronto para aceitar comandos, o console R te mostra um prompt `>`. Se
+receber um comando (digitando, copiando e colando ou enviando do editor de scripts
+usando `Ctrl` + `Enter`), o R tentará executá-lo, e quando
+estiver pronto, mostrará os resultados e voltará com um novo prompt `>` para
+aguardar novos comandos.
+
+Se R ainda estiver esperando que você insira mais dados porque ele ainda não está
+concluído, o console irá mostrar uma solicitação `+`. Significa que você
+ainda não terminou de entrar com um comando completo. Isto se deve ao fato de não ter
+"fechado" um parêntesis ou uma aspa, ou seja, não tem o mesmo
+número de parêntesis à esquerda e de parêntesis à direita, ou o mesmo número de
+aspas de abertura e de fechamento.  Quando isso acontecer, e você
+pensou que tinha terminado de digitar o comando, clique dentro da janela do console
+e pressione `Esc`; isso cancelará o comando incompleto e
+retornará ao prompt `>`.
+
+## How to learn more during and after the course?
+
+O material que abordamos durante este curso te dará uma
+primeira ideia de como pode utilizar o R para analisar dados para a sua própria pesquisa. No entanto, terá de aprender mais para efetuar operações
+avançadas, tais como limpar o seu conjunto de dados, utilizar métodos estatísticos,
+ou criar gráficos bonitos[^inthiscoure]. A melhor forma de se tornar
+proficiente e eficiente no R, como em qualquer outra ferramenta, é utilizá-lo para
+responder às suas questões de investigação. Para um principiante, pode ser
+assustador ter de escrever um script raiz e, dado que muitas
+pessoas disponibilizam o seu código online, modificar o código existente para
+se adequar ao seu objetivo pode facilitar no início.
+
+[^inthiscoure]: We will introduce most of these (except statistics)
+    here, but will only manage to scratch the surface of the wealth of
+    what is possible to do with R.
+
+```{r kitten, results="markup", echo=FALSE, purl=FALSE, out.width="400px", fig.align="center"}
+knitr::include_graphics("fig/kitten-try-things.jpg")
+```
+
+## Seeking help
+
+### Use the built-in RStudio help interface to search for more information on R functions
+
+```{r rstudiohelp, fig.cap="RStudio help interface.", results="markup", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/rstudiohelp.png")
+```
+
+One of the fastest ways to get help, is to use the RStudio help
+interface. Este painel por padrão pode ser encontrado na parte inferior direita
+painel do RStudio. Como visto na captura de tela, digitando a palavra
+"Mean", O RStudio tenta também dar várias sugestões que você
+pode estar interessado. A descrição é mostrada na janela
+exibição.
+
+### I know the name of the function I want to use, but I'm not sure how to use it
+
+If you need help with a specific function, let's say `barplot()`, you
+can type:
+
+```{r, eval=FALSE, purl=TRUE}
+?barplot
+```
+
+If you just need to remind yourself of the names of the arguments, you can use:
+
+```{r, eval=FALSE, purl=TRUE}
+args(lm)
+```
+
+### I want to use a function that does X, there must be a function for it but I don't know which one...
+
+Se estiver à procura de uma função para fazer uma tarefa específica, pode utilizar a função
+`help.search()`, que é chamada pelo duplo ponto de interrogação `??`.
+However, this only looks through the installed packages for help pages with a
+match to your search request
+
+```{r, eval=FALSE, purl=TRUE}
+??kruskal
+```
+
+If you can't find what you are looking for, you can use
+the [rdocumentation.org](https://www.rdocumentation.org) website that searches
+through the help files across all packages available.
+
+Finalmente, uma pesquisa genérica no Google ou na Internet "R \<task>" irá, muitas vezes, enviá-lo
+para a documentação do pacote apropriado ou para um fórum útil onde alguém
+já colocou a sua pergunta.
+
+### I am stuck... I get an error message that I don't understand
+
+Start by googling the error message. No entanto, isto nem sempre funciona muito bem
+porque, muitas vezes, os programadores de pacotes confiam na captura de erros fornecida pelo R. Você acaba por
+receber mensagens de erro genéricas que podem não ser muito úteis para diagnosticar um problema
+(por exemplo, "subscrito fora dos limites"). Se a mensagem for muito genérica,
+pode também incluir o nome da função ou do pacote que está utilizando na sua consulta.
+
+No entanto, você deve verificar o Stack Overflow. Pesquise usando a tag `[r]`. Most
+questions have already been answered, but the challenge is to use the right
+words in the search to find the
+answers:
+
+[http://stackoverflow.com/questions/tagged/r](https://stackoverflow.com/questions/tagged/r)
+
+The [Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.pdf) can
+also be dense for people with little programming experience but it is a good
+place to understand the underpinnings of the R language.
+
+O [R FAQ](https://cran.r-project.org/doc/FAQ/R-FAQ.html) é denso e técnico
+mas está cheio de informações úteis.
+
+### Asking for help
+
+The key to receiving help from someone is for them to rapidly grasp
+your problem. Você deve tornar o mais fácil possível identificar onde
+o problema pode estar.
+
+Tente usar as palavras corretas para descrever seu problema. Por exemplo, um pacote
+não é a mesma coisa que uma biblioteca. A maioria das pessoas irá
+compreender o que quis dizer, mas outras têm sentimentos muito fortes
+sobre a diferença de significado. A questão principal é que isso pode tornar
+as coisas confusas para as pessoas que tentam ajudá-lo. Seja tão preciso quanto o
+possível ao descrever o seu problema.
+
+Se possível, tente reduzir o que não funciona a um simples \*exemplo reprodutível
+\*. Se conseguir reproduzir o problema utilizando uma amostra de dados
+em vez do arquivo de 50000 linhas e 10000 colunas, forneça a
+amostra com a descrição do seu problema. Se for caso disso, tente
+generalizar o que está fazendo para que mesmo as pessoas que não estão na sua área
+possam compreender a pergunta. Por exemplo, pode em vez de utilizar um subconjunto
+do seu conjunto de dados real, criar um pequeno (3 colunas, 5 linhas)
+arquivo genérico. Para mais informações sobre como escrever um exemplo reprodutível em, consulte [este artigo de Hadley
+Wickham] (https://adv-r.had.co.nz/Reproducibility.html).
+
+Para compartilhar um objeto com outra pessoa, se for relativamente pequeno, você
+pode usar a função `dput()`. It will output R code that can be used
+to recreate the exact same object as the one in memory:
+
+```{r, results="show", purl=TRUE}
+## iris is an example data frame that comes with R and head() is a
+## function that returns the first part of the data frame
+dput(head(iris))
+```
+
+If the object is larger, provide either the raw file (i.e., your CSV
+file) with your script up to the point of the error (and after
+removing everything that is not relevant to your
+issue). Alternatively, in particular if your question is not related
+to a data frame, you can save any R object to a file[^export]:
+
+```{r, eval=FALSE, purl=FALSE}
+saveRDS(iris, file="/tmp/iris.rds")
+```
+
+The content of this file is however not human readable and cannot be
+posted directly on Stack Overflow. Instead, it can be sent to someone
+by email who can read it with the `readRDS()` command (here it is
+assumed that the downloaded file is in a `Downloads` folder in the
+user's home directory):
+
+```{r, eval=FALSE, purl=FALSE}
+some_data <- readRDS(file="~/Downloads/iris.rds")
+```
+
+Last, but certainly not least, **always include the output of `sessionInfo()`**
+as it provides critical information about your platform, the versions of R and
+the packages that you are using, and other information that can be very helpful
+to understand your problem.
+
+```{r, results="show", purl=TRUE}
+sessionInfo()
+```
+
+### Where to ask for help?
+
+- The person sitting next to you during the course. Não hesite em
+  falar com seu vizinho durante a oficina, comparar suas respostas,
+  e pedir ajuda.
+- Your friendly colleagues: if you know someone with more experience
+  than you, they might be able and willing to help you.
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/r): if
+  your question hasn't been answered before and is well crafted,
+  chances are you will get an answer in less than 5 min. Lembre-se de
+  seguir as diretrizes sobre [como fazer uma boa pergunta](https://stackoverflow.com/help/how-to-ask).
+- The R-help mailing
+  list: it is read by a
+  lot of people (including most of the R core team), a lot of people
+  post to it, but the tone can be pretty dry, and it is not always
+  very welcoming to new users. Se a sua pergunta for válida, é
+  provável que obtenha uma resposta muito rapidamente, mas não espere que ela venha
+  com carinhas sorridentes. Além disso, aqui, mais do que em qualquer outro lugar, não se esqueça de
+  utilizar o vocabulário correto (caso contrário, poderá receber uma resposta que aponta
+  para a má utilização das suas palavras, em vez de responder à sua pergunta). Também terá mais sucesso se a sua pergunta for sobre
+  uma função do R base em vez de um pacote específico.
+- If your question is about a specific package, see if there is a
+  mailing list for it. Usually it's included in the DESCRIPTION file
+  of the package that can be accessed using
+  `packageDescription("name-of-package")`. Você também pode tentar
+  enviar um e-mail diretamente ao autor do pacote ou abrir um problema no repositório de código
+  (por exemplo, GitHub).
+- There are also some topic-specific mailing lists (GIS,
+  phylogenetics, etc...), the complete list is
+  [here](https://www.r-project.org/mail.html).
+
+### More resources
+
+- The [Posting Guide](https://www.r-project.org/posting-guide.html) for
+  the R mailing lists.
+
+- How to ask for R
+  help
+  useful guidelines.
+
+- This blog post by Jon
+  Skeet
+  has quite comprehensive advice on how to ask programming questions.
+
+- The [reprex](https://cran.rstudio.com/web/packages/reprex/) package
+  is very helpful to create reproducible examples when asking for
+  help. A comunidade rOpenSci "How to ask questions so they get
+  answered" ([Github
+  link](https://github. om/ropensci/commcalls/issues/14) e [gravação de vídeo](https://vimeo.com/208749032)) inclui uma apresentação de
+  o pacote reprex e sua filosofia.
+
+## R packages
+
+### Loading packages
+
+As we have seen above, R packages play a fundamental role in R. The
+make use of a package's functionality, assuming it is installed, we
+first need to load it to be able to use it. Isto é feito com a função
+`library()`. Abaixo, carregamos o `ggplot2`.
+
+```{r loadp, eval=FALSE, purl=TRUE}
+library("ggplot2")
+```
+
+### Installing packages
+
+The default package repository is The _Comprehensive R Archive
+Network_ (CRAN), and any package that is available on CRAN can be
+installed with the `install.packages()` function. Abaixo, por exemplo,
+instalamos o pacote `dplyr` que aprenderemos mais tarde.
+
+```{r craninstall, eval=FALSE, purl=TRUE}
+install.packages("dplyr")
+```
+
+This command will install the `dplyr` package as well as all its
+dependencies, i.e. all the packages that it relies on to function.
+
+Outro repositório de pacotes principais do R é mantido pelo Bioconductor. [Bioconductor packages](https://bioconductor.org/packages/release/BiocViews.html#___Software) are managed and installed using a dedicated package,
+namely `BiocManager`, that can be installed from CRAN with
+
+```{r, eval=FALSE, purl=TRUE}
+install.packages("BiocManager")
+```
+
+Individual packages such as `SummarizedExperiment` (we will use it
+later), `DESeq2` (for RNA-Seq analysis), and any others from either Bioconductor or CRAN can then be
+installed with `BiocManager::install`.
+
+```{r, eval=FALSE, purl=TRUE}
+BiocManager::install("SummarizedExperiment")
+BiocManager::install("DESeq2")
+```
+
+By default, `BiocManager::install()` will also check all your installed packages and see if there are newer versions available. Se houver, mostrará a você e perguntará se você quer `Atualizar todos/alguém/nenhum? [a/s/n]:` e depois espera pela sua resposta. Você deve se esforçar para ter as versões mais atualizadas dos pacotes, no entanto, na prática, recomendamos atualizar pacotes apenas em uma sessão nova em R antes de quaisquer pacotes serem carregados.
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Start using R and RStudio
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
