@@ -223,7 +223,7 @@ This might be an example of a spreadsheet setup:
 
 ![](fig/spreadsheet-setup-updated.png)
 
-Put these principles in to practice today during your exercises.
+Put these principles into practice today during your exercises.
 
 While versioning is out of scope for this course, you can look at the
 Carpentries lesson on
