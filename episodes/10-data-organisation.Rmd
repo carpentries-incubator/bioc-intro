@@ -518,7 +518,7 @@ excluded.
 
 ![](fig/good_formatting.png)
 
-### Using formatting to make the data sheet look pretty {#formatting\_pretty}
+### Using formatting to make the data sheet look pretty {#formatting_pretty}
 
 **Example**: merging cells.
 
@@ -549,7 +549,7 @@ you need both these measurements, design your data sheet to include
 this information. For example, include one column for the ABO group and
 one for the Rhesus group.
 
-### Using problematic field names {#field\_name}
+### Using problematic field names {#field_name}
 
 Choose descriptive field names, but be careful not to include spaces,
 numbers, or special characters of any kind. Spaces can be
