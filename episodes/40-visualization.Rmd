@@ -739,7 +739,7 @@ and think of ways you could improve the plot.
 Now, we can change names of axes to something more informative than
 'time' and 'mean\_exp', and add a title to the figure:
 
-```{r mean_exp-time-with-right-labels, cache=FALSE, purl=TRUE}
+```{r mean_exp-time-with-right-labels, cache=FALSE, purl=TRUE, fig.alt="Line plot with white background and custom title and axis legends."}
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
   geom_line() +
@@ -754,7 +754,7 @@ ggplot(data = mean_exp_by_time_sex,
 The axes have more informative names, but their readability can be
 improved by increasing the font size:
 
-```{r mean_exp-time-with-right-labels-xfont-size, cache=FALSE, purl=TRUE}
+```{r mean_exp-time-with-right-labels-xfont-size, cache=FALSE, purl=TRUE, fig.alt="Line plot with white background and larger custom title and axis legends."}
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
   geom_line() +
@@ -775,7 +775,7 @@ We can further customize the color of x- and y-axis text, the color of
 the grid, etc. We can also for example move the legend to the top by
 setting `legend.position` to `"top"`.
 
-```{r mean_exp-time-with-theme, cache=FALSE, purl=TRUE}
+```{r mean_exp-time-with-theme, cache=FALSE, purl=TRUE, fig.alt="Line plot with white background and larger custom title and axis legends and blue grid."}
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
   geom_line() +
@@ -797,7 +797,7 @@ can save them as an object to be able to easily apply them to other
 plots you may create. Here is an example with the histogram we have
 previously created.
 
-```{r mean_exp-time-with-right-labels-xfont, cache=FALSE, purl=TRUE}
+```{r mean_exp-time-with-right-labels-xfont, cache=FALSE, purl=TRUE, fig.alt="Custrom 'blue_theme() showing a blue grid and blue axis legends."}
 blue_theme <- theme(axis.text.x = element_text(colour = "royalblue4",
                                                size = 12),
                     axis.text.y = element_text(colour = "royalblue4",
@@ -807,7 +807,7 @@ blue_theme <- theme(axis.text.x = element_text(colour = "royalblue4",
 
 ggplot(rna, aes(x = expression_log)) +
   geom_histogram(bins = 20) +
-    blue_theme
+    blue_theme()
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -834,7 +834,7 @@ for inspiration. Here are some ideas:
 
 For example, based on this plot:
 
-```{r, purl=TRUE}
+```{r, purl=TRUE, fig.alt="Plain facetted line plot, as produced by theme_bw() and a blank grid above."}
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
   geom_line() +
@@ -845,7 +845,7 @@ ggplot(data = mean_exp_by_time_sex,
 
 We can customize it the following ways:
 
-```{r, purl=TRUE}
+```{r, purl=TRUE, fig.alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with wide lines."}
 # change the thickness of the lines
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
@@ -853,7 +853,9 @@ ggplot(data = mean_exp_by_time_sex,
   facet_wrap(~ gene, scales = "free_y") +
   theme_bw() +
   theme(panel.grid = element_blank())
+```
 
+```{r, purl=TRUE, fig.alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with renamed colour labels."}
 # change the name of the legend and the labels
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
@@ -862,7 +864,9 @@ ggplot(data = mean_exp_by_time_sex,
   theme_bw() +
   theme(panel.grid = element_blank()) +
   scale_color_discrete(name = "Gender", labels = c("F", "M"))
+```
 
+```{r, purl=TRUE, fig.alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a different color palette and renamed colour labels."}
 # using a different color palette
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
@@ -871,7 +875,9 @@ ggplot(data = mean_exp_by_time_sex,
   theme_bw() +
   theme(panel.grid = element_blank()) +
   scale_color_brewer(name = "Gender", labels = c("F", "M"), palette = "Dark2")
+```
 
+```{r, purl=TRUE, fig.alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a manuelly-set colors and renamed colour labels.."}
 # manually specifying the colors
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
@@ -903,7 +909,7 @@ first need to reorder the levels of `chromosome_name` and filter the
 unique genes per chromosome. We also change the scale of the y-axis to a
 log10 scale for better readability.
 
-```{r sub1, purl=TRUE}
+```{r sub1, purl=TRUE, fig.alt="A simple histogram with greed bars showing the log10 number of genes per chromosome."}
 rna$chromosome_name <- factor(rna$chromosome_name,
                                levels = c(1:19,"X","Y"))
 
@@ -921,7 +927,7 @@ count_gene_chromosome
 Below, we also remove the legend altogether by setting the
 `legend.position` to `"none"`.
 
-```{r sub2, purl=TRUE}
+```{r sub2, purl=TRUE, fig.alt="Transparently-filled red and blue boxplots for Female and Male expression values for different time points."}
 exp_boxplot_sex <- ggplot(rna, aes(y=expression_log, x = as.factor(time),
                  color=sex)) +
    geom_boxplot(alpha = 0) +
@@ -941,24 +947,24 @@ other.
 install.packages("patchwork")
 ```
 
-```{r patchworkplot1, purl=TRUE}
+```{r patchworkplot1, purl=TRUE, fig.alt="A composed figure show the histogram (left) and boxplots (right) next to each other."}
 library("patchwork")
 count_gene_chromosome + exp_boxplot_sex
 ## or count_gene_chromosome | exp_boxplot_sex
 ```
 
-```{r patchwork2, purl=TRUE}
+```{r patchwork2, purl=TRUE, fig.alt="A composed figure show the histogram (top) and boxplots (bottom) on top or each other."}
 count_gene_chromosome / exp_boxplot_sex
 ```
 
 We can combine further control the layout of the final composition with
 `plot_layout` to create more complex layouts:
 
-```{r patchwork3, purl=TRUE}
+```{r patchwork3, purl=TRUE, fig.alt="A composed figure show the histogram (top) and boxplots (bottom) on top or each other."}
 count_gene_chromosome + exp_boxplot_sex + plot_layout(ncol = 1)
 ```
 
-```{r patchwork4, purl=TRUE}
+```{r patchwork4, purl=TRUE, fig.alt="A figure composed of 4 plots with on top the histogram, in the middle the histogram and the boxpot, side-by-side, and at the bottom, the boxplot."}
 count_gene_chromosome +
  (count_gene_chromosome + exp_boxplot_sex) +
  exp_boxplot_sex +
@@ -967,7 +973,7 @@ count_gene_chromosome +
 
 The last plot can also be created using the `|` and `/` composers:
 
-```{r patchwork5, purl=TRUE}
+```{r patchwork5, purl=TRUE, fig.alt="As above, a figure composed of 4 plots with on top the histogram, in the middle the histogram and the boxpot, side-by-side, and at the bottom, the boxplot."}
 count_gene_chromosome /
  (count_gene_chromosome | exp_boxplot_sex) /
  exp_boxplot_sex
@@ -984,7 +990,7 @@ separate ggplots into a single figure using `grid.arrange()`:
 install.packages("gridExtra")
 ```
 
-```{r gridarrange-example, message=FALSE, fig.width=10, purl=TRUE}
+```{r gridarrange-example, message=FALSE, fig.width=10, purl=TRUE, fig.alt="A composed figure with the histogram (left) and boxplot (right) side-by-side.}
 library("gridExtra")
 grid.arrange(count_gene_chromosome, exp_boxplot_sex, ncol = 2)
 ```
@@ -1059,7 +1065,7 @@ difference with `ggplot2` (and with `lattice`, described below), that
 returns dedicated objects, that are rendered on screen or in a file, and
 that can even be updated.
 
-```{r paintermodel, fig.width=12, fig.height=4, fig.cap="Successive layers added on top of each other."}
+```{r paintermodel, fig.width=12, fig.height=4, fig.cap="Successive layers added on top of each other.", fig.alt="The 'base' figures, side-by-side, showing (from left to right) 20 empty dots along the diagonal, same with a vertical red line, and same as the second one with a rectangle overlaid in the middle of the plot."}
 par(mfrow = c(1, 3))
 plot(1:20, main = "First layer, produced with plot(1:20)")
 
@@ -1077,7 +1083,7 @@ their behaviour based on the class of their input. This is again very
 different from what we have in `ggplot2`, that only accepts dataframes
 as input, and that requires plots to be constructed bit by bit.
 
-```{r plotmethod, fig.width=8, fig.height=8, fig.cap="Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right)."}
+```{r plotmethod, fig.width=8, fig.height=8, fig.cap="Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right).", fig.alt="A two-by-two composition of 2 boxplots at the top, and 2 histograms at the bottom."}
 par(mfrow = c(2, 2))
 boxplot(rnorm(100),
         main = "Boxplot of rnorm(100)")
