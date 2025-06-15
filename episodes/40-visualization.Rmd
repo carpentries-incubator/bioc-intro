@@ -826,7 +826,7 @@ for inspiration. Here are some ideas:
   `scale_`)
 - Try using a different color palette or manually specifying the
   colors for the lines (see
-  [http://www.cookbook-r.com/Graphs/Colors\_(ggplot2)/](https://www.cookbook-r.com/Graphs/Colors_\(ggplot2\)/)).
+  [https://www.cookbook-r.com/Graphs/Colors\_(ggplot2)/](https://www.cookbook-r.com/Graphs/Colors_\(ggplot2\)/)).
 
 :::::::::::::::  solution
 
