@@ -329,7 +329,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Data organisation with spreadsheets</h1>
-        <p>Last updated on 2025-06-09 |
+        <p>Last updated on 2025-06-15 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/10-data-organisation.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -533,7 +533,9 @@ You should track these steps as you would any step in an experiment. We
 recommend that you do this in a plain text file stored in the same
 folder as the data file.</p></li>
 </ul><p>This might be an example of a spreadsheet setup:</p>
-<figure><img src="../fig/spreadsheet-setup-updated.png" class="figure mx-auto d-block"></figure><p>Put these principles into practice today during your exercises.</p>
+<figure style="text-align: center"><img src="../fig/spreadsheet-setup-updated.png" alt="SCreenshot of a spreadsheet and a README.txt file." width="70%" class="figure mx-auto d-block"><figcaption>
+Spreadsheet example setip
+</figcaption></figure><p>Put these principles into practice today during your exercises.</p>
 <p>While versioning is out of scope for this course, you can look at the
 Carpentries lesson on <a href="https://swcarpentry.github.io/git-novice/" class="external-link">‘Git’</a> to learn how
 to maintain <strong>version control</strong> over your data. See also
@@ -558,13 +560,17 @@ data, and is required by most data repositories.</li>
 hospitals in Brussels, Belgium. They recorded the date of the visit, the
 hospital, the patients’ gender, weight and blood group.</p>
 <p>If we were to keep track of the data like this:</p>
-<figure><img src="../fig/multiple-info.png" class="figure mx-auto d-block"></figure><p>the problem is that the ABO and Rhesus groups are in the same
+<figure style="text-align: center"><img src="../fig/multiple-info.png" alt="A table showing the blood and rhesus types encoded together in one column." width="70%" class="figure mx-auto d-block"><figcaption>
+Multiple variable in a single column.
+</figcaption></figure><p>the problem is that the ABO and Rhesus groups are in the same
 <code>Blood</code> type column. So, if they wanted to look at all
 observations of the A group or look at weight distributions by ABO
 group, it would be tricky to do this using this data setup. If instead
 we put the ABO and Rhesus groups in different columns, you can see that
 it would be much easier.</p>
-<figure><img src="../fig/single-info.png" class="figure mx-auto d-block"></figure><p>An important rule when setting up a datasheet, is that
+<figure style="text-align: center"><img src="../fig/single-info.png" alt="A table showing the blood and rhesus types encoded together in different columns." width="70%" class="figure mx-auto d-block"><figcaption>
+Variables encoded in a single column each.
+</figcaption></figure><p>An important rule when setting up a datasheet, is that
 <strong>columns are used for variables</strong> and <strong>rows are
 used for observations</strong>:</p>
 <ul><li>columns are variables</li>
@@ -676,7 +682,9 @@ associations between things for the computer, which sees each row as an
 observation. You’re also potentially using the same field name in
 multiple places, which will make it harder to clean your data up into a
 usable form. The example below depicts the problem:</p>
-<figure><img src="../fig/2_datasheet_example.jpg" class="figure mx-auto d-block"></figure><p>In the example above, the computer will see (for example) row 4 and
+<figure style="text-align: center"><img src="../fig/2_datasheet_example.jpg" alt="A sheet with many subtable." width="70%" class="figure mx-auto d-block"><figcaption>
+A sheet with many subtable.
+</figcaption></figure><p>In the example above, the computer will see (for example) row 4 and
 assume that all columns A-AF refer to the same sample. This row actually
 represents four distinct samples (sample 1 for each of four different
 collection dates - May 29th, June 12th, June 19th, and June 26th), as
@@ -760,15 +768,21 @@ will depend on the software you use to analyse your data. It is
 essential to use a clearly defined and consistent null indicator.</p>
 <p>Blanks (most applications) and NA (for R) are good choices. <span class="citation">@White:2013</span> explain good choices for indicating
 null values for different software applications in their article:</p>
-<figure><img src="../fig/3_white_table_1.jpg" class="figure mx-auto d-block"></figure></div>
+<figure style="text-align: center"><img src="../fig/3_white_table_1.jpg" alt="A table extracted from a paper showing commonly used null values." width="70%" class="figure mx-auto d-block"><figcaption>
+Commonly used null values.
+</figcaption></figure></div>
 <div class="section level3">
 <h3 id="formatting">Using formatting to convey information<a class="anchor" aria-label="anchor" href="#formatting"></a></h3>
 <p><strong>Example</strong>: highlighting cells, rows or columns that
 should be excluded from an analysis, leaving blank rows to indicate
 separations in data.</p>
-<figure><img src="../fig/formatting.png" class="figure mx-auto d-block"></figure><p><strong>Solution</strong>: create a new field to encode which data
+<figure style="text-align: center"><img src="../fig/formatting.png" alt="A table showing several cells highlighted in yellow used to encode sample contamination." width="70%" class="figure mx-auto d-block"><figcaption>
+Colours used to ecode information.
+</figcaption></figure><p><strong>Solution</strong>: create a new field to encode which data
 should be excluded.</p>
-<figure><img src="../fig/good_formatting.png" class="figure mx-auto d-block"></figure></div>
+<figure style="text-align: center"><img src="../fig/good_formatting.png" alt="Same table as above with a new variable encoding contambination." width="70%" class="figure mx-auto d-block"><figcaption>
+A new variable encoding sample contamination
+</figcaption></figure></div>
 <div class="section level3">
 <h3 id="formatting_pretty">Using formatting to make the data sheet look pretty<a class="anchor" aria-label="anchor" href="#formatting_pretty"></a></h3>
 <p><strong>Example</strong>: merging cells.</p>
@@ -949,7 +963,7 @@ Values’ (<code>*.csv</code>).</li>
 it and hit ‘Save’.</li>
 </ol><p>An important note for backwards compatibility: you can open CSV files
 in Excel!</p>
-<figure style="text-align: center"><img src="../fig/excel-to-csv.png" alt="Saving an Excel file to CSV." width="70%" class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/excel-to-csv.png" alt="Excel menu to export data in a csv format on MacOS " width="70%" class="figure mx-auto d-block"><figcaption>
 Saving an Excel file to CSV.
 </figcaption></figure><p><strong>A note on R and <code>xls</code></strong>: There are R
 packages that can read <code>xls</code> files (as well as Google
@@ -982,7 +996,7 @@ for <code>taxa</code> includes a comma
 (<code>Rodent, not censused</code>). If we try to read the above into
 Excel (or other spreadsheet program), we will get something like
 this:</p>
-<figure style="text-align: center"><img src="../fig/csv-mistake.png" alt="The risks of having commas inside comma-separated data." width="80%" class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/csv-mistake.png" alt="A table illustrating ill-imported data that contained a comma in a cell. That cell has been split in two cells." width="80%" class="figure mx-auto d-block"><figcaption>
 The risks of having commas inside comma-separated data.
 </figcaption></figure><p>The value for <code>taxa</code> was split into two columns (instead
 of being put in one column <code>D</code>). This can propagate to a
@@ -1024,7 +1038,7 @@ Python and R lessons will give you the basis for developing skills to
 build relevant scripts.</p>
 </div>
 </section><section><h2 class="section-heading" id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a></h2>
-<hr class="half-width"><figure style="text-align: center"><img src="../fig/analysis.png" alt="A typical data analysis workflow." class="figure mx-auto d-block"><figcaption>
+<hr class="half-width"><figure style="text-align: center"><img src="../fig/analysis.png" alt="The tidy data analysis circle, iterating over data transformation, visualisation and modelling." width="70%" class="figure mx-auto d-block"><figcaption>
 A typical data analysis workflow.
 </figcaption></figure><p>A typical data analysis workflow is illustrated in the figure above,
 where data is repeatedly transformed, visualised, and modelled. This
@@ -1115,7 +1129,7 @@ values will be systematically quoted.<a href="#fnref1" class="footnote-back">↩
   "url": "https://carpentries-incubator.github.io/bioc-intro/instructor/10-data-organisation.html",
   "identifier": "https://carpentries-incubator.github.io/bioc-intro/instructor/10-data-organisation.html",
   "dateCreated": "2020-09-14",
-  "dateModified": "2025-06-09",
+  "dateModified": "2025-06-15",
   "datePublished": "2025-06-15"
 }
 

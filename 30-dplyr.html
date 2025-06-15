@@ -334,7 +334,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Manipulating and analysing data with dplyr</h1>
-        <p>Last updated on 2025-05-06 |
+        <p>Last updated on 2025-06-15 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/30-dplyr.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -1694,7 +1694,7 @@ details).</p>
 new column names;</li>
 <li>the <code>values_from</code>: the column whose values will fill the
 new columns.</li>
-</ol><figure style="text-align: center"><img src="fig/pivot_wider.png" alt="Wide pivot of the `rna` data." class="figure mx-auto d-block"><figcaption>
+</ol><figure style="text-align: center"><img src="fig/pivot_wider.png" alt="Figure showing the long table format on the left and wide table format on the right and arrows illustrating how the values in the 'sample' column on the left have become column names on the right and how the values in the 'expression' column on the left have become values on the the right. Below is the call to 'pivot_wider()' with annotations pointing to the 'sample' and 'expression' function arguments." class="figure mx-auto d-block"><figcaption>
 Wide pivot of the <code>rna</code> data.
 </figcaption></figure><div class="codewrapper sourceCode" id="cb80">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1817,7 +1817,7 @@ and populate with current values;</li>
 <li>the names of the columns to be used to populate the
 <code>names_to</code> and <code>values_to</code> variables (or to
 drop).</li>
-</ol><figure style="text-align: center"><img src="fig/pivot_longer.png" alt="Long pivot of the `rna` data." class="figure mx-auto d-block"><figcaption>
+</ol><!-- on the right and arrows illustrating how the values in the 'sample' --><!-- column on the left have become column names on the right and how the --><!-- values in the 'expression' column on the left have become values on --><!-- the the right. --><figure style="text-align: center"><img src="fig/pivot_longer.png" alt="Figure showing the long table format on the left and wide table format on the right and arrows illustrating how the column names on the left have become a new column 'sample' on the left and the values in the wide table on the right have become a new column 'expression' on the left.  Below is the call to 'pivot_wider()' with annotations pointing to the 'sample', 'expression' and the '-gene' arguments." class="figure mx-auto d-block"><figcaption>
 Long pivot of the <code>rna</code> data.
 </figcaption></figure><p>To recreate <code>rna_long</code> from <code>rna_wide</code> we would
 create a key called <code>sample</code> and value called
@@ -2073,7 +2073,7 @@ data frame and spread the data frame with <code>sex</code> as columns,
 <code>chromosome_name</code> as rows, and the mean expression of genes
 located in each chromosome as the values, as in the following
 tibble:</p>
-<figure><img src="fig/Exercise_pivot_W.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>You will need to summarise before reshaping!</p>
+<figure><img src="fig/Exercise_pivot_W.png" alt="A two by two table with  X and Y row names and Female and Male column names showing the total counts for each X/Y and Female/Male combination. The Y/Female combinations shows 3 counts, while all other counts are above 2000 counts." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>You will need to summarise before reshaping!</p>
 </div>
 </div>
 </div>
@@ -2826,7 +2826,7 @@ have created previously.</p>
   "url": "https://carpentries-incubator.github.io/bioc-intro/30-dplyr.html",
   "identifier": "https://carpentries-incubator.github.io/bioc-intro/30-dplyr.html",
   "dateCreated": "2020-09-14",
-  "dateModified": "2025-05-06",
+  "dateModified": "2025-06-15",
   "datePublished": "2025-06-15"
 }
 

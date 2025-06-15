@@ -332,7 +332,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>R and RStudio</h1>
-        <p>Last updated on 2025-05-06 |
+        <p>Last updated on 2025-06-15 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/20-r-rstudio.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -430,7 +430,7 @@ statistical approaches from many scientific disciplines to best suit the
 analytical framework you need to analyse your data. For instance, R has
 packages for image analysis, GIS, time series, population genetics, and
 a lot more.</p>
-<figure style="text-align: center"><img src="../fig/cran.png" alt="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018." class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/cran.png" alt="Two graphs showing the exponential increase of the number of CRAN packages from 2000 to 2018. The figure on the right shows linear trend for the log of number of packages." class="figure mx-auto d-block"><figcaption>
 Exponential increase of the number of packages available on <a href="https://cran.r-project.org/" class="external-link">CRAN</a>, the Comprehensive R Archive
 Network. From the R Journal, Volume 10/2, December 2018.
 </figcaption></figure></div>
@@ -481,7 +481,7 @@ computer, inspect the variables we are going to create, and visualise
 the plots we will generate. RStudio can also be used for other things
 (e.g., version control, developing packages, writing Shiny apps) that we
 will not cover during the workshop.</p>
-<figure style="text-align: center"><img src="../fig/rstudio-screenshot.png" alt="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console." width="100%" class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/rstudio-screenshot.png" alt="Screenshot of the RStudio interface showing the typical four panel setup." width="100%" class="figure mx-auto d-block"><figcaption>
 RStudio interface screenshot. Clockwise from top left: Source,
 Environment/History, Files/Plots/Packages/Help/Viewer, Console.
 </figcaption></figure><p>The RStudio window is divided into 4 “Panes”:</p>
@@ -530,12 +530,12 @@ workspace to .RData can be cumbersome, especially if you are working
 with larger datasets. To turn that off, go to Tools –&gt; ‘Global
 Options’ and select the ‘Never’ option for ‘Save workspace to .RData’ on
 exit.</p>
-<figure style="text-align: center"><img src="../fig/rstudio-preferences.png" alt="Set 'Save workspace to .RData on exit' to 'Never'" width="70%" class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/rstudio-preferences.png" alt="Screenshot of the RStudio General Options panel." width="70%" class="figure mx-auto d-block"><figcaption>
 Set ‘Save workspace to .RData on exit’ to ‘Never’
 </figcaption></figure><p>To avoid <a href="https://yihui.name/en/2018/11/biggest-regret-knitr/" class="external-link">character
 encoding issues between Windows and other operating systems</a>, we are
 going to set UTF-8 by default:</p>
-<figure style="text-align: center"><img src="../fig/utf8.png" alt="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above)." width="70%" class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/utf8.png" alt="Screenshot of the RStudio Code Options panel." width="70%" class="figure mx-auto d-block"><figcaption>
 Set the default text encoding to UTF-8 to save us headache in the coming
 future. (Figure from the link above).
 </figcaption></figure><div class="section level3">
@@ -569,7 +569,7 @@ that later).</li>
 </ul><p>You may want additional directories or subdirectories depending on
 your project needs, but these should form the backbone of your working
 directory.</p>
-<figure style="text-align: center"><img src="../fig/working-directory-structure.png" alt="Example of a working directory structure." width="100%" class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/working-directory-structure.png" alt="Flow diagram showing the structure of the working directory and various directory of a typical RStuio project." width="100%" class="figure mx-auto d-block"><figcaption>
 Example of a working directory structure.
 </figcaption></figure><p>For this course, we will need a <code>data/</code> folder to store
 our raw data, and we will use <code>data_output/</code> for when we
@@ -596,7 +596,7 @@ operations to create a <code>data_output/</code> and a
 because we are only going to use one file and it will make things
 easier.</p>
 <p>Your working directory should now look like this:</p>
-<figure style="text-align: center"><img src="../fig/r-starting-how-it-should-look-like.png" alt="How it should look like at the beginning of this lesson" width="100%" class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/r-starting-how-it-should-look-like.png" alt="Screenshot of RStudio's Files panel." width="100%" class="figure mx-auto d-block"><figcaption>
 How it should look like at the beginning of this lesson
 </figcaption></figure><p><strong>Project management</strong> is also applicable to
 bioinformatics projects, of course<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. William Noble (<span class="citation">@Noble:2009</span>) proposes the following directory
@@ -616,7 +616,7 @@ split3, corresponding to three cross-validation splits. The
 <code>bin/parse-sqt.py</code> script is called by both of the
 <code>runall</code> driver scripts.</p>
 </blockquote>
-<figure style="text-align: center"><img src="../fig/noble-bioinfo-project.png" alt="Directory structure for a sample bioinformatics project." width="100%" class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/noble-bioinfo-project.png" alt="Figure form Nobel et al. (2009) showing a complex bioinformatics project structure." width="100%" class="figure mx-auto d-block"><figcaption>
 Directory structure for a sample bioinformatics project.
 </figcaption></figure><p>The most important aspect of a well defined and well documented
 project directory is to enable someone unfamiliar with the project<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> to</p>
@@ -722,11 +722,11 @@ actual research questions. As a beginner, it can feel daunting to have
 to write a script from scratch, and given that many people make their
 code available online, modifying existing code to suit your purpose
 might make it easier for you to get started.</p>
-<figure><img src="../fig/kitten-try-things.jpg" width="400px" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="seeking-help">Seeking help<a class="anchor" aria-label="anchor" href="#seeking-help"></a></h2>
+<figure><img src="../fig/kitten-try-things.jpg" alt="Fake book cover showing a kitten with title 'Changing Stuff and Seeing What Happens.'" width="400px" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="seeking-help">Seeking help<a class="anchor" aria-label="anchor" href="#seeking-help"></a></h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="use-the-built-in-rstudio-help-interface-to-search-for-more-information-on-r-functions">Use the built-in RStudio help interface to search for more
 information on R functions<a class="anchor" aria-label="anchor" href="#use-the-built-in-rstudio-help-interface-to-search-for-more-information-on-r-functions"></a></h3>
-<figure style="text-align: center"><img src="../fig/rstudiohelp.png" alt="RStudio help interface." width="70%" class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/rstudiohelp.png" alt="Screenshot of RStudio's Help panel." width="70%" class="figure mx-auto d-block"><figcaption>
 RStudio help interface.
 </figcaption></figure><p>One of the fastest ways to get help, is to use the RStudio help
 interface. This panel by default can be found at the lower right hand
@@ -1093,7 +1093,7 @@ is possible to do with R.<a href="#fnref5" class="footnote-back">↩︎</a></p><
   "url": "https://carpentries-incubator.github.io/bioc-intro/instructor/20-r-rstudio.html",
   "identifier": "https://carpentries-incubator.github.io/bioc-intro/instructor/20-r-rstudio.html",
   "dateCreated": "2020-09-14",
-  "dateModified": "2025-05-06",
+  "dateModified": "2025-06-15",
   "datePublished": "2025-06-15"
 }
 
