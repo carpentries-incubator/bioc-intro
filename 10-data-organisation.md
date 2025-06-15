@@ -220,7 +220,12 @@ instructor asks for a different analysis, you should
 
 This might be an example of a spreadsheet setup:
 
-![](fig/spreadsheet-setup-updated.png)
+
+<div class="figure" style="text-align: center">
+<img src="fig/spreadsheet-setup-updated.png" alt="SCreenshot of a spreadsheet and a README.txt file." width="70%" />
+<p class="caption">Spreadsheet example setip</p>
+</div>
+
 
 Put these principles into practice today during your exercises.
 
@@ -252,7 +257,10 @@ the hospital, the patients' gender, weight and blood group.
 
 If we were to keep track of the data like this:
 
-![](fig/multiple-info.png)
+<div class="figure" style="text-align: center">
+<img src="fig/multiple-info.png" alt="A table showing the blood and rhesus types encoded together in one column." width="70%" />
+<p class="caption">Multiple variable in a single column.</p>
+</div>
 
 the problem is that the ABO and Rhesus groups are in the same `Blood`
 type column. So, if they wanted to look at all observations of the A
@@ -260,7 +268,11 @@ group or look at weight distributions by ABO group, it would be tricky
 to do this using this data setup. If instead we put the ABO and Rhesus
 groups in different columns, you can see that it would be much easier.
 
-![](fig/single-info.png)
+
+<div class="figure" style="text-align: center">
+<img src="fig/single-info.png" alt="A table showing the blood and rhesus types encoded together in different columns." width="70%" />
+<p class="caption">Variables encoded in a single column each.</p>
+</div>
 
 An important rule when setting up a datasheet, is that **columns are
 used for variables** and **rows are used for observations**:
@@ -400,7 +412,10 @@ an observation. You're also potentially using the same field name in
 multiple places, which will make it harder to clean your data up into
 a usable form. The example below depicts the problem:
 
-![](fig/2_datasheet_example.jpg)
+<div class="figure" style="text-align: center">
+<img src="fig/2_datasheet_example.jpg" alt="A sheet with many subtable." width="70%" />
+<p class="caption">A sheet with many subtable.</p>
+</div>
 
 In the example above, the computer will see (for example) row 4 and
 assume that all columns A-AF refer to the same sample. This row
@@ -502,7 +517,11 @@ Blanks (most applications) and NA (for R) are good
 choices. @White:2013 explain good choices for indicating null values
 for different software applications in their article:
 
-![](fig/3_white_table_1.jpg)
+
+<div class="figure" style="text-align: center">
+<img src="fig/3_white_table_1.jpg" alt="A table extracted from a paper showing commonly used null values." width="70%" />
+<p class="caption">Commonly used null values.</p>
+</div>
 
 ### Using formatting to convey information {#formatting}
 
@@ -510,12 +529,19 @@ for different software applications in their article:
 excluded from an analysis, leaving blank rows to indicate
 separations in data.
 
-![](fig/formatting.png)
+<div class="figure" style="text-align: center">
+<img src="fig/formatting.png" alt="A table showing several cells highlighted in yellow used to encode sample contamination." width="70%" />
+<p class="caption">Colours used to ecode information.</p>
+</div>
+
 
 **Solution**: create a new field to encode which data should be
 excluded.
 
-![](fig/good_formatting.png)
+<div class="figure" style="text-align: center">
+<img src="fig/good_formatting.png" alt="Same table as above with a new variable encoding contambination." width="70%" />
+<p class="caption">A new variable encoding sample contamination</p>
+</div>
 
 ### Using formatting to make the data sheet look pretty {#formatting_pretty}
 
@@ -714,7 +740,7 @@ An important note for backwards compatibility: you can open CSV files
 in Excel!
 
 <div class="figure" style="text-align: center">
-<img src="fig/excel-to-csv.png" alt="Saving an Excel file to CSV." width="70%" />
+<img src="fig/excel-to-csv.png" alt="Excel menu to export data in a csv format on MacOS " width="70%" />
 <p class="caption">Saving an Excel file to CSV.</p>
 </div>
 
@@ -755,7 +781,7 @@ to read the above into Excel (or other spreadsheet program), we will
 get something like this:
 
 <div class="figure" style="text-align: center">
-<img src="fig/csv-mistake.png" alt="The risks of having commas inside comma-separated data." width="80%" />
+<img src="fig/csv-mistake.png" alt="A table illustrating ill-imported data that contained a comma in a cell. That cell has been split in two cells." width="80%" />
 <p class="caption">The risks of having commas inside comma-separated data.</p>
 </div>
 
@@ -814,7 +840,7 @@ build relevant scripts.
 ## Summary
 
 <div class="figure" style="text-align: center">
-<img src="fig/analysis.png" alt="A typical data analysis workflow."  />
+<img src="fig/analysis.png" alt="The tidy data analysis circle, iterating over data transformation, visualisation and modelling." width="70%" />
 <p class="caption">A typical data analysis workflow.</p>
 </div>
 

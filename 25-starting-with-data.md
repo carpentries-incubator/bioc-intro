@@ -197,7 +197,13 @@ columns are vectors, each column must contain a single type of data
 depicting a data frame comprising a numeric, a character, and a
 logical vector.
 
-![](./fig/data-frame.svg)
+<div class="figure" style="text-align: center">
+<img src="fig/data-frame.svg" alt="Schematic representation of a tablular structure with different colours representing different columns and variables types." width="70%" />
+<p class="caption">Conceptual representation of a data.frame</p>
+</div>
+
+
+
 
 We can see this when inspecting the <b>str</b>ucture of a data frame
 with the function `str()`:
@@ -472,7 +478,7 @@ plot(sex)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="fig/25-starting-with-data-rendered-firstfactorplot-1.png" alt="Bar plot of the number of females and males."  />
+<img src="fig/25-starting-with-data-rendered-firstfactorplot-1.png" alt="Barplot showing the number of 'male' and 'female' occurrences."  />
 <p class="caption">Bar plot of the number of females and males.</p>
 </div>
 
@@ -556,7 +562,7 @@ Levels: M F
 plot(sex)
 ```
 
-<img src="fig/25-starting-with-data-rendered-unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="fig/25-starting-with-data-rendered-unnamed-chunk-17-1.png" alt="Barplot showing the number of 'M' and 'F' occurrences." style="display: block; margin: auto;" />
 
 ::::::::::::::::::::::::::::::::::::::  challenge
 

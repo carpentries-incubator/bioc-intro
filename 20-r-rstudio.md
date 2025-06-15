@@ -94,7 +94,7 @@ genetics, and a lot more.
 such as bioinformatics data analysis.
 
 <div class="figure" style="text-align: center">
-<img src="fig/cran.png" alt="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018."  />
+<img src="fig/cran.png" alt="Two graphs showing the exponential increase of the number of CRAN packages from 2000 to 2018. The figure on the right shows linear trend for the log of number of packages."  />
 <p class="caption">Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.</p>
 </div>
 
@@ -149,7 +149,7 @@ the plots we will generate. RStudio can also be used for other things
 we will not cover during the workshop.
 
 <div class="figure" style="text-align: center">
-<img src="fig/rstudio-screenshot.png" alt="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console." width="100%" />
+<img src="fig/rstudio-screenshot.png" alt="Screenshot of the RStudio interface showing the typical four panel setup." width="100%" />
 <p class="caption">RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.</p>
 </div>
 
@@ -204,7 +204,7 @@ To turn that off, go to Tools --> 'Global Options' and select the 'Never' option
 for 'Save workspace to .RData' on exit.
 
 <div class="figure" style="text-align: center">
-<img src="fig/rstudio-preferences.png" alt="Set 'Save workspace to .RData on exit' to 'Never'" width="70%" />
+<img src="fig/rstudio-preferences.png" alt="Screenshot of the RStudio General Options panel." width="70%" />
 <p class="caption">Set 'Save workspace to .RData on exit' to 'Never'</p>
 </div>
 
@@ -213,7 +213,7 @@ systems](https://yihui.name/en/2018/11/biggest-regret-knitr/), we are
 going to set UTF-8 by default:
 
 <div class="figure" style="text-align: center">
-<img src="fig/utf8.png" alt="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above)." width="70%" />
+<img src="fig/utf8.png" alt="Screenshot of the RStudio Code Options panel." width="70%" />
 <p class="caption">Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above).</p>
 </div>
 
@@ -246,7 +246,7 @@ your project needs, but these should form the backbone of your working
 directory.
 
 <div class="figure" style="text-align: center">
-<img src="fig/working-directory-structure.png" alt="Example of a working directory structure." width="100%" />
+<img src="fig/working-directory-structure.png" alt="Flow diagram showing the structure of the working directory and various directory of a typical RStuio project." width="100%" />
 <p class="caption">Example of a working directory structure.</p>
 </div>
 
@@ -274,7 +274,7 @@ easier.
 Your working directory should now look like this:
 
 <div class="figure" style="text-align: center">
-<img src="fig/r-starting-how-it-should-look-like.png" alt="How it should look like at the beginning of this lesson" width="100%" />
+<img src="fig/r-starting-how-it-should-look-like.png" alt="Screenshot of RStudio's Files panel." width="100%" />
 <p class="caption">How it should look like at the beginning of this lesson</p>
 </div>
 
@@ -299,7 +299,7 @@ data science applied to biological or bio-medical data.
 > scripts.
 
 <div class="figure" style="text-align: center">
-<img src="fig/noble-bioinfo-project.png" alt="Directory structure for a sample bioinformatics project." width="100%" />
+<img src="fig/noble-bioinfo-project.png" alt="Figure form Nobel et al. (2009) showing a complex bioinformatics project structure." width="100%" />
 <p class="caption">Directory structure for a sample bioinformatics project.</p>
 </div>
 
@@ -430,14 +430,14 @@ suit your purpose might make it easier for you to get started.
 here, but will only manage to scratch the surface of the wealth of
 what is possible to do with R.
 
-<img src="fig/kitten-try-things.jpg" width="400px" style="display: block; margin: auto;" />
+<img src="fig/kitten-try-things.jpg" alt="Fake book cover showing a kitten with title 'Changing Stuff and Seeing What Happens.'" width="400px" style="display: block; margin: auto;" />
 
 ## Seeking help
 
 ### Use the built-in RStudio help interface to search for more information on R functions
 
 <div class="figure" style="text-align: center">
-<img src="fig/rstudiohelp.png" alt="RStudio help interface." width="70%" />
+<img src="fig/rstudiohelp.png" alt="Screenshot of RStudio's Help panel." width="70%" />
 <p class="caption">RStudio help interface.</p>
 </div>
 

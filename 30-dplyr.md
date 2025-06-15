@@ -1249,7 +1249,7 @@ rna_exp
   columns.
 
 <div class="figure" style="text-align: center">
-<img src="fig/pivot_wider.png" alt="Wide pivot of the `rna` data."  />
+<img src="fig/pivot_wider.png" alt="Figure showing the long table format on the left and wide table format on the right and arrows illustrating how the values in the 'sample' column on the left have become column names on the right and how the values in the 'expression' column on the left have become values on the the right. Below is the call to 'pivot_wider()' with annotations pointing to the 'sample' and 'expression' function arguments."  />
 <p class="caption">Wide pivot of the `rna` data.</p>
 </div>
 
@@ -1366,8 +1366,13 @@ associated with the column names.
 4. the names of the columns to be used to populate the `names_to` and
   `values_to` variables (or to drop).
 
+<!-- on the right and arrows illustrating how the values in the 'sample' -->
+<!-- column on the left have become column names on the right and how the -->
+<!-- values in the 'expression' column on the left have become values on -->
+<!-- the the right. -->
+
 <div class="figure" style="text-align: center">
-<img src="fig/pivot_longer.png" alt="Long pivot of the `rna` data."  />
+<img src="fig/pivot_longer.png" alt="Figure showing the long table format on the left and wide table format on the right and arrows illustrating how the column names on the left have become a new column 'sample' on the left and the values in the wide table on the right have become a new column 'expression' on the left.  Below is the call to 'pivot_wider()' with annotations pointing to the 'sample', 'expression' and the '-gene' arguments."  />
 <p class="caption">Long pivot of the `rna` data.</p>
 </div>
 
@@ -1598,7 +1603,7 @@ spread the data frame with `sex` as columns, `chromosome_name` as
 rows, and the mean expression of genes located in each chromosome as the values,
 as in the following tibble:
 
-<img src="fig/Exercise_pivot_W.png" style="display: block; margin: auto;" />
+<img src="fig/Exercise_pivot_W.png" alt="A two by two table with  X and Y row names and Female and Male column names showing the total counts for each X/Y and Female/Male combination. The Y/Female combinations shows 3 counts, while all other counts are above 2000 counts." style="display: block; margin: auto;" />
 
 You will need to summarise before reshaping!
 

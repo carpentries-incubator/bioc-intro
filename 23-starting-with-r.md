@@ -1376,7 +1376,7 @@ and 100 and standard deviations 1 and 5, noted *N(0, 1)* and
 *N(100, 5)*, are shown below.
 
 <div class="figure" style="text-align: center">
-<img src="fig/23-starting-with-r-rendered-unnamed-chunk-61-1.png" alt="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right."  />
+<img src="fig/23-starting-with-r-rendered-unnamed-chunk-61-1.png" alt="Two figures illustraing normal distributonis N(0,1) and N(100,5)."  />
 <p class="caption">Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right.</p>
 </div>
 
