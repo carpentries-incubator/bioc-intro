@@ -990,7 +990,7 @@ separate ggplots into a single figure using `grid.arrange()`:
 install.packages("gridExtra")
 ```
 
-```{r gridarrange-example, message=FALSE, fig.width=10, purl=TRUE, fig.alt="A composed figure with the histogram (left) and boxplot (right) side-by-side.}
+```{r gridarrange-example, message=FALSE, fig.width=10, purl=TRUE, fig.alt="A composed figure with the histogram (left) and boxplot (right) side-by-side."}
 library("gridExtra")
 grid.arrange(count_gene_chromosome, exp_boxplot_sex, ncol = 2)
 ```
