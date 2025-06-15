@@ -907,7 +907,7 @@ sample from a normal distribution. Two normal distributions of means 0
 and 100 and standard deviations 1 and 5, noted *N(0, 1)* and
 *N(100, 5)*, are shown below.
 
-```{r, echo=FALSE, fig.width=12, fig.height=6, fig.cap="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right."}
+```{r, echo=FALSE, fig.width=12, fig.height=6, fig.cap="Two normal distributions: *N(0, 1)* on the left and *N(100, 5)* on the right.", fig.alt="Two figures illustraing normal distributonis N(0,1) and N(100,5)."}
 par(mfrow = c(1, 2))
 plot(density(rnorm(1000)), main = "", sub = "N(0, 1)")
 plot(density(rnorm(1000, 100, 5)), main = "", sub = "N(100, 5)")

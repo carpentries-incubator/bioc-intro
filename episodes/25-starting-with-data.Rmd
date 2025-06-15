@@ -145,7 +145,12 @@ columns are vectors, each column must contain a single type of data
 depicting a data frame comprising a numeric, a character, and a
 logical vector.
 
-![](./fig/data-frame.svg)
+```{r, results="markup", fig.cap="Conceptual representation of a data.frame", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center", fig.alt="Schematic representation of a tablular structure with different colours representing different columns and variables types."}
+knitr::include_graphics("fig/data-frame.svg")
+```
+
+
+
 
 We can see this when inspecting the <b>str</b>ucture of a data frame
 with the function `str()`:
@@ -359,7 +364,7 @@ function to get a quick glance at the number of observations
 represented by each factor level. Let's look at the number of males
 and females in our data.
 
-```{r firstfactorplot, fig.cap="Bar plot of the number of females and males.", purl=TRUE}
+```{r firstfactorplot, fig.cap="Bar plot of the number of females and males.", purl=TRUE, fig.alt="Barplot showing the number of 'male' and 'female' occurrences."}
 plot(sex)
 ```
 
@@ -415,7 +420,7 @@ as.character(sex)
 If we want to rename these factor, it is sufficient to change its
 levels:
 
-```{r, purl=TRUE}
+```{r, purl=TRUE, fig.alt="Barplot showing the number of 'M' and 'F' occurrences."}
 levels(sex)
 levels(sex) <- c("M", "F")
 sex

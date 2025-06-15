@@ -597,7 +597,7 @@ rna_exp
 3. the `values_from`: the column whose values will fill the new
   columns.
 
-```{r, fig.cap="Wide pivot of the `rna` data.", echo=FALSE, message=FALSE}
+```{r, fig.cap="Wide pivot of the `rna` data.", echo=FALSE, message=FALSE, fig.alt="Figure showing the long table format on the left and wide table format on the right and arrows illustrating how the values in the 'sample' column on the left have become column names on the right and how the values in the 'expression' column on the left have become values on the the right. Below is the call to 'pivot_wider()' with annotations pointing to the 'sample' and 'expression' function arguments."}
 knitr::include_graphics("fig/pivot_wider.png")
 ```
 
@@ -656,7 +656,12 @@ associated with the column names.
 4. the names of the columns to be used to populate the `names_to` and
   `values_to` variables (or to drop).
 
-```{r, fig.cap="Long pivot of the `rna` data.", echo=FALSE, message=FALSE}
+<!-- on the right and arrows illustrating how the values in the 'sample' -->
+<!-- column on the left have become column names on the right and how the -->
+<!-- values in the 'expression' column on the left have become values on -->
+<!-- the the right. -->
+
+```{r, fig.cap="Long pivot of the `rna` data.", echo=FALSE, message=FALSE, fig.alt="Figure showing the long table format on the left and wide table format on the right and arrows illustrating how the column names on the left have become a new column 'sample' on the left and the values in the wide table on the right have become a new column 'expression' on the left.  Below is the call to 'pivot_wider()' with annotations pointing to the 'sample', 'expression' and the '-gene' arguments."}
 knitr::include_graphics("fig/pivot_longer.png")
 ```
 
@@ -750,7 +755,7 @@ spread the data frame with `sex` as columns, `chromosome_name` as
 rows, and the mean expression of genes located in each chromosome as the values,
 as in the following tibble:
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, fig.alt="A two by two table with  X and Y row names and Female and Male column names showing the total counts for each X/Y and Female/Male combination. The Y/Female combinations shows 3 counts, while all other counts are above 2000 counts."}
 knitr::include_graphics("fig/Exercise_pivot_W.png")
 ```
 
