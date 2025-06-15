@@ -71,5 +71,4 @@ sandpaper::serve()
 ```
 
 For more details, see the [workbench installation
-instructions](https://carpentries.github.io/workbench/#installation].
-
+instructions](https://carpentries.github.io/workbench/#installation).
