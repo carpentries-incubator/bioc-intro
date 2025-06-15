@@ -221,7 +221,11 @@ instructor asks for a different analysis, you should
 
 This might be an example of a spreadsheet setup:
 
-![](fig/spreadsheet-setup-updated.png)
+
+```{r, results="markup", fig.cap="Spreadsheet example setip", fig.alt="SCreenshot of a spreadsheet and a README.txt file.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/spreadsheet-setup-updated.png")
+```
+
 
 Put these principles into practice today during your exercises.
 
@@ -253,7 +257,9 @@ the hospital, the patients' gender, weight and blood group.
 
 If we were to keep track of the data like this:
 
-![](fig/multiple-info.png)
+```{r, results="markup", fig.cap="Multiple variable in a single column.", fig.alt="A table showing the blood and rhesus types encoded together in one column.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/multiple-info.png")
+```
 
 the problem is that the ABO and Rhesus groups are in the same `Blood`
 type column. So, if they wanted to look at all observations of the A
@@ -261,7 +267,10 @@ group or look at weight distributions by ABO group, it would be tricky
 to do this using this data setup. If instead we put the ABO and Rhesus
 groups in different columns, you can see that it would be much easier.
 
-![](fig/single-info.png)
+
+```{r, results="markup", fig.cap="Variables encoded in a single column each.", fig.alt="A table showing the blood and rhesus types encoded together in different columns.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/single-info.png")
+```
 
 An important rule when setting up a datasheet, is that **columns are
 used for variables** and **rows are used for observations**:
@@ -401,7 +410,9 @@ an observation. You're also potentially using the same field name in
 multiple places, which will make it harder to clean your data up into
 a usable form. The example below depicts the problem:
 
-![](fig/2_datasheet_example.jpg)
+```{r, results="markup", fig.cap="A sheet with many subtable.", fig.alt="A sheet with many subtable.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/2_datasheet_example.jpg")
+```
 
 In the example above, the computer will see (for example) row 4 and
 assume that all columns A-AF refer to the same sample. This row
@@ -503,7 +514,10 @@ Blanks (most applications) and NA (for R) are good
 choices. @White:2013 explain good choices for indicating null values
 for different software applications in their article:
 
-![](fig/3_white_table_1.jpg)
+
+```{r, results="markup", fig.cap="Commonly used null values.", fig.alt="A table extracted from a paper showing commonly used null values.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/3_white_table_1.jpg")
+```
 
 ### Using formatting to convey information {#formatting}
 
@@ -511,12 +525,17 @@ for different software applications in their article:
 excluded from an analysis, leaving blank rows to indicate
 separations in data.
 
-![](fig/formatting.png)
+```{r, results="markup", fig.cap="Colours used to ecode information.", fig.alt="A table showing several cells highlighted in yellow used to encode sample contamination.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/formatting.png")
+```
+
 
 **Solution**: create a new field to encode which data should be
 excluded.
 
-![](fig/good_formatting.png)
+```{r, results="markup", fig.cap="A new variable encoding sample contamination", fig.alt="Same table as above with a new variable encoding contambination.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("fig/good_formatting.png")
+```
 
 ### Using formatting to make the data sheet look pretty {#formatting_pretty}
 
@@ -714,7 +733,7 @@ To save a file you have opened in Excel in CSV format:
 An important note for backwards compatibility: you can open CSV files
 in Excel!
 
-```{r, results="markup", fig.cap="Saving an Excel file to CSV.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+```{r, results="markup", fig.cap="Saving an Excel file to CSV.", fig.alt="Excel menu to export data in a csv format on MacOS ", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
 knitr::include_graphics("fig/excel-to-csv.png")
 ```
 
@@ -754,7 +773,7 @@ value for `taxa` includes a comma (`Rodent, not censused`).  If we try
 to read the above into Excel (or other spreadsheet program), we will
 get something like this:
 
-```{r, results="markup", fig.cap="The risks of having commas inside comma-separated data.", echo=FALSE, purl=FALSE, out.width="80%", fig.align="center"}
+```{r, results="markup", fig.cap="The risks of having commas inside comma-separated data.", fig.alt="A table illustrating ill-imported data that contained a comma in a cell. That cell has been split in two cells.", echo=FALSE, purl=FALSE, out.width="80%", fig.align="center"}
 knitr::include_graphics("fig/csv-mistake.png")
 ```
 
@@ -812,7 +831,7 @@ build relevant scripts.
 
 ## Summary
 
-```{r analysis, results="asis", fig.margin=TRUE, fig.cap="A typical data analysis workflow.", fig.width=7, fig.height=4, echo=FALSE, purl=FALSE}
+```{r analysis, results="asis", fig.margin=TRUE, fig.cap="A typical data analysis workflow.", fig.alt="The tidy data analysis circle, iterating over data transformation, visualisation and modelling.", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
 knitr::include_graphics("fig/analysis.png")
 ```
 
