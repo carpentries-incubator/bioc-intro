@@ -499,7 +499,7 @@ questions have already been answered, but the challenge is to use the right
 words in the search to find the
 answers:
 
-[http://stackoverflow.com/questions/tagged/r](https://stackoverflow.com/questions/tagged/r)
+[https://stackoverflow.com/questions/tagged/r](https://stackoverflow.com/questions/tagged/r)
 
 The [Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.pdf) can
 also be dense for people with little programming experience but it is a good
@@ -641,8 +641,8 @@ loaded via a namespace (and not attached):
   email the author of the package directly, or open an issue on the
   code repository (e.g., GitHub).
 - There are also some topic-specific mailing lists (GIS,
-  phylogenetics, etc...), the complete list is
-  [here](https://www.r-project.org/mail.html).
+  phylogenetics, etc...), the complete list is available on the
+  [R-project mailing list page](https://www.r-project.org/mail.html).
 
 ### More resources
 

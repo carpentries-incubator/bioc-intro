@@ -52,7 +52,7 @@ will cover the basics and more advanced features of `ggplot2` and will
 help, in addition to serve as a reminder, getting an overview of the
 many data representations available in the package. The following video
 tutorials ([part 1](https://www.youtube.com/watch?v=h29g21z0a68) and
-[2](https://www.youtube.com/watch?v=0m4yywqNPVY)) by Thomas Lin Pedersen
+[part 2](https://www.youtube.com/watch?v=0m4yywqNPVY)) by Thomas Lin Pedersen
 are also very instructive.
 
 ## Plotting with `ggplot2`
@@ -934,7 +934,7 @@ ggplot(data = mean_exp_by_time_sex,
        y = "Mean gene expression")
 ```
 
-<img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-1.png" alt="Line plot with white background and custom title and axis legends." style="display: block; margin: auto;" />
 
 The axes have more informative names, but their readability can be
 improved by increasing the font size:
@@ -953,7 +953,7 @@ ggplot(data = mean_exp_by_time_sex,
   theme(text = element_text(size = 16))
 ```
 
-<img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-xfont-size-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-xfont-size-1.png" alt="Line plot with white background and larger custom title and axis legends." style="display: block; margin: auto;" />
 
 Note that it is also possible to change the fonts of your plots. If you
 are on Windows, you may have to install the [**`extrafont`**
@@ -981,7 +981,7 @@ ggplot(data = mean_exp_by_time_sex,
         legend.position = "top")
 ```
 
-<img src="fig/40-visualization-rendered-mean_exp-time-with-theme-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-mean_exp-time-with-theme-1.png" alt="Line plot with white background and larger custom title and axis legends and blue grid." style="display: block; margin: auto;" />
 
 If you like the changes you created better than the default theme, you
 can save them as an object to be able to easily apply them to other
@@ -999,10 +999,12 @@ blue_theme <- theme(axis.text.x = element_text(colour = "royalblue4",
 
 ggplot(rna, aes(x = expression_log)) +
   geom_histogram(bins = 20) +
-    blue_theme
+    blue_theme()
 ```
 
-<img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-xfont-1.png" style="display: block; margin: auto;" />
+``` error
+Error in blue_theme(): could not find function "blue_theme"
+```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -1020,7 +1022,7 @@ for inspiration. Here are some ideas:
   `scale_`)
 - Try using a different color palette or manually specifying the
   colors for the lines (see
-  [http://www.cookbook-r.com/Graphs/Colors\_(ggplot2)/](https://www.cookbook-r.com/Graphs/Colors_\(ggplot2\)/)).
+  [https://www.cookbook-r.com/Graphs/Colors\_(ggplot2)/](https://www.cookbook-r.com/Graphs/Colors_\(ggplot2\)/)).
 
 :::::::::::::::  solution
 
@@ -1038,7 +1040,7 @@ ggplot(data = mean_exp_by_time_sex,
   theme(panel.grid = element_blank())
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-15-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid above." style="display: block; margin: auto;" />
 
 We can customize it the following ways:
 
@@ -1061,7 +1063,8 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 generated.
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-16-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with wide lines." style="display: block; margin: auto;" />
+
 
 ``` r
 # change the name of the legend and the labels
@@ -1074,7 +1077,8 @@ ggplot(data = mean_exp_by_time_sex,
   scale_color_discrete(name = "Gender", labels = c("F", "M"))
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-16-2.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-17-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with renamed colour labels." style="display: block; margin: auto;" />
+
 
 ``` r
 # using a different color palette
@@ -1087,7 +1091,8 @@ ggplot(data = mean_exp_by_time_sex,
   scale_color_brewer(name = "Gender", labels = c("F", "M"), palette = "Dark2")
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-16-3.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-18-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a different color palette and renamed colour labels." style="display: block; margin: auto;" />
+
 
 ``` r
 # manually specifying the colors
@@ -1101,7 +1106,7 @@ ggplot(data = mean_exp_by_time_sex,
                      values = c("royalblue", "deeppink"))
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-16-4.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-19-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a manuelly-set colors and renamed colour labels.." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -1138,7 +1143,7 @@ count_gene_chromosome <- rna |>
 count_gene_chromosome
 ```
 
-<img src="fig/40-visualization-rendered-sub1-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-sub1-1.png" alt="A simple histogram with greed bars showing the log10 number of genes per chromosome." style="display: block; margin: auto;" />
 
 Below, we also remove the legend altogether by setting the
 `legend.position` to `"none"`.
@@ -1154,7 +1159,7 @@ exp_boxplot_sex <- ggplot(rna, aes(y=expression_log, x = as.factor(time),
 exp_boxplot_sex
 ```
 
-<img src="fig/40-visualization-rendered-sub2-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-sub2-1.png" alt="Transparently-filled red and blue boxplots for Female and Male expression values for different time points." style="display: block; margin: auto;" />
 
 The [**patchwork**](https://github.com/thomasp85/patchwork) package
 provides an elegant approach to combining figures using the `+` to
@@ -1173,7 +1178,7 @@ library("patchwork")
 count_gene_chromosome + exp_boxplot_sex
 ```
 
-<img src="fig/40-visualization-rendered-patchworkplot1-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-patchworkplot1-1.png" alt="A composed figure show the histogram (left) and boxplots (right) next to each other." style="display: block; margin: auto;" />
 
 ``` r
 ## or count_gene_chromosome | exp_boxplot_sex
@@ -1184,7 +1189,7 @@ count_gene_chromosome + exp_boxplot_sex
 count_gene_chromosome / exp_boxplot_sex
 ```
 
-<img src="fig/40-visualization-rendered-patchwork2-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-patchwork2-1.png" alt="A composed figure show the histogram (top) and boxplots (bottom) on top or each other." style="display: block; margin: auto;" />
 
 We can combine further control the layout of the final composition with
 `plot_layout` to create more complex layouts:
@@ -1194,7 +1199,7 @@ We can combine further control the layout of the final composition with
 count_gene_chromosome + exp_boxplot_sex + plot_layout(ncol = 1)
 ```
 
-<img src="fig/40-visualization-rendered-patchwork3-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-patchwork3-1.png" alt="A composed figure show the histogram (top) and boxplots (bottom) on top or each other." style="display: block; margin: auto;" />
 
 
 ``` r
@@ -1204,7 +1209,7 @@ count_gene_chromosome +
  plot_layout(ncol = 1)
 ```
 
-<img src="fig/40-visualization-rendered-patchwork4-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-patchwork4-1.png" alt="A figure composed of 4 plots with on top the histogram, in the middle the histogram and the boxpot, side-by-side, and at the bottom, the boxplot." style="display: block; margin: auto;" />
 
 The last plot can also be created using the `|` and `/` composers:
 
@@ -1215,7 +1220,7 @@ count_gene_chromosome /
  exp_boxplot_sex
 ```
 
-<img src="fig/40-visualization-rendered-patchwork5-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-patchwork5-1.png" alt="As above, a figure composed of 4 plots with on top the histogram, in the middle the histogram and the boxpot, side-by-side, and at the bottom, the boxplot." style="display: block; margin: auto;" />
 
 Learn more about `patchwork` on its
 [webpage](https://patchwork.data-imaginist.com/) or in this
@@ -1235,7 +1240,7 @@ library("gridExtra")
 grid.arrange(count_gene_chromosome, exp_boxplot_sex, ncol = 2)
 ```
 
-<img src="fig/40-visualization-rendered-gridarrange-example-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-gridarrange-example-1.png" alt="A composed figure with the histogram (left) and boxplot (right) side-by-side." style="display: block; margin: auto;" />
 
 In addition to the `ncol` and `nrow` arguments, used to make simple
 arrangements, there are tools for [constructing more complex
@@ -1315,7 +1320,7 @@ rect(5, 5, 15, 15, lwd = 3)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="fig/40-visualization-rendered-paintermodel-1.png" alt="Successive layers added on top of each other."  />
+<img src="fig/40-visualization-rendered-paintermodel-1.png" alt="The 'base' figures, side-by-side, showing (from left to right) 20 empty dots along the diagonal, same with a vertical red line, and same as the second one with a rectangle overlaid in the middle of the plot."  />
 <p class="caption">Successive layers added on top of each other.</p>
 </div>
 
@@ -1337,7 +1342,7 @@ hist(matrix(rnorm(100), ncol = 10))
 ```
 
 <div class="figure" style="text-align: center">
-<img src="fig/40-visualization-rendered-plotmethod-1.png" alt="Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right)."  />
+<img src="fig/40-visualization-rendered-plotmethod-1.png" alt="A two-by-two composition of 2 boxplots at the top, and 2 histograms at the bottom."  />
 <p class="caption">Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right).</p>
 </div>
 
