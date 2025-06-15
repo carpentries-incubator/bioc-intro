@@ -999,7 +999,7 @@ in the joined one.
 
 ## Challenge:
 
-Download the `annot3` table by clicking [this
+Download the `annot3` table by [clicking this
 link](https://carpentries-incubator.github.io/bioc-intro/data/annot3.csv)
 and put the table in your data/ repository.  Using the `full_join()`
 function, join tables `rna_mini` and `annot3`. What has happened for

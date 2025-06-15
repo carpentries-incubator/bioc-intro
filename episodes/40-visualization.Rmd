@@ -56,7 +56,7 @@ will cover the basics and more advanced features of `ggplot2` and will
 help, in addition to serve as a reminder, getting an overview of the
 many data representations available in the package. The following video
 tutorials ([part 1](https://www.youtube.com/watch?v=h29g21z0a68) and
-[2](https://www.youtube.com/watch?v=0m4yywqNPVY)) by Thomas Lin Pedersen
+[part 2](https://www.youtube.com/watch?v=0m4yywqNPVY)) by Thomas Lin Pedersen
 are also very instructive.
 
 ## Plotting with `ggplot2`
