@@ -399,8 +399,8 @@ lesson.</p>
 Visualization Cheat Sheet</a> will cover the basics and more advanced
 features of <code>ggplot2</code> and will help, in addition to serve as
 a reminder, getting an overview of the many data representations
-available in the package. The following video tutorials (<a href="https://www.youtube.com/watch?v=h29g21z0a68" class="external-link">part 1</a> and <a href="https://www.youtube.com/watch?v=0m4yywqNPVY" class="external-link">2</a>) by Thomas Lin
-Pedersen are also very instructive.</p>
+available in the package. The following video tutorials (<a href="https://www.youtube.com/watch?v=h29g21z0a68" class="external-link">part 1</a> and <a href="https://www.youtube.com/watch?v=0m4yywqNPVY" class="external-link">part 2</a>) by Thomas
+Lin Pedersen are also very instructive.</p>
 </section><section><h2 class="section-heading" id="plotting-with-ggplot2">Plotting with <code>ggplot2</code>
 <a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a></h2>
 <hr class="half-width"><p><code>ggplot2</code> is a plotting package that makes it simple to
@@ -1308,7 +1308,7 @@ cheat sheet</a>, and think of ways you could improve the plot.</p>
 <span>       x <span class="op">=</span> <span class="st">"Duration of the infection (in days)"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Mean gene expression"</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The axes have more informative names, but their readability can be
+<figure><img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-1.png" alt="Line plot with white background and custom title and axis legends." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The axes have more informative names, but their readability can be
 improved by increasing the font size:</p>
 <div class="codewrapper sourceCode" id="cb62">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1325,7 +1325,7 @@ improved by increasing the font size:</p>
 <span>       y <span class="op">=</span> <span class="st">"Mean gene expression"</span><span class="op">)</span>  <span class="op">+</span></span>
 <span>  <span class="fu">theme</span><span class="op">(</span>text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">16</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-xfont-size-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Note that it is also possible to change the fonts of your plots. If
+<figure><img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-xfont-size-1.png" alt="Line plot with white background and larger custom title and axis legends." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Note that it is also possible to change the fonts of your plots. If
 you are on Windows, you may have to install the <a href="https://cran.r-project.org/web/packages/extrafont/index.html" class="external-link"><strong><code>extrafont</code></strong>
 package</a>.</p>
 <p>We can further customize the color of x- and y-axis text, the color
@@ -1350,7 +1350,7 @@ setting <code>legend.position</code> to <code>"top"</code>.</p>
 <span>        panel.grid <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>colour<span class="op">=</span><span class="st">"lightsteelblue1"</span><span class="op">)</span>,</span>
 <span>        legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-mean_exp-time-with-theme-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>If you like the changes you created better than the default theme,
+<figure><img src="fig/40-visualization-rendered-mean_exp-time-with-theme-1.png" alt="Line plot with white background and larger custom title and axis legends and blue grid." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>If you like the changes you created better than the default theme,
 you can save them as an object to be able to easily apply them to other
 plots you may create. Here is an example with the histogram we have
 previously created.</p>
@@ -1367,9 +1367,14 @@ previously created.</p>
 <span></span>
 <span><span class="fu">ggplot</span><span class="op">(</span><span class="va">rna</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">expression_log</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="va">blue_theme</span></span></code></pre>
+<span>    <span class="fu">blue_theme</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-mean_exp-time-with-right-labels-xfont-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge-9" class="callout challenge">
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in blue_theme(): could not find function "blue_theme"</code></pre>
+</div>
+<div id="challenge-9" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -1385,7 +1390,7 @@ cheat sheet</a> for inspiration. Here are some ideas:</p>
 labels? (hint: look for a ggplot function starting with
 <code>scale_</code>)</li>
 <li>Try using a different color palette or manually specifying the
-colors for the lines (see <a href="https://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="external-link">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a>).</li>
+colors for the lines (see <a href="https://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="external-link">https://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a>).</li>
 </ul></div>
 </div>
 </div>
@@ -1397,7 +1402,7 @@ colors for the lines (see <a href="https://www.cookbook-r.com/Graphs/Colors_(ggp
 <div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
 <div class="accordion-body">
 <p>For example, based on this plot:</p>
-<div class="codewrapper sourceCode" id="cb65">
+<div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1408,8 +1413,8 @@ colors for the lines (see <a href="https://www.cookbook-r.com/Graphs/Colors_(ggp
 <span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">theme</span><span class="op">(</span>panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-unnamed-chunk-15-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can customize it the following ways:</p>
-<div class="codewrapper sourceCode" id="cb66">
+<figure><img src="fig/40-visualization-rendered-unnamed-chunk-15-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid above." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can customize it the following ways:</p>
+<div class="codewrapper sourceCode" id="cb67">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1430,7 +1435,7 @@ This warning is displayed once every 8 hours.
 Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 generated.</code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-unnamed-chunk-16-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb68">
+<figure><img src="fig/40-visualization-rendered-unnamed-chunk-16-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with wide lines." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb69">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1443,7 +1448,7 @@ generated.</code></pre>
 <span>  <span class="fu">theme</span><span class="op">(</span>panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">scale_color_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Gender"</span>, labels <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"M"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-unnamed-chunk-16-2.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb69">
+<figure><img src="fig/40-visualization-rendered-unnamed-chunk-17-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with renamed colour labels." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb70">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1456,7 +1461,7 @@ generated.</code></pre>
 <span>  <span class="fu">theme</span><span class="op">(</span>panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">scale_color_brewer</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Gender"</span>, labels <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"M"</span><span class="op">)</span>, palette <span class="op">=</span> <span class="st">"Dark2"</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-unnamed-chunk-16-3.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb70">
+<figure><img src="fig/40-visualization-rendered-unnamed-chunk-18-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a different color palette and renamed colour labels." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb71">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1470,7 +1475,7 @@ generated.</code></pre>
 <span>  <span class="fu">scale_color_manual</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Gender"</span>,  labels <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"M"</span><span class="op">)</span>,</span>
 <span>                     values <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"royalblue"</span>, <span class="st">"deeppink"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-unnamed-chunk-16-4.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="fig/40-visualization-rendered-unnamed-chunk-19-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a manuelly-set colors and renamed colour labels.." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 </div>
 </div>
 </div>
@@ -1485,7 +1490,7 @@ each other:</p>
 first need to reorder the levels of <code>chromosome_name</code> and
 filter the unique genes per chromosome. We also change the scale of the
 y-axis to a log10 scale for better readability.</p>
-<div class="codewrapper sourceCode" id="cb71">
+<div class="codewrapper sourceCode" id="cb72">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1502,9 +1507,9 @@ y-axis to a log10 scale for better readability.</p>
 <span></span>
 <span><span class="va">count_gene_chromosome</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-sub1-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Below, we also remove the legend altogether by setting the
+<figure><img src="fig/40-visualization-rendered-sub1-1.png" alt="A simple histogram with greed bars showing the log10 number of genes per chromosome." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Below, we also remove the legend altogether by setting the
 <code>legend.position</code> to <code>"none"</code>.</p>
-<div class="codewrapper sourceCode" id="cb72">
+<div class="codewrapper sourceCode" id="cb73">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1516,45 +1521,45 @@ y-axis to a log10 scale for better readability.</p>
 <span></span>
 <span><span class="va">exp_boxplot_sex</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-sub2-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The <a href="https://github.com/thomasp85/patchwork" class="external-link"><strong>patchwork</strong></a>
+<figure><img src="fig/40-visualization-rendered-sub2-1.png" alt="Transparently-filled red and blue boxplots for Female and Male expression values for different time points." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The <a href="https://github.com/thomasp85/patchwork" class="external-link"><strong>patchwork</strong></a>
 package provides an elegant approach to combining figures using the
 <code>+</code> to arrange figures (typically side by side). More
 specifically the <code>|</code> explicitly arranges them side by side
 and <code>/</code> stacks them on top of each other.</p>
-<div class="codewrapper sourceCode" id="cb73">
+<div class="codewrapper sourceCode" id="cb74">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"patchwork"</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb74">
+<div class="codewrapper sourceCode" id="cb75">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="st">"patchwork"</span><span class="op">)</span></span>
 <span><span class="va">count_gene_chromosome</span> <span class="op">+</span> <span class="va">exp_boxplot_sex</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-patchworkplot1-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb75">
+<figure><img src="fig/40-visualization-rendered-patchworkplot1-1.png" alt="A composed figure show the histogram (left) and boxplots (right) next to each other." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb76">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## or count_gene_chromosome | exp_boxplot_sex</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb76">
+<div class="codewrapper sourceCode" id="cb77">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">count_gene_chromosome</span> <span class="op">/</span> <span class="va">exp_boxplot_sex</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-patchwork2-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can combine further control the layout of the final composition
+<figure><img src="fig/40-visualization-rendered-patchwork2-1.png" alt="A composed figure show the histogram (top) and boxplots (bottom) on top or each other." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can combine further control the layout of the final composition
 with <code>plot_layout</code> to create more complex layouts:</p>
-<div class="codewrapper sourceCode" id="cb77">
+<div class="codewrapper sourceCode" id="cb78">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">count_gene_chromosome</span> <span class="op">+</span> <span class="va">exp_boxplot_sex</span> <span class="op">+</span> <span class="fu">plot_layout</span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-patchwork3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb78">
+<figure><img src="fig/40-visualization-rendered-patchwork3-1.png" alt="A composed figure show the histogram (top) and boxplots (bottom) on top or each other." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb79">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1563,9 +1568,9 @@ with <code>plot_layout</code> to create more complex layouts:</p>
 <span> <span class="va">exp_boxplot_sex</span> <span class="op">+</span></span>
 <span> <span class="fu">plot_layout</span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-patchwork4-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The last plot can also be created using the <code>|</code> and
+<figure><img src="fig/40-visualization-rendered-patchwork4-1.png" alt="A figure composed of 4 plots with on top the histogram, in the middle the histogram and the boxpot, side-by-side, and at the bottom, the boxplot." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The last plot can also be created using the <code>|</code> and
 <code>/</code> composers:</p>
-<div class="codewrapper sourceCode" id="cb79">
+<div class="codewrapper sourceCode" id="cb80">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1573,24 +1578,24 @@ with <code>plot_layout</code> to create more complex layouts:</p>
 <span> <span class="op">(</span><span class="va">count_gene_chromosome</span> <span class="op">|</span> <span class="va">exp_boxplot_sex</span><span class="op">)</span> <span class="op">/</span></span>
 <span> <span class="va">exp_boxplot_sex</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-patchwork5-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Learn more about <code>patchwork</code> on its <a href="https://patchwork.data-imaginist.com/" class="external-link">webpage</a> or in this <a href="https://www.youtube.com/watch?v=0m4yywqNPVY" class="external-link">video</a>.</p>
+<figure><img src="fig/40-visualization-rendered-patchwork5-1.png" alt="As above, a figure composed of 4 plots with on top the histogram, in the middle the histogram and the boxpot, side-by-side, and at the bottom, the boxplot." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Learn more about <code>patchwork</code> on its <a href="https://patchwork.data-imaginist.com/" class="external-link">webpage</a> or in this <a href="https://www.youtube.com/watch?v=0m4yywqNPVY" class="external-link">video</a>.</p>
 <p>Another option is the <strong><code>gridExtra</code></strong> package
 that allows to combine separate ggplots into a single figure using
 <code>grid.arrange()</code>:</p>
-<div class="codewrapper sourceCode" id="cb80">
+<div class="codewrapper sourceCode" id="cb81">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"gridExtra"</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb81">
+<div class="codewrapper sourceCode" id="cb82">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="st">"gridExtra"</span><span class="op">)</span></span>
 <span><span class="fu">grid.arrange</span><span class="op">(</span><span class="va">count_gene_chromosome</span>, <span class="va">exp_boxplot_sex</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/40-visualization-rendered-gridarrange-example-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>In addition to the <code>ncol</code> and <code>nrow</code> arguments,
+<figure><img src="fig/40-visualization-rendered-gridarrange-example-1.png" alt="A composed figure with the histogram (left) and boxplot (right) side-by-side." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>In addition to the <code>ncol</code> and <code>nrow</code> arguments,
 used to make simple arrangements, there are tools for <a href="https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html" class="external-link">constructing
 more complex layouts</a>.</p>
 </section><section><h2 class="section-heading" id="exporting-plots">Exporting plots<a class="anchor" aria-label="anchor" href="#exporting-plots"></a></h2>
@@ -1604,7 +1609,7 @@ appropriate arguments (<code>width</code>, <code>height</code> and
 <code>dpi</code>).</p>
 <p>Make sure you have the <code>fig_output/</code> folder in your
 working directory.</p>
-<div class="codewrapper sourceCode" id="cb82">
+<div class="codewrapper sourceCode" id="cb83">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1646,7 +1651,7 @@ of each other (see figure <span class="citation">@ref</span>(fig:paintermodel)).
 difference with <code>ggplot2</code> (and with <code>lattice</code>,
 described below), that returns dedicated objects, that are rendered on
 screen or in a file, and that can even be updated.</p>
-<div class="codewrapper sourceCode" id="cb83">
+<div class="codewrapper sourceCode" id="cb84">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1660,7 +1665,7 @@ screen or in a file, and that can even be updated.</p>
 <span><span class="fu">abline</span><span class="op">(</span>h <span class="op">=</span> <span class="fl">10</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
 <span><span class="fu">rect</span><span class="op">(</span><span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">15</span>, <span class="fl">15</span>, lwd <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre>
 </div>
-<figure style="text-align: center"><img src="fig/40-visualization-rendered-paintermodel-1.png" alt="Successive layers added on top of each other." class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="fig/40-visualization-rendered-paintermodel-1.png" alt="The 'base' figures, side-by-side, showing (from left to right) 20 empty dots along the diagonal, same with a vertical red line, and same as the second one with a rectangle overlaid in the middle of the plot." class="figure mx-auto d-block"><figcaption>
 Successive layers added on top of each other.
 </figcaption></figure><p>Another main difference is that base graphics’ plotting function try
 to do <em>the right</em> thing based on their input type, i.e. they will
@@ -1668,7 +1673,7 @@ adapt their behaviour based on the class of their input. This is again
 very different from what we have in <code>ggplot2</code>, that only
 accepts dataframes as input, and that requires plots to be constructed
 bit by bit.</p>
-<div class="codewrapper sourceCode" id="cb84">
+<div class="codewrapper sourceCode" id="cb85">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1680,7 +1685,7 @@ bit by bit.</p>
 <span><span class="fu">hist</span><span class="op">(</span><span class="fu">rnorm</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">hist</span><span class="op">(</span><span class="fu">matrix</span><span class="op">(</span><span class="fu">rnorm</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure style="text-align: center"><img src="fig/40-visualization-rendered-plotmethod-1.png" alt="Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right)." class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="fig/40-visualization-rendered-plotmethod-1.png" alt="A two-by-two composition of 2 boxplots at the top, and 2 histograms at the bottom." class="figure mx-auto d-block"><figcaption>
 Plotting boxplots (top) and histograms (bottom) vectors (left) or a
 matrices (right).
 </figcaption></figure><p>The out-of-the-box approach in base graphics can be very efficient

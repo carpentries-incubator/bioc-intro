@@ -666,7 +666,8 @@ used for observations</strong>:</p>
 <h3 class="callout-title">Challenge: We’re going to take a messy dataset and describe how we would clean it up.</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal">
-<li><p>Download a messy dataset by clicking <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx" class="external-link">here</a>.</p></li>
+<li><p>Download a messy dataset by <a href="https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx" class="external-link">clicking
+this link</a>.</p></li>
 <li><p>Open up the data in a spreadsheet program.</p></li>
 <li><p>You can see that there are two tabs. The data contains various
 clinical variables recorded in various hospitals in Brussels during the
@@ -760,12 +761,12 @@ analysis.</p>
 <li><a href="#null">Using problematic null values</a></li>
 <li><a href="#formatting">Using formatting to convey
 information</a></li>
-<li><a href="#formatting_pretty">Using formatting to make the data sheet
+<li><a href="#formattingpretty">Using formatting to make the data sheet
 look pretty</a></li>
 <li><a href="#units">Placing comments or units in cells</a></li>
 <li><a href="#info">Entering more than one piece of information in a
 cell</a></li>
-<li><a href="#field_name">Using problematic field names</a></li>
+<li><a href="#fieldname">Using problematic field names</a></li>
 <li><a href="#special">Using special characters in data</a></li>
 <li><a href="#metadata">Inclusion of metadata in data table</a></li>
 </ul>
@@ -889,7 +890,7 @@ A new variable encoding sample contamination
 </figcaption></figure>
 </div>
 <div class="section level3">
-<h3 id="formatting_pretty">Using formatting to make the data sheet look pretty<a class="anchor" aria-label="anchor" href="#formatting_pretty"></a>
+<h3 id="formattingpretty">Using formatting to make the data sheet look pretty<a class="anchor" aria-label="anchor" href="#formattingpretty"></a>
 </h3>
 <p><strong>Example</strong>: merging cells.</p>
 <p><strong>Solution</strong>: If you’re not careful, formatting a
@@ -922,7 +923,7 @@ to include this information. For example, include one column for the ABO
 group and one for the Rhesus group.</p>
 </div>
 <div class="section level3">
-<h3 id="field_name">Using problematic field names<a class="anchor" aria-label="anchor" href="#field_name"></a>
+<h3 id="fieldname">Using problematic field names<a class="anchor" aria-label="anchor" href="#fieldname"></a>
 </h3>
 <p>Choose descriptive field names, but be careful not to include spaces,
 numbers, or special characters of any kind. Spaces can be misinterpreted
@@ -1709,7 +1710,7 @@ name of the function or package you’re using in your query.</p>
 <code>[r]</code> tag. Most questions have already been answered, but the
 challenge is to use the right words in the search to find the
 answers:</p>
-<p><a href="https://stackoverflow.com/questions/tagged/r" class="external-link">http://stackoverflow.com/questions/tagged/r</a></p>
+<p><a href="https://stackoverflow.com/questions/tagged/r" class="external-link">https://stackoverflow.com/questions/tagged/r</a></p>
 <p>The <a href="https://cran.r-project.org/doc/manuals/R-intro.pdf" class="external-link">Introduction
 to R</a> can also be dense for people with little programming experience
 but it is a good place to understand the underpinnings of the R
@@ -1854,7 +1855,8 @@ the package that can be accessed using
 try to email the author of the package directly, or open an issue on the
 code repository (e.g., GitHub).</li>
 <li>There are also some topic-specific mailing lists (GIS,
-phylogenetics, etc…), the complete list is <a href="https://www.r-project.org/mail.html" class="external-link">here</a>.</li>
+phylogenetics, etc…), the complete list is available on the <a href="https://www.r-project.org/mail.html" class="external-link">R-project mailing list
+page</a>.</li>
 </ul>
 </div>
 <div class="section level3">
@@ -2077,21 +2079,21 @@ with a number (<code>2x</code> is not valid, but <code>x2</code> is). R
 is case sensitive (e.g., <code>weight_kg</code> is different from
 <code>Weight_kg</code>). There are some names that cannot be used
 because they are the names of fundamental functions in R (e.g.,
-<code>if</code>, <code>else</code>, <code>for</code>, see <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html" class="external-link">here</a>
-for a complete list). In general, even if it’s allowed, it’s best to not
-use other function names (e.g., <code>c</code>, <code>T</code>,
-<code>mean</code>, <code>data</code>, <code>df</code>,
-<code>weights</code>). If in doubt, check the help to see if the name is
-already in use. It’s also best to avoid dots (<code>.</code>) within an
-object name as in <code>my.dataset</code>. There are many functions in R
-with dots in their names for historical reasons, but because dots have a
-special meaning in R (for methods) and other programming languages, it’s
-best to avoid them. It is also recommended to use nouns for object
-names, and verbs for function names. It’s important to be consistent in
-the styling of your code (where you put spaces, how you name objects,
-etc.). Using a consistent coding style makes your code clearer to read
-for your future self and your collaborators. In R, some popular style
-guides are <a href="https://google.github.io/styleguide/Rguide.xml" class="external-link">Google’s</a>, the
+<code>if</code>, <code>else</code>, <code>for</code>, see the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html" class="external-link">Reserved
+Words in R</a> manual page, for a complete list). In general, even if
+it’s allowed, it’s best to not use other function names (e.g.,
+<code>c</code>, <code>T</code>, <code>mean</code>, <code>data</code>,
+<code>df</code>, <code>weights</code>). If in doubt, check the help to
+see if the name is already in use. It’s also best to avoid dots
+(<code>.</code>) within an object name as in <code>my.dataset</code>.
+There are many functions in R with dots in their names for historical
+reasons, but because dots have a special meaning in R (for methods) and
+other programming languages, it’s best to avoid them. It is also
+recommended to use nouns for object names, and verbs for function names.
+It’s important to be consistent in the styling of your code (where you
+put spaces, how you name objects, etc.). Using a consistent coding style
+makes your code clearer to read for your future self and your
+collaborators. In R, some popular style guides are <a href="https://google.github.io/styleguide/Rguide.xml" class="external-link">Google’s</a>, the
 <a href="https://style.tidyverse.org/" class="external-link">tidyverse’s</a> style and the <a href="https://bioconductor.org/developers/how-to/coding-style/" class="external-link">Bioconductor
 style guide</a>. The tidyverse’s is very comprehensive and may seem
 overwhelming at first. You can install the <a href="https://github.com/jimhester/lintr" class="external-link"><strong><code>lintr</code></strong></a>
@@ -2523,7 +2525,7 @@ types in a single vector?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>R implicitly converts them to all be the same type</p>
 </div>
@@ -2557,7 +2559,7 @@ their names to see what happens):</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb48">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2667,7 +2669,7 @@ their names to see what happens):</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Vectors can be of only one data type. R tries to convert (coerce) the
 content of this vector to find a <em>common denominator</em> that
@@ -2701,7 +2703,7 @@ doesn’t lose any information.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Only one. There is no memory of past data types, and the coercion
 happens the first time the vector is evaluated. Therefore, the
@@ -2743,7 +2745,7 @@ coerced?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>logical → numeric → character ← logical</p>
 </div>
@@ -2975,7 +2977,7 @@ vector are found:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb97">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3185,7 +3187,7 @@ inches.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb122">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3285,7 +3287,7 @@ exactly that:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb133">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3378,7 +3380,7 @@ help.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution9" aria-expanded="false" aria-controls="collapseSolution9">
   <h4 class="accordion-header" id="headingSolution9"> Show me the solution </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb143">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3550,7 +3552,7 @@ draws.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution10" aria-expanded="false" aria-controls="collapseSolution10">
   <h4 class="accordion-header" id="headingSolution10"> Show me the solution </h4>
 </button>
-<div id="collapseSolution10" class="accordion-collapse collapse" aria-labelledby="headingSolution10" data-bs-parent="#accordionSolution10">
+<div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
 <div class="accordion-body">
 <p>Different permutations</p>
 <div class="codewrapper sourceCode" id="cb163">
@@ -4652,7 +4654,7 @@ as data</a> section of the Data Carpentry lesson provides additional
 insights about pitfalls of dates with spreadsheets.</p>
 <p>We are going to use the <code>ymd()</code> function from the package
 <strong><code>lubridate</code></strong> (which belongs to the
-<strong><code>tidyverse</code></strong>; learn more <a href="https://www.tidyverse.org/" class="external-link">here</a>). .
+<strong><code>tidyverse</code></strong>; learn more on the <a href="https://www.tidyverse.org/" class="external-link">tidyverse web site</a>).
 <strong><code>lubridate</code></strong> gets installed as part of the
 <strong><code>tidyverse</code></strong> installation. When you load the
 <strong><code>tidyverse</code></strong>
@@ -6311,8 +6313,8 @@ recording them per gene and per sample.</p>
 values of a new variable.</p>
 <p>We can do both these of transformations with two <code>tidyr</code>
 functions, <code>pivot_longer()</code> and <code>pivot_wider()</code>
-(see <a href="https://tidyr.tidyverse.org/dev/articles/pivot.html" class="external-link">here</a> for
-details).</p>
+(see the article about <a href="https://tidyr.tidyverse.org/dev/articles/pivot.html" class="external-link">pivots on the
+tidyr website</a> for details).</p>
 <div class="section level3">
 <h3 id="pivoting-the-data-into-a-wider-format">Pivoting the data into a wider format<a class="anchor" aria-label="anchor" href="#pivoting-the-data-into-a-wider-format"></a>
 </h3>
@@ -7341,8 +7343,8 @@ retained in the joined one.</p>
 <div id="challenge-4" class="callout-inner">
 <h3 class="callout-title">Challenge:</h3>
 <div class="callout-content">
-<p>Download the <code>annot3</code> table by clicking <a href="https://carpentries-incubator.github.io/bioc-intro/data/annot3.csv" class="external-link">here</a>
-and put the table in your data/ repository. Using the
+<p>Download the <code>annot3</code> table by <a href="https://carpentries-incubator.github.io/bioc-intro/data/annot3.csv" class="external-link">clicking
+this link</a> and put the table in your data/ repository. Using the
 <code>full_join()</code> function, join tables <code>rna_mini</code> and
 <code>annot3</code>. What has happened for genes <em>Klk6</em>,
 <em>mt-Tf</em>, <em>mt-Rnr1</em>, <em>mt-Tv</em>, <em>mt-Rnr2</em>, and
@@ -7502,8 +7504,8 @@ lesson.</p>
 Visualization Cheat Sheet</a> will cover the basics and more advanced
 features of <code>ggplot2</code> and will help, in addition to serve as
 a reminder, getting an overview of the many data representations
-available in the package. The following video tutorials (<a href="https://www.youtube.com/watch?v=h29g21z0a68" class="external-link">part 1</a> and <a href="https://www.youtube.com/watch?v=0m4yywqNPVY" class="external-link">2</a>) by Thomas Lin
-Pedersen are also very instructive.</p>
+available in the package. The following video tutorials (<a href="https://www.youtube.com/watch?v=h29g21z0a68" class="external-link">part 1</a> and <a href="https://www.youtube.com/watch?v=0m4yywqNPVY" class="external-link">part 2</a>) by Thomas
+Lin Pedersen are also very instructive.</p>
 </section><section><h2 class="section-heading" id="plotting-with-ggplot2">Plotting with <code>ggplot2</code>
 <a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a>
 </h2>
@@ -8450,7 +8452,7 @@ cheat sheet</a>, and think of ways you could improve the plot.</p>
 <span>       x <span class="op">=</span> <span class="st">"Duration of the infection (in days)"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Mean gene expression"</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-mean_exp-time-with-right-labels-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The axes have more informative names, but their readability can be
+<figure><img src="../fig/40-visualization-rendered-mean_exp-time-with-right-labels-1.png" alt="Line plot with white background and custom title and axis legends." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The axes have more informative names, but their readability can be
 improved by increasing the font size:</p>
 <div class="codewrapper sourceCode" id="cb62">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8467,7 +8469,7 @@ improved by increasing the font size:</p>
 <span>       y <span class="op">=</span> <span class="st">"Mean gene expression"</span><span class="op">)</span>  <span class="op">+</span></span>
 <span>  <span class="fu">theme</span><span class="op">(</span>text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">16</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-mean_exp-time-with-right-labels-xfont-size-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Note that it is also possible to change the fonts of your plots. If
+<figure><img src="../fig/40-visualization-rendered-mean_exp-time-with-right-labels-xfont-size-1.png" alt="Line plot with white background and larger custom title and axis legends." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Note that it is also possible to change the fonts of your plots. If
 you are on Windows, you may have to install the <a href="https://cran.r-project.org/web/packages/extrafont/index.html" class="external-link"><strong><code>extrafont</code></strong>
 package</a>.</p>
 <p>We can further customize the color of x- and y-axis text, the color
@@ -8492,7 +8494,7 @@ setting <code>legend.position</code> to <code>"top"</code>.</p>
 <span>        panel.grid <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>colour<span class="op">=</span><span class="st">"lightsteelblue1"</span><span class="op">)</span>,</span>
 <span>        legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-mean_exp-time-with-theme-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>If you like the changes you created better than the default theme,
+<figure><img src="../fig/40-visualization-rendered-mean_exp-time-with-theme-1.png" alt="Line plot with white background and larger custom title and axis legends and blue grid." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>If you like the changes you created better than the default theme,
 you can save them as an object to be able to easily apply them to other
 plots you may create. Here is an example with the histogram we have
 previously created.</p>
@@ -8509,9 +8511,14 @@ previously created.</p>
 <span></span>
 <span><span class="fu">ggplot</span><span class="op">(</span><span class="va">rna</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">expression_log</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="va">blue_theme</span></span></code></pre>
+<span>    <span class="fu">blue_theme</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-mean_exp-time-with-right-labels-xfont-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="challenge-9" class="callout challenge">
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in blue_theme(): could not find function "blue_theme"</code></pre>
+</div>
+<div id="challenge-9" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -8528,7 +8535,7 @@ cheat sheet</a> for inspiration. Here are some ideas:</p>
 labels? (hint: look for a ggplot function starting with
 <code>scale_</code>)</li>
 <li>Try using a different color palette or manually specifying the
-colors for the lines (see <a href="https://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="external-link">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a>).</li>
+colors for the lines (see <a href="https://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="external-link">https://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a>).</li>
 </ul>
 </div>
 </div>
@@ -8541,7 +8548,7 @@ colors for the lines (see <a href="https://www.cookbook-r.com/Graphs/Colors_(ggp
 <div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
 <div class="accordion-body">
 <p>For example, based on this plot:</p>
-<div class="codewrapper sourceCode" id="cb65">
+<div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8552,8 +8559,8 @@ colors for the lines (see <a href="https://www.cookbook-r.com/Graphs/Colors_(ggp
 <span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">theme</span><span class="op">(</span>panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-unnamed-chunk-15-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can customize it the following ways:</p>
-<div class="codewrapper sourceCode" id="cb66">
+<figure><img src="../fig/40-visualization-rendered-unnamed-chunk-15-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid above." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can customize it the following ways:</p>
+<div class="codewrapper sourceCode" id="cb67">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8574,7 +8581,7 @@ This warning is displayed once every 8 hours.
 Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 generated.</code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-unnamed-chunk-16-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb68">
+<figure><img src="../fig/40-visualization-rendered-unnamed-chunk-16-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with wide lines." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb69">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8587,7 +8594,7 @@ generated.</code></pre>
 <span>  <span class="fu">theme</span><span class="op">(</span>panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">scale_color_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Gender"</span>, labels <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"M"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-unnamed-chunk-16-2.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb69">
+<figure><img src="../fig/40-visualization-rendered-unnamed-chunk-17-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with renamed colour labels." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb70">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8600,7 +8607,7 @@ generated.</code></pre>
 <span>  <span class="fu">theme</span><span class="op">(</span>panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">scale_color_brewer</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Gender"</span>, labels <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"M"</span><span class="op">)</span>, palette <span class="op">=</span> <span class="st">"Dark2"</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-unnamed-chunk-16-3.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb70">
+<figure><img src="../fig/40-visualization-rendered-unnamed-chunk-18-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a different color palette and renamed colour labels." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb71">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8614,7 +8621,7 @@ generated.</code></pre>
 <span>  <span class="fu">scale_color_manual</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Gender"</span>,  labels <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"M"</span><span class="op">)</span>,</span>
 <span>                     values <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"royalblue"</span>, <span class="st">"deeppink"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-unnamed-chunk-16-4.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/40-visualization-rendered-unnamed-chunk-19-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a manuelly-set colors and renamed colour labels.." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 </div>
 </div>
 </div>
@@ -8632,7 +8639,7 @@ each other:</p>
 first need to reorder the levels of <code>chromosome_name</code> and
 filter the unique genes per chromosome. We also change the scale of the
 y-axis to a log10 scale for better readability.</p>
-<div class="codewrapper sourceCode" id="cb71">
+<div class="codewrapper sourceCode" id="cb72">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8649,9 +8656,9 @@ y-axis to a log10 scale for better readability.</p>
 <span></span>
 <span><span class="va">count_gene_chromosome</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-sub1-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Below, we also remove the legend altogether by setting the
+<figure><img src="../fig/40-visualization-rendered-sub1-1.png" alt="A simple histogram with greed bars showing the log10 number of genes per chromosome." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Below, we also remove the legend altogether by setting the
 <code>legend.position</code> to <code>"none"</code>.</p>
-<div class="codewrapper sourceCode" id="cb72">
+<div class="codewrapper sourceCode" id="cb73">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8663,45 +8670,45 @@ y-axis to a log10 scale for better readability.</p>
 <span></span>
 <span><span class="va">exp_boxplot_sex</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-sub2-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The <a href="https://github.com/thomasp85/patchwork" class="external-link"><strong>patchwork</strong></a>
+<figure><img src="../fig/40-visualization-rendered-sub2-1.png" alt="Transparently-filled red and blue boxplots for Female and Male expression values for different time points." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The <a href="https://github.com/thomasp85/patchwork" class="external-link"><strong>patchwork</strong></a>
 package provides an elegant approach to combining figures using the
 <code>+</code> to arrange figures (typically side by side). More
 specifically the <code>|</code> explicitly arranges them side by side
 and <code>/</code> stacks them on top of each other.</p>
-<div class="codewrapper sourceCode" id="cb73">
+<div class="codewrapper sourceCode" id="cb74">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"patchwork"</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb74">
+<div class="codewrapper sourceCode" id="cb75">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="st">"patchwork"</span><span class="op">)</span></span>
 <span><span class="va">count_gene_chromosome</span> <span class="op">+</span> <span class="va">exp_boxplot_sex</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-patchworkplot1-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb75">
+<figure><img src="../fig/40-visualization-rendered-patchworkplot1-1.png" alt="A composed figure show the histogram (left) and boxplots (right) next to each other." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb76">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## or count_gene_chromosome | exp_boxplot_sex</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb76">
+<div class="codewrapper sourceCode" id="cb77">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">count_gene_chromosome</span> <span class="op">/</span> <span class="va">exp_boxplot_sex</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-patchwork2-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can combine further control the layout of the final composition
+<figure><img src="../fig/40-visualization-rendered-patchwork2-1.png" alt="A composed figure show the histogram (top) and boxplots (bottom) on top or each other." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can combine further control the layout of the final composition
 with <code>plot_layout</code> to create more complex layouts:</p>
-<div class="codewrapper sourceCode" id="cb77">
+<div class="codewrapper sourceCode" id="cb78">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">count_gene_chromosome</span> <span class="op">+</span> <span class="va">exp_boxplot_sex</span> <span class="op">+</span> <span class="fu">plot_layout</span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-patchwork3-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb78">
+<figure><img src="../fig/40-visualization-rendered-patchwork3-1.png" alt="A composed figure show the histogram (top) and boxplots (bottom) on top or each other." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb79">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8710,9 +8717,9 @@ with <code>plot_layout</code> to create more complex layouts:</p>
 <span> <span class="va">exp_boxplot_sex</span> <span class="op">+</span></span>
 <span> <span class="fu">plot_layout</span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-patchwork4-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The last plot can also be created using the <code>|</code> and
+<figure><img src="../fig/40-visualization-rendered-patchwork4-1.png" alt="A figure composed of 4 plots with on top the histogram, in the middle the histogram and the boxpot, side-by-side, and at the bottom, the boxplot." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The last plot can also be created using the <code>|</code> and
 <code>/</code> composers:</p>
-<div class="codewrapper sourceCode" id="cb79">
+<div class="codewrapper sourceCode" id="cb80">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8720,24 +8727,24 @@ with <code>plot_layout</code> to create more complex layouts:</p>
 <span> <span class="op">(</span><span class="va">count_gene_chromosome</span> <span class="op">|</span> <span class="va">exp_boxplot_sex</span><span class="op">)</span> <span class="op">/</span></span>
 <span> <span class="va">exp_boxplot_sex</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-patchwork5-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Learn more about <code>patchwork</code> on its <a href="https://patchwork.data-imaginist.com/" class="external-link">webpage</a> or in this <a href="https://www.youtube.com/watch?v=0m4yywqNPVY" class="external-link">video</a>.</p>
+<figure><img src="../fig/40-visualization-rendered-patchwork5-1.png" alt="As above, a figure composed of 4 plots with on top the histogram, in the middle the histogram and the boxpot, side-by-side, and at the bottom, the boxplot." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Learn more about <code>patchwork</code> on its <a href="https://patchwork.data-imaginist.com/" class="external-link">webpage</a> or in this <a href="https://www.youtube.com/watch?v=0m4yywqNPVY" class="external-link">video</a>.</p>
 <p>Another option is the <strong><code>gridExtra</code></strong> package
 that allows to combine separate ggplots into a single figure using
 <code>grid.arrange()</code>:</p>
-<div class="codewrapper sourceCode" id="cb80">
+<div class="codewrapper sourceCode" id="cb81">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"gridExtra"</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb81">
+<div class="codewrapper sourceCode" id="cb82">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="st">"gridExtra"</span><span class="op">)</span></span>
 <span><span class="fu">grid.arrange</span><span class="op">(</span><span class="va">count_gene_chromosome</span>, <span class="va">exp_boxplot_sex</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/40-visualization-rendered-gridarrange-example-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>In addition to the <code>ncol</code> and <code>nrow</code> arguments,
+<figure><img src="../fig/40-visualization-rendered-gridarrange-example-1.png" alt="A composed figure with the histogram (left) and boxplot (right) side-by-side." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>In addition to the <code>ncol</code> and <code>nrow</code> arguments,
 used to make simple arrangements, there are tools for <a href="https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html" class="external-link">constructing
 more complex layouts</a>.</p>
 </section><section><h2 class="section-heading" id="exporting-plots">Exporting plots<a class="anchor" aria-label="anchor" href="#exporting-plots"></a>
@@ -8753,7 +8760,7 @@ appropriate arguments (<code>width</code>, <code>height</code> and
 <code>dpi</code>).</p>
 <p>Make sure you have the <code>fig_output/</code> folder in your
 working directory.</p>
-<div class="codewrapper sourceCode" id="cb82">
+<div class="codewrapper sourceCode" id="cb83">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8798,7 +8805,7 @@ of each other (see figure <span class="citation">@ref</span>(fig:paintermodel)).
 difference with <code>ggplot2</code> (and with <code>lattice</code>,
 described below), that returns dedicated objects, that are rendered on
 screen or in a file, and that can even be updated.</p>
-<div class="codewrapper sourceCode" id="cb83">
+<div class="codewrapper sourceCode" id="cb84">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8812,7 +8819,7 @@ screen or in a file, and that can even be updated.</p>
 <span><span class="fu">abline</span><span class="op">(</span>h <span class="op">=</span> <span class="fl">10</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
 <span><span class="fu">rect</span><span class="op">(</span><span class="fl">5</span>, <span class="fl">5</span>, <span class="fl">15</span>, <span class="fl">15</span>, lwd <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre>
 </div>
-<figure style="text-align: center"><img src="../fig/40-visualization-rendered-paintermodel-1.png" alt="Successive layers added on top of each other." class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/40-visualization-rendered-paintermodel-1.png" alt="The 'base' figures, side-by-side, showing (from left to right) 20 empty dots along the diagonal, same with a vertical red line, and same as the second one with a rectangle overlaid in the middle of the plot." class="figure mx-auto d-block"><figcaption>
 Successive layers added on top of each other.
 </figcaption></figure><p>Another main difference is that base graphics’ plotting function try
 to do <em>the right</em> thing based on their input type, i.e. they will
@@ -8820,7 +8827,7 @@ adapt their behaviour based on the class of their input. This is again
 very different from what we have in <code>ggplot2</code>, that only
 accepts dataframes as input, and that requires plots to be constructed
 bit by bit.</p>
-<div class="codewrapper sourceCode" id="cb84">
+<div class="codewrapper sourceCode" id="cb85">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -8832,7 +8839,7 @@ bit by bit.</p>
 <span><span class="fu">hist</span><span class="op">(</span><span class="fu">rnorm</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">hist</span><span class="op">(</span><span class="fu">matrix</span><span class="op">(</span><span class="fu">rnorm</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure style="text-align: center"><img src="../fig/40-visualization-rendered-plotmethod-1.png" alt="Plotting boxplots (top) and histograms (bottom) vectors (left) or a matrices (right)." class="figure mx-auto d-block"><figcaption>
+<figure style="text-align: center"><img src="../fig/40-visualization-rendered-plotmethod-1.png" alt="A two-by-two composition of 2 boxplots at the top, and 2 histograms at the bottom." class="figure mx-auto d-block"><figcaption>
 Plotting boxplots (top) and histograms (bottom) vectors (left) or a
 matrices (right).
 </figcaption></figure><p>The out-of-the-box approach in base graphics can be very efficient
@@ -8874,7 +8881,7 @@ Visualization Cheat Sheet</a>.<a href="#fnref1" class="footnote-back">↩︎</a>
 </ol>
 </div></section><section id="aio-60-next-steps"><p>Content from <a href="60-next-steps.html">Next steps</a></p>
 <hr>
-<p>Last updated on 2025-05-06 |
+<p>Last updated on 2025-06-15 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/60-next-steps.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 90 minutes</p>
@@ -8929,7 +8936,7 @@ the project as a whole.</p>
 <hr class="half-width">
 <p>The figure below represents the anatomy of the SummarizedExperiment
 class.</p>
-<figure><img src="https://uclouvain-cbio.github.io/WSBIM1322/figs/SE.svg" width="80%" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Objects of the class SummarizedExperiment contain :</p>
+<figure><img src="https://uclouvain-cbio.github.io/WSBIM1322/figs/SE.svg" alt="Schematic representation of the SummarizedExperiment class illustrating the following slots: fowData and rowRanges, one assay or multiple assays, colData and metadata." width="80%" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Objects of the class SummarizedExperiment contain :</p>
 <ul>
 <li><p><strong>One (or more) assay(s)</strong> containing the
 quantitative omics data (expression data), stored as a matrix-like
@@ -8965,7 +8972,8 @@ provided (after raw data have been processed).</p>
 <strong>An expression matrix</strong>: we load the count matrix,
 specifying that the first columns contains row/gene names, and convert
 the <code>data.frame</code> to a <code>matrix</code>. You can download
-it <a href="https://carpentries-incubator.github.io/bioc-intro/data/count_matrix.csv" class="external-link">here</a>.</li>
+it <a href="https://carpentries-incubator.github.io/bioc-intro/data/count_matrix.csv" class="external-link">by
+clicking this link</a>.</li>
 </ul>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9018,7 +9026,8 @@ Fcrls          248        179        184         68</code></pre>
 </div>
 <ul>
 <li>
-<strong>A table describing the samples</strong>, available <a href="https://carpentries-incubator.github.io/bioc-intro/data/sample_metadata.csv" class="external-link">here</a>.</li>
+<strong>A table describing the samples</strong>, available <a href="https://carpentries-incubator.github.io/bioc-intro/data/sample_metadata.csv" class="external-link">at
+this link</a>.</li>
 </ul>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9067,7 +9076,8 @@ Fcrls          248        179        184         68</code></pre>
 </div>
 <ul>
 <li>
-<strong>A table describing the genes</strong>, available <a href="https://carpentries-incubator.github.io/bioc-intro/data/gene_metadata.csv" class="external-link">here</a>.</li>
+<strong>A table describing the genes</strong>, available <a href="https://carpentries-incubator.github.io/bioc-intro/data/gene_metadata.csv" class="external-link">at
+this link</a>.</li>
 </ul>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9578,7 +9588,7 @@ time 0 and at time 8.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb44">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9646,7 +9656,7 @@ table.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb48">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9993,8 +10003,9 @@ for plotting.</p>
 <span>    <span class="fu">scale_x_log10</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/60-next-steps-rendered-tidySE-plot-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>For more information on tidySummarizedExperiment, see the package
-website <a href="https://stemangiola.github.io/tidySummarizedExperiment/" class="external-link">here</a>.</p>
+<figure><img src="../fig/60-next-steps-rendered-tidySE-plot-1.png" alt="Density plot showing log of expression counts + 1 density lines, one per samples, coloured based on the infection status." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>For more information on <code>tidySummarizedExperiment</code>, see
+the <a href="https://stemangiola.github.io/tidySummarizedExperiment/" class="external-link">package
+website</a>.</p>
 <p><strong>Take-home message</strong></p>
 <ul>
 <li><p><code>SummarizedExperiment</code> represents an efficient way to
