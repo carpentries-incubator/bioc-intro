@@ -135,7 +135,7 @@ ggplot(data = rna, mapping = aes(x = expression)) +
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-<img src="fig/40-visualization-rendered-first-ggplot-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-first-ggplot-1.png" alt="Default histogram produced by ggplot() and geom_histogram() for the expression data." style="display: block; margin: auto;" />
 
 The `+` in the `ggplot2` package is particularly useful because it
 allows you to modify existing `ggplot` objects. This means you can
@@ -178,7 +178,7 @@ ggplot(rna, aes(x = expression)) +
     geom_histogram(bins = 15)
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-5-1.png" alt="Histograms produced by ggplot() and geom_histogram() for the expression data with bin set of 15 (top) and binwith set to 2000 (bottom)." style="display: block; margin: auto;" />
 
 ``` r
 # change binwidth
@@ -186,7 +186,7 @@ ggplot(rna, aes(x = expression)) +
     geom_histogram(binwidth = 2000)
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-5-2.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-5-2.png" alt="Histograms produced by ggplot() and geom_histogram() for the expression data with bin set of 15 (top) and binwith set to 2000 (bottom)." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -258,7 +258,7 @@ Warning: Removed 507 rows containing non-finite outside the scale range
 (`stat_bin()`).
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-6-1.png" alt="Histograms produced by ggplot(), geom_histogram() and scale_x_log10() for the log of expression." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -327,7 +327,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
   geom_point()
 ```
 
-<img src="fig/40-visualization-rendered-create-ggplot-object-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-create-ggplot-object-1.png" alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. All dots are black." style="display: block; margin: auto;" />
 
 Then, we start modifying this plot to extract more information from it.
 For instance, we can add transparency (`alpha`) to avoid overplotting:
@@ -338,7 +338,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
   geom_point(alpha = 0.3)
 ```
 
-<img src="fig/40-visualization-rendered-adding-transparency-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-adding-transparency-1.png" alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. All dots are semi-transparent black." style="display: block; margin: auto;" />
 
 We can also add colors for all the points:
 
@@ -348,7 +348,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
   geom_point(alpha = 0.3, color = "blue")
 ```
 
-<img src="fig/40-visualization-rendered-adding-colors-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-adding-colors-1.png" alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. All dots are semi-transparent blue." style="display: block; margin: auto;" />
 
 Or to color each gene in the plot differently, you could use a vector as
 an input to the argument **color**. `ggplot2` will provide a different
@@ -361,7 +361,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
   geom_point(alpha = 0.3, aes(color = gene_biotype))
 ```
 
-<img src="fig/40-visualization-rendered-color-by-gene_biotype1-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-color-by-gene_biotype1-1.png" alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. Dots are colour-coded based on the gene's biotype." style="display: block; margin: auto;" />
 
 We can also specify the colors directly inside the mapping provided in
 the `ggplot()` function. This will be seen by any geom layers and the
@@ -374,7 +374,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
   geom_point(alpha = 0.3)
 ```
 
-<img src="fig/40-visualization-rendered-color-by-gene_biotype2-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-color-by-gene_biotype2-1.png" alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. Dots are colour-coded based on the gene's biotype." style="display: block; margin: auto;" />
 
 Finally, we could also add a diagonal line with the `geom_abline()`
 function:
@@ -387,7 +387,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
   geom_abline(intercept = 0)
 ```
 
-<img src="fig/40-visualization-rendered-adding-diag-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-adding-diag-1.png" alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. Dots are colour-coded based on the gene's biotype. A black line of slope 1 crossing the origin was added by geom_abline()." style="display: block; margin: auto;" />
 
 Notice that we can change the geom layer from `geom_point` to
 `geom_jitter` and colors will still be determined by `gene_biotype`.
@@ -400,7 +400,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
   geom_abline(intercept = 0)
 ```
 
-<img src="fig/40-visualization-rendered-color-by-gene_biotype3-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-color-by-gene_biotype3-1.png" alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. Dots are colour-coded based on the gene's biotype. A black line of slope 1 crossing the origin was added by geom_abline()." style="display: block; margin: auto;" />
 
 
 
@@ -443,7 +443,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
   geom_abline(intercept = 0)
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-10-1.png" alt="Scatter plot produced by ggplot() and geom_hexbin() comparing the log-foldchanges computed above shows hexagons coloured based on the underlying dot density. A black line of slope 1 crossing the origin was added by geom_abline()." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -467,7 +467,7 @@ ggplot(data = rna, mapping = aes(y = expression_log, x = sample)) +
     geom_point(aes(color = time))
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-11-1.png" alt="Figures showing a stretch of overlapping points indicating the log of expression + 1 for each sample. The points are coloured with different shades of blue for samples collected at different time points." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -485,7 +485,7 @@ ggplot(data = rna,
   geom_boxplot()
 ```
 
-<img src="fig/40-visualization-rendered-boxplot-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-boxplot-1.png" alt="Boxplot showing the distribution of log expression + 1 values for each sample, as produced by geom_boxlpot(). Each boxplot is filled with white colour." style="display: block; margin: auto;" />
 
 By adding points to boxplot, we can have a better idea of the number of
 measurements and of their distribution:
@@ -498,7 +498,7 @@ ggplot(data = rna,
   geom_boxplot(alpha = 0)
 ```
 
-<img src="fig/40-visualization-rendered-boxplot-with-points-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-boxplot-with-points-1.png" alt="Boxplot and dots showing the distribution of log expression + 1 values for each sample, as produced by geom_boxlpot(). Each boxplot is transparent and the jittered dots are semi-transparent tomato-coloured and behind the boxpots." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -521,7 +521,7 @@ ggplot(data = rna,
   geom_jitter(alpha = 0.2, color = "tomato")
 ```
 
-<img src="fig/40-visualization-rendered-boxplot-with-points2-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-boxplot-with-points2-1.png" alt="Boxplot and dots showing the distribution of log expression + 1 values for each sample, as produced by geom_boxlpot(). Each boxplot is transparent and the jittered dots are semi-transparent tomato-coloured. This time, the boxplots are behind the dots." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -542,7 +542,7 @@ ggplot(data = rna,
   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 ```
 
-<img src="fig/40-visualization-rendered-boxplot-xaxis-rotated-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-boxplot-xaxis-rotated-1.png" alt="Boxplot and dots showing the distribution of log expression + 1 values for each sample, as produced by geom_boxlpot(). Each boxplot is transparent and the jittered dots are semi-transparent tomato-coloured. The sample labels are displayed vertically and readable." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -570,7 +570,7 @@ ggplot(data = rna,
   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 ```
 
-<img src="fig/40-visualization-rendered-boxplot-color-time-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-boxplot-color-time-1.png" alt="Boxplot and dots showing the distribution of log expression + 1 values for each sample, as produced by geom_boxlpot(). On the first figure, each boxplot is transparent and the jittered dots are semi-transparent and coloured in different shares of blue. On the second figures, each boxplot is transparent and the jittered dots are semi-transparent and coloured red, green and blue." style="display: block; margin: auto;" />
 
 ``` r
 # time as factor
@@ -582,7 +582,7 @@ ggplot(data = rna,
   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 ```
 
-<img src="fig/40-visualization-rendered-boxplot-color-time-2.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-boxplot-color-time-2.png" alt="Boxplot and dots showing the distribution of log expression + 1 values for each sample, as produced by geom_boxlpot(). On the first figure, each boxplot is transparent and the jittered dots are semi-transparent and coloured in different shares of blue. On the second figures, each boxplot is transparent and the jittered dots are semi-transparent and coloured red, green and blue." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -612,7 +612,7 @@ ggplot(data = rna,
   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-12-1.png" alt="Violin plot showing the distribution of log expression + 1 values for each sample, as produced by geom_violin(). Each boxplot is transparent and the jittered dots are semi-transparent and coloured red, green and blue." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -636,7 +636,7 @@ ggplot(data = rna,
   theme(axis.text.x = element_text(angle = 90,  hjust = 0.5, vjust = 0.5))
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-13-1.png" alt="Violin plot showing the distribution of log expression + 1 values for each sample, as produced by geom_violon(). Each violin plot is coloured in red or blue depending on the sex variable." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -700,7 +700,7 @@ ggplot(data = mean_exp_by_time, mapping = aes(x = time, y = mean_exp)) +
   geom_line()
 ```
 
-<img src="fig/40-visualization-rendered-first-time-series-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-first-time-series-1.png" alt="Line plot, as produced by geom_line(), but the lines are clearly not show what we expect." style="display: block; margin: auto;" />
 
 Unfortunately, this does not work because we plotted data for all the
 genes together. We need to tell ggplot to draw a line for each gene by
@@ -713,7 +713,7 @@ ggplot(data = mean_exp_by_time,
   geom_line()
 ```
 
-<img src="fig/40-visualization-rendered-time-series-by-gene-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-time-series-by-gene-1.png" alt="Line plot, as produced by geom_line(), with 10 lines showing increasing expression values over time." style="display: block; margin: auto;" />
 
 We will be able to distinguish genes in the plot if we add colors (using
 `color` also automatically groups the data):
@@ -725,7 +725,7 @@ ggplot(data = mean_exp_by_time,
   geom_line()
 ```
 
-<img src="fig/40-visualization-rendered-time-series-with-colors-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-time-series-with-colors-1.png" alt="Line plot, as produced by geom_line(), with 10 colour-coded lines showing increasing expression values over time." style="display: block; margin: auto;" />
 
 ## Faceting
 
@@ -742,7 +742,7 @@ ggplot(data = mean_exp_by_time,
   facet_wrap(~ gene)
 ```
 
-<img src="fig/40-visualization-rendered-first-facet-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-first-facet-1.png" alt="Line plot, as produced by geom_line(), with 10 sub-plots/facets, each showing one line with increasing expression values over time. All y-scales are identical." style="display: block; margin: auto;" />
 
 Here both x- and y-axis have the same scale for all the subplots. You
 can change this default behavior by modifying `scales` in order to allow
@@ -756,7 +756,7 @@ ggplot(data = mean_exp_by_time,
   facet_wrap(~ gene, scales = "free_y")
 ```
 
-<img src="fig/40-visualization-rendered-first-facet-scales-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-first-facet-scales-1.png" alt="Line plot, as produced by geom_line(), with 10 sub-plots/facets, each showing one line with increasing expression values over time. y-scales are now adapted to the expression range for each facet/gene." style="display: block; margin: auto;" />
 
 Now we would like to split the line in each plot by the sex of the mice.
 To do that we need to calculate the mean expression in the data frame
@@ -807,7 +807,7 @@ ggplot(data = mean_exp_by_time_sex,
   facet_wrap(~ gene, scales = "free_y")
 ```
 
-<img src="fig/40-visualization-rendered-facet-by-gene-and-sex-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-facet-by-gene-and-sex-1.png" alt="Line plot, as produced by geom_line(), with 10 sub-plots/facets, each showing two coloured lines (red for Female and blue for Make) with increasing expression values over time." style="display: block; margin: auto;" />
 
 Usually plots with white background look more readable when printed. We
 can set the background to white using the function `theme_bw()`.
@@ -823,7 +823,7 @@ ggplot(data = mean_exp_by_time_sex,
   theme(panel.grid = element_blank())
 ```
 
-<img src="fig/40-visualization-rendered-facet-by-gene-and-sex-white-bg-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-facet-by-gene-and-sex-white-bg-1.png" alt="Line plot, as produced by geom_line(), with 10 sub-plots/facets, each showing two coloured lines (red for Female and blue for Make) with increasing expression values over time. The figure background is now white." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -856,7 +856,7 @@ ggplot(data = mean_exp_by_chromosome, mapping = aes(x = time,
   facet_wrap(~ chromosome_name, scales = "free_y")
 ```
 
-<img src="fig/40-visualization-rendered-mean-exp-chromosome-time-series-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-mean-exp-chromosome-time-series-1.png" alt="Line plot, as produced by geom_line(), with 21 sub-plots/facets, each showing one line with expression values over time for each chromosome." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -880,7 +880,7 @@ ggplot(data = mean_exp_by_time_sex,
   facet_grid(sex ~ .)
 ```
 
-<img src="fig/40-visualization-rendered-mean-exp-time-facet-sex-rows-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-mean-exp-time-facet-sex-rows-1.png" alt="Two line plots above each other, each showing 10 lines coloured by gene. The top facet shows the expression values for Female sample, the bottom one for Male samples." style="display: block; margin: auto;" />
 
 
 ``` r
@@ -891,7 +891,7 @@ ggplot(data = mean_exp_by_time_sex,
   facet_grid(. ~ sex)
 ```
 
-<img src="fig/40-visualization-rendered-mean-exp-time-facet-sex-columns-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-mean-exp-time-facet-sex-columns-1.png" alt="Two line plots next to each other, each showing 10 lines coloured by gene. The left facet shows the expression values for Female sample, the right one for Male samples." style="display: block; margin: auto;" />
 
 ## `ggplot2` themes
 
