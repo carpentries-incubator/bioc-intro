@@ -94,7 +94,7 @@ genetics, and a lot more.
 [^whatarepkgs]: i.e. add-ons that confer R with new functionality,
 such as bioinformatics data analysis.
 
-```{r, fig.cap="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", echo=FALSE, message=FALSE}
+```{r, fig.cap="Exponential increase of the number of packages available on [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. From the R Journal, Volume 10/2, December 2018.", fig.alt="Two graphs showing the exponential increase of the number of CRAN packages from 2000 to 2018. The figure on the right shows linear trend for the log of number of packages.", echo=FALSE, message=FALSE}
 knitr::include_graphics("fig/cran.png")
 ```
 
@@ -148,7 +148,7 @@ the plots we will generate. RStudio can also be used for other things
 (e.g., version control, developing packages, writing Shiny apps) that
 we will not cover during the workshop.
 
-```{r, results="markup", fig.cap="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center"}
+```{r, results="markup", fig.cap="RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center", fig.alt="Screenshot of the RStudio interface showing the typical four panel setup."}
 knitr::include_graphics("fig/rstudio-screenshot.png")
 ```
 
@@ -202,7 +202,7 @@ RStudio's default preferences generally work well, but saving a workspace to
 To turn that off, go to Tools --> 'Global Options' and select the 'Never' option
 for 'Save workspace to .RData' on exit.
 
-```{r, results="markup", fig.cap="Set 'Save workspace to .RData on exit' to 'Never'", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+```{r, results="markup", fig.cap="Set 'Save workspace to .RData on exit' to 'Never'", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center", fig.alt="Screenshot of the RStudio General Options panel."}
 knitr::include_graphics("fig/rstudio-preferences.png")
 ```
 
@@ -210,7 +210,7 @@ To avoid [character encoding issues between Windows and other operating
 systems](https://yihui.name/en/2018/11/biggest-regret-knitr/), we are
 going to set UTF-8 by default:
 
-```{r, results="markup", fig.cap="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above).", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+```{r, results="markup", fig.cap="Set the default text encoding to UTF-8 to save us headache in the coming future. (Figure from the link above).", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center", fig.alt="Screenshot of the RStudio Code Options panel."}
 knitr::include_graphics("fig/utf8.png")
 ```
 
@@ -242,7 +242,7 @@ You may want additional directories or subdirectories depending on
 your project needs, but these should form the backbone of your working
 directory.
 
-```{r, results="markup", fig.cap="Example of a working directory structure.", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center"}
+```{r, results="markup", fig.cap="Example of a working directory structure.", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center", fig.alt="Flow diagram showing the structure of the working directory and various directory of a typical RStuio project."}
 knitr::include_graphics("fig/working-directory-structure.png")
 ```
 
@@ -269,7 +269,7 @@ easier.
 
 Your working directory should now look like this:
 
-```{r, results="markup", fig.cap="How it should look like at the beginning of this lesson", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center"}
+```{r, results="markup", fig.cap="How it should look like at the beginning of this lesson", echo=FALSE, purl=FALSE, out.width="100%", fig.align="center", fig.alt="Screenshot of RStudio's Files panel."}
 knitr::include_graphics("fig/r-starting-how-it-should-look-like.png")
 ```
 
@@ -293,7 +293,7 @@ data science applied to biological or bio-medical data.
 > `bin/parse-sqt.py` script is called by both of the `runall` driver
 > scripts.
 
-```{r bioinfoproj, fig.cap="Directory structure for a sample bioinformatics project.", out.width="100%", echo=FALSE}
+```{r bioinfoproj, fig.cap="Directory structure for a sample bioinformatics project.", out.width="100%", echo=FALSE, fig.alt="Figure form Nobel et al. (2009) showing a complex bioinformatics project structure."}
 knitr::include_graphics("fig/noble-bioinfo-project.png")
 ```
 
@@ -424,7 +424,7 @@ suit your purpose might make it easier for you to get started.
 here, but will only manage to scratch the surface of the wealth of
 what is possible to do with R.
 
-```{r kitten, results="markup", echo=FALSE, purl=FALSE, out.width="400px", fig.align="center"}
+```{r kitten, results="markup", echo=FALSE, purl=FALSE, out.width="400px", fig.align="center", fig.alt="Fake book cover showing a kitten with title 'Changing Stuff and Seeing What Happens.'"}
 knitr::include_graphics("fig/kitten-try-things.jpg")
 ```
 
@@ -432,7 +432,7 @@ knitr::include_graphics("fig/kitten-try-things.jpg")
 
 ### Use the built-in RStudio help interface to search for more information on R functions
 
-```{r rstudiohelp, fig.cap="RStudio help interface.", results="markup", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center"}
+```{r rstudiohelp, fig.cap="RStudio help interface.", results="markup", echo=FALSE, purl=FALSE, out.width="70%", fig.align="center", fig.alt="Screenshot of RStudio's Help panel."}
 knitr::include_graphics("fig/rstudiohelp.png")
 ```
 
