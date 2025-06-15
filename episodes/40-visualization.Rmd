@@ -127,7 +127,7 @@ ggplot(data = rna, mapping = aes(x = expression))
 To add a geom(etry) to the plot use the `+` operator. Let's use
 `geom_histogram()` first:
 
-```{r first-ggplot, cache=FALSE, purl=TRUE}
+```{r first-ggplot, cache=FALSE, purl=TRUE, fig.alt="Default histogram produced by ggplot() and geom_histogram() for the expression data."}
 ggplot(data = rna, mapping = aes(x = expression)) +
   geom_histogram()
 ```
@@ -165,7 +165,7 @@ change the number or width of the bins.
 
 ## Solution
 
-```{r, purl=TRUE}
+```{r, purl=TRUE, fig.alt="Histograms produced by ggplot() and geom_histogram() for the expression data with bin set of 15 (top) and binwith set to 2000 (bottom)."}
 # change bins
 ggplot(rna, aes(x = expression)) +
     geom_histogram(bins = 15)
@@ -184,7 +184,7 @@ log2 transformation to have a more symmetric distribution. Note that we
 add here a small constant value (`+1`) to avoid having `-Inf` values
 returned for expression values equal to 0.
 
-```{r log-transfo, cache=FALSE, purl=TRUE}
+```{r log-transfo, cache=FALSE, purl=TRUE, fig.alt="Histograms produced by ggplot() and geom_histogram() for the log of expression."}
 rna <- rna |>
   mutate(expression_log = log2(expression + 1))
 ```
@@ -217,7 +217,7 @@ commands). Try making this modification:
 
 ## Solution
 
-```{r, eval=TRUE, purl=TRUE, echo=TRUE}
+```{r, eval=TRUE, purl=TRUE, echo=TRUE, fig.alt="Histograms produced by ggplot(), geom_histogram() and scale_x_log10() for the log of expression."}
 ggplot(data = rna,mapping = aes(x = expression))+
   geom_histogram() +
   scale_x_log10()
@@ -278,7 +278,7 @@ Building plots with `ggplot2` is typically an iterative process. We
 start by defining the dataset we'll use, lay out the axes, and choose a
 geom:
 
-```{r create-ggplot-object, cache=FALSE, purl=TRUE}
+```{r create-ggplot-object, cache=FALSE, purl=TRUE, fig.alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. All dots are black."}
 ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
   geom_point()
 ```
@@ -286,14 +286,14 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
 Then, we start modifying this plot to extract more information from it.
 For instance, we can add transparency (`alpha`) to avoid overplotting:
 
-```{r adding-transparency, cache=FALSE, purl=TRUE}
+```{r adding-transparency, cache=FALSE, purl=TRUE, , fig.alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. All dots are semi-transparent black."}
 ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
   geom_point(alpha = 0.3)
 ```
 
 We can also add colors for all the points:
 
-```{r adding-colors, cache=FALSE, purl=TRUE}
+```{r adding-colors, cache=FALSE, purl=TRUE, fig.alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. All dots are semi-transparent blue."}
 ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
   geom_point(alpha = 0.3, color = "blue")
 ```
@@ -303,17 +303,16 @@ an input to the argument **color**. `ggplot2` will provide a different
 color corresponding to different values in the vector. Here is an
 example where we color with `gene_biotype`:
 
-```{r color-by-gene_biotype1, cache=FALSE, purl=TRUE}
+```{r color-by-gene_biotype1, cache=FALSE, purl=TRUE, fig.alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. Dots are colour-coded based on the gene's biotype."}
 ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
   geom_point(alpha = 0.3, aes(color = gene_biotype))
-
 ```
 
 We can also specify the colors directly inside the mapping provided in
 the `ggplot()` function. This will be seen by any geom layers and the
 mapping will be determined by the x- and y-axis set up in `aes()`.
 
-```{r color-by-gene_biotype2, cache=FALSE, purl=TRUE}
+```{r color-by-gene_biotype2, cache=FALSE, purl=TRUE, fig.alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. Dots are colour-coded based on the gene's biotype."}
 ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
                                 color = gene_biotype)) +
   geom_point(alpha = 0.3)
@@ -322,7 +321,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 Finally, we could also add a diagonal line with the `geom_abline()`
 function:
 
-```{r adding-diag, cache=FALSE, purl=TRUE}
+```{r adding-diag, cache=FALSE, purl=TRUE, fig.alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. Dots are colour-coded based on the gene's biotype. A black line of slope 1 crossing the origin was added by geom_abline()."}
 ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
                                 color = gene_biotype)) +
   geom_point(alpha = 0.3) +
@@ -332,7 +331,7 @@ ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
 Notice that we can change the geom layer from `geom_point` to
 `geom_jitter` and colors will still be determined by `gene_biotype`.
 
-```{r color-by-gene_biotype3, cache=FALSE, purl=TRUE}
+```{r color-by-gene_biotype3, cache=FALSE, purl=TRUE, fig.alt="Scatter plot produced by ggplot() and geom_point() comparing the log-foldchanges computed above. Dots are colour-coded based on the gene's biotype. A black line of slope 1 crossing the origin was added by geom_abline()."}
 ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0,
                                 color = gene_biotype)) +
   geom_jitter(alpha = 0.3) +
@@ -372,7 +371,7 @@ fall within its boundaries.
 install.packages("hexbin")
 ```
 
-```{r, purl=TRUE}
+```{r, purl=TRUE, fig.alt="Scatter plot produced by ggplot() and geom_hexbin() comparing the log-foldchanges computed above shows hexagons coloured based on the underlying dot density. A black line of slope 1 crossing the origin was added by geom_abline()."}
 library("hexbin")
 
 ggplot(data = rna_fc, mapping = aes(x = time_4_vs_0, y = time_8_vs_0)) +
@@ -397,7 +396,7 @@ different colors. Is this a good way to show this type of data?
 
 ## Solution
 
-```{r, eval=TRUE, purl=TRUE}
+```{r, eval=TRUE, purl=TRUE, fig.alt="Figures showing a stretch of overlapping points indicating the log of expression + 1 for each sample. The points are coloured with different shades of blue for samples collected at different time points."}
 ggplot(data = rna, mapping = aes(y = expression_log, x = sample)) +
     geom_point(aes(color = time))
 ```
@@ -411,7 +410,7 @@ ggplot(data = rna, mapping = aes(y = expression_log, x = sample)) +
 We can use boxplots to visualize the distribution of gene expressions
 within each sample:
 
-```{r boxplot, cache=FALSE, purl=TRUE}
+```{r boxplot, cache=FALSE, purl=TRUE, fig.alt="Boxplot showing the distribution of log expression + 1 values for each sample, as produced by geom_boxlpot(). Each boxplot is filled with white colour."}
 ggplot(data = rna,
          mapping = aes(y = expression_log, x = sample)) +
   geom_boxplot()
@@ -420,7 +419,7 @@ ggplot(data = rna,
 By adding points to boxplot, we can have a better idea of the number of
 measurements and of their distribution:
 
-```{r boxplot-with-points, cache=FALSE, purl=TRUE}
+```{r boxplot-with-points, cache=FALSE, purl=TRUE, fig.alt="Boxplot and dots showing the distribution of log expression + 1 values for each sample, as produced by geom_boxlpot(). Each boxplot is transparent and the jittered dots are semi-transparent tomato-coloured and behind the boxpots."}
 ggplot(data = rna,
          mapping = aes(y = expression_log, x = sample)) +
   geom_jitter(alpha = 0.2, color = "tomato") +
@@ -440,7 +439,7 @@ you need to change in the code to put the boxplot below the points?
 
 We should switch the order of these two geoms:
 
-```{r boxplot-with-points2, cache=FALSE, purl=TRUE}
+```{r boxplot-with-points2, cache=FALSE, purl=TRUE, fig.alt="Boxplot and dots showing the distribution of log expression + 1 values for each sample, as produced by geom_boxlpot(). Each boxplot is transparent and the jittered dots are semi-transparent tomato-coloured. This time, the boxplots are behind the dots."}
 ggplot(data = rna,
          mapping = aes(y = expression_log, x = sample)) +
   geom_boxplot(alpha = 0) +
@@ -457,7 +456,7 @@ vertically and horizontally so they don't overlap. You can use a
 90-degree angle, or experiment to find the appropriate angle for
 diagonally oriented labels:
 
-```{r boxplot-xaxis-rotated, cache=FALSE, purl=TRUE}
+```{r boxplot-xaxis-rotated, cache=FALSE, purl=TRUE, fig.alt="Boxplot and dots showing the distribution of log expression + 1 values for each sample, as produced by geom_boxlpot(). Each boxplot is transparent and the jittered dots are semi-transparent tomato-coloured. The sample labels are displayed vertically and readable."}
 ggplot(data = rna,
          mapping = aes(y = expression_log, x = sample)) +
   geom_jitter(alpha = 0.2, color = "tomato") +
@@ -480,7 +479,7 @@ this change how R makes the graph?
 
 ## Solution
 
-```{r boxplot-color-time, cache=FALSE, purl=TRUE}
+```{r boxplot-color-time, cache=FALSE, purl=TRUE, fig.alt="Boxplot and dots showing the distribution of log expression + 1 values for each sample, as produced by geom_boxlpot(). On the first figure, each boxplot is transparent and the jittered dots are semi-transparent and coloured in different shares of blue. On the second figures, each boxplot is transparent and the jittered dots are semi-transparent and coloured red, green and blue."}
 # time as integer
 ggplot(data = rna,
          mapping = aes(y = expression_log,
@@ -518,7 +517,7 @@ plot, where the shape (of the density of points) is drawn.
 
 ## Solution
 
-```{r, eval=TRUE, echo=TRUE, cache=FALSE, purl=TRUE}
+```{r, eval=TRUE, echo=TRUE, cache=FALSE, purl=TRUE, fig.alt="Violin plot showing the distribution of log expression + 1 values for each sample, as produced by geom_violin(). Each boxplot is transparent and the jittered dots are semi-transparent and coloured red, green and blue."}
 ggplot(data = rna,
          mapping = aes(y = expression_log, x = sample)) +
   geom_violin(aes(fill = as.factor(time))) +
@@ -539,7 +538,7 @@ ggplot(data = rna,
 
 ## Solution
 
-```{r, eval=TRUE, echo=TRUE, cache=FALSE, purl=TRUE}
+```{r, eval=TRUE, echo=TRUE, cache=FALSE, purl=TRUE, fig.alt="Violin plot showing the distribution of log expression + 1 values for each sample, as produced by geom_violon(). Each violin plot is coloured in red or blue depending on the sex variable."}
 ggplot(data = rna,
          mapping = aes(y = expression_log, x = sample)) +
   geom_violin(aes(fill = sex)) +
@@ -576,7 +575,7 @@ mean_exp_by_time
 We can build the line plot with duration of the infection on the x-axis
 and the mean expression on the y-axis:
 
-```{r first-time-series, purl=TRUE}
+```{r first-time-series, purl=TRUE, fig.alt="Line plot, as produced by geom_line(), but the lines are clearly not show what we expect."}
 ggplot(data = mean_exp_by_time, mapping = aes(x = time, y = mean_exp)) +
   geom_line()
 ```
@@ -585,7 +584,7 @@ Unfortunately, this does not work because we plotted data for all the
 genes together. We need to tell ggplot to draw a line for each gene by
 modifying the aesthetic function to include `group = gene`:
 
-```{r time-series-by-gene, purl=TRUE}
+```{r time-series-by-gene, purl=TRUE, fig.alt="Line plot, as produced by geom_line(), with 10 lines showing increasing expression values over time."}
 ggplot(data = mean_exp_by_time,
        mapping = aes(x = time, y = mean_exp, group = gene)) +
   geom_line()
@@ -594,7 +593,7 @@ ggplot(data = mean_exp_by_time,
 We will be able to distinguish genes in the plot if we add colors (using
 `color` also automatically groups the data):
 
-```{r time-series-with-colors, purl=TRUE}
+```{r time-series-with-colors, purl=TRUE, fig.alt="Line plot, as produced by geom_line(), with 10 colour-coded lines showing increasing expression values over time."}
 ggplot(data = mean_exp_by_time,
        mapping = aes(x = time, y = mean_exp, color = gene)) +
   geom_line()
@@ -608,7 +607,7 @@ in the dataset. These different subplots inherit the same properties
 (axes limits, ticks, ...) to facilitate their direct comparison. We will
 use it to make a line plot across time for each gene:
 
-```{r first-facet, purl=TRUE}
+```{r first-facet, purl=TRUE, fig.alt="Line plot, as produced by geom_line(), with 10 sub-plots/facets, each showing one line with increasing expression values over time. All y-scales are identical."}
 ggplot(data = mean_exp_by_time,
        mapping = aes(x = time, y = mean_exp)) + geom_line() +
   facet_wrap(~ gene)
@@ -618,7 +617,7 @@ Here both x- and y-axis have the same scale for all the subplots. You
 can change this default behavior by modifying `scales` in order to allow
 a free scale for the y-axis:
 
-```{r first-facet-scales, purl=TRUE}
+```{r first-facet-scales, purl=TRUE, fig.alt="Line plot, as produced by geom_line(), with 10 sub-plots/facets, each showing one line with increasing expression values over time. y-scales are now adapted to the expression range for each facet/gene."}
 ggplot(data = mean_exp_by_time,
        mapping = aes(x = time, y = mean_exp)) +
   geom_line() +
@@ -640,7 +639,7 @@ mean_exp_by_time_sex
 We can now make the faceted plot by splitting further by sex using
 `color` (within a single plot):
 
-```{r facet-by-gene-and-sex, cache=FALSE, purl=TRUE}
+```{r facet-by-gene-and-sex, cache=FALSE, purl=TRUE, fig.alt="Line plot, as produced by geom_line(), with 10 sub-plots/facets, each showing two coloured lines (red for Female and blue for Make) with increasing expression values over time."}
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
   geom_line() +
@@ -651,7 +650,7 @@ Usually plots with white background look more readable when printed. We
 can set the background to white using the function `theme_bw()`.
 Additionally, we can remove the grid:
 
-```{r facet-by-gene-and-sex-white-bg, cache=FALSE, purl=TRUE}
+```{r facet-by-gene-and-sex-white-bg, cache=FALSE, purl=TRUE, fig.alt="Line plot, as produced by geom_line(), with 10 sub-plots/facets, each showing two coloured lines (red for Female and blue for Make) with increasing expression values over time. The figure background is now white."}
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
   geom_line() +
@@ -672,7 +671,7 @@ infection.
 
 ## Solution
 
-```{r mean-exp-chromosome-time-series, purl=TRUE}
+```{r mean-exp-chromosome-time-series, purl=TRUE, fig.alt="Line plot, as produced by geom_line(), with 21 sub-plots/facets, each showing one line with expression values over time for each chromosome."}
 mean_exp_by_chromosome <- rna |>
   group_by(chromosome_name, time) |>
   summarize(mean_exp = mean(expression_log))
@@ -696,7 +695,7 @@ can be used as a placeholder that indicates only one row or column).
 Let's modify the previous plot to compare how the mean gene expression
 of males and females has changed through time:
 
-```{r mean-exp-time-facet-sex-rows, purl=TRUE}
+```{r mean-exp-time-facet-sex-rows, purl=TRUE, fig.alt="Two line plots above each other, each showing 10 lines coloured by gene. The top facet shows the expression values for Female sample, the bottom one for Male samples."}
 # One column, facet by rows
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = gene)) +
@@ -704,7 +703,7 @@ ggplot(data = mean_exp_by_time_sex,
   facet_grid(sex ~ .)
 ```
 
-```{r mean-exp-time-facet-sex-columns, purl=TRUE}
+```{r mean-exp-time-facet-sex-columns, purl=TRUE, fig.alt="Two line plots next to each other, each showing 10 lines coloured by gene. The left facet shows the expression values for Female sample, the right one for Male samples."}
 # One row, facet by column
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = gene)) +
