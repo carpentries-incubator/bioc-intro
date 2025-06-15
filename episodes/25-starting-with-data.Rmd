@@ -636,11 +636,11 @@ section of the Data Carpentry lesson provides additional insights
 about pitfalls of dates with spreadsheets.
 
 We are going to use the `ymd()` function from the package
-**`lubridate`** (which belongs to the **`tidyverse`**; learn more
-[here](https://www.tidyverse.org/)). . **`lubridate`** gets installed
-as part of the **`tidyverse`** installation. When you load the
-**`tidyverse`** (`library(tidyverse)`), the core packages (the
-packages used in most data analyses) get loaded. **`lubridate`**
+**`lubridate`** (which belongs to the **`tidyverse`**; learn more on
+the [tidyverse web site](https://www.tidyverse.org/)). **`lubridate`**
+gets installed as part of the **`tidyverse`** installation. When you
+load the **`tidyverse`** (`library(tidyverse)`), the core packages
+(the packages used in most data analyses) get loaded. **`lubridate`**
 however does not belong to the core tidyverse, so you have to load it
 explicitly with `library(lubridate)`.
 

@@ -283,8 +283,8 @@ used for variables** and **rows are used for observations**:
 
 ## Challenge: We're going to take a messy dataset and describe how we would clean it up.
 
-1. Download a messy dataset by clicking
-  [here](https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx).
+1. Download a messy dataset by [clicking this
+   link](https://github.com/UCLouvain-CBIO/WSBIM1207/raw/master/data/messy_covid.xlsx).
 
 2. Open up the data in a spreadsheet program.
 
@@ -393,10 +393,10 @@ and analysis.
 - [Not filling in zeros](#zeros)
 - [Using problematic null values](#null)
 - [Using formatting to convey information](#formatting)
-- [Using formatting to make the data sheet look pretty](#formatting_pretty)
+- [Using formatting to make the data sheet look pretty](#formattingpretty)
 - [Placing comments or units in cells](#units)
 - [Entering more than one piece of information in a cell](#info)
-- [Using problematic field names](#field_name)
+- [Using problematic field names](#fieldname)
 - [Using special characters in data](#special)
 - [Inclusion of metadata in data table](#metadata)
 
@@ -537,7 +537,7 @@ excluded.
 knitr::include_graphics("fig/good_formatting.png")
 ```
 
-### Using formatting to make the data sheet look pretty {#formatting_pretty}
+### Using formatting to make the data sheet look pretty {#formattingpretty}
 
 **Example**: merging cells.
 
@@ -568,7 +568,7 @@ you need both these measurements, design your data sheet to include
 this information. For example, include one column for the ABO group and
 one for the Rhesus group.
 
-### Using problematic field names {#field_name}
+### Using problematic field names {#fieldname}
 
 Choose descriptive field names, but be careful not to include spaces,
 numbers, or special characters of any kind. Spaces can be
