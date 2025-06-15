@@ -130,8 +130,8 @@ write.csv(sample_metadata, file = "data/sample_metadata.csv", row.names = FALSE)
 
 - **An expression matrix**: we load the count matrix, specifying that
   the first columns contains row/gene names, and convert the
-  `data.frame` to a `matrix`. You can download it
-  [here](https://carpentries-incubator.github.io/bioc-intro/data/count_matrix.csv).
+  `data.frame` to a `matrix`. You can download it [by clicking this
+  link](https://carpentries-incubator.github.io/bioc-intro/data/count_matrix.csv).
 
 ```{r}
 count_matrix <- read.csv("data/count_matrix.csv",
@@ -142,8 +142,8 @@ count_matrix[1:5, ]
 dim(count_matrix)
 ```
 
-- **A table describing the samples**, available
-  [here](https://carpentries-incubator.github.io/bioc-intro/data/sample_metadata.csv).
+- **A table describing the samples**, available [at this
+  link](https://carpentries-incubator.github.io/bioc-intro/data/sample_metadata.csv).
 
 ```{r}
 sample_metadata <- read.csv("data/sample_metadata.csv")
@@ -151,8 +151,8 @@ sample_metadata
 dim(sample_metadata)
 ```
 
-- **A table describing the genes**, available
-  [here](https://carpentries-incubator.github.io/bioc-intro/data/gene_metadata.csv).
+- **A table describing the genes**, available [at this
+  link](https://carpentries-incubator.github.io/bioc-intro/data/gene_metadata.csv).
 
 ```{r}
 gene_metadata <- read.csv("data/gene_metadata.csv")
@@ -441,9 +441,8 @@ se |>
     theme_bw()
 ```
 
-For more information on tidySummarizedExperiment, see the package
-website
-[here](https://stemangiola.github.io/tidySummarizedExperiment/).
+For more information on `tidySummarizedExperiment`, see the [package
+website](https://stemangiola.github.io/tidySummarizedExperiment/).
 
 **Take-home message**
 

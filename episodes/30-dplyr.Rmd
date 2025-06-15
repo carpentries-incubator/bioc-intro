@@ -574,8 +574,9 @@ The opposite transformation would be to transform column names into
 values of a new variable.
 
 We can do both these of transformations with two `tidyr` functions,
-`pivot_longer()` and `pivot_wider()` (see
-[here](https://tidyr.tidyverse.org/dev/articles/pivot.html) for
+`pivot_longer()` and `pivot_wider()` (see the article about [pivots on
+the tidyr
+website](https://tidyr.tidyverse.org/dev/articles/pivot.html) for
 details).
 
 ### Pivoting the data into a wider format
@@ -998,8 +999,8 @@ in the joined one.
 
 ## Challenge:
 
-Download the `annot3` table by clicking
-[here](https://carpentries-incubator.github.io/bioc-intro/data/annot3.csv)
+Download the `annot3` table by clicking [this
+link](https://carpentries-incubator.github.io/bioc-intro/data/annot3.csv)
 and put the table in your data/ repository.  Using the `full_join()`
 function, join tables `rna_mini` and `annot3`. What has happened for
 genes *Klk6*, *mt-Tf*, *mt-Rnr1*, *mt-Tv*, *mt-Rnr2*, and *mt-Tl1* ?
