@@ -54,7 +54,7 @@ To illustrate such an omics data container, we'll present the
 
 The figure below represents the anatomy of the SummarizedExperiment class.
 
-```{r SE, echo=FALSE, out.width="80%"}
+```{r SE, echo=FALSE, out.width="80%", fig.alt="Schematic representation of the SummarizedExperiment class illustrating the following slots: fowData and rowRanges, one assay or multiple assays, colData and metadata."}
 knitr::include_graphics("https://uclouvain-cbio.github.io/WSBIM1322/figs/SE.svg")
 ```
 
@@ -433,7 +433,7 @@ for plotting.
 
 Here we plot the distribution of counts per sample.
 
-```{r tidySE-plot}
+```{r tidySE-plot, fig.alt="Density plot showing log of expression counts + 1 density lines, one per samples, coloured based on the infection status."}
 se |>
     ggplot(aes(counts + 1, group=.sample, color=infection)) +
     geom_density() +
