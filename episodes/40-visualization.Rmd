@@ -184,7 +184,7 @@ log2 transformation to have a more symmetric distribution. Note that we
 add here a small constant value (`+1`) to avoid having `-Inf` values
 returned for expression values equal to 0.
 
-```{r log-transfo, cache=FALSE, purl=TRUE, fig.alt="Histogram produced by ggplot() and geom_histogram() for the log of expression."}
+```{r log-transfo, cache=FALSE, purl=TRUE, fig.alt="Histogram produced by ggplot() and geom_histogram() for the log of expression (computed on-the-fly)."}
 rna <- rna |>
   mutate(expression_log = log2(expression + 1))
 ```
@@ -192,7 +192,7 @@ rna <- rna |>
 If we now draw the histogram of the log2-transformed expressions, the
 distribution is indeed closer to a normal distribution.
 
-```{r second-ggplot, cache=FALSE, purl=TRUE, fig.alt="Histogram produced by ggplot() and geom_histogram() for the log of expression."}
+```{r second-ggplot, cache=FALSE, purl=TRUE, fig.alt="Histogram produced by ggplot() and geom_histogram() for the pre-computed log of expression."}
 ggplot(rna, aes(x = expression_log)) + geom_histogram()
 ```
 
