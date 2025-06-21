@@ -217,7 +217,7 @@ commands). Try making this modification:
 
 ## Solution
 
-```{r, eval=TRUE, purl=TRUE, echo=TRUE, fig.alt="Histograms produced by ggplot(), geom_histogram() and scale_x_log10() for the log of expression."}
+```{r, eval=TRUE, purl=TRUE, echo=TRUE, fig.alt="Histogram produced by ggplot(), geom_histogram() and scale_x_log10() for the log of expression."}
 ggplot(data = rna,mapping = aes(x = expression))+
   geom_histogram() +
   scale_x_log10()
