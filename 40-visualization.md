@@ -215,7 +215,7 @@ ggplot(rna, aes(x = expression_log)) + geom_histogram()
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-<img src="fig/40-visualization-rendered-second-ggplot-1.png" style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-second-ggplot-1.png" alt="Histogram produced by ggplot() and geom_histogram() for the log of expression." style="display: block; margin: auto;" />
 
 From now on we will work on the log-transformed expression values.
 
