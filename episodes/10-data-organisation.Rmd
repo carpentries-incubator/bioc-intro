@@ -284,7 +284,7 @@ used for variables** and **rows are used for observations**:
 ## Challenge: We're going to take a messy dataset and describe how we would clean it up.
 
 1. Download a messy dataset by [clicking this
-   link](https://github.com/UCLouvain-CBIO/WSBIM1207/raw/refs/heads/main/docs/data/messy_covid.xlsx).
+   link](./data/messy_covid.xlsx).
 
 2. Open up the data in a spreadsheet program.
 
