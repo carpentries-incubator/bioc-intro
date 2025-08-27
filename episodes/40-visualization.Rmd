@@ -817,7 +817,7 @@ ggplot(rna, aes(x = expression_log)) +
 With all of this information in hand, please take another five minutes
 to either improve one of the plots generated in this exercise or
 create a beautiful graph of your own. Use the RStudio [`ggplot2` cheat
-sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 for inspiration. Here are some ideas:
 
 - See if you can change the thickness of the lines.
@@ -877,7 +877,7 @@ ggplot(data = mean_exp_by_time_sex,
   scale_color_brewer(name = "Gender", labels = c("F", "M"), palette = "Dark2")
 ```
 
-```{r, purl=TRUE, fig.alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a manuelly-set colors and renamed colour labels.."}
+```{r, purl=TRUE, fig.alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a manually-set colors and renamed colour labels.."}
 # manually specifying the colors
 ggplot(data = mean_exp_by_time_sex,
        mapping = aes(x = time, y = mean_exp, color = sex)) +
