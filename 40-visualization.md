@@ -1013,7 +1013,7 @@ Error in blue_theme(): could not find function "blue_theme"
 With all of this information in hand, please take another five minutes
 to either improve one of the plots generated in this exercise or
 create a beautiful graph of your own. Use the RStudio [`ggplot2` cheat
-sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 for inspiration. Here are some ideas:
 
 - See if you can change the thickness of the lines.
@@ -1106,7 +1106,7 @@ ggplot(data = mean_exp_by_time_sex,
                      values = c("royalblue", "deeppink"))
 ```
 
-<img src="fig/40-visualization-rendered-unnamed-chunk-19-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a manuelly-set colors and renamed colour labels.." style="display: block; margin: auto;" />
+<img src="fig/40-visualization-rendered-unnamed-chunk-19-1.png" alt="Plain facetted line plot, as produced by theme_bw() and a blank grid with a manually-set colors and renamed colour labels.." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
