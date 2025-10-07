@@ -132,7 +132,7 @@ ggplot(data = rna, mapping = aes(x = expression)) +
 ```
 
 ``` output
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 ```
 
 <img src="fig/40-visualization-rendered-first-ggplot-1.png" alt="Default histogram produced by ggplot() and geom_histogram() for the expression data." style="display: block; margin: auto;" />
@@ -161,7 +161,7 @@ drawing the histogram:
 
 
 ``` output
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 ```
 
 Change the arguments `bins` or `binwidth` of `geom_histogram()` to
@@ -212,7 +212,7 @@ ggplot(rna, aes(x = expression_log)) + geom_histogram()
 ```
 
 ``` output
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 ```
 
 <img src="fig/40-visualization-rendered-second-ggplot-1.png" alt="Histogram produced by ggplot() and geom_histogram() for the pre-computed log of expression." style="display: block; margin: auto;" />
@@ -250,7 +250,7 @@ Warning in scale_x_log10(): log-10 transformation introduced infinite values.
 ```
 
 ``` output
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 ```
 
 ``` warning
