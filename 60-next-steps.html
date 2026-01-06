@@ -327,7 +327,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Next steps</h1>
-        <p>Last updated on 2025-11-11 |
+        <p>Last updated on 2026-01-06 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/60-next-steps.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -1211,6 +1211,19 @@ the se object again.</p>
 <span><span class="va">se</span></span></code></pre>
 </div>
 <div class="codewrapper">
+<h3 class="code-label">WARNING<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="warning" tabindex="0"><code>Warning: `when()` was deprecated in purrr 1.0.0.
+ℹ Please use `if` instead.
+ℹ The deprecated feature was likely used in the tidySummarizedExperiment
+  package.
+  Please report the issue at
+  &lt;https://github.com/stemangiola/tidySummarizedExperiment/issues&gt;.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.</code></pre>
+</div>
+<div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code># A SummarizedExperiment-tibble abstraction: 32,428 × 22
@@ -1241,7 +1254,7 @@ can also see in the second line of the output the number of transcripts
 and samples.</p>
 <p>If we want to revert to the standard
 <code>SummarizedExperiment</code> view, we can do that.</p>
-<div class="codewrapper sourceCode" id="cb56">
+<div class="codewrapper sourceCode" id="cb57">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1262,7 +1275,7 @@ colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
 colData names(10): sample organism ... mouse center</code></pre>
 </div>
 <p>But here we use the tibble view.</p>
-<div class="codewrapper sourceCode" id="cb58">
+<div class="codewrapper sourceCode" id="cb59">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1296,7 +1309,7 @@ colData names(10): sample organism ... mouse center</code></pre>
 <code>SummarizedExperiment</code> object.</p>
 <p>We can use <code>filter</code> to filter for rows using a condition
 e.g. to view all rows for one sample.</p>
-<div class="codewrapper sourceCode" id="cb60">
+<div class="codewrapper sourceCode" id="cb61">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1327,7 +1340,7 @@ e.g. to view all rows for one sample.</p>
 </div>
 <p>We can use <code>select</code> to specify columns we want to
 view.</p>
-<div class="codewrapper sourceCode" id="cb62">
+<div class="codewrapper sourceCode" id="cb63">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1357,7 +1370,7 @@ view.</p>
 # ℹ 32,418 more rows</code></pre>
 </div>
 <p>We can use <code>mutate</code> to add metadata info.</p>
-<div class="codewrapper sourceCode" id="cb65">
+<div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1389,7 +1402,7 @@ view.</p>
 <p>We can also combine commands with the tidyverse pipe
 <code>|&gt;</code>. For example, we could combine <code>group_by</code>
 and <code>summarise</code> to get the total counts for each sample.</p>
-<div class="codewrapper sourceCode" id="cb67">
+<div class="codewrapper sourceCode" id="cb68">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1423,7 +1436,7 @@ and <code>summarise</code> to get the total counts for each sample.</p>
 <p>We can treat the tidy SummarizedExperiment object as a normal tibble
 for plotting.</p>
 <p>Here we plot the distribution of counts per sample.</p>
-<div class="codewrapper sourceCode" id="cb70">
+<div class="codewrapper sourceCode" id="cb71">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1530,7 +1543,7 @@ source and open development.<a href="#fnref1" class="footnote-back">↩︎</a></
   "url": "https://carpentries-incubator.github.io/bioc-intro/60-next-steps.html",
   "identifier": "https://carpentries-incubator.github.io/bioc-intro/60-next-steps.html",
   "dateCreated": "2020-09-14",
-  "dateModified": "2025-11-11",
+  "dateModified": "2026-01-06",
   "datePublished": "2026-01-06"
 }
 
