@@ -1003,7 +1003,8 @@ ggplot(rna, aes(x = expression_log)) +
 ```
 
 ``` error
-Error in blue_theme(): could not find function "blue_theme"
+Error in `blue_theme()`:
+! could not find function "blue_theme"
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge

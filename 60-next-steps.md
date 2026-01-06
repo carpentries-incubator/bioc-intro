@@ -823,6 +823,18 @@ library("tidySummarizedExperiment")
 se
 ```
 
+``` warning
+Warning: `when()` was deprecated in purrr 1.0.0.
+ℹ Please use `if` instead.
+ℹ The deprecated feature was likely used in the tidySummarizedExperiment
+  package.
+  Please report the issue at
+  <https://github.com/stemangiola/tidySummarizedExperiment/issues>.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
+```
+
 ``` output
 # A SummarizedExperiment-tibble abstraction: 32,428 × 22
 # Features=1474 | Samples=22 | Assays=counts
