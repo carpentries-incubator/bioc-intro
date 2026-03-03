@@ -830,7 +830,7 @@ Warning: `when()` was deprecated in purrr 1.0.0.
   package.
   Please report the issue at
   <https://github.com/stemangiola/tidySummarizedExperiment/issues>.
-This warning is displayed once every 8 hours.
+This warning is displayed once per session.
 Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 generated.
 ```
