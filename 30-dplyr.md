@@ -777,8 +777,12 @@ rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'gene', 'infection'. You can override using
-the `.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by gene, infection, and time.
+ℹ Output is grouped by gene and infection.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(gene, infection, time))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` output
@@ -812,8 +816,12 @@ rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'gene', 'infection'. You can override using
-the `.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by gene, infection, and time.
+ℹ Output is grouped by gene and infection.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(gene, infection, time))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` output
@@ -933,8 +941,12 @@ rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'infection'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by infection and time.
+ℹ Output is grouped by infection.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(infection, time))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` output
@@ -1102,8 +1114,12 @@ rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'gene'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by gene and time.
+ℹ Output is grouped by gene.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` output
@@ -1624,8 +1640,12 @@ male and female samples...
 ```
 
 ``` output
-`summarise()` has grouped output by 'sex'. You can override using the `.groups`
-argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by sex and chromosome_name.
+ℹ Output is grouped by sex.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(sex, chromosome_name))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` output
@@ -1652,8 +1672,12 @@ rna_1 <- rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'sex'. You can override using the `.groups`
-argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by sex and chromosome_name.
+ℹ Output is grouped by sex.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(sex, chromosome_name))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` r
@@ -1715,8 +1739,12 @@ rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'gene'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by gene and time.
+ℹ Output is grouped by gene.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` output
@@ -1749,8 +1777,12 @@ rna_time <- rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'gene'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by gene and time.
+ℹ Output is grouped by gene.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` r
@@ -1790,8 +1822,12 @@ rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'gene'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by gene and time.
+ℹ Output is grouped by gene.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` output
@@ -1825,8 +1861,12 @@ rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'gene'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by gene and time.
+ℹ Output is grouped by gene.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` output
@@ -1862,8 +1902,12 @@ rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'gene'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by gene and time.
+ℹ Output is grouped by gene.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` output

@@ -312,8 +312,12 @@ rna_fc <- rna |> select(gene, time,
 ```
 
 ``` output
-`summarise()` has grouped output by 'gene', 'time'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by gene, time, and gene_biotype.
+ℹ Output is grouped by gene and time.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(gene, time, gene_biotype))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 We can then build a ggplot with the newly created dataset `rna_fc`.
@@ -665,8 +669,12 @@ mean_exp_by_time <- sub_rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'gene'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by gene and time.
+ℹ Output is grouped by gene.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(gene, time))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` r
@@ -770,8 +778,12 @@ mean_exp_by_time_sex <- sub_rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'gene', 'time'. You can override using the
-`.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by gene, time, and sex.
+ℹ Output is grouped by gene and time.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(gene, time, sex))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` r
@@ -845,8 +857,12 @@ mean_exp_by_chromosome <- rna |>
 ```
 
 ``` output
-`summarise()` has grouped output by 'chromosome_name'. You can override using
-the `.groups` argument.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by chromosome_name and time.
+ℹ Output is grouped by chromosome_name.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(chromosome_name, time))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
 ```
 
 ``` r
