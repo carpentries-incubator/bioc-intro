@@ -823,38 +823,16 @@ library("tidySummarizedExperiment")
 se
 ```
 
-``` warning
-Warning: `when()` was deprecated in purrr 1.0.0.
-ℹ Please use `if` instead.
-ℹ The deprecated feature was likely used in the tidySummarizedExperiment
-  package.
-  Please report the issue at
-  <https://github.com/stemangiola/tidySummarizedExperiment/issues>.
-This warning is displayed once per session.
-Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-generated.
-```
-
 ``` output
-# A SummarizedExperiment-tibble abstraction: 32,428 × 22
-# Features=1474 | Samples=22 | Assays=counts
-   .feature .sample    counts sample organism   age sex   infection strain  time
-   <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
- 1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 2 Apod     GSM2545336  36194 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 3 Cyp2d22  GSM2545336   4060 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 4 Klk6     GSM2545336    287 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 5 Fcrls    GSM2545336     85 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 6 Slc2a4   GSM2545336    782 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 7 Exd2     GSM2545336   1619 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 8 Gjc2     GSM2545336    288 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 9 Plp1     GSM2545336  43217 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
-10 Gnb4     GSM2545336   1071 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
-# ℹ 40 more rows
-# ℹ 12 more variables: tissue <chr>, mouse <int>, center <chr>, gene <chr>,
-#   ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
-#   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
-#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>
+class: SummarizedExperiment 
+dim: 1474 22 
+metadata(0):
+assays(1): counts
+rownames(1474): Asl Apod ... Lmx1a Pbx1
+rowData names(9): gene ENTREZID ... phenotype_description
+  hsapiens_homolog_associated_gene_name
+colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
+colData names(10): sample organism ... mouse center
 ```
 
 It's still a `SummarizedExperiment` object, so maintains the efficient
@@ -893,25 +871,15 @@ se
 ```
 
 ``` output
-# A SummarizedExperiment-tibble abstraction: 32,428 × 22
-# Features=1474 | Samples=22 | Assays=counts
-   .feature .sample    counts sample organism   age sex   infection strain  time
-   <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
- 1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 2 Apod     GSM2545336  36194 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 3 Cyp2d22  GSM2545336   4060 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 4 Klk6     GSM2545336    287 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 5 Fcrls    GSM2545336     85 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 6 Slc2a4   GSM2545336    782 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 7 Exd2     GSM2545336   1619 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 8 Gjc2     GSM2545336    288 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 9 Plp1     GSM2545336  43217 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
-10 Gnb4     GSM2545336   1071 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
-# ℹ 40 more rows
-# ℹ 12 more variables: tissue <chr>, mouse <int>, center <chr>, gene <chr>,
-#   ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
-#   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
-#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>
+class: SummarizedExperiment 
+dim: 1474 22 
+metadata(0):
+assays(1): counts
+rownames(1474): Asl Apod ... Lmx1a Pbx1
+rowData names(9): gene ENTREZID ... phenotype_description
+  hsapiens_homolog_associated_gene_name
+colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
+colData names(10): sample organism ... mouse center
 ```
 
 We can now use tidyverse commands to interact with the
@@ -925,26 +893,11 @@ all rows for one sample.
 se |> filter(.sample == "GSM2545336")
 ```
 
-``` output
-# A SummarizedExperiment-tibble abstraction: 1,474 × 22
-# Features=1474 | Samples=1 | Assays=counts
-   .feature .sample    counts sample organism   age sex   infection strain  time
-   <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
- 1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 2 Apod     GSM2545336  36194 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 3 Cyp2d22  GSM2545336   4060 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 4 Klk6     GSM2545336    287 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 5 Fcrls    GSM2545336     85 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 6 Slc2a4   GSM2545336    782 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 7 Exd2     GSM2545336   1619 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 8 Gjc2     GSM2545336    288 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 9 Plp1     GSM2545336  43217 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
-10 Gnb4     GSM2545336   1071 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
-# ℹ 40 more rows
-# ℹ 12 more variables: tissue <chr>, mouse <int>, center <chr>, gene <chr>,
-#   ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
-#   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
-#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>
+``` error
+Error in `dplyr_fn()` at tidySummarizedExperiment/R/query_scope_analysis.R:481:3:
+ℹ In argument: `.sample == "GSM2545336"`.
+Caused by error:
+! object '.sample' not found
 ```
 
 We can use `select` to specify columns we want to view.
@@ -952,6 +905,18 @@ We can use `select` to specify columns we want to view.
 
 ``` r
 se |> select(.sample)
+```
+
+``` warning
+Warning: `when()` was deprecated in purrr 1.0.0.
+ℹ Please use `if` instead.
+ℹ The deprecated feature was likely used in the tidySummarizedExperiment
+  package.
+  Please report the issue at
+  <https://github.com/stemangiola/tidySummarizedExperiment/issues>.
+This warning is displayed once per session.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+generated.
 ```
 
 ``` output
@@ -983,25 +948,15 @@ se |> mutate(center = "Heidelberg University")
 ```
 
 ``` output
-# A SummarizedExperiment-tibble abstraction: 32,428 × 22
-# Features=1474 | Samples=22 | Assays=counts
-   .feature .sample    counts sample organism   age sex   infection strain  time
-   <chr>    <chr>       <int> <chr>  <chr>    <int> <chr> <chr>     <chr>  <int>
- 1 Asl      GSM2545336   1170 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 2 Apod     GSM2545336  36194 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 3 Cyp2d22  GSM2545336   4060 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 4 Klk6     GSM2545336    287 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 5 Fcrls    GSM2545336     85 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 6 Slc2a4   GSM2545336    782 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 7 Exd2     GSM2545336   1619 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 8 Gjc2     GSM2545336    288 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
- 9 Plp1     GSM2545336  43217 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
-10 Gnb4     GSM2545336   1071 GSM25… Mus mus…     8 Fema… Influenz… C57BL…     8
-# ℹ 40 more rows
-# ℹ 12 more variables: tissue <chr>, mouse <int>, center <chr>, gene <chr>,
-#   ENTREZID <int>, product <chr>, ensembl_gene_id <chr>,
-#   external_synonym <chr>, chromosome_name <chr>, gene_biotype <chr>,
-#   phenotype_description <chr>, hsapiens_homolog_associated_gene_name <chr>
+class: SummarizedExperiment 
+dim: 1474 22 
+metadata(1): latest_mutate_scope_report
+assays(1): counts
+rownames(1474): Asl Apod ... Lmx1a Pbx1
+rowData names(9): gene ENTREZID ... phenotype_description
+  hsapiens_homolog_associated_gene_name
+colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
+colData names(10): sample organism ... mouse center
 ```
 
 We can also combine commands with the tidyverse pipe `|>`. For
