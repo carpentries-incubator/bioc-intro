@@ -1,7 +1,5 @@
 # Introduction to genomic data analysis with R and Bioconductor
 
-[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
-
 ## Contributing
 
 We welcome all contributions to improve the lesson! Maintainers will
@@ -59,8 +57,13 @@ A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
 
 To cite this lesson, please consult with [CITATION](CITATION)
 
-[lesson-example]: https://carpentries.github.io/lesson-example
-[cdh]: https://cdh.carpentries.org
+See also: Drnevich, Jenny, Frederick J. Tan, Fabricio Almeida-Silva,
+Robert Castelo, Aedin C. Culhane, Sean Davis, Maria A. Doyle, et
+al. 2025. [Learning and Teaching Biological Data Science in the
+Bioconductor
+Community](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012925). PLoS
+Computational Biology 21 (4): e1012925.
+
 
 ## Testing locally
 
