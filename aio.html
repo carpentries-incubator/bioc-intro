@@ -8975,7 +8975,7 @@ Visualization Cheat Sheet</a>.<a href="#fnref1" class="footnote-back">↩︎</a>
 </ol>
 </div></section><section id="aio-60-next-steps"><p>Content from <a href="60-next-steps.html">Next steps</a></p>
 <hr>
-<p>Last updated on 2026-07-14 |
+<p>Last updated on 2026-08-04 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/60-next-steps.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -9870,7 +9870,7 @@ the se object again.</p>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#BiocManager::install("tidySummarizedExperiment")</span></span>
+<code class="sourceCode R"><span><span class="co">## BiocManager::install("tidySummarizedExperiment")</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="st">"tidySummarizedExperiment"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">se</span></span></code></pre>
@@ -9894,74 +9894,55 @@ first line of the output says this, it’s a
 <code>SummarizedExperiment</code>-<code>tibble</code> abstraction. We
 can also see in the second line of the output the number of transcripts
 and samples.</p>
-<p>If we want to revert to the standard
-<code>SummarizedExperiment</code> view, we can do that.</p>
-<div class="codewrapper sourceCode" id="cb56">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">options</span><span class="op">(</span><span class="st">"restore_SummarizedExperiment_show"</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">se</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>class: SummarizedExperiment
-dim: 1474 22
-metadata(0):
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(10): sample organism ... mouse center</code></pre>
-</div>
-<p>But here we use the tibble view.</p>
-<div class="codewrapper sourceCode" id="cb58">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">options</span><span class="op">(</span><span class="st">"restore_SummarizedExperiment_show"</span> <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="va">se</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>class: SummarizedExperiment
-dim: 1474 22
-metadata(0):
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(10): sample organism ... mouse center</code></pre>
-</div>
 <p>We can now use tidyverse commands to interact with the
 <code>SummarizedExperiment</code> object.</p>
 <p>We can use <code>filter</code> to filter for rows using a condition
 e.g. to view all rows for one sample.</p>
+<div class="codewrapper sourceCode" id="cb56">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">se</span> <span class="op">|&gt;</span> <span class="fu">filter</span><span class="op">(</span><span class="va">sample</span> <span class="op">==</span> <span class="st">"GSM2545336"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>class: SummarizedExperiment
+dim: 1474 1
+metadata(1): latest_filter_scope_report
+assays(1): counts
+rownames(1474): Asl Apod ... Lmx1a Pbx1
+rowData names(9): gene ENTREZID ... phenotype_description
+  hsapiens_homolog_associated_gene_name
+colnames(1): GSM2545336
+colData names(10): sample organism ... mouse center</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb58">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">se</span> <span class="op">|&gt;</span> <span class="fu">filter</span><span class="op">(</span><span class="va">sex</span> <span class="op">==</span> <span class="st">"Female"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>class: SummarizedExperiment
+dim: 1474 12
+metadata(1): latest_filter_scope_report
+assays(1): counts
+rownames(1474): Asl Apod ... Lmx1a Pbx1
+rowData names(9): gene ENTREZID ... phenotype_description
+  hsapiens_homolog_associated_gene_name
+colnames(12): GSM2545336 GSM2545337 ... GSM2545362 GSM2545380
+colData names(10): sample organism ... mouse center</code></pre>
+</div>
+<p>We can use <code>select</code> to specify columns we want to
+view.</p>
 <div class="codewrapper sourceCode" id="cb60">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">se</span> <span class="op">|&gt;</span> <span class="fu">filter</span><span class="op">(</span><span class="va">.sample</span> <span class="op">==</span> <span class="st">"GSM2545336"</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in `dplyr_fn()` at tidySummarizedExperiment/R/query_scope_analysis.R:481:3:
-ℹ In argument: `.sample == "GSM2545336"`.
-Caused by error:
-! object '.sample' not found</code></pre>
-</div>
-<p>We can use <code>select</code> to specify columns we want to
-view.</p>
-<div class="codewrapper sourceCode" id="cb62">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">se</span> <span class="op">|&gt;</span> <span class="fu">select</span><span class="op">(</span><span class="va">.sample</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">se</span> <span class="op">|&gt;</span> <span class="fu">select</span><span class="op">(</span><span class="va">sample</span>, <span class="va">sex</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">WARNING<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9984,23 +9965,23 @@ generated.</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code># A tibble: 32,428 × 1
-   .sample
-   &lt;chr&gt;
- 1 GSM2545336
- 2 GSM2545336
- 3 GSM2545336
- 4 GSM2545336
- 5 GSM2545336
- 6 GSM2545336
- 7 GSM2545336
- 8 GSM2545336
- 9 GSM2545336
-10 GSM2545336
+<pre class="output" tabindex="0"><code># A tibble: 32,428 × 2
+   sample     sex
+   &lt;chr&gt;      &lt;chr&gt;
+ 1 GSM2545336 Female
+ 2 GSM2545336 Female
+ 3 GSM2545336 Female
+ 4 GSM2545336 Female
+ 5 GSM2545336 Female
+ 6 GSM2545336 Female
+ 7 GSM2545336 Female
+ 8 GSM2545336 Female
+ 9 GSM2545336 Female
+10 GSM2545336 Female
 # ℹ 32,418 more rows</code></pre>
 </div>
 <p>We can use <code>mutate</code> to add metadata info.</p>
-<div class="codewrapper sourceCode" id="cb66">
+<div class="codewrapper sourceCode" id="cb64">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -10022,7 +10003,7 @@ colData names(10): sample organism ... mouse center</code></pre>
 <p>We can also combine commands with the tidyverse pipe
 <code>|&gt;</code>. For example, we could combine <code>group_by</code>
 and <code>summarise</code> to get the total counts for each sample.</p>
-<div class="codewrapper sourceCode" id="cb68">
+<div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -10056,7 +10037,7 @@ and <code>summarise</code> to get the total counts for each sample.</p>
 <p>We can treat the tidy SummarizedExperiment object as a normal tibble
 for plotting.</p>
 <p>Here we plot the distribution of counts per sample.</p>
-<div class="codewrapper sourceCode" id="cb71">
+<div class="codewrapper sourceCode" id="cb69">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
