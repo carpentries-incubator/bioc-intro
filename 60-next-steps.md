@@ -817,7 +817,7 @@ again.
 
 
 ``` r
-#BiocManager::install("tidySummarizedExperiment")
+## BiocManager::install("tidySummarizedExperiment")
 library("tidySummarizedExperiment")
 
 se
@@ -841,47 +841,6 @@ the output says this, it's a `SummarizedExperiment`\-`tibble`
 abstraction. We can also see in the second line of the output the
 number of transcripts and samples.
 
-If we want to revert to the standard `SummarizedExperiment` view, we
-can do that.
-
-
-``` r
-options("restore_SummarizedExperiment_show" = TRUE)
-se
-```
-
-``` output
-class: SummarizedExperiment 
-dim: 1474 22 
-metadata(0):
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(10): sample organism ... mouse center
-```
-
-But here we use the tibble view.
-
-
-``` r
-options("restore_SummarizedExperiment_show" = FALSE)
-se
-```
-
-``` output
-class: SummarizedExperiment 
-dim: 1474 22 
-metadata(0):
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(10): sample organism ... mouse center
-```
-
 We can now use tidyverse commands to interact with the
 `SummarizedExperiment` object.
 
@@ -890,21 +849,42 @@ all rows for one sample.
 
 
 ``` r
-se |> filter(.sample == "GSM2545336")
+se |> filter(sample == "GSM2545336")
 ```
 
-``` error
-Error in `dplyr_fn()` at tidySummarizedExperiment/R/query_scope_analysis.R:481:3:
-ℹ In argument: `.sample == "GSM2545336"`.
-Caused by error:
-! object '.sample' not found
+``` output
+class: SummarizedExperiment 
+dim: 1474 1 
+metadata(1): latest_filter_scope_report
+assays(1): counts
+rownames(1474): Asl Apod ... Lmx1a Pbx1
+rowData names(9): gene ENTREZID ... phenotype_description
+  hsapiens_homolog_associated_gene_name
+colnames(1): GSM2545336
+colData names(10): sample organism ... mouse center
+```
+
+``` r
+se |> filter(sex == "Female")
+```
+
+``` output
+class: SummarizedExperiment 
+dim: 1474 12 
+metadata(1): latest_filter_scope_report
+assays(1): counts
+rownames(1474): Asl Apod ... Lmx1a Pbx1
+rowData names(9): gene ENTREZID ... phenotype_description
+  hsapiens_homolog_associated_gene_name
+colnames(12): GSM2545336 GSM2545337 ... GSM2545362 GSM2545380
+colData names(10): sample organism ... mouse center
 ```
 
 We can use `select` to specify columns we want to view.
 
 
 ``` r
-se |> select(.sample)
+se |> select(sample, sex)
 ```
 
 ``` warning
@@ -924,19 +904,19 @@ tidySummarizedExperiment says: Key columns are missing. A data frame is returned
 ```
 
 ``` output
-# A tibble: 32,428 × 1
-   .sample   
-   <chr>     
- 1 GSM2545336
- 2 GSM2545336
- 3 GSM2545336
- 4 GSM2545336
- 5 GSM2545336
- 6 GSM2545336
- 7 GSM2545336
- 8 GSM2545336
- 9 GSM2545336
-10 GSM2545336
+# A tibble: 32,428 × 2
+   sample     sex   
+   <chr>      <chr> 
+ 1 GSM2545336 Female
+ 2 GSM2545336 Female
+ 3 GSM2545336 Female
+ 4 GSM2545336 Female
+ 5 GSM2545336 Female
+ 6 GSM2545336 Female
+ 7 GSM2545336 Female
+ 8 GSM2545336 Female
+ 9 GSM2545336 Female
+10 GSM2545336 Female
 # ℹ 32,418 more rows
 ```
 
