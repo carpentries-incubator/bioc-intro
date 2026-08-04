@@ -369,7 +369,7 @@ Load `tidySummarizedExperiment` and then take a look at the se object
 again.
 
 ```{r, message=FALSE}
-#BiocManager::install("tidySummarizedExperiment")
+## BiocManager::install("tidySummarizedExperiment")
 library("tidySummarizedExperiment")
 
 se
@@ -381,21 +381,6 @@ the output says this, it's a `SummarizedExperiment`\-`tibble`
 abstraction. We can also see in the second line of the output the
 number of transcripts and samples.
 
-If we want to revert to the standard `SummarizedExperiment` view, we
-can do that.
-
-```{r}
-options("restore_SummarizedExperiment_show" = TRUE)
-se
-```
-
-But here we use the tibble view.
-
-```{r}
-options("restore_SummarizedExperiment_show" = FALSE)
-se
-```
-
 We can now use tidyverse commands to interact with the
 `SummarizedExperiment` object.
 
@@ -403,13 +388,14 @@ We can use `filter` to filter for rows using a condition e.g. to view
 all rows for one sample.
 
 ```{r}
-se |> filter(.sample == "GSM2545336")
+se |> filter(sample == "GSM2545336")
+se |> filter(sex == "Female")
 ```
 
 We can use `select` to specify columns we want to view.
 
 ```{r}
-se |> select(.sample)
+se |> select(sample, sex)
 ```
 
 We can use `mutate` to add metadata info.
