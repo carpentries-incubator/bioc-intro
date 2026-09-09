@@ -366,7 +366,7 @@
         
 <section id="aio-10-data-organisation"><p>Content from <a href="10-data-organisation.html">Data organisation with spreadsheets</a></p>
 <hr>
-<p>Last updated on 2026-09-01 |
+<p>Last updated on 2026-09-09 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/10-data-organisation.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1218,7 +1218,7 @@ values will be systematically quoted.<a href="#fnref1" class="footnote-back">↩
 </ol>
 </div></section><section id="aio-20-r-rstudio"><p>Content from <a href="20-r-rstudio.html">R and RStudio</a></p>
 <hr>
-<p>Last updated on 2026-09-01 |
+<p>Last updated on 2026-09-09 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/20-r-rstudio.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1817,9 +1817,9 @@ attached base packages:
 
 loaded via a namespace (and not attached):
  [1] BiocManager_1.30.27 compiler_4.6.1      cli_3.6.6
- [4] tools_4.6.1         otel_0.2.0          yaml_2.3.12
- [7] knitr_1.51          xfun_0.60           rlang_1.3.0
-[10] renv_1.2.4          evaluate_1.0.5     </code></pre>
+ [4] tools_4.6.1         otel_0.2.0          knitr_1.52
+ [7] xfun_0.60           rlang_1.3.0         renv_1.2.4
+[10] evaluate_1.0.5     </code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -1973,7 +1973,7 @@ is possible to do with R.<a href="#fnref5" class="footnote-back">↩︎</a></p><
 </ol>
 </div></section><section id="aio-23-starting-with-r"><p>Content from <a href="23-starting-with-r.html">Introduction to R</a></p>
 <hr>
-<p>Last updated on 2026-09-01 |
+<p>Last updated on 2026-09-09 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/23-starting-with-r.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2526,7 +2526,7 @@ types in a single vector?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>R implicitly converts them to all be the same type</p>
 </div>
@@ -2561,7 +2561,7 @@ their names to see what happens):</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb48">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2672,7 +2672,7 @@ their names to see what happens):</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Vectors can be of only one data type. R tries to convert (coerce) the
 content of this vector to find a <em>common denominator</em> that
@@ -2707,7 +2707,7 @@ doesn’t lose any information.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Only one. There is no memory of past data types, and the coercion
 happens the first time the vector is evaluated. Therefore, the
@@ -2750,7 +2750,7 @@ coerced?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>logical → numeric → character ← logical</p>
 </div>
@@ -2983,7 +2983,7 @@ vector are found:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb97">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3194,7 +3194,7 @@ inches.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb122">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3295,7 +3295,7 @@ exactly that:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb133">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3389,7 +3389,7 @@ help.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution9" aria-expanded="false" aria-controls="collapseSolution9">
   <h4 class="accordion-header" id="headingSolution9"> Show me the solution </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb143">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3562,7 +3562,7 @@ draws.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution10" aria-expanded="false" aria-controls="collapseSolution10">
   <h4 class="accordion-header" id="headingSolution10"> Show me the solution </h4>
 </button>
-<div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
+<div id="collapseSolution10" class="accordion-collapse collapse" aria-labelledby="headingSolution10" data-bs-parent="#accordionSolution10">
 <div class="accordion-body">
 <p>Different permutations</p>
 <div class="codewrapper sourceCode" id="cb163">
@@ -3708,7 +3708,7 @@ learn about data frames.</p>
 </div>
 </section></section><section id="aio-25-starting-with-data"><p>Content from <a href="25-starting-with-data.html">Starting with data</a></p>
 <hr>
-<p>Last updated on 2026-09-01 |
+<p>Last updated on 2026-09-09 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/25-starting-with-data.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -4884,9 +4884,9 @@ characters, a matrix, a dataframe and another list:</p>
 <pre class="output" tabindex="0"><code>List of 5
  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
  $ : chr [1:26] "a" "b" "c" "d" ...
- $ : chr [1:346, 1:17] "abind" "askpass" "backports" "base64enc" ...
+ $ : chr [1:213, 1:17] "BiocManager" "abind" "askpass" "assertthat" ...
   ..- attr(*, "dimnames")=List of 2
-  .. ..$ : chr [1:346] "abind" "askpass" "backports" "base64enc" ...
+  .. ..$ : chr [1:213] "BiocManager" "abind" "askpass" "assertthat" ...
   .. ..$ : chr [1:17] "Package" "LibPath" "Version" "Priority" ...
  $ :'data.frame':	50 obs. of  2 variables:
   ..$ speed: num [1:50] 4 4 7 7 8 9 10 10 10 11 ...
@@ -4983,7 +4983,7 @@ happens if the values and number of rows/columns don’t add up.<a href="#fnref1
 </ol>
 </div></section><section id="aio-30-dplyr"><p>Content from <a href="30-dplyr.html">Manipulating and analysing data with dplyr</a></p>
 <hr>
-<p>Last updated on 2026-09-01 |
+<p>Last updated on 2026-09-09 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/30-dplyr.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -5533,7 +5533,7 @@ female mice at time 0, where the gene has an expression higher than
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5653,7 +5653,7 @@ to produce this data frame!</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5926,7 +5926,7 @@ instance, we could add a column indicating the median
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6136,7 +6136,7 @@ time 0, time 4 and time 8.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6700,7 +6700,7 @@ restore a long-format table.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb100">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6782,7 +6782,7 @@ tibble:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>Let’s first calculate the mean expression level of X and Y linked
 genes from male and female samples…</p>
@@ -6900,7 +6900,7 @@ represent the different timepoints.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <p>Let’s first calculate the mean expression by gene and by time</p>
 <div class="codewrapper sourceCode" id="cb113">
@@ -7140,7 +7140,7 @@ fold-changes calculated.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
 <div class="accordion-body">
 <p>Starting from the rna_time tibble:</p>
 <div class="codewrapper sourceCode" id="cb129">
@@ -7425,7 +7425,7 @@ this link</a> and put the table in your data/ repository. Using the
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution9" aria-expanded="false" aria-controls="collapseSolution9">
   <h4 class="accordion-header" id="headingSolution9"> Show me the solution </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb146">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7507,7 +7507,7 @@ have created previously.</p>
 </div>
 </section></section><section id="aio-40-visualization"><p>Content from <a href="40-visualization.html">Data visualization</a></p>
 <hr>
-<p>Last updated on 2026-09-01 |
+<p>Last updated on 2026-09-09 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/40-visualization.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -7697,7 +7697,7 @@ bins.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7774,7 +7774,7 @@ you now have warning messages appearing?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7973,7 +7973,7 @@ compare it with the hexagonal bin plot that you created.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8016,7 +8016,7 @@ this a good way to show this type of data?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8072,7 +8072,7 @@ you need to change in the code to put the boxplot below the points?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>We should switch the order of these two geoms:</p>
 <div class="codewrapper sourceCode" id="cb35">
@@ -8125,7 +8125,7 @@ in the ggplot mapping. Why does this change how R makes the graph?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8181,7 +8181,7 @@ with the argument <code>fill</code>.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8217,7 +8217,7 @@ with the argument <code>fill</code>.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8443,7 +8443,7 @@ infection.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution9" aria-expanded="false" aria-controls="collapseSolution9">
   <h4 class="accordion-header" id="headingSolution9"> Show me the solution </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb56">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8639,7 +8639,7 @@ colors for the lines (see <a href="https://www.cookbook-r.com/Graphs/Colors_(ggp
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution10" aria-expanded="false" aria-controls="collapseSolution10">
   <h4 class="accordion-header" id="headingSolution10"> Show me the solution </h4>
 </button>
-<div id="collapseSolution10" class="accordion-collapse collapse" aria-labelledby="headingSolution10" data-bs-parent="#accordionSolution10">
+<div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
 <div class="accordion-body">
 <p>For example, based on this plot:</p>
 <div class="codewrapper sourceCode" id="cb66">
@@ -8975,7 +8975,7 @@ Visualization Cheat Sheet</a>.<a href="#fnref1" class="footnote-back">↩︎</a>
 </ol>
 </div></section><section id="aio-60-next-steps"><p>Content from <a href="60-next-steps.html">Next steps</a></p>
 <hr>
-<p>Last updated on 2026-09-01 |
+<p>Last updated on 2026-09-09 |
 
         <a href="https://github.com/carpentries-incubator/bioc-intro/edit/main/episodes/60-next-steps.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -9246,37 +9246,47 @@ tables:</p>
 <code class="sourceCode R"><span><span class="co">## BiocManager::install("SummarizedExperiment")</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="st">"SummarizedExperiment"</span><span class="op">)</span></span></code></pre>
 </div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in `library()`:
+! there is no package called 'SummarizedExperiment'</code></pre>
+</div>
 <p>First, we make sure that the samples are in the same order in the
 count matrix and the sample annotation, and the same for the genes in
 the count matrix and the gene annotation.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">stopifnot</span><span class="op">(</span><span class="fu">rownames</span><span class="op">(</span><span class="va">count_matrix</span><span class="op">)</span> <span class="op">==</span> <span class="va">gene_metadata</span><span class="op">$</span><span class="va">gene</span><span class="op">)</span></span>
 <span><span class="fu">stopifnot</span><span class="op">(</span><span class="fu">colnames</span><span class="op">(</span><span class="va">count_matrix</span><span class="op">)</span> <span class="op">==</span> <span class="va">sample_metadata</span><span class="op">$</span><span class="va">sample</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">se</span> <span class="op">&lt;-</span> <span class="fu">SummarizedExperiment</span><span class="op">(</span>assays <span class="op">=</span> <span class="fu">list</span><span class="op">(</span>counts <span class="op">=</span> <span class="va">count_matrix</span><span class="op">)</span>,</span>
 <span>                           colData <span class="op">=</span> <span class="va">sample_metadata</span>,</span>
-<span>                           rowData <span class="op">=</span> <span class="va">gene_metadata</span><span class="op">)</span></span>
-<span><span class="va">se</span></span></code></pre>
+<span>                           rowData <span class="op">=</span> <span class="va">gene_metadata</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>class: SummarizedExperiment
-dim: 1474 22
-metadata(0):
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(9): sample organism ... tissue mouse</code></pre>
+<pre class="error" tabindex="0"><code>Error in `SummarizedExperiment()`:
+! could not find function "SummarizedExperiment"</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">se</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se' not found</code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -9294,7 +9304,7 @@ guaranteed to work on any operating system, is to use the
 binary representation on disk (using the <code>rds</code> file extension
 here), which can be loaded back into R using the <code>readRDS</code>
 function.</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -9310,152 +9320,81 @@ be shared with somebody that is not using R, then exporting to a
 text-based spreadsheet is a good alternative.</p>
 <p>Using this data structure, we can access the expression matrix with
 the <code>assay</code> function:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">head</span><span class="op">(</span><span class="fu">assay</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>        GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
-Asl           1170        361        400        586        626        988
-Apod         36194      10347       9173      10620      13021      29594
-Cyp2d22       4060       1616       1603       1901       2171       3349
-Klk6           287        629        641        578        448        195
-Fcrls           85        233        244        237        180         38
-Slc2a4         782        231        248        265        313        786
-        GSM2545342 GSM2545343 GSM2545344 GSM2545345 GSM2545346 GSM2545347
-Asl            836        535        586        597        938       1035
-Apod         24959      13668      13230      15868      27769      34301
-Cyp2d22       3122       2008       2254       2277       2985       3452
-Klk6           186       1101        537        567        327        233
-Fcrls           68        375        199        177         89         67
-Slc2a4         528        249        266        357        654        693
-        GSM2545348 GSM2545349 GSM2545350 GSM2545351 GSM2545352 GSM2545353
-Asl            494        481        666        937        803        541
-Apod         11258      11812      15816      29242      20415      13682
-Cyp2d22       1883       2014       2417       3678       2920       2216
-Klk6           742        881        828        250        798        710
-Fcrls          300        233        231         81        303        285
-Slc2a4         271        304        349        715        513        320
-        GSM2545354 GSM2545362 GSM2545363 GSM2545380
-Asl            473        748        576       1192
-Apod         11088      15916      11166      38148
-Cyp2d22       1821       2842       2011       4019
-Klk6           894        501        598        259
-Fcrls          248        179        184         68
-Slc2a4         248        350        317        796</code></pre>
+<pre class="error" tabindex="0"><code>Error in `assay()`:
+! could not find function "assay"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dim</span><span class="op">(</span><span class="fu">assay</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 1474   22</code></pre>
+<pre class="error" tabindex="0"><code>Error in `assay()`:
+! could not find function "assay"</code></pre>
 </div>
 <p>We can access the sample metadata using the <code>colData</code>
 function:</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>DataFrame with 22 rows and 9 columns
-                sample     organism       age         sex   infection
-           &lt;character&gt;  &lt;character&gt; &lt;integer&gt; &lt;character&gt; &lt;character&gt;
-GSM2545336  GSM2545336 Mus musculus         8      Female  InfluenzaA
-GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
-GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
-GSM2545339  GSM2545339 Mus musculus         8      Female  InfluenzaA
-GSM2545340  GSM2545340 Mus musculus         8        Male  InfluenzaA
-...                ...          ...       ...         ...         ...
-GSM2545353  GSM2545353 Mus musculus         8      Female NonInfected
-GSM2545354  GSM2545354 Mus musculus         8        Male NonInfected
-GSM2545362  GSM2545362 Mus musculus         8      Female  InfluenzaA
-GSM2545363  GSM2545363 Mus musculus         8        Male  InfluenzaA
-GSM2545380  GSM2545380 Mus musculus         8      Female  InfluenzaA
-                strain      time      tissue     mouse
-           &lt;character&gt; &lt;integer&gt; &lt;character&gt; &lt;integer&gt;
-GSM2545336     C57BL/6         8  Cerebellum        14
-GSM2545337     C57BL/6         0  Cerebellum         9
-GSM2545338     C57BL/6         0  Cerebellum        10
-GSM2545339     C57BL/6         4  Cerebellum        15
-GSM2545340     C57BL/6         4  Cerebellum        18
-...                ...       ...         ...       ...
-GSM2545353     C57BL/6         0  Cerebellum         4
-GSM2545354     C57BL/6         0  Cerebellum         2
-GSM2545362     C57BL/6         4  Cerebellum        20
-GSM2545363     C57BL/6         4  Cerebellum        12
-GSM2545380     C57BL/6         8  Cerebellum        19</code></pre>
+<pre class="error" tabindex="0"><code>Error in `colData()`:
+! could not find function "colData"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dim</span><span class="op">(</span><span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 22  9</code></pre>
+<pre class="error" tabindex="0"><code>Error in `colData()`:
+! could not find function "colData"</code></pre>
 </div>
 <p>We can also access the feature metadata using the
 <code>rowData</code> function:</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">head</span><span class="op">(</span><span class="fu">rowData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>DataFrame with 6 rows and 9 columns
-               gene  ENTREZID                product    ensembl_gene_id
-        &lt;character&gt; &lt;integer&gt;            &lt;character&gt;        &lt;character&gt;
-Asl             Asl    109900 argininosuccinate ly.. ENSMUSG00000025533
-Apod           Apod     11815 apolipoprotein D, tr.. ENSMUSG00000022548
-Cyp2d22     Cyp2d22     56448 cytochrome P450, fam.. ENSMUSG00000061740
-Klk6           Klk6     19144 kallikrein related-p.. ENSMUSG00000050063
-Fcrls         Fcrls     80891 Fc receptor-like S, .. ENSMUSG00000015852
-Slc2a4       Slc2a4     20528 solute carrier famil.. ENSMUSG00000018566
-        external_synonym chromosome_name   gene_biotype  phenotype_description
-             &lt;character&gt;     &lt;character&gt;    &lt;character&gt;            &lt;character&gt;
-Asl        2510006M18Rik               5 protein_coding abnormal circulating..
-Apod                  NA              16 protein_coding abnormal lipid homeo..
-Cyp2d22             2D22              15 protein_coding abnormal skin morpho..
-Klk6                Bssp               7 protein_coding abnormal cytokine le..
-Fcrls      2810439C17Rik               3 protein_coding decreased CD8-positi..
-Slc2a4            Glut-4              11 protein_coding abnormal circulating..
-        hsapiens_homolog_associated_gene_name
-                                  &lt;character&gt;
-Asl                                       ASL
-Apod                                     APOD
-Cyp2d22                                CYP2D6
-Klk6                                     KLK6
-Fcrls                                   FCRL2
-Slc2a4                                 SLC2A4</code></pre>
+<pre class="error" tabindex="0"><code>Error in `rowData()`:
+! could not find function "rowData"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dim</span><span class="op">(</span><span class="fu">rowData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 1474    9</code></pre>
+<pre class="error" tabindex="0"><code>Error in `rowData()`:
+! could not find function "rowData"</code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -9465,196 +9404,118 @@ Slc2a4                                 SLC2A4</code></pre>
 numerics or with characters of logicals.</p>
 <p>Below, we create a new instance of class SummarizedExperiment that
 contains only the 5 first features for the 3 first samples.</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">se1</span> <span class="op">&lt;-</span> <span class="va">se</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span>
-<span><span class="va">se1</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">se1</span> <span class="op">&lt;-</span> <span class="va">se</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>class: SummarizedExperiment
-dim: 5 3
-metadata(0):
-assays(1): counts
-rownames(5): Asl Apod Cyp2d22 Klk6 Fcrls
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(3): GSM2545336 GSM2545337 GSM2545338
-colData names(9): sample organism ... tissue mouse</code></pre>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se' not found</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb35">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">se1</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se1' not found</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">colData</span><span class="op">(</span><span class="va">se1</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>DataFrame with 3 rows and 9 columns
-                sample     organism       age         sex   infection
-           &lt;character&gt;  &lt;character&gt; &lt;integer&gt; &lt;character&gt; &lt;character&gt;
-GSM2545336  GSM2545336 Mus musculus         8      Female  InfluenzaA
-GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
-GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
-                strain      time      tissue     mouse
-           &lt;character&gt; &lt;integer&gt; &lt;character&gt; &lt;integer&gt;
-GSM2545336     C57BL/6         8  Cerebellum        14
-GSM2545337     C57BL/6         0  Cerebellum         9
-GSM2545338     C57BL/6         0  Cerebellum        10</code></pre>
+<pre class="error" tabindex="0"><code>Error in `colData()`:
+! could not find function "colData"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb34">
+<div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">rowData</span><span class="op">(</span><span class="va">se1</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>DataFrame with 5 rows and 9 columns
-               gene  ENTREZID                product    ensembl_gene_id
-        &lt;character&gt; &lt;integer&gt;            &lt;character&gt;        &lt;character&gt;
-Asl             Asl    109900 argininosuccinate ly.. ENSMUSG00000025533
-Apod           Apod     11815 apolipoprotein D, tr.. ENSMUSG00000022548
-Cyp2d22     Cyp2d22     56448 cytochrome P450, fam.. ENSMUSG00000061740
-Klk6           Klk6     19144 kallikrein related-p.. ENSMUSG00000050063
-Fcrls         Fcrls     80891 Fc receptor-like S, .. ENSMUSG00000015852
-        external_synonym chromosome_name   gene_biotype  phenotype_description
-             &lt;character&gt;     &lt;character&gt;    &lt;character&gt;            &lt;character&gt;
-Asl        2510006M18Rik               5 protein_coding abnormal circulating..
-Apod                  NA              16 protein_coding abnormal lipid homeo..
-Cyp2d22             2D22              15 protein_coding abnormal skin morpho..
-Klk6                Bssp               7 protein_coding abnormal cytokine le..
-Fcrls      2810439C17Rik               3 protein_coding decreased CD8-positi..
-        hsapiens_homolog_associated_gene_name
-                                  &lt;character&gt;
-Asl                                       ASL
-Apod                                     APOD
-Cyp2d22                                CYP2D6
-Klk6                                     KLK6
-Fcrls                                   FCRL2</code></pre>
+<pre class="error" tabindex="0"><code>Error in `rowData()`:
+! could not find function "rowData"</code></pre>
 </div>
 <p>We can also use the <code>colData()</code> function to subset on
 something from the sample metadata or the <code>rowData()</code> to
 subset on something from the feature metadata. For example, here we keep
 only miRNAs and the non infected samples:</p>
-<div class="codewrapper sourceCode" id="cb36">
+<div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">se1</span> <span class="op">&lt;-</span> <span class="va">se</span><span class="op">[</span><span class="fu">rowData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">$</span><span class="va">gene_biotype</span> <span class="op">==</span> <span class="st">"miRNA"</span>,</span>
-<span>          <span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">$</span><span class="va">infection</span> <span class="op">==</span> <span class="st">"NonInfected"</span><span class="op">]</span></span>
-<span><span class="va">se1</span></span></code></pre>
+<span>          <span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">$</span><span class="va">infection</span> <span class="op">==</span> <span class="st">"NonInfected"</span><span class="op">]</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>class: SummarizedExperiment
-dim: 7 7
-metadata(0):
-assays(1): counts
-rownames(7): Mir1901 Mir378a ... Mir128-1 Mir7682
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(7): GSM2545337 GSM2545338 ... GSM2545353 GSM2545354
-colData names(9): sample organism ... tissue mouse</code></pre>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se' not found</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb38">
+<div class="codewrapper sourceCode" id="cb43">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">se1</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se1' not found</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">assay</span><span class="op">(</span><span class="va">se1</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>         GSM2545337 GSM2545338 GSM2545343 GSM2545348 GSM2545349 GSM2545353
-Mir1901          45         44         74         55         68         33
-Mir378a          11          7          9          4         12          4
-Mir133b           4          6          5          4          6          7
-Mir30c-2         10          6         16         12          8         17
-Mir149            1          2          0          0          0          0
-Mir128-1          4          1          2          2          1          2
-Mir7682           2          0          4          1          3          5
-         GSM2545354
-Mir1901          60
-Mir378a           8
-Mir133b           3
-Mir30c-2         15
-Mir149            2
-Mir128-1          1
-Mir7682           5</code></pre>
+<pre class="error" tabindex="0"><code>Error in `assay()`:
+! could not find function "assay"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb40">
+<div class="codewrapper sourceCode" id="cb47">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">colData</span><span class="op">(</span><span class="va">se1</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>DataFrame with 7 rows and 9 columns
-                sample     organism       age         sex   infection
-           &lt;character&gt;  &lt;character&gt; &lt;integer&gt; &lt;character&gt; &lt;character&gt;
-GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
-GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
-GSM2545343  GSM2545343 Mus musculus         8        Male NonInfected
-GSM2545348  GSM2545348 Mus musculus         8      Female NonInfected
-GSM2545349  GSM2545349 Mus musculus         8        Male NonInfected
-GSM2545353  GSM2545353 Mus musculus         8      Female NonInfected
-GSM2545354  GSM2545354 Mus musculus         8        Male NonInfected
-                strain      time      tissue     mouse
-           &lt;character&gt; &lt;integer&gt; &lt;character&gt; &lt;integer&gt;
-GSM2545337     C57BL/6         0  Cerebellum         9
-GSM2545338     C57BL/6         0  Cerebellum        10
-GSM2545343     C57BL/6         0  Cerebellum        11
-GSM2545348     C57BL/6         0  Cerebellum         8
-GSM2545349     C57BL/6         0  Cerebellum         7
-GSM2545353     C57BL/6         0  Cerebellum         4
-GSM2545354     C57BL/6         0  Cerebellum         2</code></pre>
+<pre class="error" tabindex="0"><code>Error in `colData()`:
+! could not find function "colData"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb42">
+<div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">rowData</span><span class="op">(</span><span class="va">se1</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>DataFrame with 7 rows and 9 columns
-                gene  ENTREZID        product    ensembl_gene_id
-         &lt;character&gt; &lt;integer&gt;    &lt;character&gt;        &lt;character&gt;
-Mir1901      Mir1901 100316686  microRNA 1901 ENSMUSG00000084565
-Mir378a      Mir378a    723889  microRNA 378a ENSMUSG00000105200
-Mir133b      Mir133b    723817  microRNA 133b ENSMUSG00000065480
-Mir30c-2    Mir30c-2    723964 microRNA 30c-2 ENSMUSG00000065567
-Mir149        Mir149    387167   microRNA 149 ENSMUSG00000065470
-Mir128-1    Mir128-1    387147 microRNA 128-1 ENSMUSG00000065520
-Mir7682      Mir7682 102466847  microRNA 7682 ENSMUSG00000106406
-         external_synonym chromosome_name gene_biotype  phenotype_description
-              &lt;character&gt;     &lt;character&gt;  &lt;character&gt;            &lt;character&gt;
-Mir1901          Mirn1901              18        miRNA                     NA
-Mir378a           Mirn378              18        miRNA abnormal mitochondri..
-Mir133b          mir 133b               1        miRNA no abnormal phenotyp..
-Mir30c-2        mir 30c-2               1        miRNA                     NA
-Mir149            Mirn149               1        miRNA increased circulatin..
-Mir128-1          Mirn128               1        miRNA no abnormal phenotyp..
-Mir7682      mmu-mir-7682               1        miRNA                     NA
-         hsapiens_homolog_associated_gene_name
-                                   &lt;character&gt;
-Mir1901                                     NA
-Mir378a                                MIR378A
-Mir133b                                MIR133B
-Mir30c-2                               MIR30C2
-Mir149                                      NA
-Mir128-1                              MIR128-1
-Mir7682                                     NA</code></pre>
+<pre class="error" tabindex="0"><code>Error in `rowData()`:
+! could not find function "rowData"</code></pre>
 </div>
 <!--For the following exercise, you should download the SE.rda object
 (that contains the `se` object), and open the file using the 'load()'
@@ -9684,29 +9545,19 @@ time 0 and at time 8.</p>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb44">
+<div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">assay</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">$</span><span class="va">time</span> <span class="op">!=</span> <span class="fl">4</span><span class="op">]</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>        GSM2545336 GSM2545337 GSM2545338 GSM2545341 GSM2545342 GSM2545343
-Asl           1170        361        400        988        836        535
-Apod         36194      10347       9173      29594      24959      13668
-Cyp2d22       4060       1616       1603       3349       3122       2008
-        GSM2545346 GSM2545347 GSM2545348 GSM2545349 GSM2545351 GSM2545353
-Asl            938       1035        494        481        937        541
-Apod         27769      34301      11258      11812      29242      13682
-Cyp2d22       2985       3452       1883       2014       3678       2216
-        GSM2545354 GSM2545380
-Asl            473       1192
-Apod         11088      38148
-Cyp2d22       1821       4019</code></pre>
+<pre class="error" tabindex="0"><code>Error in `assay()`:
+! could not find function "assay"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb46">
+<div class="codewrapper sourceCode" id="cb53">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -9714,20 +9565,10 @@ Cyp2d22       1821       4019</code></pre>
 <span><span class="fu">assay</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">$</span><span class="va">time</span> <span class="op">==</span> <span class="fl">0</span> <span class="op">|</span> <span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">$</span><span class="va">time</span> <span class="op">==</span> <span class="fl">8</span><span class="op">]</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>        GSM2545336 GSM2545337 GSM2545338 GSM2545341 GSM2545342 GSM2545343
-Asl           1170        361        400        988        836        535
-Apod         36194      10347       9173      29594      24959      13668
-Cyp2d22       4060       1616       1603       3349       3122       2008
-        GSM2545346 GSM2545347 GSM2545348 GSM2545349 GSM2545351 GSM2545353
-Asl            938       1035        494        481        937        541
-Apod         27769      34301      11258      11812      29242      13682
-Cyp2d22       2985       3452       1883       2014       3678       2216
-        GSM2545354 GSM2545380
-Asl            473       1192
-Apod         11088      38148
-Cyp2d22       1821       4019</code></pre>
+<pre class="error" tabindex="0"><code>Error in `assay()`:
+! could not find function "assay"</code></pre>
 </div>
 </div>
 </div>
@@ -9753,7 +9594,7 @@ table.</p>
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb48">
+<div class="codewrapper sourceCode" id="cb55">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -9796,43 +9637,29 @@ package.</p>
 </h4>
 <p>We can also add information to the metadata. Suppose that you want to
 add the center where the samples were collected…</p>
-<div class="codewrapper sourceCode" id="cb50">
+<div class="codewrapper sourceCode" id="cb57">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">$</span><span class="va">center</span> <span class="op">&lt;-</span> <span class="fu">rep</span><span class="op">(</span><span class="st">"University of Illinois"</span>, <span class="fu">nrow</span><span class="op">(</span><span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">$</span><span class="va">center</span> <span class="op">&lt;-</span> <span class="fu">rep</span><span class="op">(</span><span class="st">"University of Illinois"</span>, <span class="fu">nrow</span><span class="op">(</span><span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>DataFrame with 22 rows and 10 columns
-                sample     organism       age         sex   infection
-           &lt;character&gt;  &lt;character&gt; &lt;integer&gt; &lt;character&gt; &lt;character&gt;
-GSM2545336  GSM2545336 Mus musculus         8      Female  InfluenzaA
-GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
-GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
-GSM2545339  GSM2545339 Mus musculus         8      Female  InfluenzaA
-GSM2545340  GSM2545340 Mus musculus         8        Male  InfluenzaA
-...                ...          ...       ...         ...         ...
-GSM2545353  GSM2545353 Mus musculus         8      Female NonInfected
-GSM2545354  GSM2545354 Mus musculus         8        Male NonInfected
-GSM2545362  GSM2545362 Mus musculus         8      Female  InfluenzaA
-GSM2545363  GSM2545363 Mus musculus         8        Male  InfluenzaA
-GSM2545380  GSM2545380 Mus musculus         8      Female  InfluenzaA
-                strain      time      tissue     mouse                 center
-           &lt;character&gt; &lt;integer&gt; &lt;character&gt; &lt;integer&gt;            &lt;character&gt;
-GSM2545336     C57BL/6         8  Cerebellum        14 University of Illinois
-GSM2545337     C57BL/6         0  Cerebellum         9 University of Illinois
-GSM2545338     C57BL/6         0  Cerebellum        10 University of Illinois
-GSM2545339     C57BL/6         4  Cerebellum        15 University of Illinois
-GSM2545340     C57BL/6         4  Cerebellum        18 University of Illinois
-...                ...       ...         ...       ...                    ...
-GSM2545353     C57BL/6         0  Cerebellum         4 University of Illinois
-GSM2545354     C57BL/6         0  Cerebellum         2 University of Illinois
-GSM2545362     C57BL/6         4  Cerebellum        20 University of Illinois
-GSM2545363     C57BL/6         4  Cerebellum        12 University of Illinois
-GSM2545380     C57BL/6         8  Cerebellum        19 University of Illinois</code></pre>
+<pre class="error" tabindex="0"><code>Error in `colData()`:
+! could not find function "colData"</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb59">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">colData</span><span class="op">(</span><span class="va">se</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in `colData()`:
+! could not find function "colData"</code></pre>
 </div>
 <p>This illustrates that the metadata slots can grow indefinitely
 without affecting the other structures!</p>
@@ -9845,48 +9672,44 @@ without affecting the other structures!</p>
 <code>SummarizedExperiment</code> objects? The answer is yes, we can
 with the <code>tidySummarizedExperiment</code> package.</p>
 <p>Remember what our SummarizedExperiment object looks like:</p>
-<div class="codewrapper sourceCode" id="cb52">
+<div class="codewrapper sourceCode" id="cb61">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">se</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>class: SummarizedExperiment
-dim: 1474 22
-metadata(0):
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(10): sample organism ... mouse center</code></pre>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se' not found</code></pre>
 </div>
 <p>Load <code>tidySummarizedExperiment</code> and then take a look at
 the se object again.</p>
-<div class="codewrapper sourceCode" id="cb54">
+<div class="codewrapper sourceCode" id="cb63">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## BiocManager::install("tidySummarizedExperiment")</span></span>
-<span><span class="kw">library</span><span class="op">(</span><span class="st">"tidySummarizedExperiment"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">se</span></span></code></pre>
+<span><span class="kw">library</span><span class="op">(</span><span class="st">"tidySummarizedExperiment"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>class: SummarizedExperiment
-dim: 1474 22
-metadata(0):
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(10): sample organism ... mouse center</code></pre>
+<pre class="error" tabindex="0"><code>Error in `library()`:
+! there is no package called 'tidySummarizedExperiment'</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb65">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">se</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se' not found</code></pre>
 </div>
 <p>It’s still a <code>SummarizedExperiment</code> object, so maintains
 the efficient structure, but now we can view it as a tibble. Note the
@@ -9898,112 +9721,61 @@ and samples.</p>
 <code>SummarizedExperiment</code> object.</p>
 <p>We can use <code>filter</code> to filter for rows using a condition
 e.g. to view all rows for one sample.</p>
-<div class="codewrapper sourceCode" id="cb56">
+<div class="codewrapper sourceCode" id="cb67">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">se</span> <span class="op">|&gt;</span> <span class="fu">filter</span><span class="op">(</span><span class="va">sample</span> <span class="op">==</span> <span class="st">"GSM2545336"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>class: SummarizedExperiment
-dim: 1474 1
-metadata(1): latest_filter_scope_report
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(1): GSM2545336
-colData names(10): sample organism ... mouse center</code></pre>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se' not found</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb58">
+<div class="codewrapper sourceCode" id="cb69">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">se</span> <span class="op">|&gt;</span> <span class="fu">filter</span><span class="op">(</span><span class="va">sex</span> <span class="op">==</span> <span class="st">"Female"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>class: SummarizedExperiment
-dim: 1474 12
-metadata(1): latest_filter_scope_report
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(12): GSM2545336 GSM2545337 ... GSM2545362 GSM2545380
-colData names(10): sample organism ... mouse center</code></pre>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se' not found</code></pre>
 </div>
 <p>We can use <code>select</code> to specify columns we want to
 view.</p>
-<div class="codewrapper sourceCode" id="cb60">
+<div class="codewrapper sourceCode" id="cb71">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">se</span> <span class="op">|&gt;</span> <span class="fu">select</span><span class="op">(</span><span class="va">sample</span>, <span class="va">sex</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">WARNING<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="warning" tabindex="0"><code>Warning: `when()` was deprecated in purrr 1.0.0.
-ℹ Please use `if` instead.
-ℹ The deprecated feature was likely used in the tidySummarizedExperiment
-  package.
-  Please report the issue at
-  &lt;https://github.com/stemangiola/tidySummarizedExperiment/issues&gt;.
-This warning is displayed once per session.
-Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-generated.</code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>tidySummarizedExperiment says: Key columns are missing. A data frame is returned for independent data analysis.</code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code># A tibble: 32,428 × 2
-   sample     sex
-   &lt;chr&gt;      &lt;chr&gt;
- 1 GSM2545336 Female
- 2 GSM2545336 Female
- 3 GSM2545336 Female
- 4 GSM2545336 Female
- 5 GSM2545336 Female
- 6 GSM2545336 Female
- 7 GSM2545336 Female
- 8 GSM2545336 Female
- 9 GSM2545336 Female
-10 GSM2545336 Female
-# ℹ 32,418 more rows</code></pre>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se' not found</code></pre>
 </div>
 <p>We can use <code>mutate</code> to add metadata info.</p>
-<div class="codewrapper sourceCode" id="cb64">
+<div class="codewrapper sourceCode" id="cb73">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">se</span> <span class="op">|&gt;</span> <span class="fu">mutate</span><span class="op">(</span>center <span class="op">=</span> <span class="st">"Heidelberg University"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>class: SummarizedExperiment
-dim: 1474 22
-metadata(1): latest_mutate_scope_report
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(10): sample organism ... mouse center</code></pre>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se' not found</code></pre>
 </div>
 <p>We can also combine commands with the tidyverse pipe
 <code>|&gt;</code>. For example, we could combine <code>group_by</code>
 and <code>summarise</code> to get the total counts for each sample.</p>
-<div class="codewrapper sourceCode" id="cb66">
+<div class="codewrapper sourceCode" id="cb75">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -10012,32 +9784,15 @@ and <code>summarise</code> to get the total counts for each sample.</p>
 <span>    <span class="fu">summarise</span><span class="op">(</span>total_counts<span class="op">=</span><span class="fu">sum</span><span class="op">(</span><span class="va">counts</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>tidySummarizedExperiment says: A data frame is returned for independent data analysis.</code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code># A tibble: 22 × 2
-   .sample    total_counts
-   &lt;chr&gt;             &lt;int&gt;
- 1 GSM2545336      3039671
- 2 GSM2545337      2602360
- 3 GSM2545338      2458618
- 4 GSM2545339      2500082
- 5 GSM2545340      2479024
- 6 GSM2545341      2413723
- 7 GSM2545342      2349728
- 8 GSM2545343      3105652
- 9 GSM2545344      2524137
-10 GSM2545345      2506038
-# ℹ 12 more rows</code></pre>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se' not found</code></pre>
 </div>
 <p>We can treat the tidy SummarizedExperiment object as a normal tibble
 for plotting.</p>
 <p>Here we plot the distribution of counts per sample.</p>
-<div class="codewrapper sourceCode" id="cb69">
+<div class="codewrapper sourceCode" id="cb77">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -10047,7 +9802,13 @@ for plotting.</p>
 <span>    <span class="fu">scale_x_log10</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/60-next-steps-rendered-tidySE-plot-1.png" alt="Density plot showing log of expression counts + 1 density lines, one per samples, coloured based on the infection status." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>For more information on <code>tidySummarizedExperiment</code>, see
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error:
+! object 'se' not found</code></pre>
+</div>
+<p>For more information on <code>tidySummarizedExperiment</code>, see
 the <a href="https://stemangiola.github.io/tidySummarizedExperiment/" class="external-link">package
 website</a>.</p>
 <p><strong>Take-home message</strong></p>
@@ -10137,8 +9898,8 @@ source and open development.<a href="#fnref1" class="footnote-back">↩︎</a></
   "url": "https://carpentries-incubator.github.io/bioc-intro/aio.html",
   "identifier": "https://carpentries-incubator.github.io/bioc-intro/aio.html",
   "dateCreated": "2020-09-14",
-  "dateModified": "2026-09-08",
-  "datePublished": "2026-09-08"
+  "dateModified": "2026-09-09",
+  "datePublished": "2026-09-09"
 }
 
   </script><script>
