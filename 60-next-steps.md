@@ -252,6 +252,11 @@ To do this we can put the different parts together using the
 library("SummarizedExperiment")
 ```
 
+``` error
+Error in `library()`:
+! there is no package called 'SummarizedExperiment'
+```
+
 First, we make sure that the samples are in the same order in the
 count matrix and the sample annotation, and the same for the genes in
 the count matrix and the gene annotation.
@@ -267,19 +272,20 @@ stopifnot(colnames(count_matrix) == sample_metadata$sample)
 se <- SummarizedExperiment(assays = list(counts = count_matrix),
                            colData = sample_metadata,
                            rowData = gene_metadata)
+```
+
+``` error
+Error in `SummarizedExperiment()`:
+! could not find function "SummarizedExperiment"
+```
+
+``` r
 se
 ```
 
-``` output
-class: SummarizedExperiment 
-dim: 1474 22 
-metadata(0):
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(9): sample organism ... tissue mouse
+``` error
+Error:
+! object 'se' not found
 ```
 
 ### Saving data
@@ -319,43 +325,18 @@ the `assay` function:
 head(assay(se))
 ```
 
-``` output
-        GSM2545336 GSM2545337 GSM2545338 GSM2545339 GSM2545340 GSM2545341
-Asl           1170        361        400        586        626        988
-Apod         36194      10347       9173      10620      13021      29594
-Cyp2d22       4060       1616       1603       1901       2171       3349
-Klk6           287        629        641        578        448        195
-Fcrls           85        233        244        237        180         38
-Slc2a4         782        231        248        265        313        786
-        GSM2545342 GSM2545343 GSM2545344 GSM2545345 GSM2545346 GSM2545347
-Asl            836        535        586        597        938       1035
-Apod         24959      13668      13230      15868      27769      34301
-Cyp2d22       3122       2008       2254       2277       2985       3452
-Klk6           186       1101        537        567        327        233
-Fcrls           68        375        199        177         89         67
-Slc2a4         528        249        266        357        654        693
-        GSM2545348 GSM2545349 GSM2545350 GSM2545351 GSM2545352 GSM2545353
-Asl            494        481        666        937        803        541
-Apod         11258      11812      15816      29242      20415      13682
-Cyp2d22       1883       2014       2417       3678       2920       2216
-Klk6           742        881        828        250        798        710
-Fcrls          300        233        231         81        303        285
-Slc2a4         271        304        349        715        513        320
-        GSM2545354 GSM2545362 GSM2545363 GSM2545380
-Asl            473        748        576       1192
-Apod         11088      15916      11166      38148
-Cyp2d22       1821       2842       2011       4019
-Klk6           894        501        598        259
-Fcrls          248        179        184         68
-Slc2a4         248        350        317        796
+``` error
+Error in `assay()`:
+! could not find function "assay"
 ```
 
 ``` r
 dim(assay(se))
 ```
 
-``` output
-[1] 1474   22
+``` error
+Error in `assay()`:
+! could not find function "assay"
 ```
 
 We can access the sample metadata using the `colData` function:
@@ -365,42 +346,18 @@ We can access the sample metadata using the `colData` function:
 colData(se)
 ```
 
-``` output
-DataFrame with 22 rows and 9 columns
-                sample     organism       age         sex   infection
-           <character>  <character> <integer> <character> <character>
-GSM2545336  GSM2545336 Mus musculus         8      Female  InfluenzaA
-GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
-GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
-GSM2545339  GSM2545339 Mus musculus         8      Female  InfluenzaA
-GSM2545340  GSM2545340 Mus musculus         8        Male  InfluenzaA
-...                ...          ...       ...         ...         ...
-GSM2545353  GSM2545353 Mus musculus         8      Female NonInfected
-GSM2545354  GSM2545354 Mus musculus         8        Male NonInfected
-GSM2545362  GSM2545362 Mus musculus         8      Female  InfluenzaA
-GSM2545363  GSM2545363 Mus musculus         8        Male  InfluenzaA
-GSM2545380  GSM2545380 Mus musculus         8      Female  InfluenzaA
-                strain      time      tissue     mouse
-           <character> <integer> <character> <integer>
-GSM2545336     C57BL/6         8  Cerebellum        14
-GSM2545337     C57BL/6         0  Cerebellum         9
-GSM2545338     C57BL/6         0  Cerebellum        10
-GSM2545339     C57BL/6         4  Cerebellum        15
-GSM2545340     C57BL/6         4  Cerebellum        18
-...                ...       ...         ...       ...
-GSM2545353     C57BL/6         0  Cerebellum         4
-GSM2545354     C57BL/6         0  Cerebellum         2
-GSM2545362     C57BL/6         4  Cerebellum        20
-GSM2545363     C57BL/6         4  Cerebellum        12
-GSM2545380     C57BL/6         8  Cerebellum        19
+``` error
+Error in `colData()`:
+! could not find function "colData"
 ```
 
 ``` r
 dim(colData(se))
 ```
 
-``` output
-[1] 22  9
+``` error
+Error in `colData()`:
+! could not find function "colData"
 ```
 
 We can also access the feature metadata using the `rowData` function:
@@ -410,40 +367,18 @@ We can also access the feature metadata using the `rowData` function:
 head(rowData(se))
 ```
 
-``` output
-DataFrame with 6 rows and 9 columns
-               gene  ENTREZID                product    ensembl_gene_id
-        <character> <integer>            <character>        <character>
-Asl             Asl    109900 argininosuccinate ly.. ENSMUSG00000025533
-Apod           Apod     11815 apolipoprotein D, tr.. ENSMUSG00000022548
-Cyp2d22     Cyp2d22     56448 cytochrome P450, fam.. ENSMUSG00000061740
-Klk6           Klk6     19144 kallikrein related-p.. ENSMUSG00000050063
-Fcrls         Fcrls     80891 Fc receptor-like S, .. ENSMUSG00000015852
-Slc2a4       Slc2a4     20528 solute carrier famil.. ENSMUSG00000018566
-        external_synonym chromosome_name   gene_biotype  phenotype_description
-             <character>     <character>    <character>            <character>
-Asl        2510006M18Rik               5 protein_coding abnormal circulating..
-Apod                  NA              16 protein_coding abnormal lipid homeo..
-Cyp2d22             2D22              15 protein_coding abnormal skin morpho..
-Klk6                Bssp               7 protein_coding abnormal cytokine le..
-Fcrls      2810439C17Rik               3 protein_coding decreased CD8-positi..
-Slc2a4            Glut-4              11 protein_coding abnormal circulating..
-        hsapiens_homolog_associated_gene_name
-                                  <character>
-Asl                                       ASL
-Apod                                     APOD
-Cyp2d22                                CYP2D6
-Klk6                                     KLK6
-Fcrls                                   FCRL2
-Slc2a4                                 SLC2A4
+``` error
+Error in `rowData()`:
+! could not find function "rowData"
 ```
 
 ``` r
 dim(rowData(se))
 ```
 
-``` output
-[1] 1474    9
+``` error
+Error in `rowData()`:
+! could not find function "rowData"
 ```
 
 ### Subsetting a SummarizedExperiment
@@ -457,19 +392,20 @@ contains only the 5 first features for the 3 first samples.
 
 ``` r
 se1 <- se[1:5, 1:3]
+```
+
+``` error
+Error:
+! object 'se' not found
+```
+
+``` r
 se1
 ```
 
-``` output
-class: SummarizedExperiment 
-dim: 5 3 
-metadata(0):
-assays(1): counts
-rownames(5): Asl Apod Cyp2d22 Klk6 Fcrls
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(3): GSM2545336 GSM2545337 GSM2545338
-colData names(9): sample organism ... tissue mouse
+``` error
+Error:
+! object 'se1' not found
 ```
 
 
@@ -477,47 +413,18 @@ colData names(9): sample organism ... tissue mouse
 colData(se1)
 ```
 
-``` output
-DataFrame with 3 rows and 9 columns
-                sample     organism       age         sex   infection
-           <character>  <character> <integer> <character> <character>
-GSM2545336  GSM2545336 Mus musculus         8      Female  InfluenzaA
-GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
-GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
-                strain      time      tissue     mouse
-           <character> <integer> <character> <integer>
-GSM2545336     C57BL/6         8  Cerebellum        14
-GSM2545337     C57BL/6         0  Cerebellum         9
-GSM2545338     C57BL/6         0  Cerebellum        10
+``` error
+Error in `colData()`:
+! could not find function "colData"
 ```
 
 ``` r
 rowData(se1)
 ```
 
-``` output
-DataFrame with 5 rows and 9 columns
-               gene  ENTREZID                product    ensembl_gene_id
-        <character> <integer>            <character>        <character>
-Asl             Asl    109900 argininosuccinate ly.. ENSMUSG00000025533
-Apod           Apod     11815 apolipoprotein D, tr.. ENSMUSG00000022548
-Cyp2d22     Cyp2d22     56448 cytochrome P450, fam.. ENSMUSG00000061740
-Klk6           Klk6     19144 kallikrein related-p.. ENSMUSG00000050063
-Fcrls         Fcrls     80891 Fc receptor-like S, .. ENSMUSG00000015852
-        external_synonym chromosome_name   gene_biotype  phenotype_description
-             <character>     <character>    <character>            <character>
-Asl        2510006M18Rik               5 protein_coding abnormal circulating..
-Apod                  NA              16 protein_coding abnormal lipid homeo..
-Cyp2d22             2D22              15 protein_coding abnormal skin morpho..
-Klk6                Bssp               7 protein_coding abnormal cytokine le..
-Fcrls      2810439C17Rik               3 protein_coding decreased CD8-positi..
-        hsapiens_homolog_associated_gene_name
-                                  <character>
-Asl                                       ASL
-Apod                                     APOD
-Cyp2d22                                CYP2D6
-Klk6                                     KLK6
-Fcrls                                   FCRL2
+``` error
+Error in `rowData()`:
+! could not find function "rowData"
 ```
 
 We can also use the `colData()` function to subset on something from
@@ -529,103 +436,47 @@ infected samples:
 ``` r
 se1 <- se[rowData(se)$gene_biotype == "miRNA",
           colData(se)$infection == "NonInfected"]
+```
+
+``` error
+Error:
+! object 'se' not found
+```
+
+``` r
 se1
 ```
 
-``` output
-class: SummarizedExperiment 
-dim: 7 7 
-metadata(0):
-assays(1): counts
-rownames(7): Mir1901 Mir378a ... Mir128-1 Mir7682
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(7): GSM2545337 GSM2545338 ... GSM2545353 GSM2545354
-colData names(9): sample organism ... tissue mouse
+``` error
+Error:
+! object 'se1' not found
 ```
 
 ``` r
 assay(se1)
 ```
 
-``` output
-         GSM2545337 GSM2545338 GSM2545343 GSM2545348 GSM2545349 GSM2545353
-Mir1901          45         44         74         55         68         33
-Mir378a          11          7          9          4         12          4
-Mir133b           4          6          5          4          6          7
-Mir30c-2         10          6         16         12          8         17
-Mir149            1          2          0          0          0          0
-Mir128-1          4          1          2          2          1          2
-Mir7682           2          0          4          1          3          5
-         GSM2545354
-Mir1901          60
-Mir378a           8
-Mir133b           3
-Mir30c-2         15
-Mir149            2
-Mir128-1          1
-Mir7682           5
+``` error
+Error in `assay()`:
+! could not find function "assay"
 ```
 
 ``` r
 colData(se1)
 ```
 
-``` output
-DataFrame with 7 rows and 9 columns
-                sample     organism       age         sex   infection
-           <character>  <character> <integer> <character> <character>
-GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
-GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
-GSM2545343  GSM2545343 Mus musculus         8        Male NonInfected
-GSM2545348  GSM2545348 Mus musculus         8      Female NonInfected
-GSM2545349  GSM2545349 Mus musculus         8        Male NonInfected
-GSM2545353  GSM2545353 Mus musculus         8      Female NonInfected
-GSM2545354  GSM2545354 Mus musculus         8        Male NonInfected
-                strain      time      tissue     mouse
-           <character> <integer> <character> <integer>
-GSM2545337     C57BL/6         0  Cerebellum         9
-GSM2545338     C57BL/6         0  Cerebellum        10
-GSM2545343     C57BL/6         0  Cerebellum        11
-GSM2545348     C57BL/6         0  Cerebellum         8
-GSM2545349     C57BL/6         0  Cerebellum         7
-GSM2545353     C57BL/6         0  Cerebellum         4
-GSM2545354     C57BL/6         0  Cerebellum         2
+``` error
+Error in `colData()`:
+! could not find function "colData"
 ```
 
 ``` r
 rowData(se1)
 ```
 
-``` output
-DataFrame with 7 rows and 9 columns
-                gene  ENTREZID        product    ensembl_gene_id
-         <character> <integer>    <character>        <character>
-Mir1901      Mir1901 100316686  microRNA 1901 ENSMUSG00000084565
-Mir378a      Mir378a    723889  microRNA 378a ENSMUSG00000105200
-Mir133b      Mir133b    723817  microRNA 133b ENSMUSG00000065480
-Mir30c-2    Mir30c-2    723964 microRNA 30c-2 ENSMUSG00000065567
-Mir149        Mir149    387167   microRNA 149 ENSMUSG00000065470
-Mir128-1    Mir128-1    387147 microRNA 128-1 ENSMUSG00000065520
-Mir7682      Mir7682 102466847  microRNA 7682 ENSMUSG00000106406
-         external_synonym chromosome_name gene_biotype  phenotype_description
-              <character>     <character>  <character>            <character>
-Mir1901          Mirn1901              18        miRNA                     NA
-Mir378a           Mirn378              18        miRNA abnormal mitochondri..
-Mir133b          mir 133b               1        miRNA no abnormal phenotyp..
-Mir30c-2        mir 30c-2               1        miRNA                     NA
-Mir149            Mirn149               1        miRNA increased circulatin..
-Mir128-1          Mirn128               1        miRNA no abnormal phenotyp..
-Mir7682      mmu-mir-7682               1        miRNA                     NA
-         hsapiens_homolog_associated_gene_name
-                                   <character>
-Mir1901                                     NA
-Mir378a                                MIR378A
-Mir133b                                MIR133B
-Mir30c-2                               MIR30C2
-Mir149                                      NA
-Mir128-1                              MIR128-1
-Mir7682                                     NA
+``` error
+Error in `rowData()`:
+! could not find function "rowData"
 ```
 
 <!--For the following exercise, you should download the SE.rda object
@@ -658,19 +509,9 @@ at time 0 and at time 8.
 assay(se)[1:3, colData(se)$time != 4]
 ```
 
-``` output
-        GSM2545336 GSM2545337 GSM2545338 GSM2545341 GSM2545342 GSM2545343
-Asl           1170        361        400        988        836        535
-Apod         36194      10347       9173      29594      24959      13668
-Cyp2d22       4060       1616       1603       3349       3122       2008
-        GSM2545346 GSM2545347 GSM2545348 GSM2545349 GSM2545351 GSM2545353
-Asl            938       1035        494        481        937        541
-Apod         27769      34301      11258      11812      29242      13682
-Cyp2d22       2985       3452       1883       2014       3678       2216
-        GSM2545354 GSM2545380
-Asl            473       1192
-Apod         11088      38148
-Cyp2d22       1821       4019
+``` error
+Error in `assay()`:
+! could not find function "assay"
 ```
 
 ``` r
@@ -678,19 +519,9 @@ Cyp2d22       1821       4019
 assay(se)[1:3, colData(se)$time == 0 | colData(se)$time == 8]
 ```
 
-``` output
-        GSM2545336 GSM2545337 GSM2545338 GSM2545341 GSM2545342 GSM2545343
-Asl           1170        361        400        988        836        535
-Apod         36194      10347       9173      29594      24959      13668
-Cyp2d22       4060       1616       1603       3349       3122       2008
-        GSM2545346 GSM2545347 GSM2545348 GSM2545349 GSM2545351 GSM2545353
-Asl            938       1035        494        481        937        541
-Apod         27769      34301      11258      11812      29242      13682
-Cyp2d22       2985       3452       1883       2014       3678       2216
-        GSM2545354 GSM2545380
-Asl            473       1192
-Apod         11088      38148
-Cyp2d22       1821       4019
+``` error
+Error in `assay()`:
+! could not find function "assay"
 ```
 
 :::::::::::::::::::::::::
@@ -751,37 +582,20 @@ Suppose that you want to add the center where the samples were collected...
 
 ``` r
 colData(se)$center <- rep("University of Illinois", nrow(colData(se)))
+```
+
+``` error
+Error in `colData()`:
+! could not find function "colData"
+```
+
+``` r
 colData(se)
 ```
 
-``` output
-DataFrame with 22 rows and 10 columns
-                sample     organism       age         sex   infection
-           <character>  <character> <integer> <character> <character>
-GSM2545336  GSM2545336 Mus musculus         8      Female  InfluenzaA
-GSM2545337  GSM2545337 Mus musculus         8      Female NonInfected
-GSM2545338  GSM2545338 Mus musculus         8      Female NonInfected
-GSM2545339  GSM2545339 Mus musculus         8      Female  InfluenzaA
-GSM2545340  GSM2545340 Mus musculus         8        Male  InfluenzaA
-...                ...          ...       ...         ...         ...
-GSM2545353  GSM2545353 Mus musculus         8      Female NonInfected
-GSM2545354  GSM2545354 Mus musculus         8        Male NonInfected
-GSM2545362  GSM2545362 Mus musculus         8      Female  InfluenzaA
-GSM2545363  GSM2545363 Mus musculus         8        Male  InfluenzaA
-GSM2545380  GSM2545380 Mus musculus         8      Female  InfluenzaA
-                strain      time      tissue     mouse                 center
-           <character> <integer> <character> <integer>            <character>
-GSM2545336     C57BL/6         8  Cerebellum        14 University of Illinois
-GSM2545337     C57BL/6         0  Cerebellum         9 University of Illinois
-GSM2545338     C57BL/6         0  Cerebellum        10 University of Illinois
-GSM2545339     C57BL/6         4  Cerebellum        15 University of Illinois
-GSM2545340     C57BL/6         4  Cerebellum        18 University of Illinois
-...                ...       ...         ...       ...                    ...
-GSM2545353     C57BL/6         0  Cerebellum         4 University of Illinois
-GSM2545354     C57BL/6         0  Cerebellum         2 University of Illinois
-GSM2545362     C57BL/6         4  Cerebellum        20 University of Illinois
-GSM2545363     C57BL/6         4  Cerebellum        12 University of Illinois
-GSM2545380     C57BL/6         8  Cerebellum        19 University of Illinois
+``` error
+Error in `colData()`:
+! could not find function "colData"
 ```
 
 This illustrates that the metadata slots can grow indefinitely without
@@ -800,16 +614,9 @@ Remember what our SummarizedExperiment object looks like:
 se
 ```
 
-``` output
-class: SummarizedExperiment 
-dim: 1474 22 
-metadata(0):
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(10): sample organism ... mouse center
+``` error
+Error:
+! object 'se' not found
 ```
 
 Load `tidySummarizedExperiment` and then take a look at the se object
@@ -819,20 +626,20 @@ again.
 ``` r
 ## BiocManager::install("tidySummarizedExperiment")
 library("tidySummarizedExperiment")
+```
 
+``` error
+Error in `library()`:
+! there is no package called 'tidySummarizedExperiment'
+```
+
+``` r
 se
 ```
 
-``` output
-class: SummarizedExperiment 
-dim: 1474 22 
-metadata(0):
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(10): sample organism ... mouse center
+``` error
+Error:
+! object 'se' not found
 ```
 
 It's still a `SummarizedExperiment` object, so maintains the efficient
@@ -852,32 +659,18 @@ all rows for one sample.
 se |> filter(sample == "GSM2545336")
 ```
 
-``` output
-class: SummarizedExperiment 
-dim: 1474 1 
-metadata(1): latest_filter_scope_report
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(1): GSM2545336
-colData names(10): sample organism ... mouse center
+``` error
+Error:
+! object 'se' not found
 ```
 
 ``` r
 se |> filter(sex == "Female")
 ```
 
-``` output
-class: SummarizedExperiment 
-dim: 1474 12 
-metadata(1): latest_filter_scope_report
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(12): GSM2545336 GSM2545337 ... GSM2545362 GSM2545380
-colData names(10): sample organism ... mouse center
+``` error
+Error:
+! object 'se' not found
 ```
 
 We can use `select` to specify columns we want to view.
@@ -887,37 +680,9 @@ We can use `select` to specify columns we want to view.
 se |> select(sample, sex)
 ```
 
-``` warning
-Warning: `when()` was deprecated in purrr 1.0.0.
-ℹ Please use `if` instead.
-ℹ The deprecated feature was likely used in the tidySummarizedExperiment
-  package.
-  Please report the issue at
-  <https://github.com/stemangiola/tidySummarizedExperiment/issues>.
-This warning is displayed once per session.
-Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-generated.
-```
-
-``` output
-tidySummarizedExperiment says: Key columns are missing. A data frame is returned for independent data analysis.
-```
-
-``` output
-# A tibble: 32,428 × 2
-   sample     sex   
-   <chr>      <chr> 
- 1 GSM2545336 Female
- 2 GSM2545336 Female
- 3 GSM2545336 Female
- 4 GSM2545336 Female
- 5 GSM2545336 Female
- 6 GSM2545336 Female
- 7 GSM2545336 Female
- 8 GSM2545336 Female
- 9 GSM2545336 Female
-10 GSM2545336 Female
-# ℹ 32,418 more rows
+``` error
+Error:
+! object 'se' not found
 ```
 
 We can use `mutate` to add metadata info.
@@ -927,16 +692,9 @@ We can use `mutate` to add metadata info.
 se |> mutate(center = "Heidelberg University")
 ```
 
-``` output
-class: SummarizedExperiment 
-dim: 1474 22 
-metadata(1): latest_mutate_scope_report
-assays(1): counts
-rownames(1474): Asl Apod ... Lmx1a Pbx1
-rowData names(9): gene ENTREZID ... phenotype_description
-  hsapiens_homolog_associated_gene_name
-colnames(22): GSM2545336 GSM2545337 ... GSM2545363 GSM2545380
-colData names(10): sample organism ... mouse center
+``` error
+Error:
+! object 'se' not found
 ```
 
 We can also combine commands with the tidyverse pipe `|>`. For
@@ -950,25 +708,9 @@ se |>
     summarise(total_counts=sum(counts))
 ```
 
-``` output
-tidySummarizedExperiment says: A data frame is returned for independent data analysis.
-```
-
-``` output
-# A tibble: 22 × 2
-   .sample    total_counts
-   <chr>             <int>
- 1 GSM2545336      3039671
- 2 GSM2545337      2602360
- 3 GSM2545338      2458618
- 4 GSM2545339      2500082
- 5 GSM2545340      2479024
- 6 GSM2545341      2413723
- 7 GSM2545342      2349728
- 8 GSM2545343      3105652
- 9 GSM2545344      2524137
-10 GSM2545345      2506038
-# ℹ 12 more rows
+``` error
+Error:
+! object 'se' not found
 ```
 
 We can treat the tidy SummarizedExperiment object as a normal tibble
@@ -985,7 +727,10 @@ se |>
     theme_bw()
 ```
 
-<img src="fig/60-next-steps-rendered-tidySE-plot-1.png" alt="Density plot showing log of expression counts + 1 density lines, one per samples, coloured based on the infection status." style="display: block; margin: auto;" />
+``` error
+Error:
+! object 'se' not found
+```
 
 For more information on `tidySummarizedExperiment`, see the [package
 website](https://stemangiola.github.io/tidySummarizedExperiment/).
