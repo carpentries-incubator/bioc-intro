@@ -1,0 +1,23 @@
+"sample","organism","age","sex","infection","strain","time","tissue","mouse"
+"GSM2545336","Mus musculus",8,"Female","InfluenzaA","C57BL/6",8,"Cerebellum",14
+"GSM2545337","Mus musculus",8,"Female","NonInfected","C57BL/6",0,"Cerebellum",9
+"GSM2545338","Mus musculus",8,"Female","NonInfected","C57BL/6",0,"Cerebellum",10
+"GSM2545339","Mus musculus",8,"Female","InfluenzaA","C57BL/6",4,"Cerebellum",15
+"GSM2545340","Mus musculus",8,"Male","InfluenzaA","C57BL/6",4,"Cerebellum",18
+"GSM2545341","Mus musculus",8,"Male","InfluenzaA","C57BL/6",8,"Cerebellum",6
+"GSM2545342","Mus musculus",8,"Female","InfluenzaA","C57BL/6",8,"Cerebellum",5
+"GSM2545343","Mus musculus",8,"Male","NonInfected","C57BL/6",0,"Cerebellum",11
+"GSM2545344","Mus musculus",8,"Female","InfluenzaA","C57BL/6",4,"Cerebellum",22
+"GSM2545345","Mus musculus",8,"Male","InfluenzaA","C57BL/6",4,"Cerebellum",13
+"GSM2545346","Mus musculus",8,"Male","InfluenzaA","C57BL/6",8,"Cerebellum",23
+"GSM2545347","Mus musculus",8,"Male","InfluenzaA","C57BL/6",8,"Cerebellum",24
+"GSM2545348","Mus musculus",8,"Female","NonInfected","C57BL/6",0,"Cerebellum",8
+"GSM2545349","Mus musculus",8,"Male","NonInfected","C57BL/6",0,"Cerebellum",7
+"GSM2545350","Mus musculus",8,"Male","InfluenzaA","C57BL/6",4,"Cerebellum",1
+"GSM2545351","Mus musculus",8,"Female","InfluenzaA","C57BL/6",8,"Cerebellum",16
+"GSM2545352","Mus musculus",8,"Female","InfluenzaA","C57BL/6",4,"Cerebellum",21
+"GSM2545353","Mus musculus",8,"Female","NonInfected","C57BL/6",0,"Cerebellum",4
+"GSM2545354","Mus musculus",8,"Male","NonInfected","C57BL/6",0,"Cerebellum",2
+"GSM2545362","Mus musculus",8,"Female","InfluenzaA","C57BL/6",4,"Cerebellum",20
+"GSM2545363","Mus musculus",8,"Male","InfluenzaA","C57BL/6",4,"Cerebellum",12
+"GSM2545380","Mus musculus",8,"Female","InfluenzaA","C57BL/6",8,"Cerebellum",19
