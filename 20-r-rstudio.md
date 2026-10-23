@@ -610,7 +610,7 @@ attached base packages:
 loaded via a namespace (and not attached):
  [1] BiocManager_1.30.27 compiler_4.6.1      cli_3.6.6          
  [4] tools_4.6.1         otel_0.2.0          knitr_1.52         
- [7] xfun_0.60           rlang_1.3.0         renv_1.2.4         
+ [7] xfun_0.62           rlang_1.3.0         renv_1.3.1         
 [10] evaluate_1.0.5     
 ```
 
