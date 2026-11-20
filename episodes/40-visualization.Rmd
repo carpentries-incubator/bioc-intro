@@ -807,7 +807,7 @@ blue_theme <- theme(axis.text.x = element_text(colour = "royalblue4",
 
 ggplot(rna, aes(x = expression_log)) +
   geom_histogram(bins = 20) +
-    blue_theme()
+    blue_theme
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
